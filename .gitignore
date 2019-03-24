@@ -1,0 +1,8 @@
+*.otd
+*.7z
+/shs/*.otf
+/nowar/
+__pycache__/
+/??-?/
+/OSF-?/
+/NowarSansTypeface/
