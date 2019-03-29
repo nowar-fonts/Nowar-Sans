@@ -44,6 +44,10 @@ Orthographies for each variant and client language are listed below.
 
 Nowar Sans is also avialable as an addon (REALLY HUGE!), to register Nowar Sans typeface to SharedMedia.
 
+## Supported Scripts
+
+![Supported Scripts](scripts.png)
+
 ## How to Build
 
 Dependencies: Python and [otfcc](https://github.com/caryll/otfcc).
