@@ -1,4 +1,4 @@
-## Interface: 80105
+## Interface: 80200
 
 ## Title: Nowar Sans Typeface
 ## Notes: Register Nowar Sans typeface to SharedMedia.
@@ -7,7 +7,7 @@
 ## Title-zhTW: 有愛黑體
 ## Notes-zhTW: 向 SharedMedia 登錄有愛黑體字體。
 
-## Version: 0.5.0
+## Version: 0.5.1
 ## Author: Cyano Hao
 ## X-Category: Miscellaneous
 ## X-Credits: This addon is derived from on SharedMediaAdditionalFont.

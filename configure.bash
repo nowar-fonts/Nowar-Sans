@@ -10,7 +10,7 @@ regionNameMap=([CN]=CN [TW]=TW [HK]=HK [JP]=JP [CL]=Classic [OSF]=Oldstyle)
 encoding=(unspec gbk big5 korean)
 
 cat >Makefile <<EOF
-VERSION = 0.5.0
+VERSION = 0.5.1
 
 all: SharedMedia-NowarSans-\${VERSION}.7z $(echo NowarSans-{CN,TW,HK,JP,CL,OSF}-{L,R,M,B}-\${VERSION}.7z)
 
@@ -283,7 +283,7 @@ for w in ${nowarWeight[@]}; do
 NowarSans-$target-\${VERSION}.7z: $target/Fonts/MORPHEUS.ttf $target/Fonts/FRIZQT__.ttf $target/Fonts/ARIALN.ttf $target/Fonts/skurri.ttf \\
                  $target/Fonts/MORPHEUS_CYR.ttf $target/Fonts/FRIZQT___CYR.ttf $target/Fonts/SKURRI_CYR.ttf \\
                  $target/Fonts/ARKai_C.ttf $target/Fonts/ARKai_T.ttf $target/Fonts/ARHei.ttf \\
-                 $target/Fonts/bKAI00M.ttf $target/Fonts/bHEI00M.ttf $target/Fonts/bHEI01B.ttf $target/Fonts/blei00d.ttf \\
+                 $target/Fonts/arheiuhk_bd.ttf $target/Fonts/bKAI00M.ttf $target/Fonts/bHEI00M.ttf $target/Fonts/bHEI01B.ttf $target/Fonts/blei00d.ttf \\
                  $target/Fonts/2002.ttf $target/Fonts/2002B.ttf $target/Fonts/K_Damage.ttf $target/Fonts/K_Pagetext.ttf
 	cd $target ; \\
 	cp ../LICENSE.txt Fonts/LICENSE.txt ; \\
@@ -321,6 +321,9 @@ $target/Fonts/ARHei.ttf: nowar/gbk-$hansChatFont
 	mkdir -p $target/Fonts
 	cp \$^ \$@
 
+$target/Fonts/arheiuhk_bd.ttf: nowar/big5-$hantChatFont
+	mkdir -p $target/Fonts
+	cp \$^ \$@
 $target/Fonts/bKAI00M.ttf: nowar/big5-$hantCombatFont
 	mkdir -p $target/Fonts
 	cp \$^ \$@
