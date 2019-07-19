@@ -587,7 +587,10 @@ if __name__ == "__main__":
 				"noto/{}.otd".format(GenerateFilename(dep["Latin"])),
 				"shs/{}.otd".format(GenerateFilename(dep["CJK"])),
 			],
-			"command": [ "python merge.py {}".format(ParamToArgument(param)) ]
+			"command": [ 
+				"mkdir -p nowar/",
+				"python merge.py {}".format(ParamToArgument(param))
+			]
 		}
 		makefile["rule"]["noto/{}.otd".format(GenerateFilename(dep["Latin"]))] = {
 			"depend": [ "noto/{}.otf".format(GenerateFilename(dep["Latin"])) ],
@@ -636,7 +639,10 @@ if __name__ == "__main__":
 				"noto/{}.otd".format(GenerateFilename(dep["Numeral"])),
 				"shs/{}.otd".format(GenerateFilename(dep["CJK"])),
 			],
-			"command": [ "python merge.py {}".format(ParamToArgument(param)) ]
+			"command": [ 
+				"mkdir -p nowar/",
+				"python merge.py {}".format(ParamToArgument(param))
+			]
 		}
 		makefile["rule"]["noto/{}.otd".format(GenerateFilename(dep["Latin"]))] = {
 			"depend": [ "noto/{}.otf".format(GenerateFilename(dep["Latin"])) ],
@@ -684,7 +690,10 @@ if __name__ == "__main__":
 			"depend": [
 				"noto/{}.otd".format(GenerateFilename(dep["Latin"])),
 			],
-			"command": [ "python merge.py {}".format(ParamToArgument(param)) ]
+			"command": [ 
+				"mkdir -p nowar/",
+				"python merge.py {}".format(ParamToArgument(param))
+			]
 		}
 		makefile["rule"]["noto/{}.otd".format(GenerateFilename(dep["Latin"]))] = {
 			"depend": [ "noto/{}.otf".format(GenerateFilename(dep["Latin"])) ],

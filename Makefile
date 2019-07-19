@@ -16,10 +16,10 @@ SharedMedia-NowarSans-${VERSION}.7z: nowar/unspec-NowarUI-CN-CondensedLight.otf 
 	sed -i '/__REPLACE_IN_BUILD__REGISTER_KOKR__/{s/__REPLACE_IN_BUILD__REGISTER_KOKR__/NowarSansTypeface:Register("font", "有愛 고딕 KR Condensed Light", [[Interface\\\\Addons\\\\NowarSansTypeface\\\\Fonts\\\\NowarSans-KR-CondensedLight.otf]], koKR)\nNowarSansTypeface:Register("font", "有愛 고딕 KR Light", [[Interface\\\\Addons\\\\NowarSansTypeface\\\\Fonts\\\\NowarSans-KR-Light.otf]], koKR)\nNowarSansTypeface:Register("font", "有愛 고딕 KR Extended Light", [[Interface\\\\Addons\\\\NowarSansTypeface\\\\Fonts\\\\NowarSans-KR-ExtendedLight.otf]], koKR)\nNowarSansTypeface:Register("font", "有愛 고딕 KR Condensed", [[Interface\\\\Addons\\\\NowarSansTypeface\\\\Fonts\\\\NowarSans-KR-Condensed.otf]], koKR)\nNowarSansTypeface:Register("font", "有愛 고딕 KR Regular", [[Interface\\\\Addons\\\\NowarSansTypeface\\\\Fonts\\\\NowarSans-KR-Regular.otf]], koKR)\nNowarSansTypeface:Register("font", "有愛 고딕 KR Extended", [[Interface\\\\Addons\\\\NowarSansTypeface\\\\Fonts\\\\NowarSans-KR-Extended.otf]], koKR)\nNowarSansTypeface:Register("font", "有愛 고딕 KR Condensed Medium", [[Interface\\\\Addons\\\\NowarSansTypeface\\\\Fonts\\\\NowarSans-KR-CondensedMedium.otf]], koKR)\nNowarSansTypeface:Register("font", "有愛 고딕 KR Medium", [[Interface\\\\Addons\\\\NowarSansTypeface\\\\Fonts\\\\NowarSans-KR-Medium.otf]], koKR)\nNowarSansTypeface:Register("font", "有愛 고딕 KR Extended Medium", [[Interface\\\\Addons\\\\NowarSansTypeface\\\\Fonts\\\\NowarSans-KR-ExtendedMedium.otf]], koKR)\nNowarSansTypeface:Register("font", "有愛 고딕 KR Condensed Bold", [[Interface\\\\Addons\\\\NowarSansTypeface\\\\Fonts\\\\NowarSans-KR-CondensedBold.otf]], koKR)\nNowarSansTypeface:Register("font", "有愛 고딕 KR Bold", [[Interface\\\\Addons\\\\NowarSansTypeface\\\\Fonts\\\\NowarSans-KR-Bold.otf]], koKR)\nNowarSansTypeface:Register("font", "有愛 고딕 KR Extended Bold", [[Interface\\\\Addons\\\\NowarSansTypeface\\\\Fonts\\\\NowarSans-KR-ExtendedBold.otf]], koKR)/}' NowarSansTypeface/NowarSansTypeface.lua
 	for file in $^; do cp $$file NowarSansTypeface/Fonts/$${file#nowar/*-}; done
 	7z a -t7z -m0=LZMA:d=512m:fb=273 -ms $@ NowarSansTypeface/ -x!NowarSansTypeface/Fonts/\*.otf
-	7z a -t7z -m0=LZMA:d=512m:fb=273 -ms $@ NowarSansTypeface/Fonts/NowarSans-CN-ExtendedLight.otf NowarSansTypeface/Fonts/NowarUI-HK-ExtendedLight.otf NowarSansTypeface/Fonts/NowarUI-TW-CondensedLight.otf NowarSansTypeface/Fonts/NowarSans-CL-CondensedLight.otf NowarSansTypeface/Fonts/NowarSans-CN-Light.otf NowarSansTypeface/Fonts/NowarSans-TW-CondensedLight.otf NowarSansTypeface/Fonts/NowarSans-CL-Light.otf NowarSansTypeface/Fonts/NowarSans-HK-Light.otf NowarSansTypeface/Fonts/NowarSans-KR-CondensedLight.otf NowarSansTypeface/Fonts/NowarUI-OSF-Light.otf NowarSansTypeface/Fonts/NowarSans-KR-Light.otf NowarSansTypeface/Fonts/NowarUI-CL-CondensedLight.otf NowarSansTypeface/Fonts/NowarUI-CL-ExtendedLight.otf NowarSansTypeface/Fonts/NowarSans-HK-ExtendedLight.otf NowarSansTypeface/Fonts/NowarUI-TW-Light.otf NowarSansTypeface/Fonts/NowarUI-TW-ExtendedLight.otf NowarSansTypeface/Fonts/NowarUI-JP-CondensedLight.otf NowarSansTypeface/Fonts/NowarUI-CL-Light.otf NowarSansTypeface/Fonts/NowarUI-OSF-ExtendedLight.otf NowarSansTypeface/Fonts/NowarSans-CN-CondensedLight.otf NowarSansTypeface/Fonts/NowarUI-CN-Light.otf NowarSansTypeface/Fonts/NowarSans-TW-Light.otf NowarSansTypeface/Fonts/NowarUI-OSF-CondensedLight.otf NowarSansTypeface/Fonts/NowarSans-HK-CondensedLight.otf NowarSansTypeface/Fonts/NowarUI-CN-CondensedLight.otf NowarSansTypeface/Fonts/NowarUI-CN-ExtendedLight.otf NowarSansTypeface/Fonts/NowarUI-JP-Light.otf NowarSansTypeface/Fonts/NowarUI-HK-CondensedLight.otf NowarSansTypeface/Fonts/NowarUI-HK-Light.otf NowarSansTypeface/Fonts/NowarSans-TW-ExtendedLight.otf NowarSansTypeface/Fonts/NowarSans-KR-ExtendedLight.otf NowarSansTypeface/Fonts/NowarSans-CL-ExtendedLight.otf NowarSansTypeface/Fonts/NowarUI-JP-ExtendedLight.otf
-	7z a -t7z -m0=LZMA:d=512m:fb=273 -ms $@ NowarSansTypeface/Fonts/NowarUI-CN-Condensed.otf NowarSansTypeface/Fonts/NowarSans-HK-Condensed.otf NowarSansTypeface/Fonts/NowarUI-CL-Condensed.otf NowarSansTypeface/Fonts/NowarSans-CL-Regular.otf NowarSansTypeface/Fonts/NowarSans-TW-Extended.otf NowarSansTypeface/Fonts/NowarUI-CN-Extended.otf NowarSansTypeface/Fonts/NowarSans-TW-Regular.otf NowarSansTypeface/Fonts/NowarUI-HK-Regular.otf NowarSansTypeface/Fonts/NowarUI-CL-Regular.otf NowarSansTypeface/Fonts/NowarSans-HK-Extended.otf NowarSansTypeface/Fonts/NowarUI-JP-Extended.otf NowarSansTypeface/Fonts/NowarUI-OSF-Extended.otf NowarSansTypeface/Fonts/NowarUI-OSF-Regular.otf NowarSansTypeface/Fonts/NowarSans-KR-Condensed.otf NowarSansTypeface/Fonts/NowarSans-HK-Regular.otf NowarSansTypeface/Fonts/NowarSans-KR-Extended.otf NowarSansTypeface/Fonts/NowarUI-JP-Condensed.otf NowarSansTypeface/Fonts/NowarUI-TW-Condensed.otf NowarSansTypeface/Fonts/NowarSans-CL-Extended.otf NowarSansTypeface/Fonts/NowarSans-CN-Regular.otf NowarSansTypeface/Fonts/NowarSans-TW-Condensed.otf NowarSansTypeface/Fonts/NowarSans-KR-Regular.otf NowarSansTypeface/Fonts/NowarSans-CL-Condensed.otf NowarSansTypeface/Fonts/NowarUI-OSF-Condensed.otf NowarSansTypeface/Fonts/NowarUI-CL-Extended.otf NowarSansTypeface/Fonts/NowarUI-TW-Regular.otf NowarSansTypeface/Fonts/NowarUI-JP-Regular.otf NowarSansTypeface/Fonts/NowarUI-CN-Regular.otf NowarSansTypeface/Fonts/NowarSans-CN-Extended.otf NowarSansTypeface/Fonts/NowarSans-CN-Condensed.otf NowarSansTypeface/Fonts/NowarUI-HK-Condensed.otf NowarSansTypeface/Fonts/NowarUI-HK-Extended.otf NowarSansTypeface/Fonts/NowarUI-TW-Extended.otf
-	7z a -t7z -m0=LZMA:d=512m:fb=273 -ms $@ NowarSansTypeface/Fonts/NowarUI-TW-ExtendedMedium.otf NowarSansTypeface/Fonts/NowarUI-TW-CondensedMedium.otf NowarSansTypeface/Fonts/NowarSans-KR-ExtendedMedium.otf NowarSansTypeface/Fonts/NowarUI-CN-ExtendedMedium.otf NowarSansTypeface/Fonts/NowarUI-OSF-CondensedMedium.otf NowarSansTypeface/Fonts/NowarUI-CN-CondensedMedium.otf NowarSansTypeface/Fonts/NowarUI-OSF-ExtendedMedium.otf NowarSansTypeface/Fonts/NowarUI-OSF-Medium.otf NowarSansTypeface/Fonts/NowarSans-CN-Medium.otf NowarSansTypeface/Fonts/NowarSans-TW-CondensedMedium.otf NowarSansTypeface/Fonts/NowarSans-CL-ExtendedMedium.otf NowarSansTypeface/Fonts/NowarUI-CN-Medium.otf NowarSansTypeface/Fonts/NowarUI-JP-ExtendedMedium.otf NowarSansTypeface/Fonts/NowarUI-CL-Medium.otf NowarSansTypeface/Fonts/NowarUI-CL-ExtendedMedium.otf NowarSansTypeface/Fonts/NowarSans-TW-Medium.otf NowarSansTypeface/Fonts/NowarSans-TW-ExtendedMedium.otf NowarSansTypeface/Fonts/NowarSans-CN-ExtendedMedium.otf NowarSansTypeface/Fonts/NowarUI-TW-Medium.otf NowarSansTypeface/Fonts/NowarUI-JP-CondensedMedium.otf NowarSansTypeface/Fonts/NowarSans-HK-CondensedMedium.otf NowarSansTypeface/Fonts/NowarSans-CL-CondensedMedium.otf NowarSansTypeface/Fonts/NowarUI-HK-ExtendedMedium.otf NowarSansTypeface/Fonts/NowarSans-CL-Medium.otf NowarSansTypeface/Fonts/NowarSans-HK-ExtendedMedium.otf NowarSansTypeface/Fonts/NowarSans-KR-Medium.otf NowarSansTypeface/Fonts/NowarUI-HK-Medium.otf NowarSansTypeface/Fonts/NowarUI-HK-CondensedMedium.otf NowarSansTypeface/Fonts/NowarSans-CN-CondensedMedium.otf NowarSansTypeface/Fonts/NowarUI-CL-CondensedMedium.otf NowarSansTypeface/Fonts/NowarSans-HK-Medium.otf NowarSansTypeface/Fonts/NowarSans-KR-CondensedMedium.otf NowarSansTypeface/Fonts/NowarUI-JP-Medium.otf
-	7z a -t7z -m0=LZMA:d=512m:fb=273 -ms $@ NowarSansTypeface/Fonts/NowarUI-JP-CondensedBold.otf NowarSansTypeface/Fonts/NowarUI-HK-ExtendedBold.otf NowarSansTypeface/Fonts/NowarUI-CL-Bold.otf NowarSansTypeface/Fonts/NowarUI-HK-CondensedBold.otf NowarSansTypeface/Fonts/NowarUI-OSF-Bold.otf NowarSansTypeface/Fonts/NowarUI-TW-Bold.otf NowarSansTypeface/Fonts/NowarUI-JP-Bold.otf NowarSansTypeface/Fonts/NowarSans-CL-Bold.otf NowarSansTypeface/Fonts/NowarSans-HK-Bold.otf NowarSansTypeface/Fonts/NowarUI-JP-ExtendedBold.otf NowarSansTypeface/Fonts/NowarSans-KR-Bold.otf NowarSansTypeface/Fonts/NowarSans-CL-ExtendedBold.otf NowarSansTypeface/Fonts/NowarUI-CL-CondensedBold.otf NowarSansTypeface/Fonts/NowarSans-CN-Bold.otf NowarSansTypeface/Fonts/NowarUI-OSF-ExtendedBold.otf NowarSansTypeface/Fonts/NowarUI-CL-ExtendedBold.otf NowarSansTypeface/Fonts/NowarSans-TW-ExtendedBold.otf NowarSansTypeface/Fonts/NowarUI-CN-ExtendedBold.otf NowarSansTypeface/Fonts/NowarSans-TW-Bold.otf NowarSansTypeface/Fonts/NowarUI-CN-CondensedBold.otf NowarSansTypeface/Fonts/NowarUI-CN-Bold.otf NowarSansTypeface/Fonts/NowarUI-OSF-CondensedBold.otf NowarSansTypeface/Fonts/NowarUI-HK-Bold.otf NowarSansTypeface/Fonts/NowarSans-CL-CondensedBold.otf NowarSansTypeface/Fonts/NowarUI-TW-CondensedBold.otf NowarSansTypeface/Fonts/NowarUI-TW-ExtendedBold.otf NowarSansTypeface/Fonts/NowarSans-CN-ExtendedBold.otf NowarSansTypeface/Fonts/NowarSans-CN-CondensedBold.otf NowarSansTypeface/Fonts/NowarSans-KR-CondensedBold.otf NowarSansTypeface/Fonts/NowarSans-HK-ExtendedBold.otf NowarSansTypeface/Fonts/NowarSans-KR-ExtendedBold.otf NowarSansTypeface/Fonts/NowarSans-HK-CondensedBold.otf NowarSansTypeface/Fonts/NowarSans-TW-CondensedBold.otf
+	7z a -t7z -m0=LZMA:d=512m:fb=273 -ms $@ NowarSansTypeface/Fonts/NowarSans-CN-CondensedLight.otf NowarSansTypeface/Fonts/NowarUI-JP-CondensedLight.otf NowarSansTypeface/Fonts/NowarUI-HK-CondensedLight.otf NowarSansTypeface/Fonts/NowarUI-CN-CondensedLight.otf NowarSansTypeface/Fonts/NowarUI-CN-ExtendedLight.otf NowarSansTypeface/Fonts/NowarUI-TW-CondensedLight.otf NowarSansTypeface/Fonts/NowarUI-JP-ExtendedLight.otf NowarSansTypeface/Fonts/NowarSans-CN-Light.otf NowarSansTypeface/Fonts/NowarSans-CL-Light.otf NowarSansTypeface/Fonts/NowarUI-TW-Light.otf NowarSansTypeface/Fonts/NowarUI-HK-ExtendedLight.otf NowarSansTypeface/Fonts/NowarUI-CL-CondensedLight.otf NowarSansTypeface/Fonts/NowarSans-CN-ExtendedLight.otf NowarSansTypeface/Fonts/NowarUI-OSF-ExtendedLight.otf NowarSansTypeface/Fonts/NowarSans-CL-CondensedLight.otf NowarSansTypeface/Fonts/NowarSans-KR-ExtendedLight.otf NowarSansTypeface/Fonts/NowarUI-OSF-CondensedLight.otf NowarSansTypeface/Fonts/NowarUI-JP-Light.otf NowarSansTypeface/Fonts/NowarUI-HK-Light.otf NowarSansTypeface/Fonts/NowarUI-CN-Light.otf NowarSansTypeface/Fonts/NowarSans-KR-Light.otf NowarSansTypeface/Fonts/NowarSans-CL-ExtendedLight.otf NowarSansTypeface/Fonts/NowarSans-HK-ExtendedLight.otf NowarSansTypeface/Fonts/NowarSans-TW-ExtendedLight.otf NowarSansTypeface/Fonts/NowarUI-TW-ExtendedLight.otf NowarSansTypeface/Fonts/NowarUI-CL-ExtendedLight.otf NowarSansTypeface/Fonts/NowarSans-HK-Light.otf NowarSansTypeface/Fonts/NowarSans-KR-CondensedLight.otf NowarSansTypeface/Fonts/NowarUI-CL-Light.otf NowarSansTypeface/Fonts/NowarUI-OSF-Light.otf NowarSansTypeface/Fonts/NowarSans-HK-CondensedLight.otf NowarSansTypeface/Fonts/NowarSans-TW-CondensedLight.otf NowarSansTypeface/Fonts/NowarSans-TW-Light.otf
+	7z a -t7z -m0=LZMA:d=512m:fb=273 -ms $@ NowarSansTypeface/Fonts/NowarUI-OSF-Extended.otf NowarSansTypeface/Fonts/NowarUI-CL-Extended.otf NowarSansTypeface/Fonts/NowarUI-CL-Regular.otf NowarSansTypeface/Fonts/NowarSans-HK-Condensed.otf NowarSansTypeface/Fonts/NowarUI-TW-Condensed.otf NowarSansTypeface/Fonts/NowarSans-TW-Condensed.otf NowarSansTypeface/Fonts/NowarUI-JP-Extended.otf NowarSansTypeface/Fonts/NowarUI-CN-Regular.otf NowarSansTypeface/Fonts/NowarSans-KR-Extended.otf NowarSansTypeface/Fonts/NowarUI-OSF-Condensed.otf NowarSansTypeface/Fonts/NowarUI-HK-Regular.otf NowarSansTypeface/Fonts/NowarUI-JP-Regular.otf NowarSansTypeface/Fonts/NowarUI-OSF-Regular.otf NowarSansTypeface/Fonts/NowarUI-CN-Condensed.otf NowarSansTypeface/Fonts/NowarSans-KR-Regular.otf NowarSansTypeface/Fonts/NowarSans-HK-Extended.otf NowarSansTypeface/Fonts/NowarSans-TW-Extended.otf NowarSansTypeface/Fonts/NowarUI-JP-Condensed.otf NowarSansTypeface/Fonts/NowarSans-CN-Condensed.otf NowarSansTypeface/Fonts/NowarSans-CL-Regular.otf NowarSansTypeface/Fonts/NowarUI-TW-Extended.otf NowarSansTypeface/Fonts/NowarUI-HK-Condensed.otf NowarSansTypeface/Fonts/NowarSans-CN-Extended.otf NowarSansTypeface/Fonts/NowarSans-CL-Extended.otf NowarSansTypeface/Fonts/NowarUI-CL-Condensed.otf NowarSansTypeface/Fonts/NowarUI-CN-Extended.otf NowarSansTypeface/Fonts/NowarSans-HK-Regular.otf NowarSansTypeface/Fonts/NowarSans-CN-Regular.otf NowarSansTypeface/Fonts/NowarUI-HK-Extended.otf NowarSansTypeface/Fonts/NowarSans-KR-Condensed.otf NowarSansTypeface/Fonts/NowarUI-TW-Regular.otf NowarSansTypeface/Fonts/NowarSans-CL-Condensed.otf NowarSansTypeface/Fonts/NowarSans-TW-Regular.otf
+	7z a -t7z -m0=LZMA:d=512m:fb=273 -ms $@ NowarSansTypeface/Fonts/NowarUI-OSF-CondensedMedium.otf NowarSansTypeface/Fonts/NowarSans-KR-ExtendedMedium.otf NowarSansTypeface/Fonts/NowarUI-HK-Medium.otf NowarSansTypeface/Fonts/NowarSans-CL-Medium.otf NowarSansTypeface/Fonts/NowarSans-KR-CondensedMedium.otf NowarSansTypeface/Fonts/NowarUI-HK-CondensedMedium.otf NowarSansTypeface/Fonts/NowarUI-TW-ExtendedMedium.otf NowarSansTypeface/Fonts/NowarSans-CN-Medium.otf NowarSansTypeface/Fonts/NowarSans-CL-CondensedMedium.otf NowarSansTypeface/Fonts/NowarUI-JP-ExtendedMedium.otf NowarSansTypeface/Fonts/NowarSans-TW-Medium.otf NowarSansTypeface/Fonts/NowarUI-OSF-ExtendedMedium.otf NowarSansTypeface/Fonts/NowarSans-KR-Medium.otf NowarSansTypeface/Fonts/NowarSans-CN-CondensedMedium.otf NowarSansTypeface/Fonts/NowarSans-TW-ExtendedMedium.otf NowarSansTypeface/Fonts/NowarSans-HK-ExtendedMedium.otf NowarSansTypeface/Fonts/NowarUI-JP-Medium.otf NowarSansTypeface/Fonts/NowarUI-TW-CondensedMedium.otf NowarSansTypeface/Fonts/NowarUI-TW-Medium.otf NowarSansTypeface/Fonts/NowarUI-OSF-Medium.otf NowarSansTypeface/Fonts/NowarUI-CL-CondensedMedium.otf NowarSansTypeface/Fonts/NowarSans-HK-Medium.otf NowarSansTypeface/Fonts/NowarUI-CN-Medium.otf NowarSansTypeface/Fonts/NowarSans-CN-ExtendedMedium.otf NowarSansTypeface/Fonts/NowarUI-CN-CondensedMedium.otf NowarSansTypeface/Fonts/NowarUI-HK-ExtendedMedium.otf NowarSansTypeface/Fonts/NowarSans-TW-CondensedMedium.otf NowarSansTypeface/Fonts/NowarSans-HK-CondensedMedium.otf NowarSansTypeface/Fonts/NowarUI-CL-ExtendedMedium.otf NowarSansTypeface/Fonts/NowarUI-JP-CondensedMedium.otf NowarSansTypeface/Fonts/NowarUI-CL-Medium.otf NowarSansTypeface/Fonts/NowarUI-CN-ExtendedMedium.otf NowarSansTypeface/Fonts/NowarSans-CL-ExtendedMedium.otf
+	7z a -t7z -m0=LZMA:d=512m:fb=273 -ms $@ NowarSansTypeface/Fonts/NowarSans-TW-Bold.otf NowarSansTypeface/Fonts/NowarSans-CL-CondensedBold.otf NowarSansTypeface/Fonts/NowarUI-TW-CondensedBold.otf NowarSansTypeface/Fonts/NowarSans-TW-ExtendedBold.otf NowarSansTypeface/Fonts/NowarUI-CL-Bold.otf NowarSansTypeface/Fonts/NowarSans-CL-Bold.otf NowarSansTypeface/Fonts/NowarUI-OSF-Bold.otf NowarSansTypeface/Fonts/NowarUI-JP-Bold.otf NowarSansTypeface/Fonts/NowarUI-TW-Bold.otf NowarSansTypeface/Fonts/NowarUI-CL-CondensedBold.otf NowarSansTypeface/Fonts/NowarSans-KR-CondensedBold.otf NowarSansTypeface/Fonts/NowarUI-JP-ExtendedBold.otf NowarSansTypeface/Fonts/NowarSans-CL-ExtendedBold.otf NowarSansTypeface/Fonts/NowarSans-CN-CondensedBold.otf NowarSansTypeface/Fonts/NowarUI-HK-Bold.otf NowarSansTypeface/Fonts/NowarSans-CN-ExtendedBold.otf NowarSansTypeface/Fonts/NowarSans-HK-Bold.otf NowarSansTypeface/Fonts/NowarSans-KR-Bold.otf NowarSansTypeface/Fonts/NowarUI-OSF-CondensedBold.otf NowarSansTypeface/Fonts/NowarUI-HK-CondensedBold.otf NowarSansTypeface/Fonts/NowarSans-HK-ExtendedBold.otf NowarSansTypeface/Fonts/NowarUI-CL-ExtendedBold.otf NowarSansTypeface/Fonts/NowarUI-HK-ExtendedBold.otf NowarSansTypeface/Fonts/NowarUI-CN-ExtendedBold.otf NowarSansTypeface/Fonts/NowarUI-CN-Bold.otf NowarSansTypeface/Fonts/NowarUI-JP-CondensedBold.otf NowarSansTypeface/Fonts/NowarSans-CN-Bold.otf NowarSansTypeface/Fonts/NowarUI-OSF-ExtendedBold.otf NowarSansTypeface/Fonts/NowarSans-KR-ExtendedBold.otf NowarSansTypeface/Fonts/NowarSans-HK-CondensedBold.otf NowarSansTypeface/Fonts/NowarUI-TW-ExtendedBold.otf NowarSansTypeface/Fonts/NowarSans-TW-CondensedBold.otf NowarSansTypeface/Fonts/NowarUI-CN-CondensedBold.otf
 NowarSans-CN-300-${VERSION}.7z: CN-300/Fonts/ARIALN.ttf CN-300/Fonts/FRIZQT__.ttf CN-300/Fonts/MORPHEUS.ttf CN-300/Fonts/skurri.ttf CN-300/Fonts/FRIZQT___CYR.ttf CN-300/Fonts/MORPHEUS_CYR.ttf CN-300/Fonts/SKURRI_CYR.ttf CN-300/Fonts/ARKai_C.ttf CN-300/Fonts/ARKai_T.ttf CN-300/Fonts/ARHei.ttf CN-300/Fonts/arheiuhk_bd.ttf CN-300/Fonts/bHEI00M.ttf CN-300/Fonts/bHEI01B.ttf CN-300/Fonts/bKAI00M.ttf CN-300/Fonts/blei00d.ttf CN-300/Fonts/2002.ttf CN-300/Fonts/2002B.ttf CN-300/Fonts/K_Damage.ttf CN-300/Fonts/K_Pagetext.ttf
 	cd CN-300;cp ../LICENSE.txt Fonts/LICENSE.txt;7z a -t7z -m0=LZMA:d=512m:fb=273 -ms ../$@ Fonts/
 CN-300/Fonts/ARIALN.ttf: nowar/unspec-NowarUI-CN-CondensedLight.otf
@@ -1863,6 +1863,7 @@ GB-700/Fonts/blei00d.ttf: nowar/big5-NowarWarcraftSans-GB-Bold.otf
 nowar/unspec-NowarSans-CN-CondensedLight.otf: nowar/unspec-NowarSans-CN-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-CondensedLight.otd: noto/NotoSans-CondensedLight.otd shs/SourceHanSansSC-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 noto/NotoSans-CondensedLight.otd: noto/NotoSans-CondensedLight.otf
 	otfccdump --ignore-hints $< -o $@
@@ -1887,6 +1888,7 @@ nowar/korean-NowarSans-CN-CondensedLight.otd: nowar/unspec-NowarSans-CN-Condense
 nowar/unspec-NowarSans-TW-CondensedLight.otf: nowar/unspec-NowarSans-TW-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-TW-CondensedLight.otd: noto/NotoSans-CondensedLight.otd shs/SourceHanSansTC-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 shs/SourceHanSansTC-Light.otd: shs/SourceHanSansTC-Light.otf
 	otfccdump --ignore-hints $< -o $@
@@ -1909,6 +1911,7 @@ nowar/korean-NowarSans-TW-CondensedLight.otd: nowar/unspec-NowarSans-TW-Condense
 nowar/unspec-NowarSans-HK-CondensedLight.otf: nowar/unspec-NowarSans-HK-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-HK-CondensedLight.otd: noto/NotoSans-CondensedLight.otd shs/SourceHanSansHC-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 shs/SourceHanSansHC-Light.otd: shs/SourceHanSansHC-Light.otf
 	otfccdump --ignore-hints $< -o $@
@@ -1931,6 +1934,7 @@ nowar/korean-NowarSans-HK-CondensedLight.otd: nowar/unspec-NowarSans-HK-Condense
 nowar/unspec-NowarSans-JP-CondensedLight.otf: nowar/unspec-NowarSans-JP-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-JP-CondensedLight.otd: noto/NotoSans-CondensedLight.otd shs/SourceHanSans-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 shs/SourceHanSans-Light.otd: shs/SourceHanSans-Light.otf
 	otfccdump --ignore-hints $< -o $@
@@ -1953,6 +1957,7 @@ nowar/korean-NowarSans-JP-CondensedLight.otd: nowar/unspec-NowarSans-JP-Condense
 nowar/unspec-NowarSans-KR-CondensedLight.otf: nowar/unspec-NowarSans-KR-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-KR-CondensedLight.otd: noto/NotoSans-CondensedLight.otd shs/SourceHanSansK-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 shs/SourceHanSansK-Light.otd: shs/SourceHanSansK-Light.otf
 	otfccdump --ignore-hints $< -o $@
@@ -1975,6 +1980,7 @@ nowar/korean-NowarSans-KR-CondensedLight.otd: nowar/unspec-NowarSans-KR-Condense
 nowar/unspec-NowarSans-CL-CondensedLight.otf: nowar/unspec-NowarSans-CL-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CL-CondensedLight.otd: noto/NotoSans-CondensedLight.otd shs/SourceHanSansK-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-CL-CondensedLight.otf: nowar/gbk-NowarSans-CL-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -1995,6 +2001,7 @@ nowar/korean-NowarSans-CL-CondensedLight.otd: nowar/unspec-NowarSans-CL-Condense
 nowar/unspec-NowarSans-OSF-CondensedLight.otf: nowar/unspec-NowarSans-OSF-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-OSF-CondensedLight.otd: noto/NotoSans-CondensedLight.otd shs/SourceHanSansK-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-OSF-CondensedLight.otf: nowar/gbk-NowarSans-OSF-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2015,6 +2022,7 @@ nowar/korean-NowarSans-OSF-CondensedLight.otd: nowar/unspec-NowarSans-OSF-Conden
 nowar/unspec-NowarSans-GB-CondensedLight.otf: nowar/unspec-NowarSans-GB-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-GB-CondensedLight.otd: noto/NotoSans-CondensedLight.otd shs/SourceHanSansCN-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 shs/SourceHanSansCN-Light.otd: shs/SourceHanSansCN-Light.otf
 	otfccdump --ignore-hints $< -o $@
@@ -2037,6 +2045,7 @@ nowar/korean-NowarSans-GB-CondensedLight.otd: nowar/unspec-NowarSans-GB-Condense
 nowar/unspec-NowarSans-CN-Light.otf: nowar/unspec-NowarSans-CN-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-Light.otd: noto/NotoSans-SemiCondensedLight.otd shs/SourceHanSansSC-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 noto/NotoSans-SemiCondensedLight.otd: noto/NotoSans-SemiCondensedLight.otf
 	otfccdump --ignore-hints $< -o $@
@@ -2059,6 +2068,7 @@ nowar/korean-NowarSans-CN-Light.otd: nowar/unspec-NowarSans-CN-Light.otd
 nowar/unspec-NowarSans-TW-Light.otf: nowar/unspec-NowarSans-TW-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-TW-Light.otd: noto/NotoSans-SemiCondensedLight.otd shs/SourceHanSansTC-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-TW-Light.otf: nowar/gbk-NowarSans-TW-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2079,6 +2089,7 @@ nowar/korean-NowarSans-TW-Light.otd: nowar/unspec-NowarSans-TW-Light.otd
 nowar/unspec-NowarSans-HK-Light.otf: nowar/unspec-NowarSans-HK-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-HK-Light.otd: noto/NotoSans-SemiCondensedLight.otd shs/SourceHanSansHC-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-HK-Light.otf: nowar/gbk-NowarSans-HK-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2099,6 +2110,7 @@ nowar/korean-NowarSans-HK-Light.otd: nowar/unspec-NowarSans-HK-Light.otd
 nowar/unspec-NowarSans-JP-Light.otf: nowar/unspec-NowarSans-JP-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-JP-Light.otd: noto/NotoSans-SemiCondensedLight.otd shs/SourceHanSans-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-JP-Light.otf: nowar/gbk-NowarSans-JP-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2119,6 +2131,7 @@ nowar/korean-NowarSans-JP-Light.otd: nowar/unspec-NowarSans-JP-Light.otd
 nowar/unspec-NowarSans-KR-Light.otf: nowar/unspec-NowarSans-KR-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-KR-Light.otd: noto/NotoSans-SemiCondensedLight.otd shs/SourceHanSansK-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-KR-Light.otf: nowar/gbk-NowarSans-KR-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2139,6 +2152,7 @@ nowar/korean-NowarSans-KR-Light.otd: nowar/unspec-NowarSans-KR-Light.otd
 nowar/unspec-NowarSans-CL-Light.otf: nowar/unspec-NowarSans-CL-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CL-Light.otd: noto/NotoSans-SemiCondensedLight.otd shs/SourceHanSansK-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-CL-Light.otf: nowar/gbk-NowarSans-CL-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2159,6 +2173,7 @@ nowar/korean-NowarSans-CL-Light.otd: nowar/unspec-NowarSans-CL-Light.otd
 nowar/unspec-NowarSans-OSF-Light.otf: nowar/unspec-NowarSans-OSF-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-OSF-Light.otd: noto/NotoSans-SemiCondensedLight.otd shs/SourceHanSansK-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-OSF-Light.otf: nowar/gbk-NowarSans-OSF-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2179,6 +2194,7 @@ nowar/korean-NowarSans-OSF-Light.otd: nowar/unspec-NowarSans-OSF-Light.otd
 nowar/unspec-NowarSans-GB-Light.otf: nowar/unspec-NowarSans-GB-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-GB-Light.otd: noto/NotoSans-SemiCondensedLight.otd shs/SourceHanSansCN-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-GB-Light.otf: nowar/gbk-NowarSans-GB-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2199,6 +2215,7 @@ nowar/korean-NowarSans-GB-Light.otd: nowar/unspec-NowarSans-GB-Light.otd
 nowar/unspec-NowarSans-CN-ExtendedLight.otf: nowar/unspec-NowarSans-CN-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-ExtendedLight.otd: noto/NotoSans-Light.otd shs/SourceHanSansSC-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 noto/NotoSans-Light.otd: noto/NotoSans-Light.otf
 	otfccdump --ignore-hints $< -o $@
@@ -2221,6 +2238,7 @@ nowar/korean-NowarSans-CN-ExtendedLight.otd: nowar/unspec-NowarSans-CN-ExtendedL
 nowar/unspec-NowarSans-TW-ExtendedLight.otf: nowar/unspec-NowarSans-TW-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-TW-ExtendedLight.otd: noto/NotoSans-Light.otd shs/SourceHanSansTC-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-TW-ExtendedLight.otf: nowar/gbk-NowarSans-TW-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2241,6 +2259,7 @@ nowar/korean-NowarSans-TW-ExtendedLight.otd: nowar/unspec-NowarSans-TW-ExtendedL
 nowar/unspec-NowarSans-HK-ExtendedLight.otf: nowar/unspec-NowarSans-HK-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-HK-ExtendedLight.otd: noto/NotoSans-Light.otd shs/SourceHanSansHC-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-HK-ExtendedLight.otf: nowar/gbk-NowarSans-HK-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2261,6 +2280,7 @@ nowar/korean-NowarSans-HK-ExtendedLight.otd: nowar/unspec-NowarSans-HK-ExtendedL
 nowar/unspec-NowarSans-JP-ExtendedLight.otf: nowar/unspec-NowarSans-JP-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-JP-ExtendedLight.otd: noto/NotoSans-Light.otd shs/SourceHanSans-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-JP-ExtendedLight.otf: nowar/gbk-NowarSans-JP-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2281,6 +2301,7 @@ nowar/korean-NowarSans-JP-ExtendedLight.otd: nowar/unspec-NowarSans-JP-ExtendedL
 nowar/unspec-NowarSans-KR-ExtendedLight.otf: nowar/unspec-NowarSans-KR-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-KR-ExtendedLight.otd: noto/NotoSans-Light.otd shs/SourceHanSansK-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-KR-ExtendedLight.otf: nowar/gbk-NowarSans-KR-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2301,6 +2322,7 @@ nowar/korean-NowarSans-KR-ExtendedLight.otd: nowar/unspec-NowarSans-KR-ExtendedL
 nowar/unspec-NowarSans-CL-ExtendedLight.otf: nowar/unspec-NowarSans-CL-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CL-ExtendedLight.otd: noto/NotoSans-Light.otd shs/SourceHanSansK-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-CL-ExtendedLight.otf: nowar/gbk-NowarSans-CL-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2321,6 +2343,7 @@ nowar/korean-NowarSans-CL-ExtendedLight.otd: nowar/unspec-NowarSans-CL-ExtendedL
 nowar/unspec-NowarSans-OSF-ExtendedLight.otf: nowar/unspec-NowarSans-OSF-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-OSF-ExtendedLight.otd: noto/NotoSans-Light.otd shs/SourceHanSansK-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-OSF-ExtendedLight.otf: nowar/gbk-NowarSans-OSF-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2341,6 +2364,7 @@ nowar/korean-NowarSans-OSF-ExtendedLight.otd: nowar/unspec-NowarSans-OSF-Extende
 nowar/unspec-NowarSans-GB-ExtendedLight.otf: nowar/unspec-NowarSans-GB-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-GB-ExtendedLight.otd: noto/NotoSans-Light.otd shs/SourceHanSansCN-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-GB-ExtendedLight.otf: nowar/gbk-NowarSans-GB-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2361,6 +2385,7 @@ nowar/korean-NowarSans-GB-ExtendedLight.otd: nowar/unspec-NowarSans-GB-ExtendedL
 nowar/unspec-NowarSans-CN-Condensed.otf: nowar/unspec-NowarSans-CN-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-Condensed.otd: noto/NotoSans-Condensed.otd shs/SourceHanSansSC-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 noto/NotoSans-Condensed.otd: noto/NotoSans-Condensed.otf
 	otfccdump --ignore-hints $< -o $@
@@ -2385,6 +2410,7 @@ nowar/korean-NowarSans-CN-Condensed.otd: nowar/unspec-NowarSans-CN-Condensed.otd
 nowar/unspec-NowarSans-TW-Condensed.otf: nowar/unspec-NowarSans-TW-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-TW-Condensed.otd: noto/NotoSans-Condensed.otd shs/SourceHanSansTC-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 shs/SourceHanSansTC-Regular.otd: shs/SourceHanSansTC-Regular.otf
 	otfccdump --ignore-hints $< -o $@
@@ -2407,6 +2433,7 @@ nowar/korean-NowarSans-TW-Condensed.otd: nowar/unspec-NowarSans-TW-Condensed.otd
 nowar/unspec-NowarSans-HK-Condensed.otf: nowar/unspec-NowarSans-HK-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-HK-Condensed.otd: noto/NotoSans-Condensed.otd shs/SourceHanSansHC-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 shs/SourceHanSansHC-Regular.otd: shs/SourceHanSansHC-Regular.otf
 	otfccdump --ignore-hints $< -o $@
@@ -2429,6 +2456,7 @@ nowar/korean-NowarSans-HK-Condensed.otd: nowar/unspec-NowarSans-HK-Condensed.otd
 nowar/unspec-NowarSans-JP-Condensed.otf: nowar/unspec-NowarSans-JP-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-JP-Condensed.otd: noto/NotoSans-Condensed.otd shs/SourceHanSans-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 shs/SourceHanSans-Regular.otd: shs/SourceHanSans-Regular.otf
 	otfccdump --ignore-hints $< -o $@
@@ -2451,6 +2479,7 @@ nowar/korean-NowarSans-JP-Condensed.otd: nowar/unspec-NowarSans-JP-Condensed.otd
 nowar/unspec-NowarSans-KR-Condensed.otf: nowar/unspec-NowarSans-KR-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-KR-Condensed.otd: noto/NotoSans-Condensed.otd shs/SourceHanSansK-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 shs/SourceHanSansK-Regular.otd: shs/SourceHanSansK-Regular.otf
 	otfccdump --ignore-hints $< -o $@
@@ -2473,6 +2502,7 @@ nowar/korean-NowarSans-KR-Condensed.otd: nowar/unspec-NowarSans-KR-Condensed.otd
 nowar/unspec-NowarSans-CL-Condensed.otf: nowar/unspec-NowarSans-CL-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CL-Condensed.otd: noto/NotoSans-Condensed.otd shs/SourceHanSansK-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-CL-Condensed.otf: nowar/gbk-NowarSans-CL-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2493,6 +2523,7 @@ nowar/korean-NowarSans-CL-Condensed.otd: nowar/unspec-NowarSans-CL-Condensed.otd
 nowar/unspec-NowarSans-OSF-Condensed.otf: nowar/unspec-NowarSans-OSF-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-OSF-Condensed.otd: noto/NotoSans-Condensed.otd shs/SourceHanSansK-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-OSF-Condensed.otf: nowar/gbk-NowarSans-OSF-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2513,6 +2544,7 @@ nowar/korean-NowarSans-OSF-Condensed.otd: nowar/unspec-NowarSans-OSF-Condensed.o
 nowar/unspec-NowarSans-GB-Condensed.otf: nowar/unspec-NowarSans-GB-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-GB-Condensed.otd: noto/NotoSans-Condensed.otd shs/SourceHanSansCN-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 shs/SourceHanSansCN-Regular.otd: shs/SourceHanSansCN-Regular.otf
 	otfccdump --ignore-hints $< -o $@
@@ -2535,6 +2567,7 @@ nowar/korean-NowarSans-GB-Condensed.otd: nowar/unspec-NowarSans-GB-Condensed.otd
 nowar/unspec-NowarSans-CN-Regular.otf: nowar/unspec-NowarSans-CN-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-Regular.otd: noto/NotoSans-SemiCondensed.otd shs/SourceHanSansSC-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 noto/NotoSans-SemiCondensed.otd: noto/NotoSans-SemiCondensed.otf
 	otfccdump --ignore-hints $< -o $@
@@ -2557,6 +2590,7 @@ nowar/korean-NowarSans-CN-Regular.otd: nowar/unspec-NowarSans-CN-Regular.otd
 nowar/unspec-NowarSans-TW-Regular.otf: nowar/unspec-NowarSans-TW-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-TW-Regular.otd: noto/NotoSans-SemiCondensed.otd shs/SourceHanSansTC-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-TW-Regular.otf: nowar/gbk-NowarSans-TW-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2577,6 +2611,7 @@ nowar/korean-NowarSans-TW-Regular.otd: nowar/unspec-NowarSans-TW-Regular.otd
 nowar/unspec-NowarSans-HK-Regular.otf: nowar/unspec-NowarSans-HK-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-HK-Regular.otd: noto/NotoSans-SemiCondensed.otd shs/SourceHanSansHC-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-HK-Regular.otf: nowar/gbk-NowarSans-HK-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2597,6 +2632,7 @@ nowar/korean-NowarSans-HK-Regular.otd: nowar/unspec-NowarSans-HK-Regular.otd
 nowar/unspec-NowarSans-JP-Regular.otf: nowar/unspec-NowarSans-JP-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-JP-Regular.otd: noto/NotoSans-SemiCondensed.otd shs/SourceHanSans-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-JP-Regular.otf: nowar/gbk-NowarSans-JP-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2617,6 +2653,7 @@ nowar/korean-NowarSans-JP-Regular.otd: nowar/unspec-NowarSans-JP-Regular.otd
 nowar/unspec-NowarSans-KR-Regular.otf: nowar/unspec-NowarSans-KR-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-KR-Regular.otd: noto/NotoSans-SemiCondensed.otd shs/SourceHanSansK-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-KR-Regular.otf: nowar/gbk-NowarSans-KR-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2637,6 +2674,7 @@ nowar/korean-NowarSans-KR-Regular.otd: nowar/unspec-NowarSans-KR-Regular.otd
 nowar/unspec-NowarSans-CL-Regular.otf: nowar/unspec-NowarSans-CL-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CL-Regular.otd: noto/NotoSans-SemiCondensed.otd shs/SourceHanSansK-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-CL-Regular.otf: nowar/gbk-NowarSans-CL-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2657,6 +2695,7 @@ nowar/korean-NowarSans-CL-Regular.otd: nowar/unspec-NowarSans-CL-Regular.otd
 nowar/unspec-NowarSans-OSF-Regular.otf: nowar/unspec-NowarSans-OSF-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-OSF-Regular.otd: noto/NotoSans-SemiCondensed.otd shs/SourceHanSansK-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-OSF-Regular.otf: nowar/gbk-NowarSans-OSF-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2677,6 +2716,7 @@ nowar/korean-NowarSans-OSF-Regular.otd: nowar/unspec-NowarSans-OSF-Regular.otd
 nowar/unspec-NowarSans-GB-Regular.otf: nowar/unspec-NowarSans-GB-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-GB-Regular.otd: noto/NotoSans-SemiCondensed.otd shs/SourceHanSansCN-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-GB-Regular.otf: nowar/gbk-NowarSans-GB-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2697,6 +2737,7 @@ nowar/korean-NowarSans-GB-Regular.otd: nowar/unspec-NowarSans-GB-Regular.otd
 nowar/unspec-NowarSans-CN-Extended.otf: nowar/unspec-NowarSans-CN-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-Extended.otd: noto/NotoSans-Regular.otd shs/SourceHanSansSC-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 noto/NotoSans-Regular.otd: noto/NotoSans-Regular.otf
 	otfccdump --ignore-hints $< -o $@
@@ -2719,6 +2760,7 @@ nowar/korean-NowarSans-CN-Extended.otd: nowar/unspec-NowarSans-CN-Extended.otd
 nowar/unspec-NowarSans-TW-Extended.otf: nowar/unspec-NowarSans-TW-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-TW-Extended.otd: noto/NotoSans-Regular.otd shs/SourceHanSansTC-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-TW-Extended.otf: nowar/gbk-NowarSans-TW-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2739,6 +2781,7 @@ nowar/korean-NowarSans-TW-Extended.otd: nowar/unspec-NowarSans-TW-Extended.otd
 nowar/unspec-NowarSans-HK-Extended.otf: nowar/unspec-NowarSans-HK-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-HK-Extended.otd: noto/NotoSans-Regular.otd shs/SourceHanSansHC-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-HK-Extended.otf: nowar/gbk-NowarSans-HK-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2759,6 +2802,7 @@ nowar/korean-NowarSans-HK-Extended.otd: nowar/unspec-NowarSans-HK-Extended.otd
 nowar/unspec-NowarSans-JP-Extended.otf: nowar/unspec-NowarSans-JP-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-JP-Extended.otd: noto/NotoSans-Regular.otd shs/SourceHanSans-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-JP-Extended.otf: nowar/gbk-NowarSans-JP-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2779,6 +2823,7 @@ nowar/korean-NowarSans-JP-Extended.otd: nowar/unspec-NowarSans-JP-Extended.otd
 nowar/unspec-NowarSans-KR-Extended.otf: nowar/unspec-NowarSans-KR-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-KR-Extended.otd: noto/NotoSans-Regular.otd shs/SourceHanSansK-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-KR-Extended.otf: nowar/gbk-NowarSans-KR-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2799,6 +2844,7 @@ nowar/korean-NowarSans-KR-Extended.otd: nowar/unspec-NowarSans-KR-Extended.otd
 nowar/unspec-NowarSans-CL-Extended.otf: nowar/unspec-NowarSans-CL-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CL-Extended.otd: noto/NotoSans-Regular.otd shs/SourceHanSansK-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-CL-Extended.otf: nowar/gbk-NowarSans-CL-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2819,6 +2865,7 @@ nowar/korean-NowarSans-CL-Extended.otd: nowar/unspec-NowarSans-CL-Extended.otd
 nowar/unspec-NowarSans-OSF-Extended.otf: nowar/unspec-NowarSans-OSF-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-OSF-Extended.otd: noto/NotoSans-Regular.otd shs/SourceHanSansK-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-OSF-Extended.otf: nowar/gbk-NowarSans-OSF-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2839,6 +2886,7 @@ nowar/korean-NowarSans-OSF-Extended.otd: nowar/unspec-NowarSans-OSF-Extended.otd
 nowar/unspec-NowarSans-GB-Extended.otf: nowar/unspec-NowarSans-GB-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-GB-Extended.otd: noto/NotoSans-Regular.otd shs/SourceHanSansCN-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-GB-Extended.otf: nowar/gbk-NowarSans-GB-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2859,6 +2907,7 @@ nowar/korean-NowarSans-GB-Extended.otd: nowar/unspec-NowarSans-GB-Extended.otd
 nowar/unspec-NowarSans-CN-CondensedMedium.otf: nowar/unspec-NowarSans-CN-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-CondensedMedium.otd: noto/NotoSans-CondensedMedium.otd shs/SourceHanSansSC-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 noto/NotoSans-CondensedMedium.otd: noto/NotoSans-CondensedMedium.otf
 	otfccdump --ignore-hints $< -o $@
@@ -2883,6 +2932,7 @@ nowar/korean-NowarSans-CN-CondensedMedium.otd: nowar/unspec-NowarSans-CN-Condens
 nowar/unspec-NowarSans-TW-CondensedMedium.otf: nowar/unspec-NowarSans-TW-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-TW-CondensedMedium.otd: noto/NotoSans-CondensedMedium.otd shs/SourceHanSansTC-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 shs/SourceHanSansTC-Medium.otd: shs/SourceHanSansTC-Medium.otf
 	otfccdump --ignore-hints $< -o $@
@@ -2905,6 +2955,7 @@ nowar/korean-NowarSans-TW-CondensedMedium.otd: nowar/unspec-NowarSans-TW-Condens
 nowar/unspec-NowarSans-HK-CondensedMedium.otf: nowar/unspec-NowarSans-HK-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-HK-CondensedMedium.otd: noto/NotoSans-CondensedMedium.otd shs/SourceHanSansHC-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 shs/SourceHanSansHC-Medium.otd: shs/SourceHanSansHC-Medium.otf
 	otfccdump --ignore-hints $< -o $@
@@ -2927,6 +2978,7 @@ nowar/korean-NowarSans-HK-CondensedMedium.otd: nowar/unspec-NowarSans-HK-Condens
 nowar/unspec-NowarSans-JP-CondensedMedium.otf: nowar/unspec-NowarSans-JP-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-JP-CondensedMedium.otd: noto/NotoSans-CondensedMedium.otd shs/SourceHanSans-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 shs/SourceHanSans-Medium.otd: shs/SourceHanSans-Medium.otf
 	otfccdump --ignore-hints $< -o $@
@@ -2949,6 +3001,7 @@ nowar/korean-NowarSans-JP-CondensedMedium.otd: nowar/unspec-NowarSans-JP-Condens
 nowar/unspec-NowarSans-KR-CondensedMedium.otf: nowar/unspec-NowarSans-KR-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-KR-CondensedMedium.otd: noto/NotoSans-CondensedMedium.otd shs/SourceHanSansK-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 shs/SourceHanSansK-Medium.otd: shs/SourceHanSansK-Medium.otf
 	otfccdump --ignore-hints $< -o $@
@@ -2971,6 +3024,7 @@ nowar/korean-NowarSans-KR-CondensedMedium.otd: nowar/unspec-NowarSans-KR-Condens
 nowar/unspec-NowarSans-CL-CondensedMedium.otf: nowar/unspec-NowarSans-CL-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CL-CondensedMedium.otd: noto/NotoSans-CondensedMedium.otd shs/SourceHanSansK-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-CL-CondensedMedium.otf: nowar/gbk-NowarSans-CL-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -2991,6 +3045,7 @@ nowar/korean-NowarSans-CL-CondensedMedium.otd: nowar/unspec-NowarSans-CL-Condens
 nowar/unspec-NowarSans-OSF-CondensedMedium.otf: nowar/unspec-NowarSans-OSF-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-OSF-CondensedMedium.otd: noto/NotoSans-CondensedMedium.otd shs/SourceHanSansK-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-OSF-CondensedMedium.otf: nowar/gbk-NowarSans-OSF-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3011,6 +3066,7 @@ nowar/korean-NowarSans-OSF-CondensedMedium.otd: nowar/unspec-NowarSans-OSF-Conde
 nowar/unspec-NowarSans-GB-CondensedMedium.otf: nowar/unspec-NowarSans-GB-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-GB-CondensedMedium.otd: noto/NotoSans-CondensedMedium.otd shs/SourceHanSansCN-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 shs/SourceHanSansCN-Medium.otd: shs/SourceHanSansCN-Medium.otf
 	otfccdump --ignore-hints $< -o $@
@@ -3033,6 +3089,7 @@ nowar/korean-NowarSans-GB-CondensedMedium.otd: nowar/unspec-NowarSans-GB-Condens
 nowar/unspec-NowarSans-CN-Medium.otf: nowar/unspec-NowarSans-CN-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd shs/SourceHanSansSC-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 noto/NotoSans-SemiCondensedMedium.otd: noto/NotoSans-SemiCondensedMedium.otf
 	otfccdump --ignore-hints $< -o $@
@@ -3055,6 +3112,7 @@ nowar/korean-NowarSans-CN-Medium.otd: nowar/unspec-NowarSans-CN-Medium.otd
 nowar/unspec-NowarSans-TW-Medium.otf: nowar/unspec-NowarSans-TW-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-TW-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd shs/SourceHanSansTC-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-TW-Medium.otf: nowar/gbk-NowarSans-TW-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3075,6 +3133,7 @@ nowar/korean-NowarSans-TW-Medium.otd: nowar/unspec-NowarSans-TW-Medium.otd
 nowar/unspec-NowarSans-HK-Medium.otf: nowar/unspec-NowarSans-HK-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-HK-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd shs/SourceHanSansHC-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-HK-Medium.otf: nowar/gbk-NowarSans-HK-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3095,6 +3154,7 @@ nowar/korean-NowarSans-HK-Medium.otd: nowar/unspec-NowarSans-HK-Medium.otd
 nowar/unspec-NowarSans-JP-Medium.otf: nowar/unspec-NowarSans-JP-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-JP-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd shs/SourceHanSans-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-JP-Medium.otf: nowar/gbk-NowarSans-JP-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3115,6 +3175,7 @@ nowar/korean-NowarSans-JP-Medium.otd: nowar/unspec-NowarSans-JP-Medium.otd
 nowar/unspec-NowarSans-KR-Medium.otf: nowar/unspec-NowarSans-KR-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-KR-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd shs/SourceHanSansK-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-KR-Medium.otf: nowar/gbk-NowarSans-KR-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3135,6 +3196,7 @@ nowar/korean-NowarSans-KR-Medium.otd: nowar/unspec-NowarSans-KR-Medium.otd
 nowar/unspec-NowarSans-CL-Medium.otf: nowar/unspec-NowarSans-CL-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CL-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd shs/SourceHanSansK-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-CL-Medium.otf: nowar/gbk-NowarSans-CL-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3155,6 +3217,7 @@ nowar/korean-NowarSans-CL-Medium.otd: nowar/unspec-NowarSans-CL-Medium.otd
 nowar/unspec-NowarSans-OSF-Medium.otf: nowar/unspec-NowarSans-OSF-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-OSF-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd shs/SourceHanSansK-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-OSF-Medium.otf: nowar/gbk-NowarSans-OSF-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3175,6 +3238,7 @@ nowar/korean-NowarSans-OSF-Medium.otd: nowar/unspec-NowarSans-OSF-Medium.otd
 nowar/unspec-NowarSans-GB-Medium.otf: nowar/unspec-NowarSans-GB-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-GB-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd shs/SourceHanSansCN-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-GB-Medium.otf: nowar/gbk-NowarSans-GB-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3195,6 +3259,7 @@ nowar/korean-NowarSans-GB-Medium.otd: nowar/unspec-NowarSans-GB-Medium.otd
 nowar/unspec-NowarSans-CN-ExtendedMedium.otf: nowar/unspec-NowarSans-CN-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-ExtendedMedium.otd: noto/NotoSans-Medium.otd shs/SourceHanSansSC-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 noto/NotoSans-Medium.otd: noto/NotoSans-Medium.otf
 	otfccdump --ignore-hints $< -o $@
@@ -3217,6 +3282,7 @@ nowar/korean-NowarSans-CN-ExtendedMedium.otd: nowar/unspec-NowarSans-CN-Extended
 nowar/unspec-NowarSans-TW-ExtendedMedium.otf: nowar/unspec-NowarSans-TW-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-TW-ExtendedMedium.otd: noto/NotoSans-Medium.otd shs/SourceHanSansTC-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-TW-ExtendedMedium.otf: nowar/gbk-NowarSans-TW-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3237,6 +3303,7 @@ nowar/korean-NowarSans-TW-ExtendedMedium.otd: nowar/unspec-NowarSans-TW-Extended
 nowar/unspec-NowarSans-HK-ExtendedMedium.otf: nowar/unspec-NowarSans-HK-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-HK-ExtendedMedium.otd: noto/NotoSans-Medium.otd shs/SourceHanSansHC-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-HK-ExtendedMedium.otf: nowar/gbk-NowarSans-HK-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3257,6 +3324,7 @@ nowar/korean-NowarSans-HK-ExtendedMedium.otd: nowar/unspec-NowarSans-HK-Extended
 nowar/unspec-NowarSans-JP-ExtendedMedium.otf: nowar/unspec-NowarSans-JP-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-JP-ExtendedMedium.otd: noto/NotoSans-Medium.otd shs/SourceHanSans-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-JP-ExtendedMedium.otf: nowar/gbk-NowarSans-JP-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3277,6 +3345,7 @@ nowar/korean-NowarSans-JP-ExtendedMedium.otd: nowar/unspec-NowarSans-JP-Extended
 nowar/unspec-NowarSans-KR-ExtendedMedium.otf: nowar/unspec-NowarSans-KR-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-KR-ExtendedMedium.otd: noto/NotoSans-Medium.otd shs/SourceHanSansK-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-KR-ExtendedMedium.otf: nowar/gbk-NowarSans-KR-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3297,6 +3366,7 @@ nowar/korean-NowarSans-KR-ExtendedMedium.otd: nowar/unspec-NowarSans-KR-Extended
 nowar/unspec-NowarSans-CL-ExtendedMedium.otf: nowar/unspec-NowarSans-CL-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CL-ExtendedMedium.otd: noto/NotoSans-Medium.otd shs/SourceHanSansK-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-CL-ExtendedMedium.otf: nowar/gbk-NowarSans-CL-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3317,6 +3387,7 @@ nowar/korean-NowarSans-CL-ExtendedMedium.otd: nowar/unspec-NowarSans-CL-Extended
 nowar/unspec-NowarSans-OSF-ExtendedMedium.otf: nowar/unspec-NowarSans-OSF-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-OSF-ExtendedMedium.otd: noto/NotoSans-Medium.otd shs/SourceHanSansK-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-OSF-ExtendedMedium.otf: nowar/gbk-NowarSans-OSF-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3337,6 +3408,7 @@ nowar/korean-NowarSans-OSF-ExtendedMedium.otd: nowar/unspec-NowarSans-OSF-Extend
 nowar/unspec-NowarSans-GB-ExtendedMedium.otf: nowar/unspec-NowarSans-GB-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-GB-ExtendedMedium.otd: noto/NotoSans-Medium.otd shs/SourceHanSansCN-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-GB-ExtendedMedium.otf: nowar/gbk-NowarSans-GB-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3357,6 +3429,7 @@ nowar/korean-NowarSans-GB-ExtendedMedium.otd: nowar/unspec-NowarSans-GB-Extended
 nowar/unspec-NowarSans-CN-CondensedBold.otf: nowar/unspec-NowarSans-CN-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-CondensedBold.otd: noto/NotoSans-CondensedBold.otd shs/SourceHanSansSC-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 noto/NotoSans-CondensedBold.otd: noto/NotoSans-CondensedBold.otf
 	otfccdump --ignore-hints $< -o $@
@@ -3381,6 +3454,7 @@ nowar/korean-NowarSans-CN-CondensedBold.otd: nowar/unspec-NowarSans-CN-Condensed
 nowar/unspec-NowarSans-TW-CondensedBold.otf: nowar/unspec-NowarSans-TW-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-TW-CondensedBold.otd: noto/NotoSans-CondensedBold.otd shs/SourceHanSansTC-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 shs/SourceHanSansTC-Bold.otd: shs/SourceHanSansTC-Bold.otf
 	otfccdump --ignore-hints $< -o $@
@@ -3403,6 +3477,7 @@ nowar/korean-NowarSans-TW-CondensedBold.otd: nowar/unspec-NowarSans-TW-Condensed
 nowar/unspec-NowarSans-HK-CondensedBold.otf: nowar/unspec-NowarSans-HK-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-HK-CondensedBold.otd: noto/NotoSans-CondensedBold.otd shs/SourceHanSansHC-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 shs/SourceHanSansHC-Bold.otd: shs/SourceHanSansHC-Bold.otf
 	otfccdump --ignore-hints $< -o $@
@@ -3425,6 +3500,7 @@ nowar/korean-NowarSans-HK-CondensedBold.otd: nowar/unspec-NowarSans-HK-Condensed
 nowar/unspec-NowarSans-JP-CondensedBold.otf: nowar/unspec-NowarSans-JP-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-JP-CondensedBold.otd: noto/NotoSans-CondensedBold.otd shs/SourceHanSans-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 shs/SourceHanSans-Bold.otd: shs/SourceHanSans-Bold.otf
 	otfccdump --ignore-hints $< -o $@
@@ -3447,6 +3523,7 @@ nowar/korean-NowarSans-JP-CondensedBold.otd: nowar/unspec-NowarSans-JP-Condensed
 nowar/unspec-NowarSans-KR-CondensedBold.otf: nowar/unspec-NowarSans-KR-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-KR-CondensedBold.otd: noto/NotoSans-CondensedBold.otd shs/SourceHanSansK-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 shs/SourceHanSansK-Bold.otd: shs/SourceHanSansK-Bold.otf
 	otfccdump --ignore-hints $< -o $@
@@ -3469,6 +3546,7 @@ nowar/korean-NowarSans-KR-CondensedBold.otd: nowar/unspec-NowarSans-KR-Condensed
 nowar/unspec-NowarSans-CL-CondensedBold.otf: nowar/unspec-NowarSans-CL-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CL-CondensedBold.otd: noto/NotoSans-CondensedBold.otd shs/SourceHanSansK-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-CL-CondensedBold.otf: nowar/gbk-NowarSans-CL-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3489,6 +3567,7 @@ nowar/korean-NowarSans-CL-CondensedBold.otd: nowar/unspec-NowarSans-CL-Condensed
 nowar/unspec-NowarSans-OSF-CondensedBold.otf: nowar/unspec-NowarSans-OSF-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-OSF-CondensedBold.otd: noto/NotoSans-CondensedBold.otd shs/SourceHanSansK-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-OSF-CondensedBold.otf: nowar/gbk-NowarSans-OSF-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3509,6 +3588,7 @@ nowar/korean-NowarSans-OSF-CondensedBold.otd: nowar/unspec-NowarSans-OSF-Condens
 nowar/unspec-NowarSans-GB-CondensedBold.otf: nowar/unspec-NowarSans-GB-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-GB-CondensedBold.otd: noto/NotoSans-CondensedBold.otd shs/SourceHanSansCN-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 shs/SourceHanSansCN-Bold.otd: shs/SourceHanSansCN-Bold.otf
 	otfccdump --ignore-hints $< -o $@
@@ -3531,6 +3611,7 @@ nowar/korean-NowarSans-GB-CondensedBold.otd: nowar/unspec-NowarSans-GB-Condensed
 nowar/unspec-NowarSans-CN-Bold.otf: nowar/unspec-NowarSans-CN-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-Bold.otd: noto/NotoSans-SemiCondensedBold.otd shs/SourceHanSansSC-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 noto/NotoSans-SemiCondensedBold.otd: noto/NotoSans-SemiCondensedBold.otf
 	otfccdump --ignore-hints $< -o $@
@@ -3553,6 +3634,7 @@ nowar/korean-NowarSans-CN-Bold.otd: nowar/unspec-NowarSans-CN-Bold.otd
 nowar/unspec-NowarSans-TW-Bold.otf: nowar/unspec-NowarSans-TW-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-TW-Bold.otd: noto/NotoSans-SemiCondensedBold.otd shs/SourceHanSansTC-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-TW-Bold.otf: nowar/gbk-NowarSans-TW-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3573,6 +3655,7 @@ nowar/korean-NowarSans-TW-Bold.otd: nowar/unspec-NowarSans-TW-Bold.otd
 nowar/unspec-NowarSans-HK-Bold.otf: nowar/unspec-NowarSans-HK-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-HK-Bold.otd: noto/NotoSans-SemiCondensedBold.otd shs/SourceHanSansHC-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-HK-Bold.otf: nowar/gbk-NowarSans-HK-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3593,6 +3676,7 @@ nowar/korean-NowarSans-HK-Bold.otd: nowar/unspec-NowarSans-HK-Bold.otd
 nowar/unspec-NowarSans-JP-Bold.otf: nowar/unspec-NowarSans-JP-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-JP-Bold.otd: noto/NotoSans-SemiCondensedBold.otd shs/SourceHanSans-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-JP-Bold.otf: nowar/gbk-NowarSans-JP-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3613,6 +3697,7 @@ nowar/korean-NowarSans-JP-Bold.otd: nowar/unspec-NowarSans-JP-Bold.otd
 nowar/unspec-NowarSans-KR-Bold.otf: nowar/unspec-NowarSans-KR-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-KR-Bold.otd: noto/NotoSans-SemiCondensedBold.otd shs/SourceHanSansK-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-KR-Bold.otf: nowar/gbk-NowarSans-KR-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3633,6 +3718,7 @@ nowar/korean-NowarSans-KR-Bold.otd: nowar/unspec-NowarSans-KR-Bold.otd
 nowar/unspec-NowarSans-CL-Bold.otf: nowar/unspec-NowarSans-CL-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CL-Bold.otd: noto/NotoSans-SemiCondensedBold.otd shs/SourceHanSansK-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-CL-Bold.otf: nowar/gbk-NowarSans-CL-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3653,6 +3739,7 @@ nowar/korean-NowarSans-CL-Bold.otd: nowar/unspec-NowarSans-CL-Bold.otd
 nowar/unspec-NowarSans-OSF-Bold.otf: nowar/unspec-NowarSans-OSF-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-OSF-Bold.otd: noto/NotoSans-SemiCondensedBold.otd shs/SourceHanSansK-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-OSF-Bold.otf: nowar/gbk-NowarSans-OSF-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3673,6 +3760,7 @@ nowar/korean-NowarSans-OSF-Bold.otd: nowar/unspec-NowarSans-OSF-Bold.otd
 nowar/unspec-NowarSans-GB-Bold.otf: nowar/unspec-NowarSans-GB-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-GB-Bold.otd: noto/NotoSans-SemiCondensedBold.otd shs/SourceHanSansCN-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-GB-Bold.otf: nowar/gbk-NowarSans-GB-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3693,6 +3781,7 @@ nowar/korean-NowarSans-GB-Bold.otd: nowar/unspec-NowarSans-GB-Bold.otd
 nowar/unspec-NowarSans-CN-ExtendedBold.otf: nowar/unspec-NowarSans-CN-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-ExtendedBold.otd: noto/NotoSans-Bold.otd shs/SourceHanSansSC-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 noto/NotoSans-Bold.otd: noto/NotoSans-Bold.otf
 	otfccdump --ignore-hints $< -o $@
@@ -3715,6 +3804,7 @@ nowar/korean-NowarSans-CN-ExtendedBold.otd: nowar/unspec-NowarSans-CN-ExtendedBo
 nowar/unspec-NowarSans-TW-ExtendedBold.otf: nowar/unspec-NowarSans-TW-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-TW-ExtendedBold.otd: noto/NotoSans-Bold.otd shs/SourceHanSansTC-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-TW-ExtendedBold.otf: nowar/gbk-NowarSans-TW-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3735,6 +3825,7 @@ nowar/korean-NowarSans-TW-ExtendedBold.otd: nowar/unspec-NowarSans-TW-ExtendedBo
 nowar/unspec-NowarSans-HK-ExtendedBold.otf: nowar/unspec-NowarSans-HK-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-HK-ExtendedBold.otd: noto/NotoSans-Bold.otd shs/SourceHanSansHC-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-HK-ExtendedBold.otf: nowar/gbk-NowarSans-HK-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3755,6 +3846,7 @@ nowar/korean-NowarSans-HK-ExtendedBold.otd: nowar/unspec-NowarSans-HK-ExtendedBo
 nowar/unspec-NowarSans-JP-ExtendedBold.otf: nowar/unspec-NowarSans-JP-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-JP-ExtendedBold.otd: noto/NotoSans-Bold.otd shs/SourceHanSans-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-JP-ExtendedBold.otf: nowar/gbk-NowarSans-JP-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3775,6 +3867,7 @@ nowar/korean-NowarSans-JP-ExtendedBold.otd: nowar/unspec-NowarSans-JP-ExtendedBo
 nowar/unspec-NowarSans-KR-ExtendedBold.otf: nowar/unspec-NowarSans-KR-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-KR-ExtendedBold.otd: noto/NotoSans-Bold.otd shs/SourceHanSansK-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-KR-ExtendedBold.otf: nowar/gbk-NowarSans-KR-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3795,6 +3888,7 @@ nowar/korean-NowarSans-KR-ExtendedBold.otd: nowar/unspec-NowarSans-KR-ExtendedBo
 nowar/unspec-NowarSans-CL-ExtendedBold.otf: nowar/unspec-NowarSans-CL-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CL-ExtendedBold.otd: noto/NotoSans-Bold.otd shs/SourceHanSansK-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-CL-ExtendedBold.otf: nowar/gbk-NowarSans-CL-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3815,6 +3909,7 @@ nowar/korean-NowarSans-CL-ExtendedBold.otd: nowar/unspec-NowarSans-CL-ExtendedBo
 nowar/unspec-NowarSans-OSF-ExtendedBold.otf: nowar/unspec-NowarSans-OSF-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-OSF-ExtendedBold.otd: noto/NotoSans-Bold.otd shs/SourceHanSansK-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-OSF-ExtendedBold.otf: nowar/gbk-NowarSans-OSF-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3835,6 +3930,7 @@ nowar/korean-NowarSans-OSF-ExtendedBold.otd: nowar/unspec-NowarSans-OSF-Extended
 nowar/unspec-NowarSans-GB-ExtendedBold.otf: nowar/unspec-NowarSans-GB-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-GB-ExtendedBold.otd: noto/NotoSans-Bold.otd shs/SourceHanSansCN-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarSans-GB-ExtendedBold.otf: nowar/gbk-NowarSans-GB-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3855,6 +3951,7 @@ nowar/korean-NowarSans-GB-ExtendedBold.otd: nowar/unspec-NowarSans-GB-ExtendedBo
 nowar/unspec-NowarUI-CN-CondensedLight.otf: nowar/unspec-NowarUI-CN-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-CondensedLight.otd: noto/NotoSans-CondensedLight.otd shs/SourceHanSansSC-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CN-CondensedLight.otf: nowar/gbk-NowarUI-CN-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3875,6 +3972,7 @@ nowar/korean-NowarUI-CN-CondensedLight.otd: nowar/unspec-NowarUI-CN-CondensedLig
 nowar/unspec-NowarUI-TW-CondensedLight.otf: nowar/unspec-NowarUI-TW-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-TW-CondensedLight.otd: noto/NotoSans-CondensedLight.otd shs/SourceHanSansTC-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-TW-CondensedLight.otf: nowar/gbk-NowarUI-TW-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3895,6 +3993,7 @@ nowar/korean-NowarUI-TW-CondensedLight.otd: nowar/unspec-NowarUI-TW-CondensedLig
 nowar/unspec-NowarUI-HK-CondensedLight.otf: nowar/unspec-NowarUI-HK-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-HK-CondensedLight.otd: noto/NotoSans-CondensedLight.otd shs/SourceHanSansHC-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-HK-CondensedLight.otf: nowar/gbk-NowarUI-HK-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3915,6 +4014,7 @@ nowar/korean-NowarUI-HK-CondensedLight.otd: nowar/unspec-NowarUI-HK-CondensedLig
 nowar/unspec-NowarUI-JP-CondensedLight.otf: nowar/unspec-NowarUI-JP-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-JP-CondensedLight.otd: noto/NotoSans-CondensedLight.otd shs/SourceHanSans-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-JP-CondensedLight.otf: nowar/gbk-NowarUI-JP-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3935,6 +4035,7 @@ nowar/korean-NowarUI-JP-CondensedLight.otd: nowar/unspec-NowarUI-JP-CondensedLig
 nowar/unspec-NowarUI-KR-CondensedLight.otf: nowar/unspec-NowarUI-KR-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-KR-CondensedLight.otd: noto/NotoSans-CondensedLight.otd shs/SourceHanSansK-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-KR-CondensedLight.otf: nowar/gbk-NowarUI-KR-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3955,6 +4056,7 @@ nowar/korean-NowarUI-KR-CondensedLight.otd: nowar/unspec-NowarUI-KR-CondensedLig
 nowar/unspec-NowarUI-CL-CondensedLight.otf: nowar/unspec-NowarUI-CL-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CL-CondensedLight.otd: noto/NotoSans-CondensedLight.otd shs/SourceHanSansK-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CL-CondensedLight.otf: nowar/gbk-NowarUI-CL-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3975,6 +4077,7 @@ nowar/korean-NowarUI-CL-CondensedLight.otd: nowar/unspec-NowarUI-CL-CondensedLig
 nowar/unspec-NowarUI-OSF-CondensedLight.otf: nowar/unspec-NowarUI-OSF-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-OSF-CondensedLight.otd: noto/NotoSans-CondensedLight.otd shs/SourceHanSansK-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-OSF-CondensedLight.otf: nowar/gbk-NowarUI-OSF-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -3995,6 +4098,7 @@ nowar/korean-NowarUI-OSF-CondensedLight.otd: nowar/unspec-NowarUI-OSF-CondensedL
 nowar/unspec-NowarUI-GB-CondensedLight.otf: nowar/unspec-NowarUI-GB-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-GB-CondensedLight.otd: noto/NotoSans-CondensedLight.otd shs/SourceHanSansCN-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-GB-CondensedLight.otf: nowar/gbk-NowarUI-GB-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4015,6 +4119,7 @@ nowar/korean-NowarUI-GB-CondensedLight.otd: nowar/unspec-NowarUI-GB-CondensedLig
 nowar/unspec-NowarUI-CN-Light.otf: nowar/unspec-NowarUI-CN-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-Light.otd: noto/NotoSans-SemiCondensedLight.otd shs/SourceHanSansSC-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CN-Light.otf: nowar/gbk-NowarUI-CN-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4035,6 +4140,7 @@ nowar/korean-NowarUI-CN-Light.otd: nowar/unspec-NowarUI-CN-Light.otd
 nowar/unspec-NowarUI-TW-Light.otf: nowar/unspec-NowarUI-TW-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-TW-Light.otd: noto/NotoSans-SemiCondensedLight.otd shs/SourceHanSansTC-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-TW-Light.otf: nowar/gbk-NowarUI-TW-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4055,6 +4161,7 @@ nowar/korean-NowarUI-TW-Light.otd: nowar/unspec-NowarUI-TW-Light.otd
 nowar/unspec-NowarUI-HK-Light.otf: nowar/unspec-NowarUI-HK-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-HK-Light.otd: noto/NotoSans-SemiCondensedLight.otd shs/SourceHanSansHC-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-HK-Light.otf: nowar/gbk-NowarUI-HK-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4075,6 +4182,7 @@ nowar/korean-NowarUI-HK-Light.otd: nowar/unspec-NowarUI-HK-Light.otd
 nowar/unspec-NowarUI-JP-Light.otf: nowar/unspec-NowarUI-JP-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-JP-Light.otd: noto/NotoSans-SemiCondensedLight.otd shs/SourceHanSans-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-JP-Light.otf: nowar/gbk-NowarUI-JP-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4095,6 +4203,7 @@ nowar/korean-NowarUI-JP-Light.otd: nowar/unspec-NowarUI-JP-Light.otd
 nowar/unspec-NowarUI-KR-Light.otf: nowar/unspec-NowarUI-KR-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-KR-Light.otd: noto/NotoSans-SemiCondensedLight.otd shs/SourceHanSansK-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-KR-Light.otf: nowar/gbk-NowarUI-KR-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4115,6 +4224,7 @@ nowar/korean-NowarUI-KR-Light.otd: nowar/unspec-NowarUI-KR-Light.otd
 nowar/unspec-NowarUI-CL-Light.otf: nowar/unspec-NowarUI-CL-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CL-Light.otd: noto/NotoSans-SemiCondensedLight.otd shs/SourceHanSansK-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CL-Light.otf: nowar/gbk-NowarUI-CL-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4135,6 +4245,7 @@ nowar/korean-NowarUI-CL-Light.otd: nowar/unspec-NowarUI-CL-Light.otd
 nowar/unspec-NowarUI-OSF-Light.otf: nowar/unspec-NowarUI-OSF-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-OSF-Light.otd: noto/NotoSans-SemiCondensedLight.otd shs/SourceHanSansK-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-OSF-Light.otf: nowar/gbk-NowarUI-OSF-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4155,6 +4266,7 @@ nowar/korean-NowarUI-OSF-Light.otd: nowar/unspec-NowarUI-OSF-Light.otd
 nowar/unspec-NowarUI-GB-Light.otf: nowar/unspec-NowarUI-GB-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-GB-Light.otd: noto/NotoSans-SemiCondensedLight.otd shs/SourceHanSansCN-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-GB-Light.otf: nowar/gbk-NowarUI-GB-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4175,6 +4287,7 @@ nowar/korean-NowarUI-GB-Light.otd: nowar/unspec-NowarUI-GB-Light.otd
 nowar/unspec-NowarUI-CN-ExtendedLight.otf: nowar/unspec-NowarUI-CN-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-ExtendedLight.otd: noto/NotoSans-Light.otd shs/SourceHanSansSC-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CN-ExtendedLight.otf: nowar/gbk-NowarUI-CN-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4195,6 +4308,7 @@ nowar/korean-NowarUI-CN-ExtendedLight.otd: nowar/unspec-NowarUI-CN-ExtendedLight
 nowar/unspec-NowarUI-TW-ExtendedLight.otf: nowar/unspec-NowarUI-TW-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-TW-ExtendedLight.otd: noto/NotoSans-Light.otd shs/SourceHanSansTC-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-TW-ExtendedLight.otf: nowar/gbk-NowarUI-TW-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4215,6 +4329,7 @@ nowar/korean-NowarUI-TW-ExtendedLight.otd: nowar/unspec-NowarUI-TW-ExtendedLight
 nowar/unspec-NowarUI-HK-ExtendedLight.otf: nowar/unspec-NowarUI-HK-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-HK-ExtendedLight.otd: noto/NotoSans-Light.otd shs/SourceHanSansHC-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-HK-ExtendedLight.otf: nowar/gbk-NowarUI-HK-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4235,6 +4350,7 @@ nowar/korean-NowarUI-HK-ExtendedLight.otd: nowar/unspec-NowarUI-HK-ExtendedLight
 nowar/unspec-NowarUI-JP-ExtendedLight.otf: nowar/unspec-NowarUI-JP-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-JP-ExtendedLight.otd: noto/NotoSans-Light.otd shs/SourceHanSans-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-JP-ExtendedLight.otf: nowar/gbk-NowarUI-JP-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4255,6 +4371,7 @@ nowar/korean-NowarUI-JP-ExtendedLight.otd: nowar/unspec-NowarUI-JP-ExtendedLight
 nowar/unspec-NowarUI-KR-ExtendedLight.otf: nowar/unspec-NowarUI-KR-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-KR-ExtendedLight.otd: noto/NotoSans-Light.otd shs/SourceHanSansK-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-KR-ExtendedLight.otf: nowar/gbk-NowarUI-KR-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4275,6 +4392,7 @@ nowar/korean-NowarUI-KR-ExtendedLight.otd: nowar/unspec-NowarUI-KR-ExtendedLight
 nowar/unspec-NowarUI-CL-ExtendedLight.otf: nowar/unspec-NowarUI-CL-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CL-ExtendedLight.otd: noto/NotoSans-Light.otd shs/SourceHanSansK-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CL-ExtendedLight.otf: nowar/gbk-NowarUI-CL-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4295,6 +4413,7 @@ nowar/korean-NowarUI-CL-ExtendedLight.otd: nowar/unspec-NowarUI-CL-ExtendedLight
 nowar/unspec-NowarUI-OSF-ExtendedLight.otf: nowar/unspec-NowarUI-OSF-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-OSF-ExtendedLight.otd: noto/NotoSans-Light.otd shs/SourceHanSansK-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-OSF-ExtendedLight.otf: nowar/gbk-NowarUI-OSF-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4315,6 +4434,7 @@ nowar/korean-NowarUI-OSF-ExtendedLight.otd: nowar/unspec-NowarUI-OSF-ExtendedLig
 nowar/unspec-NowarUI-GB-ExtendedLight.otf: nowar/unspec-NowarUI-GB-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-GB-ExtendedLight.otd: noto/NotoSans-Light.otd shs/SourceHanSansCN-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-GB-ExtendedLight.otf: nowar/gbk-NowarUI-GB-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4335,6 +4455,7 @@ nowar/korean-NowarUI-GB-ExtendedLight.otd: nowar/unspec-NowarUI-GB-ExtendedLight
 nowar/unspec-NowarUI-CN-Condensed.otf: nowar/unspec-NowarUI-CN-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-Condensed.otd: noto/NotoSans-Condensed.otd shs/SourceHanSansSC-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CN-Condensed.otf: nowar/gbk-NowarUI-CN-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4355,6 +4476,7 @@ nowar/korean-NowarUI-CN-Condensed.otd: nowar/unspec-NowarUI-CN-Condensed.otd
 nowar/unspec-NowarUI-TW-Condensed.otf: nowar/unspec-NowarUI-TW-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-TW-Condensed.otd: noto/NotoSans-Condensed.otd shs/SourceHanSansTC-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-TW-Condensed.otf: nowar/gbk-NowarUI-TW-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4375,6 +4497,7 @@ nowar/korean-NowarUI-TW-Condensed.otd: nowar/unspec-NowarUI-TW-Condensed.otd
 nowar/unspec-NowarUI-HK-Condensed.otf: nowar/unspec-NowarUI-HK-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-HK-Condensed.otd: noto/NotoSans-Condensed.otd shs/SourceHanSansHC-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-HK-Condensed.otf: nowar/gbk-NowarUI-HK-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4395,6 +4518,7 @@ nowar/korean-NowarUI-HK-Condensed.otd: nowar/unspec-NowarUI-HK-Condensed.otd
 nowar/unspec-NowarUI-JP-Condensed.otf: nowar/unspec-NowarUI-JP-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-JP-Condensed.otd: noto/NotoSans-Condensed.otd shs/SourceHanSans-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-JP-Condensed.otf: nowar/gbk-NowarUI-JP-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4415,6 +4539,7 @@ nowar/korean-NowarUI-JP-Condensed.otd: nowar/unspec-NowarUI-JP-Condensed.otd
 nowar/unspec-NowarUI-KR-Condensed.otf: nowar/unspec-NowarUI-KR-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-KR-Condensed.otd: noto/NotoSans-Condensed.otd shs/SourceHanSansK-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-KR-Condensed.otf: nowar/gbk-NowarUI-KR-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4435,6 +4560,7 @@ nowar/korean-NowarUI-KR-Condensed.otd: nowar/unspec-NowarUI-KR-Condensed.otd
 nowar/unspec-NowarUI-CL-Condensed.otf: nowar/unspec-NowarUI-CL-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CL-Condensed.otd: noto/NotoSans-Condensed.otd shs/SourceHanSansK-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CL-Condensed.otf: nowar/gbk-NowarUI-CL-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4455,6 +4581,7 @@ nowar/korean-NowarUI-CL-Condensed.otd: nowar/unspec-NowarUI-CL-Condensed.otd
 nowar/unspec-NowarUI-OSF-Condensed.otf: nowar/unspec-NowarUI-OSF-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-OSF-Condensed.otd: noto/NotoSans-Condensed.otd shs/SourceHanSansK-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-OSF-Condensed.otf: nowar/gbk-NowarUI-OSF-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4475,6 +4602,7 @@ nowar/korean-NowarUI-OSF-Condensed.otd: nowar/unspec-NowarUI-OSF-Condensed.otd
 nowar/unspec-NowarUI-GB-Condensed.otf: nowar/unspec-NowarUI-GB-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-GB-Condensed.otd: noto/NotoSans-Condensed.otd shs/SourceHanSansCN-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-GB-Condensed.otf: nowar/gbk-NowarUI-GB-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4495,6 +4623,7 @@ nowar/korean-NowarUI-GB-Condensed.otd: nowar/unspec-NowarUI-GB-Condensed.otd
 nowar/unspec-NowarUI-CN-Regular.otf: nowar/unspec-NowarUI-CN-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-Regular.otd: noto/NotoSans-SemiCondensed.otd shs/SourceHanSansSC-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CN-Regular.otf: nowar/gbk-NowarUI-CN-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4515,6 +4644,7 @@ nowar/korean-NowarUI-CN-Regular.otd: nowar/unspec-NowarUI-CN-Regular.otd
 nowar/unspec-NowarUI-TW-Regular.otf: nowar/unspec-NowarUI-TW-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-TW-Regular.otd: noto/NotoSans-SemiCondensed.otd shs/SourceHanSansTC-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-TW-Regular.otf: nowar/gbk-NowarUI-TW-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4535,6 +4665,7 @@ nowar/korean-NowarUI-TW-Regular.otd: nowar/unspec-NowarUI-TW-Regular.otd
 nowar/unspec-NowarUI-HK-Regular.otf: nowar/unspec-NowarUI-HK-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-HK-Regular.otd: noto/NotoSans-SemiCondensed.otd shs/SourceHanSansHC-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-HK-Regular.otf: nowar/gbk-NowarUI-HK-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4555,6 +4686,7 @@ nowar/korean-NowarUI-HK-Regular.otd: nowar/unspec-NowarUI-HK-Regular.otd
 nowar/unspec-NowarUI-JP-Regular.otf: nowar/unspec-NowarUI-JP-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-JP-Regular.otd: noto/NotoSans-SemiCondensed.otd shs/SourceHanSans-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-JP-Regular.otf: nowar/gbk-NowarUI-JP-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4575,6 +4707,7 @@ nowar/korean-NowarUI-JP-Regular.otd: nowar/unspec-NowarUI-JP-Regular.otd
 nowar/unspec-NowarUI-KR-Regular.otf: nowar/unspec-NowarUI-KR-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-KR-Regular.otd: noto/NotoSans-SemiCondensed.otd shs/SourceHanSansK-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-KR-Regular.otf: nowar/gbk-NowarUI-KR-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4595,6 +4728,7 @@ nowar/korean-NowarUI-KR-Regular.otd: nowar/unspec-NowarUI-KR-Regular.otd
 nowar/unspec-NowarUI-CL-Regular.otf: nowar/unspec-NowarUI-CL-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CL-Regular.otd: noto/NotoSans-SemiCondensed.otd shs/SourceHanSansK-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CL-Regular.otf: nowar/gbk-NowarUI-CL-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4615,6 +4749,7 @@ nowar/korean-NowarUI-CL-Regular.otd: nowar/unspec-NowarUI-CL-Regular.otd
 nowar/unspec-NowarUI-OSF-Regular.otf: nowar/unspec-NowarUI-OSF-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-OSF-Regular.otd: noto/NotoSans-SemiCondensed.otd shs/SourceHanSansK-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-OSF-Regular.otf: nowar/gbk-NowarUI-OSF-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4635,6 +4770,7 @@ nowar/korean-NowarUI-OSF-Regular.otd: nowar/unspec-NowarUI-OSF-Regular.otd
 nowar/unspec-NowarUI-GB-Regular.otf: nowar/unspec-NowarUI-GB-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-GB-Regular.otd: noto/NotoSans-SemiCondensed.otd shs/SourceHanSansCN-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-GB-Regular.otf: nowar/gbk-NowarUI-GB-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4655,6 +4791,7 @@ nowar/korean-NowarUI-GB-Regular.otd: nowar/unspec-NowarUI-GB-Regular.otd
 nowar/unspec-NowarUI-CN-Extended.otf: nowar/unspec-NowarUI-CN-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-Extended.otd: noto/NotoSans-Regular.otd shs/SourceHanSansSC-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CN-Extended.otf: nowar/gbk-NowarUI-CN-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4675,6 +4812,7 @@ nowar/korean-NowarUI-CN-Extended.otd: nowar/unspec-NowarUI-CN-Extended.otd
 nowar/unspec-NowarUI-TW-Extended.otf: nowar/unspec-NowarUI-TW-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-TW-Extended.otd: noto/NotoSans-Regular.otd shs/SourceHanSansTC-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-TW-Extended.otf: nowar/gbk-NowarUI-TW-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4695,6 +4833,7 @@ nowar/korean-NowarUI-TW-Extended.otd: nowar/unspec-NowarUI-TW-Extended.otd
 nowar/unspec-NowarUI-HK-Extended.otf: nowar/unspec-NowarUI-HK-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-HK-Extended.otd: noto/NotoSans-Regular.otd shs/SourceHanSansHC-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-HK-Extended.otf: nowar/gbk-NowarUI-HK-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4715,6 +4854,7 @@ nowar/korean-NowarUI-HK-Extended.otd: nowar/unspec-NowarUI-HK-Extended.otd
 nowar/unspec-NowarUI-JP-Extended.otf: nowar/unspec-NowarUI-JP-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-JP-Extended.otd: noto/NotoSans-Regular.otd shs/SourceHanSans-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-JP-Extended.otf: nowar/gbk-NowarUI-JP-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4735,6 +4875,7 @@ nowar/korean-NowarUI-JP-Extended.otd: nowar/unspec-NowarUI-JP-Extended.otd
 nowar/unspec-NowarUI-KR-Extended.otf: nowar/unspec-NowarUI-KR-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-KR-Extended.otd: noto/NotoSans-Regular.otd shs/SourceHanSansK-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-KR-Extended.otf: nowar/gbk-NowarUI-KR-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4755,6 +4896,7 @@ nowar/korean-NowarUI-KR-Extended.otd: nowar/unspec-NowarUI-KR-Extended.otd
 nowar/unspec-NowarUI-CL-Extended.otf: nowar/unspec-NowarUI-CL-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CL-Extended.otd: noto/NotoSans-Regular.otd shs/SourceHanSansK-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CL-Extended.otf: nowar/gbk-NowarUI-CL-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4775,6 +4917,7 @@ nowar/korean-NowarUI-CL-Extended.otd: nowar/unspec-NowarUI-CL-Extended.otd
 nowar/unspec-NowarUI-OSF-Extended.otf: nowar/unspec-NowarUI-OSF-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-OSF-Extended.otd: noto/NotoSans-Regular.otd shs/SourceHanSansK-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-OSF-Extended.otf: nowar/gbk-NowarUI-OSF-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4795,6 +4938,7 @@ nowar/korean-NowarUI-OSF-Extended.otd: nowar/unspec-NowarUI-OSF-Extended.otd
 nowar/unspec-NowarUI-GB-Extended.otf: nowar/unspec-NowarUI-GB-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-GB-Extended.otd: noto/NotoSans-Regular.otd shs/SourceHanSansCN-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-GB-Extended.otf: nowar/gbk-NowarUI-GB-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4815,6 +4959,7 @@ nowar/korean-NowarUI-GB-Extended.otd: nowar/unspec-NowarUI-GB-Extended.otd
 nowar/unspec-NowarUI-CN-CondensedMedium.otf: nowar/unspec-NowarUI-CN-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-CondensedMedium.otd: noto/NotoSans-CondensedMedium.otd shs/SourceHanSansSC-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CN-CondensedMedium.otf: nowar/gbk-NowarUI-CN-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4835,6 +4980,7 @@ nowar/korean-NowarUI-CN-CondensedMedium.otd: nowar/unspec-NowarUI-CN-CondensedMe
 nowar/unspec-NowarUI-TW-CondensedMedium.otf: nowar/unspec-NowarUI-TW-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-TW-CondensedMedium.otd: noto/NotoSans-CondensedMedium.otd shs/SourceHanSansTC-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-TW-CondensedMedium.otf: nowar/gbk-NowarUI-TW-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4855,6 +5001,7 @@ nowar/korean-NowarUI-TW-CondensedMedium.otd: nowar/unspec-NowarUI-TW-CondensedMe
 nowar/unspec-NowarUI-HK-CondensedMedium.otf: nowar/unspec-NowarUI-HK-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-HK-CondensedMedium.otd: noto/NotoSans-CondensedMedium.otd shs/SourceHanSansHC-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-HK-CondensedMedium.otf: nowar/gbk-NowarUI-HK-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4875,6 +5022,7 @@ nowar/korean-NowarUI-HK-CondensedMedium.otd: nowar/unspec-NowarUI-HK-CondensedMe
 nowar/unspec-NowarUI-JP-CondensedMedium.otf: nowar/unspec-NowarUI-JP-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-JP-CondensedMedium.otd: noto/NotoSans-CondensedMedium.otd shs/SourceHanSans-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-JP-CondensedMedium.otf: nowar/gbk-NowarUI-JP-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4895,6 +5043,7 @@ nowar/korean-NowarUI-JP-CondensedMedium.otd: nowar/unspec-NowarUI-JP-CondensedMe
 nowar/unspec-NowarUI-KR-CondensedMedium.otf: nowar/unspec-NowarUI-KR-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-KR-CondensedMedium.otd: noto/NotoSans-CondensedMedium.otd shs/SourceHanSansK-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-KR-CondensedMedium.otf: nowar/gbk-NowarUI-KR-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4915,6 +5064,7 @@ nowar/korean-NowarUI-KR-CondensedMedium.otd: nowar/unspec-NowarUI-KR-CondensedMe
 nowar/unspec-NowarUI-CL-CondensedMedium.otf: nowar/unspec-NowarUI-CL-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CL-CondensedMedium.otd: noto/NotoSans-CondensedMedium.otd shs/SourceHanSansK-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CL-CondensedMedium.otf: nowar/gbk-NowarUI-CL-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4935,6 +5085,7 @@ nowar/korean-NowarUI-CL-CondensedMedium.otd: nowar/unspec-NowarUI-CL-CondensedMe
 nowar/unspec-NowarUI-OSF-CondensedMedium.otf: nowar/unspec-NowarUI-OSF-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-OSF-CondensedMedium.otd: noto/NotoSans-CondensedMedium.otd shs/SourceHanSansK-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-OSF-CondensedMedium.otf: nowar/gbk-NowarUI-OSF-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4955,6 +5106,7 @@ nowar/korean-NowarUI-OSF-CondensedMedium.otd: nowar/unspec-NowarUI-OSF-Condensed
 nowar/unspec-NowarUI-GB-CondensedMedium.otf: nowar/unspec-NowarUI-GB-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-GB-CondensedMedium.otd: noto/NotoSans-CondensedMedium.otd shs/SourceHanSansCN-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-GB-CondensedMedium.otf: nowar/gbk-NowarUI-GB-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4975,6 +5127,7 @@ nowar/korean-NowarUI-GB-CondensedMedium.otd: nowar/unspec-NowarUI-GB-CondensedMe
 nowar/unspec-NowarUI-CN-Medium.otf: nowar/unspec-NowarUI-CN-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd shs/SourceHanSansSC-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CN-Medium.otf: nowar/gbk-NowarUI-CN-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -4995,6 +5148,7 @@ nowar/korean-NowarUI-CN-Medium.otd: nowar/unspec-NowarUI-CN-Medium.otd
 nowar/unspec-NowarUI-TW-Medium.otf: nowar/unspec-NowarUI-TW-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-TW-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd shs/SourceHanSansTC-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-TW-Medium.otf: nowar/gbk-NowarUI-TW-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5015,6 +5169,7 @@ nowar/korean-NowarUI-TW-Medium.otd: nowar/unspec-NowarUI-TW-Medium.otd
 nowar/unspec-NowarUI-HK-Medium.otf: nowar/unspec-NowarUI-HK-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-HK-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd shs/SourceHanSansHC-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-HK-Medium.otf: nowar/gbk-NowarUI-HK-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5035,6 +5190,7 @@ nowar/korean-NowarUI-HK-Medium.otd: nowar/unspec-NowarUI-HK-Medium.otd
 nowar/unspec-NowarUI-JP-Medium.otf: nowar/unspec-NowarUI-JP-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-JP-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd shs/SourceHanSans-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-JP-Medium.otf: nowar/gbk-NowarUI-JP-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5055,6 +5211,7 @@ nowar/korean-NowarUI-JP-Medium.otd: nowar/unspec-NowarUI-JP-Medium.otd
 nowar/unspec-NowarUI-KR-Medium.otf: nowar/unspec-NowarUI-KR-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-KR-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd shs/SourceHanSansK-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-KR-Medium.otf: nowar/gbk-NowarUI-KR-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5075,6 +5232,7 @@ nowar/korean-NowarUI-KR-Medium.otd: nowar/unspec-NowarUI-KR-Medium.otd
 nowar/unspec-NowarUI-CL-Medium.otf: nowar/unspec-NowarUI-CL-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CL-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd shs/SourceHanSansK-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CL-Medium.otf: nowar/gbk-NowarUI-CL-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5095,6 +5253,7 @@ nowar/korean-NowarUI-CL-Medium.otd: nowar/unspec-NowarUI-CL-Medium.otd
 nowar/unspec-NowarUI-OSF-Medium.otf: nowar/unspec-NowarUI-OSF-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-OSF-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd shs/SourceHanSansK-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-OSF-Medium.otf: nowar/gbk-NowarUI-OSF-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5115,6 +5274,7 @@ nowar/korean-NowarUI-OSF-Medium.otd: nowar/unspec-NowarUI-OSF-Medium.otd
 nowar/unspec-NowarUI-GB-Medium.otf: nowar/unspec-NowarUI-GB-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-GB-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd shs/SourceHanSansCN-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-GB-Medium.otf: nowar/gbk-NowarUI-GB-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5135,6 +5295,7 @@ nowar/korean-NowarUI-GB-Medium.otd: nowar/unspec-NowarUI-GB-Medium.otd
 nowar/unspec-NowarUI-CN-ExtendedMedium.otf: nowar/unspec-NowarUI-CN-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-ExtendedMedium.otd: noto/NotoSans-Medium.otd shs/SourceHanSansSC-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CN-ExtendedMedium.otf: nowar/gbk-NowarUI-CN-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5155,6 +5316,7 @@ nowar/korean-NowarUI-CN-ExtendedMedium.otd: nowar/unspec-NowarUI-CN-ExtendedMedi
 nowar/unspec-NowarUI-TW-ExtendedMedium.otf: nowar/unspec-NowarUI-TW-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-TW-ExtendedMedium.otd: noto/NotoSans-Medium.otd shs/SourceHanSansTC-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-TW-ExtendedMedium.otf: nowar/gbk-NowarUI-TW-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5175,6 +5337,7 @@ nowar/korean-NowarUI-TW-ExtendedMedium.otd: nowar/unspec-NowarUI-TW-ExtendedMedi
 nowar/unspec-NowarUI-HK-ExtendedMedium.otf: nowar/unspec-NowarUI-HK-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-HK-ExtendedMedium.otd: noto/NotoSans-Medium.otd shs/SourceHanSansHC-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-HK-ExtendedMedium.otf: nowar/gbk-NowarUI-HK-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5195,6 +5358,7 @@ nowar/korean-NowarUI-HK-ExtendedMedium.otd: nowar/unspec-NowarUI-HK-ExtendedMedi
 nowar/unspec-NowarUI-JP-ExtendedMedium.otf: nowar/unspec-NowarUI-JP-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-JP-ExtendedMedium.otd: noto/NotoSans-Medium.otd shs/SourceHanSans-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-JP-ExtendedMedium.otf: nowar/gbk-NowarUI-JP-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5215,6 +5379,7 @@ nowar/korean-NowarUI-JP-ExtendedMedium.otd: nowar/unspec-NowarUI-JP-ExtendedMedi
 nowar/unspec-NowarUI-KR-ExtendedMedium.otf: nowar/unspec-NowarUI-KR-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-KR-ExtendedMedium.otd: noto/NotoSans-Medium.otd shs/SourceHanSansK-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-KR-ExtendedMedium.otf: nowar/gbk-NowarUI-KR-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5235,6 +5400,7 @@ nowar/korean-NowarUI-KR-ExtendedMedium.otd: nowar/unspec-NowarUI-KR-ExtendedMedi
 nowar/unspec-NowarUI-CL-ExtendedMedium.otf: nowar/unspec-NowarUI-CL-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CL-ExtendedMedium.otd: noto/NotoSans-Medium.otd shs/SourceHanSansK-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CL-ExtendedMedium.otf: nowar/gbk-NowarUI-CL-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5255,6 +5421,7 @@ nowar/korean-NowarUI-CL-ExtendedMedium.otd: nowar/unspec-NowarUI-CL-ExtendedMedi
 nowar/unspec-NowarUI-OSF-ExtendedMedium.otf: nowar/unspec-NowarUI-OSF-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-OSF-ExtendedMedium.otd: noto/NotoSans-Medium.otd shs/SourceHanSansK-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-OSF-ExtendedMedium.otf: nowar/gbk-NowarUI-OSF-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5275,6 +5442,7 @@ nowar/korean-NowarUI-OSF-ExtendedMedium.otd: nowar/unspec-NowarUI-OSF-ExtendedMe
 nowar/unspec-NowarUI-GB-ExtendedMedium.otf: nowar/unspec-NowarUI-GB-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-GB-ExtendedMedium.otd: noto/NotoSans-Medium.otd shs/SourceHanSansCN-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-GB-ExtendedMedium.otf: nowar/gbk-NowarUI-GB-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5295,6 +5463,7 @@ nowar/korean-NowarUI-GB-ExtendedMedium.otd: nowar/unspec-NowarUI-GB-ExtendedMedi
 nowar/unspec-NowarUI-CN-CondensedBold.otf: nowar/unspec-NowarUI-CN-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-CondensedBold.otd: noto/NotoSans-CondensedBold.otd shs/SourceHanSansSC-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CN-CondensedBold.otf: nowar/gbk-NowarUI-CN-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5315,6 +5484,7 @@ nowar/korean-NowarUI-CN-CondensedBold.otd: nowar/unspec-NowarUI-CN-CondensedBold
 nowar/unspec-NowarUI-TW-CondensedBold.otf: nowar/unspec-NowarUI-TW-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-TW-CondensedBold.otd: noto/NotoSans-CondensedBold.otd shs/SourceHanSansTC-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-TW-CondensedBold.otf: nowar/gbk-NowarUI-TW-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5335,6 +5505,7 @@ nowar/korean-NowarUI-TW-CondensedBold.otd: nowar/unspec-NowarUI-TW-CondensedBold
 nowar/unspec-NowarUI-HK-CondensedBold.otf: nowar/unspec-NowarUI-HK-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-HK-CondensedBold.otd: noto/NotoSans-CondensedBold.otd shs/SourceHanSansHC-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-HK-CondensedBold.otf: nowar/gbk-NowarUI-HK-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5355,6 +5526,7 @@ nowar/korean-NowarUI-HK-CondensedBold.otd: nowar/unspec-NowarUI-HK-CondensedBold
 nowar/unspec-NowarUI-JP-CondensedBold.otf: nowar/unspec-NowarUI-JP-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-JP-CondensedBold.otd: noto/NotoSans-CondensedBold.otd shs/SourceHanSans-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-JP-CondensedBold.otf: nowar/gbk-NowarUI-JP-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5375,6 +5547,7 @@ nowar/korean-NowarUI-JP-CondensedBold.otd: nowar/unspec-NowarUI-JP-CondensedBold
 nowar/unspec-NowarUI-KR-CondensedBold.otf: nowar/unspec-NowarUI-KR-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-KR-CondensedBold.otd: noto/NotoSans-CondensedBold.otd shs/SourceHanSansK-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-KR-CondensedBold.otf: nowar/gbk-NowarUI-KR-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5395,6 +5568,7 @@ nowar/korean-NowarUI-KR-CondensedBold.otd: nowar/unspec-NowarUI-KR-CondensedBold
 nowar/unspec-NowarUI-CL-CondensedBold.otf: nowar/unspec-NowarUI-CL-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CL-CondensedBold.otd: noto/NotoSans-CondensedBold.otd shs/SourceHanSansK-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CL-CondensedBold.otf: nowar/gbk-NowarUI-CL-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5415,6 +5589,7 @@ nowar/korean-NowarUI-CL-CondensedBold.otd: nowar/unspec-NowarUI-CL-CondensedBold
 nowar/unspec-NowarUI-OSF-CondensedBold.otf: nowar/unspec-NowarUI-OSF-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-OSF-CondensedBold.otd: noto/NotoSans-CondensedBold.otd shs/SourceHanSansK-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-OSF-CondensedBold.otf: nowar/gbk-NowarUI-OSF-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5435,6 +5610,7 @@ nowar/korean-NowarUI-OSF-CondensedBold.otd: nowar/unspec-NowarUI-OSF-CondensedBo
 nowar/unspec-NowarUI-GB-CondensedBold.otf: nowar/unspec-NowarUI-GB-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-GB-CondensedBold.otd: noto/NotoSans-CondensedBold.otd shs/SourceHanSansCN-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-GB-CondensedBold.otf: nowar/gbk-NowarUI-GB-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5455,6 +5631,7 @@ nowar/korean-NowarUI-GB-CondensedBold.otd: nowar/unspec-NowarUI-GB-CondensedBold
 nowar/unspec-NowarUI-CN-Bold.otf: nowar/unspec-NowarUI-CN-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-Bold.otd: noto/NotoSans-SemiCondensedBold.otd shs/SourceHanSansSC-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CN-Bold.otf: nowar/gbk-NowarUI-CN-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5475,6 +5652,7 @@ nowar/korean-NowarUI-CN-Bold.otd: nowar/unspec-NowarUI-CN-Bold.otd
 nowar/unspec-NowarUI-TW-Bold.otf: nowar/unspec-NowarUI-TW-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-TW-Bold.otd: noto/NotoSans-SemiCondensedBold.otd shs/SourceHanSansTC-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-TW-Bold.otf: nowar/gbk-NowarUI-TW-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5495,6 +5673,7 @@ nowar/korean-NowarUI-TW-Bold.otd: nowar/unspec-NowarUI-TW-Bold.otd
 nowar/unspec-NowarUI-HK-Bold.otf: nowar/unspec-NowarUI-HK-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-HK-Bold.otd: noto/NotoSans-SemiCondensedBold.otd shs/SourceHanSansHC-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-HK-Bold.otf: nowar/gbk-NowarUI-HK-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5515,6 +5694,7 @@ nowar/korean-NowarUI-HK-Bold.otd: nowar/unspec-NowarUI-HK-Bold.otd
 nowar/unspec-NowarUI-JP-Bold.otf: nowar/unspec-NowarUI-JP-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-JP-Bold.otd: noto/NotoSans-SemiCondensedBold.otd shs/SourceHanSans-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-JP-Bold.otf: nowar/gbk-NowarUI-JP-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5535,6 +5715,7 @@ nowar/korean-NowarUI-JP-Bold.otd: nowar/unspec-NowarUI-JP-Bold.otd
 nowar/unspec-NowarUI-KR-Bold.otf: nowar/unspec-NowarUI-KR-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-KR-Bold.otd: noto/NotoSans-SemiCondensedBold.otd shs/SourceHanSansK-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-KR-Bold.otf: nowar/gbk-NowarUI-KR-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5555,6 +5736,7 @@ nowar/korean-NowarUI-KR-Bold.otd: nowar/unspec-NowarUI-KR-Bold.otd
 nowar/unspec-NowarUI-CL-Bold.otf: nowar/unspec-NowarUI-CL-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CL-Bold.otd: noto/NotoSans-SemiCondensedBold.otd shs/SourceHanSansK-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CL-Bold.otf: nowar/gbk-NowarUI-CL-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5575,6 +5757,7 @@ nowar/korean-NowarUI-CL-Bold.otd: nowar/unspec-NowarUI-CL-Bold.otd
 nowar/unspec-NowarUI-OSF-Bold.otf: nowar/unspec-NowarUI-OSF-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-OSF-Bold.otd: noto/NotoSans-SemiCondensedBold.otd shs/SourceHanSansK-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-OSF-Bold.otf: nowar/gbk-NowarUI-OSF-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5595,6 +5778,7 @@ nowar/korean-NowarUI-OSF-Bold.otd: nowar/unspec-NowarUI-OSF-Bold.otd
 nowar/unspec-NowarUI-GB-Bold.otf: nowar/unspec-NowarUI-GB-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-GB-Bold.otd: noto/NotoSans-SemiCondensedBold.otd shs/SourceHanSansCN-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-GB-Bold.otf: nowar/gbk-NowarUI-GB-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5615,6 +5799,7 @@ nowar/korean-NowarUI-GB-Bold.otd: nowar/unspec-NowarUI-GB-Bold.otd
 nowar/unspec-NowarUI-CN-ExtendedBold.otf: nowar/unspec-NowarUI-CN-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-ExtendedBold.otd: noto/NotoSans-Bold.otd shs/SourceHanSansSC-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CN-ExtendedBold.otf: nowar/gbk-NowarUI-CN-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5635,6 +5820,7 @@ nowar/korean-NowarUI-CN-ExtendedBold.otd: nowar/unspec-NowarUI-CN-ExtendedBold.o
 nowar/unspec-NowarUI-TW-ExtendedBold.otf: nowar/unspec-NowarUI-TW-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-TW-ExtendedBold.otd: noto/NotoSans-Bold.otd shs/SourceHanSansTC-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-TW-ExtendedBold.otf: nowar/gbk-NowarUI-TW-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5655,6 +5841,7 @@ nowar/korean-NowarUI-TW-ExtendedBold.otd: nowar/unspec-NowarUI-TW-ExtendedBold.o
 nowar/unspec-NowarUI-HK-ExtendedBold.otf: nowar/unspec-NowarUI-HK-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-HK-ExtendedBold.otd: noto/NotoSans-Bold.otd shs/SourceHanSansHC-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-HK-ExtendedBold.otf: nowar/gbk-NowarUI-HK-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5675,6 +5862,7 @@ nowar/korean-NowarUI-HK-ExtendedBold.otd: nowar/unspec-NowarUI-HK-ExtendedBold.o
 nowar/unspec-NowarUI-JP-ExtendedBold.otf: nowar/unspec-NowarUI-JP-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-JP-ExtendedBold.otd: noto/NotoSans-Bold.otd shs/SourceHanSans-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-JP-ExtendedBold.otf: nowar/gbk-NowarUI-JP-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5695,6 +5883,7 @@ nowar/korean-NowarUI-JP-ExtendedBold.otd: nowar/unspec-NowarUI-JP-ExtendedBold.o
 nowar/unspec-NowarUI-KR-ExtendedBold.otf: nowar/unspec-NowarUI-KR-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-KR-ExtendedBold.otd: noto/NotoSans-Bold.otd shs/SourceHanSansK-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-KR-ExtendedBold.otf: nowar/gbk-NowarUI-KR-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5715,6 +5904,7 @@ nowar/korean-NowarUI-KR-ExtendedBold.otd: nowar/unspec-NowarUI-KR-ExtendedBold.o
 nowar/unspec-NowarUI-CL-ExtendedBold.otf: nowar/unspec-NowarUI-CL-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CL-ExtendedBold.otd: noto/NotoSans-Bold.otd shs/SourceHanSansK-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-CL-ExtendedBold.otf: nowar/gbk-NowarUI-CL-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5735,6 +5925,7 @@ nowar/korean-NowarUI-CL-ExtendedBold.otd: nowar/unspec-NowarUI-CL-ExtendedBold.o
 nowar/unspec-NowarUI-OSF-ExtendedBold.otf: nowar/unspec-NowarUI-OSF-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-OSF-ExtendedBold.otd: noto/NotoSans-Bold.otd shs/SourceHanSansK-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-OSF-ExtendedBold.otf: nowar/gbk-NowarUI-OSF-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5755,6 +5946,7 @@ nowar/korean-NowarUI-OSF-ExtendedBold.otd: nowar/unspec-NowarUI-OSF-ExtendedBold
 nowar/unspec-NowarUI-GB-ExtendedBold.otf: nowar/unspec-NowarUI-GB-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-GB-ExtendedBold.otd: noto/NotoSans-Bold.otd shs/SourceHanSansCN-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarUI-GB-ExtendedBold.otf: nowar/gbk-NowarUI-GB-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5775,6 +5967,7 @@ nowar/korean-NowarUI-GB-ExtendedBold.otd: nowar/unspec-NowarUI-GB-ExtendedBold.o
 nowar/unspec-NowarWarcraftSans-CN-Light.otf: nowar/unspec-NowarWarcraftSans-CN-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-CN-Light.otd: noto/NotoSans-SemiCondensedLight.otd noto/NotoSans-CondensedLight.otd shs/SourceHanSansSC-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-CN-Light.otf: nowar/gbk-NowarWarcraftSans-CN-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5795,6 +5988,7 @@ nowar/korean-NowarWarcraftSans-CN-Light.otd: nowar/unspec-NowarWarcraftSans-CN-L
 nowar/unspec-NowarWarcraftSans-TW-Light.otf: nowar/unspec-NowarWarcraftSans-TW-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-TW-Light.otd: noto/NotoSans-SemiCondensedLight.otd noto/NotoSans-CondensedLight.otd shs/SourceHanSansTC-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-TW-Light.otf: nowar/gbk-NowarWarcraftSans-TW-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5815,6 +6009,7 @@ nowar/korean-NowarWarcraftSans-TW-Light.otd: nowar/unspec-NowarWarcraftSans-TW-L
 nowar/unspec-NowarWarcraftSans-HK-Light.otf: nowar/unspec-NowarWarcraftSans-HK-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-HK-Light.otd: noto/NotoSans-SemiCondensedLight.otd noto/NotoSans-CondensedLight.otd shs/SourceHanSansHC-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-HK-Light.otf: nowar/gbk-NowarWarcraftSans-HK-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5835,6 +6030,7 @@ nowar/korean-NowarWarcraftSans-HK-Light.otd: nowar/unspec-NowarWarcraftSans-HK-L
 nowar/unspec-NowarWarcraftSans-JP-Light.otf: nowar/unspec-NowarWarcraftSans-JP-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-JP-Light.otd: noto/NotoSans-SemiCondensedLight.otd noto/NotoSans-CondensedLight.otd shs/SourceHanSans-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-JP-Light.otf: nowar/gbk-NowarWarcraftSans-JP-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5855,6 +6051,7 @@ nowar/korean-NowarWarcraftSans-JP-Light.otd: nowar/unspec-NowarWarcraftSans-JP-L
 nowar/unspec-NowarWarcraftSans-KR-Light.otf: nowar/unspec-NowarWarcraftSans-KR-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-KR-Light.otd: noto/NotoSans-SemiCondensedLight.otd noto/NotoSans-CondensedLight.otd shs/SourceHanSansK-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-KR-Light.otf: nowar/gbk-NowarWarcraftSans-KR-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5875,6 +6072,7 @@ nowar/korean-NowarWarcraftSans-KR-Light.otd: nowar/unspec-NowarWarcraftSans-KR-L
 nowar/unspec-NowarWarcraftSans-CL-Light.otf: nowar/unspec-NowarWarcraftSans-CL-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-CL-Light.otd: noto/NotoSans-SemiCondensedLight.otd noto/NotoSans-CondensedLight.otd shs/SourceHanSansK-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-CL-Light.otf: nowar/gbk-NowarWarcraftSans-CL-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5895,6 +6093,7 @@ nowar/korean-NowarWarcraftSans-CL-Light.otd: nowar/unspec-NowarWarcraftSans-CL-L
 nowar/unspec-NowarWarcraftSans-OSF-Light.otf: nowar/unspec-NowarWarcraftSans-OSF-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-OSF-Light.otd: noto/NotoSans-SemiCondensedLight.otd noto/NotoSans-CondensedLight.otd shs/SourceHanSansK-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-OSF-Light.otf: nowar/gbk-NowarWarcraftSans-OSF-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5915,6 +6114,7 @@ nowar/korean-NowarWarcraftSans-OSF-Light.otd: nowar/unspec-NowarWarcraftSans-OSF
 nowar/unspec-NowarWarcraftSans-GB-Light.otf: nowar/unspec-NowarWarcraftSans-GB-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-GB-Light.otd: noto/NotoSans-SemiCondensedLight.otd noto/NotoSans-CondensedLight.otd shs/SourceHanSansCN-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-GB-Light.otf: nowar/gbk-NowarWarcraftSans-GB-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5935,6 +6135,7 @@ nowar/korean-NowarWarcraftSans-GB-Light.otd: nowar/unspec-NowarWarcraftSans-GB-L
 nowar/unspec-NowarWarcraftSans-CN-Regular.otf: nowar/unspec-NowarWarcraftSans-CN-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-CN-Regular.otd: noto/NotoSans-SemiCondensed.otd noto/NotoSans-Condensed.otd shs/SourceHanSansSC-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-CN-Regular.otf: nowar/gbk-NowarWarcraftSans-CN-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5955,6 +6156,7 @@ nowar/korean-NowarWarcraftSans-CN-Regular.otd: nowar/unspec-NowarWarcraftSans-CN
 nowar/unspec-NowarWarcraftSans-TW-Regular.otf: nowar/unspec-NowarWarcraftSans-TW-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-TW-Regular.otd: noto/NotoSans-SemiCondensed.otd noto/NotoSans-Condensed.otd shs/SourceHanSansTC-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-TW-Regular.otf: nowar/gbk-NowarWarcraftSans-TW-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5975,6 +6177,7 @@ nowar/korean-NowarWarcraftSans-TW-Regular.otd: nowar/unspec-NowarWarcraftSans-TW
 nowar/unspec-NowarWarcraftSans-HK-Regular.otf: nowar/unspec-NowarWarcraftSans-HK-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-HK-Regular.otd: noto/NotoSans-SemiCondensed.otd noto/NotoSans-Condensed.otd shs/SourceHanSansHC-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-HK-Regular.otf: nowar/gbk-NowarWarcraftSans-HK-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -5995,6 +6198,7 @@ nowar/korean-NowarWarcraftSans-HK-Regular.otd: nowar/unspec-NowarWarcraftSans-HK
 nowar/unspec-NowarWarcraftSans-JP-Regular.otf: nowar/unspec-NowarWarcraftSans-JP-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-JP-Regular.otd: noto/NotoSans-SemiCondensed.otd noto/NotoSans-Condensed.otd shs/SourceHanSans-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-JP-Regular.otf: nowar/gbk-NowarWarcraftSans-JP-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -6015,6 +6219,7 @@ nowar/korean-NowarWarcraftSans-JP-Regular.otd: nowar/unspec-NowarWarcraftSans-JP
 nowar/unspec-NowarWarcraftSans-KR-Regular.otf: nowar/unspec-NowarWarcraftSans-KR-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-KR-Regular.otd: noto/NotoSans-SemiCondensed.otd noto/NotoSans-Condensed.otd shs/SourceHanSansK-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-KR-Regular.otf: nowar/gbk-NowarWarcraftSans-KR-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -6035,6 +6240,7 @@ nowar/korean-NowarWarcraftSans-KR-Regular.otd: nowar/unspec-NowarWarcraftSans-KR
 nowar/unspec-NowarWarcraftSans-CL-Regular.otf: nowar/unspec-NowarWarcraftSans-CL-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-CL-Regular.otd: noto/NotoSans-SemiCondensed.otd noto/NotoSans-Condensed.otd shs/SourceHanSansK-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-CL-Regular.otf: nowar/gbk-NowarWarcraftSans-CL-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -6055,6 +6261,7 @@ nowar/korean-NowarWarcraftSans-CL-Regular.otd: nowar/unspec-NowarWarcraftSans-CL
 nowar/unspec-NowarWarcraftSans-OSF-Regular.otf: nowar/unspec-NowarWarcraftSans-OSF-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-OSF-Regular.otd: noto/NotoSans-SemiCondensed.otd noto/NotoSans-Condensed.otd shs/SourceHanSansK-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-OSF-Regular.otf: nowar/gbk-NowarWarcraftSans-OSF-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -6075,6 +6282,7 @@ nowar/korean-NowarWarcraftSans-OSF-Regular.otd: nowar/unspec-NowarWarcraftSans-O
 nowar/unspec-NowarWarcraftSans-GB-Regular.otf: nowar/unspec-NowarWarcraftSans-GB-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-GB-Regular.otd: noto/NotoSans-SemiCondensed.otd noto/NotoSans-Condensed.otd shs/SourceHanSansCN-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-GB-Regular.otf: nowar/gbk-NowarWarcraftSans-GB-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -6095,6 +6303,7 @@ nowar/korean-NowarWarcraftSans-GB-Regular.otd: nowar/unspec-NowarWarcraftSans-GB
 nowar/unspec-NowarWarcraftSans-CN-Medium.otf: nowar/unspec-NowarWarcraftSans-CN-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-CN-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd noto/NotoSans-CondensedMedium.otd shs/SourceHanSansSC-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-CN-Medium.otf: nowar/gbk-NowarWarcraftSans-CN-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -6115,6 +6324,7 @@ nowar/korean-NowarWarcraftSans-CN-Medium.otd: nowar/unspec-NowarWarcraftSans-CN-
 nowar/unspec-NowarWarcraftSans-TW-Medium.otf: nowar/unspec-NowarWarcraftSans-TW-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-TW-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd noto/NotoSans-CondensedMedium.otd shs/SourceHanSansTC-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-TW-Medium.otf: nowar/gbk-NowarWarcraftSans-TW-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -6135,6 +6345,7 @@ nowar/korean-NowarWarcraftSans-TW-Medium.otd: nowar/unspec-NowarWarcraftSans-TW-
 nowar/unspec-NowarWarcraftSans-HK-Medium.otf: nowar/unspec-NowarWarcraftSans-HK-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-HK-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd noto/NotoSans-CondensedMedium.otd shs/SourceHanSansHC-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-HK-Medium.otf: nowar/gbk-NowarWarcraftSans-HK-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -6155,6 +6366,7 @@ nowar/korean-NowarWarcraftSans-HK-Medium.otd: nowar/unspec-NowarWarcraftSans-HK-
 nowar/unspec-NowarWarcraftSans-JP-Medium.otf: nowar/unspec-NowarWarcraftSans-JP-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-JP-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd noto/NotoSans-CondensedMedium.otd shs/SourceHanSans-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-JP-Medium.otf: nowar/gbk-NowarWarcraftSans-JP-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -6175,6 +6387,7 @@ nowar/korean-NowarWarcraftSans-JP-Medium.otd: nowar/unspec-NowarWarcraftSans-JP-
 nowar/unspec-NowarWarcraftSans-KR-Medium.otf: nowar/unspec-NowarWarcraftSans-KR-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-KR-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd noto/NotoSans-CondensedMedium.otd shs/SourceHanSansK-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-KR-Medium.otf: nowar/gbk-NowarWarcraftSans-KR-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -6195,6 +6408,7 @@ nowar/korean-NowarWarcraftSans-KR-Medium.otd: nowar/unspec-NowarWarcraftSans-KR-
 nowar/unspec-NowarWarcraftSans-CL-Medium.otf: nowar/unspec-NowarWarcraftSans-CL-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-CL-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd noto/NotoSans-CondensedMedium.otd shs/SourceHanSansK-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-CL-Medium.otf: nowar/gbk-NowarWarcraftSans-CL-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -6215,6 +6429,7 @@ nowar/korean-NowarWarcraftSans-CL-Medium.otd: nowar/unspec-NowarWarcraftSans-CL-
 nowar/unspec-NowarWarcraftSans-OSF-Medium.otf: nowar/unspec-NowarWarcraftSans-OSF-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-OSF-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd noto/NotoSans-CondensedMedium.otd shs/SourceHanSansK-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-OSF-Medium.otf: nowar/gbk-NowarWarcraftSans-OSF-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -6235,6 +6450,7 @@ nowar/korean-NowarWarcraftSans-OSF-Medium.otd: nowar/unspec-NowarWarcraftSans-OS
 nowar/unspec-NowarWarcraftSans-GB-Medium.otf: nowar/unspec-NowarWarcraftSans-GB-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-GB-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd noto/NotoSans-CondensedMedium.otd shs/SourceHanSansCN-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-GB-Medium.otf: nowar/gbk-NowarWarcraftSans-GB-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -6255,6 +6471,7 @@ nowar/korean-NowarWarcraftSans-GB-Medium.otd: nowar/unspec-NowarWarcraftSans-GB-
 nowar/unspec-NowarWarcraftSans-CN-Bold.otf: nowar/unspec-NowarWarcraftSans-CN-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-CN-Bold.otd: noto/NotoSans-SemiCondensedBold.otd noto/NotoSans-CondensedBold.otd shs/SourceHanSansSC-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"CN\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-CN-Bold.otf: nowar/gbk-NowarWarcraftSans-CN-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -6275,6 +6492,7 @@ nowar/korean-NowarWarcraftSans-CN-Bold.otd: nowar/unspec-NowarWarcraftSans-CN-Bo
 nowar/unspec-NowarWarcraftSans-TW-Bold.otf: nowar/unspec-NowarWarcraftSans-TW-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-TW-Bold.otd: noto/NotoSans-SemiCondensedBold.otd noto/NotoSans-CondensedBold.otd shs/SourceHanSansTC-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"TW\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-TW-Bold.otf: nowar/gbk-NowarWarcraftSans-TW-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -6295,6 +6513,7 @@ nowar/korean-NowarWarcraftSans-TW-Bold.otd: nowar/unspec-NowarWarcraftSans-TW-Bo
 nowar/unspec-NowarWarcraftSans-HK-Bold.otf: nowar/unspec-NowarWarcraftSans-HK-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-HK-Bold.otd: noto/NotoSans-SemiCondensedBold.otd noto/NotoSans-CondensedBold.otd shs/SourceHanSansHC-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"HK\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-HK-Bold.otf: nowar/gbk-NowarWarcraftSans-HK-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -6315,6 +6534,7 @@ nowar/korean-NowarWarcraftSans-HK-Bold.otd: nowar/unspec-NowarWarcraftSans-HK-Bo
 nowar/unspec-NowarWarcraftSans-JP-Bold.otf: nowar/unspec-NowarWarcraftSans-JP-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-JP-Bold.otd: noto/NotoSans-SemiCondensedBold.otd noto/NotoSans-CondensedBold.otd shs/SourceHanSans-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"JP\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-JP-Bold.otf: nowar/gbk-NowarWarcraftSans-JP-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -6335,6 +6555,7 @@ nowar/korean-NowarWarcraftSans-JP-Bold.otd: nowar/unspec-NowarWarcraftSans-JP-Bo
 nowar/unspec-NowarWarcraftSans-KR-Bold.otf: nowar/unspec-NowarWarcraftSans-KR-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-KR-Bold.otd: noto/NotoSans-SemiCondensedBold.otd noto/NotoSans-CondensedBold.otd shs/SourceHanSansK-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"KR\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-KR-Bold.otf: nowar/gbk-NowarWarcraftSans-KR-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -6355,6 +6576,7 @@ nowar/korean-NowarWarcraftSans-KR-Bold.otd: nowar/unspec-NowarWarcraftSans-KR-Bo
 nowar/unspec-NowarWarcraftSans-CL-Bold.otf: nowar/unspec-NowarWarcraftSans-CL-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-CL-Bold.otd: noto/NotoSans-SemiCondensedBold.otd noto/NotoSans-CondensedBold.otd shs/SourceHanSansK-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"CL\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-CL-Bold.otf: nowar/gbk-NowarWarcraftSans-CL-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -6375,6 +6597,7 @@ nowar/korean-NowarWarcraftSans-CL-Bold.otd: nowar/unspec-NowarWarcraftSans-CL-Bo
 nowar/unspec-NowarWarcraftSans-OSF-Bold.otf: nowar/unspec-NowarWarcraftSans-OSF-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-OSF-Bold.otd: noto/NotoSans-SemiCondensedBold.otd noto/NotoSans-CondensedBold.otd shs/SourceHanSansK-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"OSF\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-OSF-Bold.otf: nowar/gbk-NowarWarcraftSans-OSF-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -6395,6 +6618,7 @@ nowar/korean-NowarWarcraftSans-OSF-Bold.otd: nowar/unspec-NowarWarcraftSans-OSF-
 nowar/unspec-NowarWarcraftSans-GB-Bold.otf: nowar/unspec-NowarWarcraftSans-GB-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-GB-Bold.otd: noto/NotoSans-SemiCondensedBold.otd noto/NotoSans-CondensedBold.otd shs/SourceHanSansCN-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"unspec\"\}
 nowar/gbk-NowarWarcraftSans-GB-Bold.otf: nowar/gbk-NowarWarcraftSans-GB-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
@@ -6415,102 +6639,123 @@ nowar/korean-NowarWarcraftSans-GB-Bold.otd: nowar/unspec-NowarWarcraftSans-GB-Bo
 nowar/NowarSans-CondensedLight.otf: nowar/NowarSans-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/NowarSans-CondensedLight.otd: noto/NotoSans-CondensedLight.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Latin\",\ \"weight\":\ 300,\ \"width\":\ 3\}
 nowar/NowarSans-Light.otf: nowar/NowarSans-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/NowarSans-Light.otd: noto/NotoSans-SemiCondensedLight.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Latin\",\ \"weight\":\ 300,\ \"width\":\ 5\}
 nowar/NowarSans-ExtendedLight.otf: nowar/NowarSans-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/NowarSans-ExtendedLight.otd: noto/NotoSans-Light.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Latin\",\ \"weight\":\ 300,\ \"width\":\ 7\}
 nowar/NowarSans-Condensed.otf: nowar/NowarSans-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/NowarSans-Condensed.otd: noto/NotoSans-Condensed.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Latin\",\ \"weight\":\ 400,\ \"width\":\ 3\}
 nowar/NowarSans-Regular.otf: nowar/NowarSans-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/NowarSans-Regular.otd: noto/NotoSans-SemiCondensed.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Latin\",\ \"weight\":\ 400,\ \"width\":\ 5\}
 nowar/NowarSans-Extended.otf: nowar/NowarSans-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/NowarSans-Extended.otd: noto/NotoSans-Regular.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Latin\",\ \"weight\":\ 400,\ \"width\":\ 7\}
 nowar/NowarSans-CondensedMedium.otf: nowar/NowarSans-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/NowarSans-CondensedMedium.otd: noto/NotoSans-CondensedMedium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Latin\",\ \"weight\":\ 500,\ \"width\":\ 3\}
 nowar/NowarSans-Medium.otf: nowar/NowarSans-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/NowarSans-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Latin\",\ \"weight\":\ 500,\ \"width\":\ 5\}
 nowar/NowarSans-ExtendedMedium.otf: nowar/NowarSans-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/NowarSans-ExtendedMedium.otd: noto/NotoSans-Medium.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Latin\",\ \"weight\":\ 500,\ \"width\":\ 7\}
 nowar/NowarSans-CondensedBold.otf: nowar/NowarSans-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/NowarSans-CondensedBold.otd: noto/NotoSans-CondensedBold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Latin\",\ \"weight\":\ 700,\ \"width\":\ 3\}
 nowar/NowarSans-Bold.otf: nowar/NowarSans-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/NowarSans-Bold.otd: noto/NotoSans-SemiCondensedBold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Latin\",\ \"weight\":\ 700,\ \"width\":\ 5\}
 nowar/NowarSans-ExtendedBold.otf: nowar/NowarSans-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/NowarSans-ExtendedBold.otd: noto/NotoSans-Bold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Latin\",\ \"weight\":\ 700,\ \"width\":\ 7\}
 nowar/NowarSans-CondensedExtraLight.otf: nowar/NowarSans-CondensedExtraLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/NowarSans-CondensedExtraLight.otd: noto/NotoSans-CondensedExtraLight.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Latin\",\ \"weight\":\ 200,\ \"width\":\ 3\}
 noto/NotoSans-CondensedExtraLight.otd: noto/NotoSans-CondensedExtraLight.otf
 	otfccdump --ignore-hints $< -o $@
 nowar/NowarSans-ExtraLight.otf: nowar/NowarSans-ExtraLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/NowarSans-ExtraLight.otd: noto/NotoSans-SemiCondensedExtraLight.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Latin\",\ \"weight\":\ 200,\ \"width\":\ 5\}
 noto/NotoSans-SemiCondensedExtraLight.otd: noto/NotoSans-SemiCondensedExtraLight.otf
 	otfccdump --ignore-hints $< -o $@
 nowar/NowarSans-ExtendedExtraLight.otf: nowar/NowarSans-ExtendedExtraLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/NowarSans-ExtendedExtraLight.otd: noto/NotoSans-ExtraLight.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Latin\",\ \"weight\":\ 200,\ \"width\":\ 7\}
 noto/NotoSans-ExtraLight.otd: noto/NotoSans-ExtraLight.otf
 	otfccdump --ignore-hints $< -o $@
 nowar/NowarSans-CondensedSemiBold.otf: nowar/NowarSans-CondensedSemiBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/NowarSans-CondensedSemiBold.otd: noto/NotoSans-CondensedSemiBold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Latin\",\ \"weight\":\ 600,\ \"width\":\ 3\}
 noto/NotoSans-CondensedSemiBold.otd: noto/NotoSans-CondensedSemiBold.otf
 	otfccdump --ignore-hints $< -o $@
 nowar/NowarSans-SemiBold.otf: nowar/NowarSans-SemiBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/NowarSans-SemiBold.otd: noto/NotoSans-SemiCondensedSemiBold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Latin\",\ \"weight\":\ 600,\ \"width\":\ 5\}
 noto/NotoSans-SemiCondensedSemiBold.otd: noto/NotoSans-SemiCondensedSemiBold.otf
 	otfccdump --ignore-hints $< -o $@
 nowar/NowarSans-ExtendedSemiBold.otf: nowar/NowarSans-ExtendedSemiBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/NowarSans-ExtendedSemiBold.otd: noto/NotoSans-SemiBold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Latin\",\ \"weight\":\ 600,\ \"width\":\ 7\}
 noto/NotoSans-SemiBold.otd: noto/NotoSans-SemiBold.otf
 	otfccdump --ignore-hints $< -o $@
 nowar/NowarSans-CondensedExtraBold.otf: nowar/NowarSans-CondensedExtraBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/NowarSans-CondensedExtraBold.otd: noto/NotoSans-CondensedExtraBold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Latin\",\ \"weight\":\ 800,\ \"width\":\ 3\}
 noto/NotoSans-CondensedExtraBold.otd: noto/NotoSans-CondensedExtraBold.otf
 	otfccdump --ignore-hints $< -o $@
 nowar/NowarSans-ExtraBold.otf: nowar/NowarSans-ExtraBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/NowarSans-ExtraBold.otd: noto/NotoSans-SemiCondensedExtraBold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Latin\",\ \"weight\":\ 800,\ \"width\":\ 5\}
 noto/NotoSans-SemiCondensedExtraBold.otd: noto/NotoSans-SemiCondensedExtraBold.otf
 	otfccdump --ignore-hints $< -o $@
 nowar/NowarSans-ExtendedExtraBold.otf: nowar/NowarSans-ExtendedExtraBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/NowarSans-ExtendedExtraBold.otd: noto/NotoSans-ExtraBold.otd
+	mkdir -p nowar/
 	python merge.py \{\"family\":\ \"Latin\",\ \"weight\":\ 800,\ \"width\":\ 7\}
 noto/NotoSans-ExtraBold.otd: noto/NotoSans-ExtraBold.otf
 	otfccdump --ignore-hints $< -o $@
