@@ -7,7 +7,7 @@
 ## Title-zhTW: 有愛黑體
 ## Notes-zhTW: 向 SharedMedia 登錄有愛黑體字體。
 
-## Version: 0.5.1
+## Version: __REPLACE_IN_BUILD__VERSION__
 ## Author: Cyano Hao
 ## X-Category: Miscellaneous
 ## X-Credits: This addon is derived from on SharedMediaAdditionalFont.

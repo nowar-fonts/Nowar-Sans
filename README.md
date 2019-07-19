@@ -14,30 +14,43 @@ This is Nowar Sans, font packs for _World of Warcraft_ that support all language
 
 [Latest release](https://github.com/CyanoHao/Nowar-Sans/releases)
 
-Nowar Sans is shipped in 4 weights and 6 regional variants.
+Nowar Sans is shipped in 4 weights and 8 regional variants.
 
 ### Weights
 
-* L: Light
-* R: Regular
-* M: Medium
-* B: Bold
-* [Morpheus (Western title font) may be bolder or lighter.]
+* 300: Light
+* 400: Regular
+* 500: Medium
+* 700: Bold
+* [Morpheus (European display font) may be bolder or lighter.]
 
 ### Regional Variants
 
-Orthographies for each variant and client language are listed below.
+CN, TW, HK, JP and KR are “standard variants”, which have full character set support with regional Chinese character orthographies.
 
-|     | European                      | 简体中文       | 繁體中文  | 한국어  |
-| --- | ----------------------------- | -------------- | --------- | ------- |
-| CN  | Mainland China (UI)           | Mainland China | Taiwan    | Classic |
-| TW  | Taiwan (UI)                   | Mainland China | Taiwan    | Classic |
-| HK  | Hong Kong (UI)                | Mainland China | Hong Kong | Classic |
-| JP  | Japan (UI)                    | Mainland China | Taiwan    | Classic |
-| CL  | Classic (UI)                  | Classic        | Classic   | Classic |
-| OSF | Classic (UI, Oldstyle Figure) | Classic        | Classic   | Classic |
+|    | European            | 简体中文       | 繁體中文  | 한국어   |
+| -- | ------------------- | -------------- | --------- | -------- |
+| CN | Mainland China (UI) | Mainland China | Taiwan    | S. Korea |
+| TW | Taiwan (UI)         | Mainland China | Taiwan    | S. Korea |
+| HK | Hong Kong (UI)      | Mainland China | Hong Kong | S. Korea |
+| JP | Japan (UI)          | Mainland China | Taiwan    | S. Korea |
+| KR | S. Korea (UI)       | Mainland China | Taiwan    | S. Korea |
+
+CL and OSF are “classical variants”, which have full character set support with classical Chinese character orthography (aka Kāngxī Dictionary forms).
+
+|     | European                        | East Asian |
+| --- | ------------------------------- | ---------- |
+| CL  | Classical (UI)                  | Classical  |
+| OSF | Classical (UI, Oldstyle Figure) | Classical  |
+
+GB is a special offer that supports a superset of Chinese national standard GB 18030-2000. The GB releases are much smaller than standard releases by removing Hangul support.
+
+|    | European            | 中文           | 한국어 |
+| -- | ------------------- | -------------- | ------ |
+| GB | Mainland China (UI) | Mainland China | N/A    |
 
 * European: English, Español (AL), Português, Deutsch, Español (EU), Français, Italiano, and Русский.
+* East Asian: 简体中文, 繁體中文, and 한국어.
 * UI: Ambiguous punctations are treated as Western; CJK puctations are half-width; Kana are proportional.
 
 ### SharedMedia Font Provider
@@ -46,9 +59,16 @@ Nowar Sans is also avialable as an addon (REALLY HUGE!), to register Nowar Sans 
 
 ## How to Build
 
-Dependencies: Python and [otfcc](https://github.com/caryll/otfcc).
+Dependencies: basic Unix utils, [Python](https://www.python.org/), [otfcc](https://github.com/caryll/otfcc) and [7-Zip](https://www.7-zip.org/) (add to `PATH`).
 
-Put Source Han Sans OTF files to `shs/`, then just `make` it.
+Note: choose 64-bit version if possible. 32-bit version may lead to out-of-memory issue.
+
+Run `configure.py` to generate Makefile. (Optional)
+```bash
+python configure.py
+```
+
+Put Source Han Sans OTF files (all families but HW) and Subset OTF files (CN only) to `shs/`, then just `make` it. 
 
 ## Credit
 

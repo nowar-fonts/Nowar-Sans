@@ -1,4 +1,3 @@
-import re
 from fontlib.unicode import IsKana
 from fontlib.transform import Transform, ChangeAdvanceWidth
 
@@ -13,11 +12,19 @@ def GetLookupPalt(font):
 			palt.append(lookups[l])
 	return palt
 
+# multiple scalars may be mapped to same glyph
+def GetUnicodeScalars(name, font):
+	result = []
+	for (u, n) in font['cmap'].items():
+		if n == name:
+			result.append(int(u))
+	return result
+
 def ProportionalizeKana(font):
 	for palt in GetLookupPalt(font):
 		for sub in palt['subtables']:
 			for (n, d) in sub.items():
-				if re.match('^uni[0-9A-F]{4,5}$', n) and IsKana(int(n[3:], 16)):
+				if any([ IsKana(ch) for ch in GetUnicodeScalars(n, font) ]):
 					glyph = font['glyf'][n]
 					if 'dx' in d:
 						Transform(glyph, 1, 0, 0, 1, d['dx'], 0)
