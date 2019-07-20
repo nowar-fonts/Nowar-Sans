@@ -244,14 +244,14 @@ def GenerateLegacySubfamily(p):
 	weight = weightMap[p.weight]
 	if hasattr(p, "italic") and p.italic:
 		if p.weight == 400:
-			return width, "Italic"
+			return width or "", "Italic"
 		elif p.weight == 700:
-			return width, "Bold Italic"
+			return width or "", "Bold Italic"
 		else:
 			return "{} {}".format(width, weight) if width else weight, "Italic"
 	else:
 		if p.weight == 400 or p.weight == 700:
-			return width, weight
+			return width or "", weight
 		else:
 			return "{} {}".format(width, weight) if width else weight, "Regular"
 
