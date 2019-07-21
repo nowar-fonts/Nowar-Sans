@@ -163,7 +163,7 @@ if __name__ == '__main__':
 		ApplyGsubSingle('onum', baseFont)
 
 	# replace numerals
-	if param.family == "WarcraftSans":
+	if param.family in [ "WarcraftSans", "WarcraftUI" ]:
 		with open("noto/{}.otd".format(configure.GenerateFilename(dep['Numeral'])), 'rb') as numFile:
 			numFont = json.loads(numFile.read().decode('UTF-8', errors='replace'))
 
@@ -199,20 +199,18 @@ if __name__ == '__main__':
 			ApplyGsubSingle('pnum', baseFont)
 
 	# merge CJK
-	if param.family in [ "Sans", "UI", "WarcraftSans" ]:
+	if param.family in [ "Sans", "UI", "WarcraftSans", "WarcraftUI" ]:
 		with open("shs/{}.otd".format(configure.GenerateFilename(dep['CJK'])), 'rb') as asianFile:
 			asianFont = json.loads(asianFile.read().decode('UTF-8', errors = 'replace'))
 		# pre-apply `palt` in UI family
-		if param.family == "UI":
+		if param.family in [ "UI", "WarcraftUI" ]:
 			ApplyPalt(asianFont)
 		MergeBelow(baseFont, asianFont)
 		# use CJK quotes, em-dash and ellipsis in non-UI family
-		if param.family != "UI":
+		if param.family not in [ "UI", "WarcraftUI" ]:
 			for u in [0x2014, 0x2018, 0x2019, 0x201C, 0x201D, 0x2026]:
 				if str(u) in asianFont['cmap']:
 					baseFont['glyf'][baseFont['cmap'][str(u)]] = asianFont['glyf'][asianFont['cmap'][str(u)]]
-
-	#baseFont['OS_2']['ulCodePageRange1'][encoding] = True
 
 	outStr = json.dumps(baseFont, ensure_ascii=False)
 	with codecs.open("nowar/{}.otd".format(configure.GenerateFilename(param)), 'w', 'UTF-8') as outFile:

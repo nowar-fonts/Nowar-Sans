@@ -211,6 +211,14 @@ def GenerateFamily(p):
 			0x0411: "有愛ウォークラフト角ゴシック " + regionNameMap[region],
 			0x0412: "有愛 워크래프트 고딕 " + regionNameMap[region],
 		},
+		"WarcraftUI": lambda region: {
+			0x0409: "Nowar Warcraft UI " + regionNameMap[region],
+			0x0804: "有爱魔兽黑体 UI " + regionNameMap[region],
+			0x0404: "有愛魔獸黑體 UI " + regionNameMap[region],
+			0x0C04: "有愛魔獸黑體 UI " + regionNameMap[region],
+			0x0411: "有愛ウォークラフト角ゴシック UI " + regionNameMap[region],
+			0x0412: "有愛 워크래프트 고딕 UI " + regionNameMap[region],
+		},
 		"Latin": lambda region: {
 			0x0409: "Nowar Sans LCG",
 			0x0804: "有爱黑体 LCG",
@@ -260,11 +268,12 @@ def GenerateFilename(p):
 		"Sans": lambda region: "NowarSans-" + region,
 		"UI": lambda region: "NowarUI-" + region,
 		"WarcraftSans": lambda region: "NowarWarcraftSans-" + region,
+		"WarcraftUI": lambda region: "NowarWarcraftUI-" + region,
 		"Latin": lambda region: "NowarSans",
 		"Noto": lambda region: "NotoSans",
 		"Source": lambda region: region,
 	}
-	return (p.encoding + "-" if p.family in [ "Sans", "UI", "WarcraftSans" ] else "") + familyName[p.family](GetRegion(p)) + "-" + GenerateSubfamily(p).replace(" ", "")
+	return (p.encoding + "-" if p.family in [ "Sans", "UI", "WarcraftSans", "WarcraftUI" ] else "") + familyName[p.family](GetRegion(p)) + "-" + GenerateSubfamily(p).replace(" ", "")
 
 def ResolveDependency(p):
 	result = {
@@ -274,13 +283,13 @@ def ResolveDependency(p):
 			weight = p.weight
 		)
 	}
-	if p.family == "WarcraftSans":
+	if p.family in [ "WarcraftSans", "WarcraftUI" ]:
 		result["Numeral"] = Namespace(
 			family = "Noto",
 			width = 3,
 			weight = p.weight
 		)
-	if p.family in [ "Sans", "UI", "WarcraftSans" ]:
+	if p.family in [ "Sans", "UI", "WarcraftSans", "WarcraftUI" ]:
 		result["CJK"] = Namespace(
 			family = "Source",
 			weight = p.weight,
