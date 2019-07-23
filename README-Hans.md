@@ -12,7 +12,7 @@
 
 ## 下载指南
 
-[最新版](https://github.com/CyanoHao/Nowar-Sans/releases)
+[最新版](https://github.com/noto-fonts/Nowar-Sans/releases)
 
 有爱黑体有 4 种字重和 8 种地区变体。
 

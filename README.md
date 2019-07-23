@@ -2,7 +2,7 @@
 
 # Nowar Sans for _World of Warcraft_
 
-This is Nowar Sans, font packs for _World of Warcraft_ that support all languages. Nowar Sans is based on [Noto Sans](https://github.com/googlei18n/noto-fonts) and [Source Han Sans](https://github.com/adobe-fonts/source-han-sans).
+This is Nowar Sans, font packs for _World of Warcraft_ that support all client languages. Nowar Sans is based on [Noto Sans](https://github.com/googlei18n/noto-fonts) and [Source Han Sans](https://github.com/adobe-fonts/source-han-sans).
 
 > Make Love, Not Warcraft.<br>
 > 要有爱，不要魔兽争霸。<br>
@@ -12,7 +12,7 @@ This is Nowar Sans, font packs for _World of Warcraft_ that support all language
 
 ## Download the Fonts
 
-[Latest release](https://github.com/CyanoHao/Nowar-Sans/releases)
+[Latest release](https://github.com/noto-fonts/Nowar-Sans/releases)
 
 Nowar Sans is shipped in 4 weights and 8 regional variants.
 
