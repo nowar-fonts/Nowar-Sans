@@ -1,15 +1,17 @@
 import json
 import codecs
+from functools import reduce
 from itertools import product
 from types import SimpleNamespace as Namespace
 
 class Config:
 	version = "0.6.0"
-	vendor = "Cyano Hao"
-	vendorId = "Cyan"
-	vendorUrl = "https://github.com/CyanoHao"
-	copyright = "Copyright © 2018—2019 Cyano Hao, with reserved font name “Nowar”, “有爱”, and “有愛”. Portions Copyright 2015 Google Inc. Portions © 2014-2019 Adobe (http://www.adobe.com/)."
+	vendor = "Nowar Typeface"
+	vendorId = "NOWR"
+	vendorUrl = "https://github.com/nowar-fonts"
+	copyright = "Copyright © 2018—2019 Cyano Hao and Nowar Typeface, with reserved font name “Nowar”, “有爱”, and “有愛”. Portions Copyright 2015 Google Inc. Portions © 2014-2019 Adobe (http://www.adobe.com/)."
 	designer = "Cyano Hao (character set definition & modification for World of Warcraft); Monotype Design Team (Latin, Greek & Cyrillic); Ryoko NISHIZUKA 西塚涼子 (kana, bopomofo & ideographs); Sandoll Communications 산돌커뮤니케이션, Soo-young JANG 장수영 & Joo-yeon KANG 강주연 (hangul elements, letters & syllables); Dr. Ken Lunde (project architect, glyph set definition & overall production); Masataka HATTORI 服部正貴 (production & ideograph elements)"
+	designerUrl = "https://github.com/CyanoHao"
 	license = "This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software."
 	licenseUrl = "https://scripts.sil.org/OFL"
 
@@ -447,6 +449,8 @@ if __name__ == "__main__":
 		},
 	}
 
+	unique = lambda l: reduce(lambda l, x: l + [ x ] if x not in l else l, l, [])
+
 	# SharedMedia font provider
 	makefile["rule"]["SharedMedia-NowarSans-${VERSION}.7z"] = {
 		"depend": [ "nowar/{}.otf".format(GenerateFilename(p)) for p in sum(config.fontProviderInstance.values(), []) ],
@@ -513,9 +517,11 @@ if __name__ == "__main__":
 			# pack with 7z, group them by weight to generate smaller file in less time
 			"7z a -t7z -m0=LZMA:d=512m:fb=273 -ms $@ NowarSansTypeface/ -x!NowarSansTypeface/Fonts/\\*.otf",
 		] + [
-			"7z a -t7z -m0=LZMA:d=512m:fb=273 -ms $@ " + " ".join(set([
-				"NowarSansTypeface/Fonts/{}.otf".format(GenerateFilename(p).replace("unspec-", "")) for p in sum(config.fontProviderInstance.values(), []) if p.weight == w
-			])) for w in config.fontProviderWeight
+			"7z a -t7z -m0=LZMA:d=512m:fb=273 -ms $@ " + " ".join([
+				"NowarSansTypeface/Fonts/{}.otf".format(GenerateFilename(p).replace("unspec-", ""))
+					for p in unique(sum(config.fontProviderInstance.values(), []))
+					if p.weight == w
+			]) for w in config.fontProviderWeight
 		]
 	}
 

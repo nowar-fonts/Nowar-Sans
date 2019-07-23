@@ -82,6 +82,13 @@ def NameFont(param, font):
 			"platformID": 3,
 			"encodingID": 1,
 			"languageID": 1033,
+			"nameID": 12,
+			"nameString": configure.config.designerUrl
+		},
+		{
+			"platformID": 3,
+			"encodingID": 1,
+			"languageID": 1033,
 			"nameID": 13,
 			"nameString": configure.config.license
 		},
