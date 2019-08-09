@@ -8,11 +8,13 @@ This is Nowar Sans, font packs for _World of Warcraft_ that support all client l
 > 要有爱，不要魔兽争霸。<br>
 > 要愛，不要魔獸。
 
-![Preview](preview.png)
+![Nowar Sans](poster/heading.png)
+
+![Multilingual support](poster/multilingual.png)
 
 ## Download the Fonts
 
-[Latest release](https://github.com/noto-fonts/Nowar-Sans/releases)
+[Latest release](https://github.com/nowar-fonts/Nowar-Sans/releases)
 
 Nowar Sans is shipped in 4 weights and 8 regional variants.
 

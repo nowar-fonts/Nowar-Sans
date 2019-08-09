@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Nowar Sans Poster</title>
+
+	<style>
+		@font-face {
+			font-family: "Nowar UI CL";
+			font-weight: normal;
+			src: url("../nowar/unspec-NowarUI-CL-Regular.otf") format("opentype");
+		}
+		@font-face {
+			font-family: "Nowar UI CL";
+			font-weight: bold;
+			src: url("../nowar/unspec-NowarUI-CL-Bold.otf") format("opentype");
+		}
+		@font-face {
+			font-family: "Nowar Sans CN";
+			font-weight: normal;
+			src: url("../nowar/unspec-NowarSans-CN-Regular.otf") format("opentype");
+		}
+		@font-face {
+			font-family: "Nowar Sans CN";
+			font-weight: bold;
+			src: url("../nowar/unspec-NowarSans-CN-Bold.otf") format("opentype");
+		}
+		@font-face {
+			font-family: "Nowar Sans TW";
+			font-weight: normal;
+			src: url("../nowar/unspec-NowarSans-TW-Regular.otf") format("opentype");
+		}
+		@font-face {
+			font-family: "Nowar Sans TW";
+			font-weight: bold;
+			src: url("../nowar/unspec-NowarSans-TW-Bold.otf") format("opentype");
+		}
+		@font-face {
+			font-family: "Nowar Sans HK";
+			font-weight: normal;
+			src: url("../nowar/unspec-NowarSans-HK-Regular.otf") format("opentype");
+		}
+		@font-face {
+			font-family: "Nowar Sans HK";
+			font-weight: bold;
+			src: url("../nowar/unspec-NowarSans-HK-Bold.otf") format("opentype");
+		}
+		@font-face {
+			font-family: "Nowar Sans CL";
+			font-weight: normal;
+			src: url("../nowar/unspec-NowarSans-CL-Regular.otf") format("opentype");
+		}
+		@font-face {
+			font-family: "Nowar Sans CL";
+			font-weight: bold;
+			src: url("../nowar/unspec-NowarSans-CL-Bold.otf") format("opentype");
+		}
+		@font-face {
+			font-family: "Nowar UI JP";
+			font-weight: normal;
+			src: url("../nowar/unspec-NowarUI-JP-Regular.otf") format("opentype");
+		}
+		@font-face {
+			font-family: "Nowar UI JP";
+			font-weight: bold;
+			src: url("../nowar/unspec-NowarUI-JP-Bold.otf") format("opentype");
+		}
+		@font-face {
+			font-family: "Nowar Sans KR";
+			font-weight: normal;
+			src: url("../nowar/unspec-NowarSans-KR-Regular.otf") format("opentype");
+		}
+		@font-face {
+			font-family: "Nowar Sans KR";
+			font-weight: bold;
+			src: url("../nowar/unspec-NowarSans-KR-Bold.otf") format("opentype");
+		}
+
+		body {
+			font-family: 'Nowar UI CL', sans-serif;
+			font-size: 16px;
+			width: 1000px;
+		}
+		body :lang(zh-CN) {
+			font-family: 'Nowar Sans CN', sans-serif;
+		}
+		body :lang(zh-TW) {
+			font-family: 'Nowar Sans TW', sans-serif;
+		}
+		body :lang(zh-HK) {
+			font-family: 'Nowar Sans HK', sans-serif;
+		}
+		body :lang(lzh) {
+			font-family: 'Nowar Sans CL', sans-serif;
+		}
+		body :lang(ja) {
+			font-family: 'Nowar UI JP', sans-serif;
+		}
+		body :lang(ko) {
+			font-family: 'Nowar Sans KR', sans-serif;
+		}
+
+		div.heading {
+			font-size: 4rem;
+			font-weight: bold;
+		}
+		div.heading .h1 {
+			color: #333;
+			font-size: 6rem;
+			text-align: center;
+		}
+
+		div.heading ul {
+			list-style: none;
+			margin: 0;
+			padding-left: 0;
+		}
+		div.heading ul.flex-list {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			align-content: space-around;
+		}
+		div.heading ul.flex-list li {
+			background-color: #606060;
+			flex-grow: 1;
+			min-width: 400px;
+			height: 1.5em;
+			margin: 1px;
+			text-align: center;
+		}
+
+		div.heading span.vcenter-box {
+			display: inline-table;
+			width: 100%;
+			height: 100%;
+			color: #fff;
+			text-decoration: none;
+		}
+		div.heading span.vcenter-box span.vcenter-wrap {
+			display: table-cell;
+			vertical-align: middle;
+		}
+
+		div.multilingual {
+			font-size: 1rem;
+			font-weight: normal;
+		}
+		div.multilingual .h2 {
+			color: #333;
+			font-size: 3rem;
+			font-weight: bold;
+			text-align: center;
+			padding: 0.2em 0;
+		}
+
+		div.multilingual ul {
+			list-style: none;
+			margin: 0;
+			padding-left: 0;
+		}
+		div.multilingual ul.flex-list {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			align-content: space-around;
+		}
+		div.multilingual ul.flex-list li {
+			background-color: #ddd;
+			flex-grow: 1;
+			min-width: 300px;
+			height: 3em;
+			margin: 1px;
+			text-align: center;
+		}
+
+		div.multilingual span.vcenter-box {
+			display: inline-table;
+			width: 100%;
+			height: 100%;
+			color: black;
+			text-decoration: none;
+		}
+		div.multilingual span.vcenter-box span.vcenter-wrap {
+			display: table-cell;
+			vertical-align: middle;
+		}
+	</style>
+</head>
+
+<body>
+		<div class="heading">
+			<div class="h1">Nowar Sans</div>
+			<ul class="flex-list">
+				<li><span class="vcenter-box"><span class="vcenter-wrap" lang="zh-CN">有爱黑体</span></span></li>
+				<li><span class="vcenter-box"><span class="vcenter-wrap" lang="zh-TW">有愛黑體</span></span></li>
+				<li><span class="vcenter-box"><span class="vcenter-wrap" lang="ja">有愛角ゴシック</span></span></li>
+				<li><span class="vcenter-box"><span class="vcenter-wrap" lang="ko">有愛 고딕</span></span></li>
+			</ul>
+		</div>
+
+		<div class="multilingual">
+			<div class="h2">Multilingual Support</div>
+			<ul class="flex-list">
+				<li><span class="vcenter-box"><span class="vcenter-wrap">English<br>I can eat glass and it doesn’t hurt me.</span></span></li>
+				<li><span class="vcenter-box"><span class="vcenter-wrap">English (IPA)<br>/aɪ kæn iːt glɑːs ænd ɪt dɐz nɒt hɜːt miː/</span></span></li>
+				<li><span class="vcenter-box"><span class="vcenter-wrap">Español<br>Puedo comer vidrio, no me hace daño.</span></span></li>
+				<li><span class="vcenter-box"><span class="vcenter-wrap">Português (Brasil)<br>Posso comer vidro, não me machuca.</span></span></li>
+				<li><span class="vcenter-box"><span class="vcenter-wrap">Français<br>Je peux manger du verre, ça ne me fait pas mal.</span></span></li>
+				<li><span class="vcenter-box"><span class="vcenter-wrap">Deutsch<br>Ich kann Glas essen, ohne mir zu schaden.</span></span></li>
+				<li><span class="vcenter-box"><span class="vcenter-wrap">Italiano<br>Posso mangiare il vetro e non mi fa male.</span></span></li>
+				<li><span class="vcenter-box"><span class="vcenter-wrap">Русский<br>Я могу есть стекло, оно мне не вредит.</span></span></li>
+
+				<li><span class="vcenter-box"><span class="vcenter-wrap" lang="zh-CN">汉语（简体中文，中国大陆）<br>我能吞下玻璃而不伤身体。</span></span></li>
+				<li><span class="vcenter-box"><span class="vcenter-wrap" lang="zh-TW">漢語（繁體中文，臺灣）<br>我能吞下玻璃而不傷身體。</span></span></li>
+				<li><span class="vcenter-box"><span class="vcenter-wrap" lang="zh-HK">漢語（繁體中文，香港）<br>我能吞下玻璃而不傷身體。</span></span></li>
+				<li><span class="vcenter-box"><span class="vcenter-wrap" lang="lzh-CL">漢語（傳統字形）<br>我能吞下玻璃而不傷身體。</span></span></li>
+				<li><span class="vcenter-box"><span class="vcenter-wrap" lang="ja">日本語<br>私はガラスを食べられます。それは私を傷つけません。</span></span></li>
+				<li><span class="vcenter-box"><span class="vcenter-wrap" lang="ko">한국어<br>나는 유리를 먹을 수 있어요. 그래도 아프지 않아요.</span></span></li>
+			</ul>
+		</div>
+	</ul>
+</body>
+
+</html>

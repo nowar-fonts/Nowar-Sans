@@ -8,11 +8,13 @@
 > 要有爱，不要魔兽争霸。<br>
 > 要愛，不要魔獸。
 
-![預覽](preview.png)
+![有愛黑體](poster/heading.png)
+
+![多語言支援](poster/multilingual.png)
 
 ## 下載向導
 
-[最新發佈](https://github.com/noto-fonts/Nowar-Sans/releases)
+[最新發佈](https://github.com/nowar-fonts/Nowar-Sans/releases)
 
 有愛黑體有 4 種字重和 8 種地區變體。
 
