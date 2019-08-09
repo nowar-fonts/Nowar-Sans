@@ -2,7 +2,7 @@
 
 # 有爱黑体（《魔兽世界》字体包）
 
-有爱黑体是《魔兽世界》字体包，支持所有语言。有爱黑体是 [Noto Sans](https://github.com/googlei18n/noto-fonts) 和[思源黑体](https://github.com/adobe-fonts/source-han-sans)的合并字体。
+有爱黑体是《魔兽世界》和《魔兽世界：经典怀旧服》字体包，支持所有语言。有爱黑体是 [Noto Sans](https://github.com/googlei18n/noto-fonts) 和[思源黑体](https://github.com/adobe-fonts/source-han-sans)的合并字体。
 
 > Make Love, Not Warcraft.<br>
 > 要有爱，不要魔兽争霸。<br>
