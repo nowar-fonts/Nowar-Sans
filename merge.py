@@ -209,15 +209,31 @@ if __name__ == '__main__':
 	if param.family in [ "Sans", "UI", "WarcraftSans", "WarcraftUI" ]:
 		with open("shs/{}.otd".format(configure.GenerateFilename(dep['CJK'])), 'rb') as asianFile:
 			asianFont = json.loads(asianFile.read().decode('UTF-8', errors = 'replace'))
+
 		# pre-apply `palt` in UI family
-		if param.family in [ "UI", "WarcraftUI" ]:
+		if "UI" in param.family:
 			ApplyPalt(asianFont)
+
 		MergeBelow(baseFont, asianFont)
-		# use CJK quotes, em-dash and ellipsis in non-UI family
-		if param.family not in [ "UI", "WarcraftUI" ]:
-			for u in [0x2014, 0x2018, 0x2019, 0x201C, 0x201D, 0x2026]:
+
+		# use CJK middle dots, quotes, em-dash and ellipsis in non-UI family
+		if "UI" not in param.family:
+			for u in [
+				0x00B7, # MIDDLE DOT
+				0x2014, # EM DASH
+				0x2018, # LEFT SINGLE QUOTATION MARK
+				0x2019, # RIGHT SINGLE QUOTATION MARK
+				0x201C, # LEFT DOUBLE QUOTATION MARK
+				0x201D, # RIGHT DOUBLE QUOTATION MARK
+				0x2026, # HORIZONTAL ELLIPSIS
+				0x2027, # HYPHENATION POINT
+			]:
 				if str(u) in asianFont['cmap']:
 					baseFont['glyf'][baseFont['cmap'][str(u)]] = asianFont['glyf'][asianFont['cmap'][str(u)]]
+
+		# remap `丶` to `·` in RP variant
+		if param.region == "RP":
+			baseFont['cmap'][str(ord('丶'))] = baseFont['cmap'][str(ord('·'))]
 
 	outStr = json.dumps(baseFont, ensure_ascii=False)
 	with codecs.open("nowar/{}.otd".format(configure.GenerateFilename(param)), 'w', 'UTF-8') as outFile:

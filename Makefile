@@ -1,8 +1,8 @@
-VERSION = 0.6.0
-all: SharedMedia-NowarSans-${VERSION}.7z NowarSans-CN-300-${VERSION}.7z NowarSans-CN-400-${VERSION}.7z NowarSans-CN-500-${VERSION}.7z NowarSans-CN-700-${VERSION}.7z NowarSans-TW-300-${VERSION}.7z NowarSans-TW-400-${VERSION}.7z NowarSans-TW-500-${VERSION}.7z NowarSans-TW-700-${VERSION}.7z NowarSans-HK-300-${VERSION}.7z NowarSans-HK-400-${VERSION}.7z NowarSans-HK-500-${VERSION}.7z NowarSans-HK-700-${VERSION}.7z NowarSans-JP-300-${VERSION}.7z NowarSans-JP-400-${VERSION}.7z NowarSans-JP-500-${VERSION}.7z NowarSans-JP-700-${VERSION}.7z NowarSans-KR-300-${VERSION}.7z NowarSans-KR-400-${VERSION}.7z NowarSans-KR-500-${VERSION}.7z NowarSans-KR-700-${VERSION}.7z NowarSans-CL-300-${VERSION}.7z NowarSans-CL-400-${VERSION}.7z NowarSans-CL-500-${VERSION}.7z NowarSans-CL-700-${VERSION}.7z NowarSans-OSF-300-${VERSION}.7z NowarSans-OSF-400-${VERSION}.7z NowarSans-OSF-500-${VERSION}.7z NowarSans-OSF-700-${VERSION}.7z NowarSans-GB-300-${VERSION}.7z NowarSans-GB-400-${VERSION}.7z NowarSans-GB-500-${VERSION}.7z NowarSans-GB-700-${VERSION}.7z
+VERSION = 0.6.1
+all: SharedMedia-NowarSans-${VERSION}.7z NowarSans-CN-300-${VERSION}.7z NowarSans-CN-400-${VERSION}.7z NowarSans-CN-500-${VERSION}.7z NowarSans-CN-700-${VERSION}.7z NowarSans-TW-300-${VERSION}.7z NowarSans-TW-400-${VERSION}.7z NowarSans-TW-500-${VERSION}.7z NowarSans-TW-700-${VERSION}.7z NowarSans-HK-300-${VERSION}.7z NowarSans-HK-400-${VERSION}.7z NowarSans-HK-500-${VERSION}.7z NowarSans-HK-700-${VERSION}.7z NowarSans-JP-300-${VERSION}.7z NowarSans-JP-400-${VERSION}.7z NowarSans-JP-500-${VERSION}.7z NowarSans-JP-700-${VERSION}.7z NowarSans-KR-300-${VERSION}.7z NowarSans-KR-400-${VERSION}.7z NowarSans-KR-500-${VERSION}.7z NowarSans-KR-700-${VERSION}.7z NowarSans-CL-300-${VERSION}.7z NowarSans-CL-400-${VERSION}.7z NowarSans-CL-500-${VERSION}.7z NowarSans-CL-700-${VERSION}.7z NowarSans-OSF-300-${VERSION}.7z NowarSans-OSF-400-${VERSION}.7z NowarSans-OSF-500-${VERSION}.7z NowarSans-OSF-700-${VERSION}.7z NowarSans-GB-300-${VERSION}.7z NowarSans-GB-400-${VERSION}.7z NowarSans-GB-500-${VERSION}.7z NowarSans-GB-700-${VERSION}.7z NowarSans-RP-300-${VERSION}.7z NowarSans-RP-400-${VERSION}.7z NowarSans-RP-500-${VERSION}.7z NowarSans-RP-700-${VERSION}.7z
 clean: 
 	-rm -rf noto/*.otd shs/*.otd nowar/*.otd
-	-rm -rf CN-300/ CN-400/ CN-500/ CN-700/ TW-300/ TW-400/ TW-500/ TW-700/ HK-300/ HK-400/ HK-500/ HK-700/ JP-300/ JP-400/ JP-500/ JP-700/ KR-300/ KR-400/ KR-500/ KR-700/ CL-300/ CL-400/ CL-500/ CL-700/ OSF-300/ OSF-400/ OSF-500/ OSF-700/ GB-300/ GB-400/ GB-500/ GB-700/
+	-rm -rf CN-300/ CN-400/ CN-500/ CN-700/ TW-300/ TW-400/ TW-500/ TW-700/ HK-300/ HK-400/ HK-500/ HK-700/ JP-300/ JP-400/ JP-500/ JP-700/ KR-300/ KR-400/ KR-500/ KR-700/ CL-300/ CL-400/ CL-500/ CL-700/ OSF-300/ OSF-400/ OSF-500/ OSF-700/ GB-300/ GB-400/ GB-500/ GB-700/ RP-300/ RP-400/ RP-500/ RP-700/
 	-rm -rf NowarSansTypeface/
 SharedMedia-NowarSans-${VERSION}.7z: nowar/unspec-NowarUI-CN-CondensedLight.otf nowar/unspec-NowarUI-TW-CondensedLight.otf nowar/unspec-NowarUI-HK-CondensedLight.otf nowar/unspec-NowarUI-JP-CondensedLight.otf nowar/unspec-NowarUI-CN-Light.otf nowar/unspec-NowarUI-TW-Light.otf nowar/unspec-NowarUI-HK-Light.otf nowar/unspec-NowarUI-JP-Light.otf nowar/unspec-NowarUI-CN-ExtendedLight.otf nowar/unspec-NowarUI-TW-ExtendedLight.otf nowar/unspec-NowarUI-HK-ExtendedLight.otf nowar/unspec-NowarUI-JP-ExtendedLight.otf nowar/unspec-NowarUI-CN-Condensed.otf nowar/unspec-NowarUI-TW-Condensed.otf nowar/unspec-NowarUI-HK-Condensed.otf nowar/unspec-NowarUI-JP-Condensed.otf nowar/unspec-NowarUI-CN-Regular.otf nowar/unspec-NowarUI-TW-Regular.otf nowar/unspec-NowarUI-HK-Regular.otf nowar/unspec-NowarUI-JP-Regular.otf nowar/unspec-NowarUI-CN-Extended.otf nowar/unspec-NowarUI-TW-Extended.otf nowar/unspec-NowarUI-HK-Extended.otf nowar/unspec-NowarUI-JP-Extended.otf nowar/unspec-NowarUI-CN-CondensedMedium.otf nowar/unspec-NowarUI-TW-CondensedMedium.otf nowar/unspec-NowarUI-HK-CondensedMedium.otf nowar/unspec-NowarUI-JP-CondensedMedium.otf nowar/unspec-NowarUI-CN-Medium.otf nowar/unspec-NowarUI-TW-Medium.otf nowar/unspec-NowarUI-HK-Medium.otf nowar/unspec-NowarUI-JP-Medium.otf nowar/unspec-NowarUI-CN-ExtendedMedium.otf nowar/unspec-NowarUI-TW-ExtendedMedium.otf nowar/unspec-NowarUI-HK-ExtendedMedium.otf nowar/unspec-NowarUI-JP-ExtendedMedium.otf nowar/unspec-NowarUI-CN-CondensedBold.otf nowar/unspec-NowarUI-TW-CondensedBold.otf nowar/unspec-NowarUI-HK-CondensedBold.otf nowar/unspec-NowarUI-JP-CondensedBold.otf nowar/unspec-NowarUI-CN-Bold.otf nowar/unspec-NowarUI-TW-Bold.otf nowar/unspec-NowarUI-HK-Bold.otf nowar/unspec-NowarUI-JP-Bold.otf nowar/unspec-NowarUI-CN-ExtendedBold.otf nowar/unspec-NowarUI-TW-ExtendedBold.otf nowar/unspec-NowarUI-HK-ExtendedBold.otf nowar/unspec-NowarUI-JP-ExtendedBold.otf nowar/unspec-NowarUI-CL-CondensedLight.otf nowar/unspec-NowarUI-OSF-CondensedLight.otf nowar/unspec-NowarUI-CL-Light.otf nowar/unspec-NowarUI-OSF-Light.otf nowar/unspec-NowarUI-CL-ExtendedLight.otf nowar/unspec-NowarUI-OSF-ExtendedLight.otf nowar/unspec-NowarUI-CL-Condensed.otf nowar/unspec-NowarUI-OSF-Condensed.otf nowar/unspec-NowarUI-CL-Regular.otf nowar/unspec-NowarUI-OSF-Regular.otf nowar/unspec-NowarUI-CL-Extended.otf nowar/unspec-NowarUI-OSF-Extended.otf nowar/unspec-NowarUI-CL-CondensedMedium.otf nowar/unspec-NowarUI-OSF-CondensedMedium.otf nowar/unspec-NowarUI-CL-Medium.otf nowar/unspec-NowarUI-OSF-Medium.otf nowar/unspec-NowarUI-CL-ExtendedMedium.otf nowar/unspec-NowarUI-OSF-ExtendedMedium.otf nowar/unspec-NowarUI-CL-CondensedBold.otf nowar/unspec-NowarUI-OSF-CondensedBold.otf nowar/unspec-NowarUI-CL-Bold.otf nowar/unspec-NowarUI-OSF-Bold.otf nowar/unspec-NowarUI-CL-ExtendedBold.otf nowar/unspec-NowarUI-OSF-ExtendedBold.otf nowar/unspec-NowarSans-CN-CondensedLight.otf nowar/unspec-NowarSans-CL-CondensedLight.otf nowar/unspec-NowarSans-CN-Light.otf nowar/unspec-NowarSans-CL-Light.otf nowar/unspec-NowarSans-CN-ExtendedLight.otf nowar/unspec-NowarSans-CL-ExtendedLight.otf nowar/unspec-NowarSans-CN-Condensed.otf nowar/unspec-NowarSans-CL-Condensed.otf nowar/unspec-NowarSans-CN-Regular.otf nowar/unspec-NowarSans-CL-Regular.otf nowar/unspec-NowarSans-CN-Extended.otf nowar/unspec-NowarSans-CL-Extended.otf nowar/unspec-NowarSans-CN-CondensedMedium.otf nowar/unspec-NowarSans-CL-CondensedMedium.otf nowar/unspec-NowarSans-CN-Medium.otf nowar/unspec-NowarSans-CL-Medium.otf nowar/unspec-NowarSans-CN-ExtendedMedium.otf nowar/unspec-NowarSans-CL-ExtendedMedium.otf nowar/unspec-NowarSans-CN-CondensedBold.otf nowar/unspec-NowarSans-CL-CondensedBold.otf nowar/unspec-NowarSans-CN-Bold.otf nowar/unspec-NowarSans-CL-Bold.otf nowar/unspec-NowarSans-CN-ExtendedBold.otf nowar/unspec-NowarSans-CL-ExtendedBold.otf nowar/unspec-NowarSans-TW-CondensedLight.otf nowar/unspec-NowarSans-HK-CondensedLight.otf nowar/unspec-NowarSans-CL-CondensedLight.otf nowar/unspec-NowarSans-TW-Light.otf nowar/unspec-NowarSans-HK-Light.otf nowar/unspec-NowarSans-CL-Light.otf nowar/unspec-NowarSans-TW-ExtendedLight.otf nowar/unspec-NowarSans-HK-ExtendedLight.otf nowar/unspec-NowarSans-CL-ExtendedLight.otf nowar/unspec-NowarSans-TW-Condensed.otf nowar/unspec-NowarSans-HK-Condensed.otf nowar/unspec-NowarSans-CL-Condensed.otf nowar/unspec-NowarSans-TW-Regular.otf nowar/unspec-NowarSans-HK-Regular.otf nowar/unspec-NowarSans-CL-Regular.otf nowar/unspec-NowarSans-TW-Extended.otf nowar/unspec-NowarSans-HK-Extended.otf nowar/unspec-NowarSans-CL-Extended.otf nowar/unspec-NowarSans-TW-CondensedMedium.otf nowar/unspec-NowarSans-HK-CondensedMedium.otf nowar/unspec-NowarSans-CL-CondensedMedium.otf nowar/unspec-NowarSans-TW-Medium.otf nowar/unspec-NowarSans-HK-Medium.otf nowar/unspec-NowarSans-CL-Medium.otf nowar/unspec-NowarSans-TW-ExtendedMedium.otf nowar/unspec-NowarSans-HK-ExtendedMedium.otf nowar/unspec-NowarSans-CL-ExtendedMedium.otf nowar/unspec-NowarSans-TW-CondensedBold.otf nowar/unspec-NowarSans-HK-CondensedBold.otf nowar/unspec-NowarSans-CL-CondensedBold.otf nowar/unspec-NowarSans-TW-Bold.otf nowar/unspec-NowarSans-HK-Bold.otf nowar/unspec-NowarSans-CL-Bold.otf nowar/unspec-NowarSans-TW-ExtendedBold.otf nowar/unspec-NowarSans-HK-ExtendedBold.otf nowar/unspec-NowarSans-CL-ExtendedBold.otf nowar/unspec-NowarSans-KR-CondensedLight.otf nowar/unspec-NowarSans-KR-Light.otf nowar/unspec-NowarSans-KR-ExtendedLight.otf nowar/unspec-NowarSans-KR-Condensed.otf nowar/unspec-NowarSans-KR-Regular.otf nowar/unspec-NowarSans-KR-Extended.otf nowar/unspec-NowarSans-KR-CondensedMedium.otf nowar/unspec-NowarSans-KR-Medium.otf nowar/unspec-NowarSans-KR-ExtendedMedium.otf nowar/unspec-NowarSans-KR-CondensedBold.otf nowar/unspec-NowarSans-KR-Bold.otf nowar/unspec-NowarSans-KR-ExtendedBold.otf
 	cp -r libsm NowarSansTypeface
@@ -1860,6 +1860,194 @@ GB-700/Fonts/bKAI00M.ttf: nowar/big5-NowarSans-GB-ExtendedBold.otf
 GB-700/Fonts/blei00d.ttf: nowar/big5-NowarWarcraftSans-GB-Bold.otf
 	mkdir -p GB-700/Fonts
 	cp $^ $@
+NowarSans-RP-300-${VERSION}.7z: RP-300/Fonts/ARIALN.ttf RP-300/Fonts/FRIZQT__.ttf RP-300/Fonts/MORPHEUS.ttf RP-300/Fonts/skurri.ttf RP-300/Fonts/FRIZQT___CYR.ttf RP-300/Fonts/MORPHEUS_CYR.ttf RP-300/Fonts/SKURRI_CYR.ttf RP-300/Fonts/ARKai_C.ttf RP-300/Fonts/ARKai_T.ttf RP-300/Fonts/ARHei.ttf RP-300/Fonts/arheiuhk_bd.ttf RP-300/Fonts/bHEI00M.ttf RP-300/Fonts/bHEI01B.ttf RP-300/Fonts/bKAI00M.ttf RP-300/Fonts/blei00d.ttf
+	cd RP-300;cp ../LICENSE.txt Fonts/LICENSE.txt;7z a -t7z -m0=LZMA:d=512m:fb=273 -ms ../$@ Fonts/
+RP-300/Fonts/ARIALN.ttf: nowar/unspec-NowarUI-RP-CondensedLight.otf
+	mkdir -p RP-300/Fonts
+	cp $^ $@
+RP-300/Fonts/FRIZQT__.ttf: nowar/unspec-NowarUI-RP-ExtendedLight.otf
+	mkdir -p RP-300/Fonts
+	cp $^ $@
+RP-300/Fonts/MORPHEUS.ttf: nowar/NowarSans-CondensedExtraLight.otf
+	mkdir -p RP-300/Fonts
+	cp $^ $@
+RP-300/Fonts/skurri.ttf: nowar/NowarSans-ExtendedLight.otf
+	mkdir -p RP-300/Fonts
+	cp $^ $@
+RP-300/Fonts/FRIZQT___CYR.ttf: nowar/unspec-NowarUI-RP-ExtendedLight.otf
+	mkdir -p RP-300/Fonts
+	cp $^ $@
+RP-300/Fonts/MORPHEUS_CYR.ttf: nowar/NowarSans-CondensedExtraLight.otf
+	mkdir -p RP-300/Fonts
+	cp $^ $@
+RP-300/Fonts/SKURRI_CYR.ttf: nowar/NowarSans-ExtendedLight.otf
+	mkdir -p RP-300/Fonts
+	cp $^ $@
+RP-300/Fonts/ARKai_C.ttf: nowar/gbk-NowarSans-RP-ExtendedLight.otf
+	mkdir -p RP-300/Fonts
+	cp $^ $@
+RP-300/Fonts/ARKai_T.ttf: nowar/gbk-NowarWarcraftSans-RP-Light.otf
+	mkdir -p RP-300/Fonts
+	cp $^ $@
+RP-300/Fonts/ARHei.ttf: nowar/gbk-NowarSans-RP-CondensedLight.otf
+	mkdir -p RP-300/Fonts
+	cp $^ $@
+RP-300/Fonts/arheiuhk_bd.ttf: nowar/big5-NowarSans-RP-CondensedLight.otf
+	mkdir -p RP-300/Fonts
+	cp $^ $@
+RP-300/Fonts/bHEI00M.ttf: nowar/big5-NowarSans-RP-Light.otf
+	mkdir -p RP-300/Fonts
+	cp $^ $@
+RP-300/Fonts/bHEI01B.ttf: nowar/big5-NowarSans-RP-CondensedLight.otf
+	mkdir -p RP-300/Fonts
+	cp $^ $@
+RP-300/Fonts/bKAI00M.ttf: nowar/big5-NowarSans-RP-ExtendedLight.otf
+	mkdir -p RP-300/Fonts
+	cp $^ $@
+RP-300/Fonts/blei00d.ttf: nowar/big5-NowarWarcraftSans-RP-Light.otf
+	mkdir -p RP-300/Fonts
+	cp $^ $@
+NowarSans-RP-400-${VERSION}.7z: RP-400/Fonts/ARIALN.ttf RP-400/Fonts/FRIZQT__.ttf RP-400/Fonts/MORPHEUS.ttf RP-400/Fonts/skurri.ttf RP-400/Fonts/FRIZQT___CYR.ttf RP-400/Fonts/MORPHEUS_CYR.ttf RP-400/Fonts/SKURRI_CYR.ttf RP-400/Fonts/ARKai_C.ttf RP-400/Fonts/ARKai_T.ttf RP-400/Fonts/ARHei.ttf RP-400/Fonts/arheiuhk_bd.ttf RP-400/Fonts/bHEI00M.ttf RP-400/Fonts/bHEI01B.ttf RP-400/Fonts/bKAI00M.ttf RP-400/Fonts/blei00d.ttf
+	cd RP-400;cp ../LICENSE.txt Fonts/LICENSE.txt;7z a -t7z -m0=LZMA:d=512m:fb=273 -ms ../$@ Fonts/
+RP-400/Fonts/ARIALN.ttf: nowar/unspec-NowarUI-RP-Condensed.otf
+	mkdir -p RP-400/Fonts
+	cp $^ $@
+RP-400/Fonts/FRIZQT__.ttf: nowar/unspec-NowarUI-RP-Extended.otf
+	mkdir -p RP-400/Fonts
+	cp $^ $@
+RP-400/Fonts/MORPHEUS.ttf: nowar/NowarSans-CondensedMedium.otf
+	mkdir -p RP-400/Fonts
+	cp $^ $@
+RP-400/Fonts/skurri.ttf: nowar/NowarSans-Extended.otf
+	mkdir -p RP-400/Fonts
+	cp $^ $@
+RP-400/Fonts/FRIZQT___CYR.ttf: nowar/unspec-NowarUI-RP-Extended.otf
+	mkdir -p RP-400/Fonts
+	cp $^ $@
+RP-400/Fonts/MORPHEUS_CYR.ttf: nowar/NowarSans-CondensedMedium.otf
+	mkdir -p RP-400/Fonts
+	cp $^ $@
+RP-400/Fonts/SKURRI_CYR.ttf: nowar/NowarSans-Extended.otf
+	mkdir -p RP-400/Fonts
+	cp $^ $@
+RP-400/Fonts/ARKai_C.ttf: nowar/gbk-NowarSans-RP-Extended.otf
+	mkdir -p RP-400/Fonts
+	cp $^ $@
+RP-400/Fonts/ARKai_T.ttf: nowar/gbk-NowarWarcraftSans-RP-Regular.otf
+	mkdir -p RP-400/Fonts
+	cp $^ $@
+RP-400/Fonts/ARHei.ttf: nowar/gbk-NowarSans-RP-Condensed.otf
+	mkdir -p RP-400/Fonts
+	cp $^ $@
+RP-400/Fonts/arheiuhk_bd.ttf: nowar/big5-NowarSans-RP-Condensed.otf
+	mkdir -p RP-400/Fonts
+	cp $^ $@
+RP-400/Fonts/bHEI00M.ttf: nowar/big5-NowarSans-RP-Regular.otf
+	mkdir -p RP-400/Fonts
+	cp $^ $@
+RP-400/Fonts/bHEI01B.ttf: nowar/big5-NowarSans-RP-Condensed.otf
+	mkdir -p RP-400/Fonts
+	cp $^ $@
+RP-400/Fonts/bKAI00M.ttf: nowar/big5-NowarSans-RP-Extended.otf
+	mkdir -p RP-400/Fonts
+	cp $^ $@
+RP-400/Fonts/blei00d.ttf: nowar/big5-NowarWarcraftSans-RP-Regular.otf
+	mkdir -p RP-400/Fonts
+	cp $^ $@
+NowarSans-RP-500-${VERSION}.7z: RP-500/Fonts/ARIALN.ttf RP-500/Fonts/FRIZQT__.ttf RP-500/Fonts/MORPHEUS.ttf RP-500/Fonts/skurri.ttf RP-500/Fonts/FRIZQT___CYR.ttf RP-500/Fonts/MORPHEUS_CYR.ttf RP-500/Fonts/SKURRI_CYR.ttf RP-500/Fonts/ARKai_C.ttf RP-500/Fonts/ARKai_T.ttf RP-500/Fonts/ARHei.ttf RP-500/Fonts/arheiuhk_bd.ttf RP-500/Fonts/bHEI00M.ttf RP-500/Fonts/bHEI01B.ttf RP-500/Fonts/bKAI00M.ttf RP-500/Fonts/blei00d.ttf
+	cd RP-500;cp ../LICENSE.txt Fonts/LICENSE.txt;7z a -t7z -m0=LZMA:d=512m:fb=273 -ms ../$@ Fonts/
+RP-500/Fonts/ARIALN.ttf: nowar/unspec-NowarUI-RP-CondensedMedium.otf
+	mkdir -p RP-500/Fonts
+	cp $^ $@
+RP-500/Fonts/FRIZQT__.ttf: nowar/unspec-NowarUI-RP-ExtendedMedium.otf
+	mkdir -p RP-500/Fonts
+	cp $^ $@
+RP-500/Fonts/MORPHEUS.ttf: nowar/NowarSans-CondensedSemiBold.otf
+	mkdir -p RP-500/Fonts
+	cp $^ $@
+RP-500/Fonts/skurri.ttf: nowar/NowarSans-ExtendedMedium.otf
+	mkdir -p RP-500/Fonts
+	cp $^ $@
+RP-500/Fonts/FRIZQT___CYR.ttf: nowar/unspec-NowarUI-RP-ExtendedMedium.otf
+	mkdir -p RP-500/Fonts
+	cp $^ $@
+RP-500/Fonts/MORPHEUS_CYR.ttf: nowar/NowarSans-CondensedSemiBold.otf
+	mkdir -p RP-500/Fonts
+	cp $^ $@
+RP-500/Fonts/SKURRI_CYR.ttf: nowar/NowarSans-ExtendedMedium.otf
+	mkdir -p RP-500/Fonts
+	cp $^ $@
+RP-500/Fonts/ARKai_C.ttf: nowar/gbk-NowarSans-RP-ExtendedMedium.otf
+	mkdir -p RP-500/Fonts
+	cp $^ $@
+RP-500/Fonts/ARKai_T.ttf: nowar/gbk-NowarWarcraftSans-RP-Medium.otf
+	mkdir -p RP-500/Fonts
+	cp $^ $@
+RP-500/Fonts/ARHei.ttf: nowar/gbk-NowarSans-RP-CondensedMedium.otf
+	mkdir -p RP-500/Fonts
+	cp $^ $@
+RP-500/Fonts/arheiuhk_bd.ttf: nowar/big5-NowarSans-RP-CondensedMedium.otf
+	mkdir -p RP-500/Fonts
+	cp $^ $@
+RP-500/Fonts/bHEI00M.ttf: nowar/big5-NowarSans-RP-Medium.otf
+	mkdir -p RP-500/Fonts
+	cp $^ $@
+RP-500/Fonts/bHEI01B.ttf: nowar/big5-NowarSans-RP-CondensedMedium.otf
+	mkdir -p RP-500/Fonts
+	cp $^ $@
+RP-500/Fonts/bKAI00M.ttf: nowar/big5-NowarSans-RP-ExtendedMedium.otf
+	mkdir -p RP-500/Fonts
+	cp $^ $@
+RP-500/Fonts/blei00d.ttf: nowar/big5-NowarWarcraftSans-RP-Medium.otf
+	mkdir -p RP-500/Fonts
+	cp $^ $@
+NowarSans-RP-700-${VERSION}.7z: RP-700/Fonts/ARIALN.ttf RP-700/Fonts/FRIZQT__.ttf RP-700/Fonts/MORPHEUS.ttf RP-700/Fonts/skurri.ttf RP-700/Fonts/FRIZQT___CYR.ttf RP-700/Fonts/MORPHEUS_CYR.ttf RP-700/Fonts/SKURRI_CYR.ttf RP-700/Fonts/ARKai_C.ttf RP-700/Fonts/ARKai_T.ttf RP-700/Fonts/ARHei.ttf RP-700/Fonts/arheiuhk_bd.ttf RP-700/Fonts/bHEI00M.ttf RP-700/Fonts/bHEI01B.ttf RP-700/Fonts/bKAI00M.ttf RP-700/Fonts/blei00d.ttf
+	cd RP-700;cp ../LICENSE.txt Fonts/LICENSE.txt;7z a -t7z -m0=LZMA:d=512m:fb=273 -ms ../$@ Fonts/
+RP-700/Fonts/ARIALN.ttf: nowar/unspec-NowarUI-RP-CondensedBold.otf
+	mkdir -p RP-700/Fonts
+	cp $^ $@
+RP-700/Fonts/FRIZQT__.ttf: nowar/unspec-NowarUI-RP-ExtendedBold.otf
+	mkdir -p RP-700/Fonts
+	cp $^ $@
+RP-700/Fonts/MORPHEUS.ttf: nowar/NowarSans-CondensedExtraBold.otf
+	mkdir -p RP-700/Fonts
+	cp $^ $@
+RP-700/Fonts/skurri.ttf: nowar/NowarSans-ExtendedBold.otf
+	mkdir -p RP-700/Fonts
+	cp $^ $@
+RP-700/Fonts/FRIZQT___CYR.ttf: nowar/unspec-NowarUI-RP-ExtendedBold.otf
+	mkdir -p RP-700/Fonts
+	cp $^ $@
+RP-700/Fonts/MORPHEUS_CYR.ttf: nowar/NowarSans-CondensedExtraBold.otf
+	mkdir -p RP-700/Fonts
+	cp $^ $@
+RP-700/Fonts/SKURRI_CYR.ttf: nowar/NowarSans-ExtendedBold.otf
+	mkdir -p RP-700/Fonts
+	cp $^ $@
+RP-700/Fonts/ARKai_C.ttf: nowar/gbk-NowarSans-RP-ExtendedBold.otf
+	mkdir -p RP-700/Fonts
+	cp $^ $@
+RP-700/Fonts/ARKai_T.ttf: nowar/gbk-NowarWarcraftSans-RP-Bold.otf
+	mkdir -p RP-700/Fonts
+	cp $^ $@
+RP-700/Fonts/ARHei.ttf: nowar/gbk-NowarSans-RP-CondensedBold.otf
+	mkdir -p RP-700/Fonts
+	cp $^ $@
+RP-700/Fonts/arheiuhk_bd.ttf: nowar/big5-NowarSans-RP-CondensedBold.otf
+	mkdir -p RP-700/Fonts
+	cp $^ $@
+RP-700/Fonts/bHEI00M.ttf: nowar/big5-NowarSans-RP-Bold.otf
+	mkdir -p RP-700/Fonts
+	cp $^ $@
+RP-700/Fonts/bHEI01B.ttf: nowar/big5-NowarSans-RP-CondensedBold.otf
+	mkdir -p RP-700/Fonts
+	cp $^ $@
+RP-700/Fonts/bKAI00M.ttf: nowar/big5-NowarSans-RP-ExtendedBold.otf
+	mkdir -p RP-700/Fonts
+	cp $^ $@
+RP-700/Fonts/blei00d.ttf: nowar/big5-NowarWarcraftSans-RP-Bold.otf
+	mkdir -p RP-700/Fonts
+	cp $^ $@
 nowar/unspec-NowarSans-CN-CondensedLight.otf: nowar/unspec-NowarSans-CN-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-CondensedLight.otd: noto/NotoSans-CondensedLight.otd shs/SourceHanSansSC-Light.otd
@@ -2042,6 +2230,27 @@ nowar/korean-NowarSans-GB-CondensedLight.otf: nowar/korean-NowarSans-GB-Condense
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarSans-GB-CondensedLight.otd: nowar/unspec-NowarSans-GB-CondensedLight.otd
 	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarSans-RP-CondensedLight.otf: nowar/unspec-NowarSans-RP-CondensedLight.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarSans-RP-CondensedLight.otd: noto/NotoSans-CondensedLight.otd shs/SourceHanSansCN-Light.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarSans-RP-CondensedLight.otf: nowar/gbk-NowarSans-RP-CondensedLight.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarSans-RP-CondensedLight.otd: nowar/unspec-NowarSans-RP-CondensedLight.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarSans-RP-CondensedLight.otf: nowar/big5-NowarSans-RP-CondensedLight.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarSans-RP-CondensedLight.otd: nowar/unspec-NowarSans-RP-CondensedLight.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarSans-RP-CondensedLight.otf: nowar/jis-NowarSans-RP-CondensedLight.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarSans-RP-CondensedLight.otd: nowar/unspec-NowarSans-RP-CondensedLight.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarSans-RP-CondensedLight.otf: nowar/korean-NowarSans-RP-CondensedLight.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarSans-RP-CondensedLight.otd: nowar/unspec-NowarSans-RP-CondensedLight.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarSans-CN-Light.otf: nowar/unspec-NowarSans-CN-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-Light.otd: noto/NotoSans-SemiCondensedLight.otd shs/SourceHanSansSC-Light.otd
@@ -2212,6 +2421,27 @@ nowar/korean-NowarSans-GB-Light.otf: nowar/korean-NowarSans-GB-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarSans-GB-Light.otd: nowar/unspec-NowarSans-GB-Light.otd
 	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarSans-RP-Light.otf: nowar/unspec-NowarSans-RP-Light.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarSans-RP-Light.otd: noto/NotoSans-SemiCondensedLight.otd shs/SourceHanSansCN-Light.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarSans-RP-Light.otf: nowar/gbk-NowarSans-RP-Light.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarSans-RP-Light.otd: nowar/unspec-NowarSans-RP-Light.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarSans-RP-Light.otf: nowar/big5-NowarSans-RP-Light.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarSans-RP-Light.otd: nowar/unspec-NowarSans-RP-Light.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarSans-RP-Light.otf: nowar/jis-NowarSans-RP-Light.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarSans-RP-Light.otd: nowar/unspec-NowarSans-RP-Light.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarSans-RP-Light.otf: nowar/korean-NowarSans-RP-Light.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarSans-RP-Light.otd: nowar/unspec-NowarSans-RP-Light.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarSans-CN-ExtendedLight.otf: nowar/unspec-NowarSans-CN-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-ExtendedLight.otd: noto/NotoSans-Light.otd shs/SourceHanSansSC-Light.otd
@@ -2382,6 +2612,27 @@ nowar/korean-NowarSans-GB-ExtendedLight.otf: nowar/korean-NowarSans-GB-ExtendedL
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarSans-GB-ExtendedLight.otd: nowar/unspec-NowarSans-GB-ExtendedLight.otd
 	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarSans-RP-ExtendedLight.otf: nowar/unspec-NowarSans-RP-ExtendedLight.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarSans-RP-ExtendedLight.otd: noto/NotoSans-Light.otd shs/SourceHanSansCN-Light.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarSans-RP-ExtendedLight.otf: nowar/gbk-NowarSans-RP-ExtendedLight.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarSans-RP-ExtendedLight.otd: nowar/unspec-NowarSans-RP-ExtendedLight.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarSans-RP-ExtendedLight.otf: nowar/big5-NowarSans-RP-ExtendedLight.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarSans-RP-ExtendedLight.otd: nowar/unspec-NowarSans-RP-ExtendedLight.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarSans-RP-ExtendedLight.otf: nowar/jis-NowarSans-RP-ExtendedLight.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarSans-RP-ExtendedLight.otd: nowar/unspec-NowarSans-RP-ExtendedLight.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarSans-RP-ExtendedLight.otf: nowar/korean-NowarSans-RP-ExtendedLight.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarSans-RP-ExtendedLight.otd: nowar/unspec-NowarSans-RP-ExtendedLight.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarSans-CN-Condensed.otf: nowar/unspec-NowarSans-CN-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-Condensed.otd: noto/NotoSans-Condensed.otd shs/SourceHanSansSC-Regular.otd
@@ -2564,6 +2815,27 @@ nowar/korean-NowarSans-GB-Condensed.otf: nowar/korean-NowarSans-GB-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarSans-GB-Condensed.otd: nowar/unspec-NowarSans-GB-Condensed.otd
 	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarSans-RP-Condensed.otf: nowar/unspec-NowarSans-RP-Condensed.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarSans-RP-Condensed.otd: noto/NotoSans-Condensed.otd shs/SourceHanSansCN-Regular.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarSans-RP-Condensed.otf: nowar/gbk-NowarSans-RP-Condensed.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarSans-RP-Condensed.otd: nowar/unspec-NowarSans-RP-Condensed.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarSans-RP-Condensed.otf: nowar/big5-NowarSans-RP-Condensed.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarSans-RP-Condensed.otd: nowar/unspec-NowarSans-RP-Condensed.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarSans-RP-Condensed.otf: nowar/jis-NowarSans-RP-Condensed.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarSans-RP-Condensed.otd: nowar/unspec-NowarSans-RP-Condensed.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarSans-RP-Condensed.otf: nowar/korean-NowarSans-RP-Condensed.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarSans-RP-Condensed.otd: nowar/unspec-NowarSans-RP-Condensed.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarSans-CN-Regular.otf: nowar/unspec-NowarSans-CN-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-Regular.otd: noto/NotoSans-SemiCondensed.otd shs/SourceHanSansSC-Regular.otd
@@ -2734,6 +3006,27 @@ nowar/korean-NowarSans-GB-Regular.otf: nowar/korean-NowarSans-GB-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarSans-GB-Regular.otd: nowar/unspec-NowarSans-GB-Regular.otd
 	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarSans-RP-Regular.otf: nowar/unspec-NowarSans-RP-Regular.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarSans-RP-Regular.otd: noto/NotoSans-SemiCondensed.otd shs/SourceHanSansCN-Regular.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarSans-RP-Regular.otf: nowar/gbk-NowarSans-RP-Regular.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarSans-RP-Regular.otd: nowar/unspec-NowarSans-RP-Regular.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarSans-RP-Regular.otf: nowar/big5-NowarSans-RP-Regular.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarSans-RP-Regular.otd: nowar/unspec-NowarSans-RP-Regular.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarSans-RP-Regular.otf: nowar/jis-NowarSans-RP-Regular.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarSans-RP-Regular.otd: nowar/unspec-NowarSans-RP-Regular.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarSans-RP-Regular.otf: nowar/korean-NowarSans-RP-Regular.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarSans-RP-Regular.otd: nowar/unspec-NowarSans-RP-Regular.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarSans-CN-Extended.otf: nowar/unspec-NowarSans-CN-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-Extended.otd: noto/NotoSans-Regular.otd shs/SourceHanSansSC-Regular.otd
@@ -2904,6 +3197,27 @@ nowar/korean-NowarSans-GB-Extended.otf: nowar/korean-NowarSans-GB-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarSans-GB-Extended.otd: nowar/unspec-NowarSans-GB-Extended.otd
 	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarSans-RP-Extended.otf: nowar/unspec-NowarSans-RP-Extended.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarSans-RP-Extended.otd: noto/NotoSans-Regular.otd shs/SourceHanSansCN-Regular.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarSans-RP-Extended.otf: nowar/gbk-NowarSans-RP-Extended.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarSans-RP-Extended.otd: nowar/unspec-NowarSans-RP-Extended.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarSans-RP-Extended.otf: nowar/big5-NowarSans-RP-Extended.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarSans-RP-Extended.otd: nowar/unspec-NowarSans-RP-Extended.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarSans-RP-Extended.otf: nowar/jis-NowarSans-RP-Extended.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarSans-RP-Extended.otd: nowar/unspec-NowarSans-RP-Extended.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarSans-RP-Extended.otf: nowar/korean-NowarSans-RP-Extended.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarSans-RP-Extended.otd: nowar/unspec-NowarSans-RP-Extended.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarSans-CN-CondensedMedium.otf: nowar/unspec-NowarSans-CN-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-CondensedMedium.otd: noto/NotoSans-CondensedMedium.otd shs/SourceHanSansSC-Medium.otd
@@ -3086,6 +3400,27 @@ nowar/korean-NowarSans-GB-CondensedMedium.otf: nowar/korean-NowarSans-GB-Condens
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarSans-GB-CondensedMedium.otd: nowar/unspec-NowarSans-GB-CondensedMedium.otd
 	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarSans-RP-CondensedMedium.otf: nowar/unspec-NowarSans-RP-CondensedMedium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarSans-RP-CondensedMedium.otd: noto/NotoSans-CondensedMedium.otd shs/SourceHanSansCN-Medium.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarSans-RP-CondensedMedium.otf: nowar/gbk-NowarSans-RP-CondensedMedium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarSans-RP-CondensedMedium.otd: nowar/unspec-NowarSans-RP-CondensedMedium.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarSans-RP-CondensedMedium.otf: nowar/big5-NowarSans-RP-CondensedMedium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarSans-RP-CondensedMedium.otd: nowar/unspec-NowarSans-RP-CondensedMedium.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarSans-RP-CondensedMedium.otf: nowar/jis-NowarSans-RP-CondensedMedium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarSans-RP-CondensedMedium.otd: nowar/unspec-NowarSans-RP-CondensedMedium.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarSans-RP-CondensedMedium.otf: nowar/korean-NowarSans-RP-CondensedMedium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarSans-RP-CondensedMedium.otd: nowar/unspec-NowarSans-RP-CondensedMedium.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarSans-CN-Medium.otf: nowar/unspec-NowarSans-CN-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd shs/SourceHanSansSC-Medium.otd
@@ -3256,6 +3591,27 @@ nowar/korean-NowarSans-GB-Medium.otf: nowar/korean-NowarSans-GB-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarSans-GB-Medium.otd: nowar/unspec-NowarSans-GB-Medium.otd
 	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarSans-RP-Medium.otf: nowar/unspec-NowarSans-RP-Medium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarSans-RP-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd shs/SourceHanSansCN-Medium.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarSans-RP-Medium.otf: nowar/gbk-NowarSans-RP-Medium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarSans-RP-Medium.otd: nowar/unspec-NowarSans-RP-Medium.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarSans-RP-Medium.otf: nowar/big5-NowarSans-RP-Medium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarSans-RP-Medium.otd: nowar/unspec-NowarSans-RP-Medium.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarSans-RP-Medium.otf: nowar/jis-NowarSans-RP-Medium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarSans-RP-Medium.otd: nowar/unspec-NowarSans-RP-Medium.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarSans-RP-Medium.otf: nowar/korean-NowarSans-RP-Medium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarSans-RP-Medium.otd: nowar/unspec-NowarSans-RP-Medium.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarSans-CN-ExtendedMedium.otf: nowar/unspec-NowarSans-CN-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-ExtendedMedium.otd: noto/NotoSans-Medium.otd shs/SourceHanSansSC-Medium.otd
@@ -3426,6 +3782,27 @@ nowar/korean-NowarSans-GB-ExtendedMedium.otf: nowar/korean-NowarSans-GB-Extended
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarSans-GB-ExtendedMedium.otd: nowar/unspec-NowarSans-GB-ExtendedMedium.otd
 	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarSans-RP-ExtendedMedium.otf: nowar/unspec-NowarSans-RP-ExtendedMedium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarSans-RP-ExtendedMedium.otd: noto/NotoSans-Medium.otd shs/SourceHanSansCN-Medium.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarSans-RP-ExtendedMedium.otf: nowar/gbk-NowarSans-RP-ExtendedMedium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarSans-RP-ExtendedMedium.otd: nowar/unspec-NowarSans-RP-ExtendedMedium.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarSans-RP-ExtendedMedium.otf: nowar/big5-NowarSans-RP-ExtendedMedium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarSans-RP-ExtendedMedium.otd: nowar/unspec-NowarSans-RP-ExtendedMedium.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarSans-RP-ExtendedMedium.otf: nowar/jis-NowarSans-RP-ExtendedMedium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarSans-RP-ExtendedMedium.otd: nowar/unspec-NowarSans-RP-ExtendedMedium.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarSans-RP-ExtendedMedium.otf: nowar/korean-NowarSans-RP-ExtendedMedium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarSans-RP-ExtendedMedium.otd: nowar/unspec-NowarSans-RP-ExtendedMedium.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarSans-CN-CondensedBold.otf: nowar/unspec-NowarSans-CN-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-CondensedBold.otd: noto/NotoSans-CondensedBold.otd shs/SourceHanSansSC-Bold.otd
@@ -3608,6 +3985,27 @@ nowar/korean-NowarSans-GB-CondensedBold.otf: nowar/korean-NowarSans-GB-Condensed
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarSans-GB-CondensedBold.otd: nowar/unspec-NowarSans-GB-CondensedBold.otd
 	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarSans-RP-CondensedBold.otf: nowar/unspec-NowarSans-RP-CondensedBold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarSans-RP-CondensedBold.otd: noto/NotoSans-CondensedBold.otd shs/SourceHanSansCN-Bold.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarSans-RP-CondensedBold.otf: nowar/gbk-NowarSans-RP-CondensedBold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarSans-RP-CondensedBold.otd: nowar/unspec-NowarSans-RP-CondensedBold.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarSans-RP-CondensedBold.otf: nowar/big5-NowarSans-RP-CondensedBold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarSans-RP-CondensedBold.otd: nowar/unspec-NowarSans-RP-CondensedBold.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarSans-RP-CondensedBold.otf: nowar/jis-NowarSans-RP-CondensedBold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarSans-RP-CondensedBold.otd: nowar/unspec-NowarSans-RP-CondensedBold.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarSans-RP-CondensedBold.otf: nowar/korean-NowarSans-RP-CondensedBold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarSans-RP-CondensedBold.otd: nowar/unspec-NowarSans-RP-CondensedBold.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarSans-CN-Bold.otf: nowar/unspec-NowarSans-CN-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-Bold.otd: noto/NotoSans-SemiCondensedBold.otd shs/SourceHanSansSC-Bold.otd
@@ -3778,6 +4176,27 @@ nowar/korean-NowarSans-GB-Bold.otf: nowar/korean-NowarSans-GB-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarSans-GB-Bold.otd: nowar/unspec-NowarSans-GB-Bold.otd
 	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarSans-RP-Bold.otf: nowar/unspec-NowarSans-RP-Bold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarSans-RP-Bold.otd: noto/NotoSans-SemiCondensedBold.otd shs/SourceHanSansCN-Bold.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarSans-RP-Bold.otf: nowar/gbk-NowarSans-RP-Bold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarSans-RP-Bold.otd: nowar/unspec-NowarSans-RP-Bold.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarSans-RP-Bold.otf: nowar/big5-NowarSans-RP-Bold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarSans-RP-Bold.otd: nowar/unspec-NowarSans-RP-Bold.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarSans-RP-Bold.otf: nowar/jis-NowarSans-RP-Bold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarSans-RP-Bold.otd: nowar/unspec-NowarSans-RP-Bold.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarSans-RP-Bold.otf: nowar/korean-NowarSans-RP-Bold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarSans-RP-Bold.otd: nowar/unspec-NowarSans-RP-Bold.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarSans-CN-ExtendedBold.otf: nowar/unspec-NowarSans-CN-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarSans-CN-ExtendedBold.otd: noto/NotoSans-Bold.otd shs/SourceHanSansSC-Bold.otd
@@ -3948,6 +4367,27 @@ nowar/korean-NowarSans-GB-ExtendedBold.otf: nowar/korean-NowarSans-GB-ExtendedBo
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarSans-GB-ExtendedBold.otd: nowar/unspec-NowarSans-GB-ExtendedBold.otd
 	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarSans-RP-ExtendedBold.otf: nowar/unspec-NowarSans-RP-ExtendedBold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarSans-RP-ExtendedBold.otd: noto/NotoSans-Bold.otd shs/SourceHanSansCN-Bold.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarSans-RP-ExtendedBold.otf: nowar/gbk-NowarSans-RP-ExtendedBold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarSans-RP-ExtendedBold.otd: nowar/unspec-NowarSans-RP-ExtendedBold.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarSans-RP-ExtendedBold.otf: nowar/big5-NowarSans-RP-ExtendedBold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarSans-RP-ExtendedBold.otd: nowar/unspec-NowarSans-RP-ExtendedBold.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarSans-RP-ExtendedBold.otf: nowar/jis-NowarSans-RP-ExtendedBold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarSans-RP-ExtendedBold.otd: nowar/unspec-NowarSans-RP-ExtendedBold.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarSans-RP-ExtendedBold.otf: nowar/korean-NowarSans-RP-ExtendedBold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarSans-RP-ExtendedBold.otd: nowar/unspec-NowarSans-RP-ExtendedBold.otd
+	python set-encoding.py \{\"family\":\ \"Sans\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarUI-CN-CondensedLight.otf: nowar/unspec-NowarUI-CN-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-CondensedLight.otd: noto/NotoSans-CondensedLight.otd shs/SourceHanSansSC-Light.otd
@@ -4116,6 +4556,27 @@ nowar/korean-NowarUI-GB-CondensedLight.otf: nowar/korean-NowarUI-GB-CondensedLig
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarUI-GB-CondensedLight.otd: nowar/unspec-NowarUI-GB-CondensedLight.otd
 	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarUI-RP-CondensedLight.otf: nowar/unspec-NowarUI-RP-CondensedLight.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarUI-RP-CondensedLight.otd: noto/NotoSans-CondensedLight.otd shs/SourceHanSansCN-Light.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarUI-RP-CondensedLight.otf: nowar/gbk-NowarUI-RP-CondensedLight.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarUI-RP-CondensedLight.otd: nowar/unspec-NowarUI-RP-CondensedLight.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarUI-RP-CondensedLight.otf: nowar/big5-NowarUI-RP-CondensedLight.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarUI-RP-CondensedLight.otd: nowar/unspec-NowarUI-RP-CondensedLight.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarUI-RP-CondensedLight.otf: nowar/jis-NowarUI-RP-CondensedLight.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarUI-RP-CondensedLight.otd: nowar/unspec-NowarUI-RP-CondensedLight.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarUI-RP-CondensedLight.otf: nowar/korean-NowarUI-RP-CondensedLight.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarUI-RP-CondensedLight.otd: nowar/unspec-NowarUI-RP-CondensedLight.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarUI-CN-Light.otf: nowar/unspec-NowarUI-CN-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-Light.otd: noto/NotoSans-SemiCondensedLight.otd shs/SourceHanSansSC-Light.otd
@@ -4284,6 +4745,27 @@ nowar/korean-NowarUI-GB-Light.otf: nowar/korean-NowarUI-GB-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarUI-GB-Light.otd: nowar/unspec-NowarUI-GB-Light.otd
 	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarUI-RP-Light.otf: nowar/unspec-NowarUI-RP-Light.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarUI-RP-Light.otd: noto/NotoSans-SemiCondensedLight.otd shs/SourceHanSansCN-Light.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarUI-RP-Light.otf: nowar/gbk-NowarUI-RP-Light.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarUI-RP-Light.otd: nowar/unspec-NowarUI-RP-Light.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarUI-RP-Light.otf: nowar/big5-NowarUI-RP-Light.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarUI-RP-Light.otd: nowar/unspec-NowarUI-RP-Light.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarUI-RP-Light.otf: nowar/jis-NowarUI-RP-Light.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarUI-RP-Light.otd: nowar/unspec-NowarUI-RP-Light.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarUI-RP-Light.otf: nowar/korean-NowarUI-RP-Light.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarUI-RP-Light.otd: nowar/unspec-NowarUI-RP-Light.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarUI-CN-ExtendedLight.otf: nowar/unspec-NowarUI-CN-ExtendedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-ExtendedLight.otd: noto/NotoSans-Light.otd shs/SourceHanSansSC-Light.otd
@@ -4452,6 +4934,27 @@ nowar/korean-NowarUI-GB-ExtendedLight.otf: nowar/korean-NowarUI-GB-ExtendedLight
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarUI-GB-ExtendedLight.otd: nowar/unspec-NowarUI-GB-ExtendedLight.otd
 	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarUI-RP-ExtendedLight.otf: nowar/unspec-NowarUI-RP-ExtendedLight.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarUI-RP-ExtendedLight.otd: noto/NotoSans-Light.otd shs/SourceHanSansCN-Light.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarUI-RP-ExtendedLight.otf: nowar/gbk-NowarUI-RP-ExtendedLight.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarUI-RP-ExtendedLight.otd: nowar/unspec-NowarUI-RP-ExtendedLight.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarUI-RP-ExtendedLight.otf: nowar/big5-NowarUI-RP-ExtendedLight.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarUI-RP-ExtendedLight.otd: nowar/unspec-NowarUI-RP-ExtendedLight.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarUI-RP-ExtendedLight.otf: nowar/jis-NowarUI-RP-ExtendedLight.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarUI-RP-ExtendedLight.otd: nowar/unspec-NowarUI-RP-ExtendedLight.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarUI-RP-ExtendedLight.otf: nowar/korean-NowarUI-RP-ExtendedLight.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarUI-RP-ExtendedLight.otd: nowar/unspec-NowarUI-RP-ExtendedLight.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 300,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarUI-CN-Condensed.otf: nowar/unspec-NowarUI-CN-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-Condensed.otd: noto/NotoSans-Condensed.otd shs/SourceHanSansSC-Regular.otd
@@ -4620,6 +5123,27 @@ nowar/korean-NowarUI-GB-Condensed.otf: nowar/korean-NowarUI-GB-Condensed.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarUI-GB-Condensed.otd: nowar/unspec-NowarUI-GB-Condensed.otd
 	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarUI-RP-Condensed.otf: nowar/unspec-NowarUI-RP-Condensed.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarUI-RP-Condensed.otd: noto/NotoSans-Condensed.otd shs/SourceHanSansCN-Regular.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarUI-RP-Condensed.otf: nowar/gbk-NowarUI-RP-Condensed.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarUI-RP-Condensed.otd: nowar/unspec-NowarUI-RP-Condensed.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarUI-RP-Condensed.otf: nowar/big5-NowarUI-RP-Condensed.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarUI-RP-Condensed.otd: nowar/unspec-NowarUI-RP-Condensed.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarUI-RP-Condensed.otf: nowar/jis-NowarUI-RP-Condensed.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarUI-RP-Condensed.otd: nowar/unspec-NowarUI-RP-Condensed.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarUI-RP-Condensed.otf: nowar/korean-NowarUI-RP-Condensed.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarUI-RP-Condensed.otd: nowar/unspec-NowarUI-RP-Condensed.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarUI-CN-Regular.otf: nowar/unspec-NowarUI-CN-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-Regular.otd: noto/NotoSans-SemiCondensed.otd shs/SourceHanSansSC-Regular.otd
@@ -4788,6 +5312,27 @@ nowar/korean-NowarUI-GB-Regular.otf: nowar/korean-NowarUI-GB-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarUI-GB-Regular.otd: nowar/unspec-NowarUI-GB-Regular.otd
 	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarUI-RP-Regular.otf: nowar/unspec-NowarUI-RP-Regular.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarUI-RP-Regular.otd: noto/NotoSans-SemiCondensed.otd shs/SourceHanSansCN-Regular.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarUI-RP-Regular.otf: nowar/gbk-NowarUI-RP-Regular.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarUI-RP-Regular.otd: nowar/unspec-NowarUI-RP-Regular.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarUI-RP-Regular.otf: nowar/big5-NowarUI-RP-Regular.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarUI-RP-Regular.otd: nowar/unspec-NowarUI-RP-Regular.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarUI-RP-Regular.otf: nowar/jis-NowarUI-RP-Regular.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarUI-RP-Regular.otd: nowar/unspec-NowarUI-RP-Regular.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarUI-RP-Regular.otf: nowar/korean-NowarUI-RP-Regular.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarUI-RP-Regular.otd: nowar/unspec-NowarUI-RP-Regular.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarUI-CN-Extended.otf: nowar/unspec-NowarUI-CN-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-Extended.otd: noto/NotoSans-Regular.otd shs/SourceHanSansSC-Regular.otd
@@ -4956,6 +5501,27 @@ nowar/korean-NowarUI-GB-Extended.otf: nowar/korean-NowarUI-GB-Extended.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarUI-GB-Extended.otd: nowar/unspec-NowarUI-GB-Extended.otd
 	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarUI-RP-Extended.otf: nowar/unspec-NowarUI-RP-Extended.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarUI-RP-Extended.otd: noto/NotoSans-Regular.otd shs/SourceHanSansCN-Regular.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarUI-RP-Extended.otf: nowar/gbk-NowarUI-RP-Extended.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarUI-RP-Extended.otd: nowar/unspec-NowarUI-RP-Extended.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarUI-RP-Extended.otf: nowar/big5-NowarUI-RP-Extended.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarUI-RP-Extended.otd: nowar/unspec-NowarUI-RP-Extended.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarUI-RP-Extended.otf: nowar/jis-NowarUI-RP-Extended.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarUI-RP-Extended.otd: nowar/unspec-NowarUI-RP-Extended.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarUI-RP-Extended.otf: nowar/korean-NowarUI-RP-Extended.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarUI-RP-Extended.otd: nowar/unspec-NowarUI-RP-Extended.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 400,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarUI-CN-CondensedMedium.otf: nowar/unspec-NowarUI-CN-CondensedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-CondensedMedium.otd: noto/NotoSans-CondensedMedium.otd shs/SourceHanSansSC-Medium.otd
@@ -5124,6 +5690,27 @@ nowar/korean-NowarUI-GB-CondensedMedium.otf: nowar/korean-NowarUI-GB-CondensedMe
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarUI-GB-CondensedMedium.otd: nowar/unspec-NowarUI-GB-CondensedMedium.otd
 	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarUI-RP-CondensedMedium.otf: nowar/unspec-NowarUI-RP-CondensedMedium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarUI-RP-CondensedMedium.otd: noto/NotoSans-CondensedMedium.otd shs/SourceHanSansCN-Medium.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarUI-RP-CondensedMedium.otf: nowar/gbk-NowarUI-RP-CondensedMedium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarUI-RP-CondensedMedium.otd: nowar/unspec-NowarUI-RP-CondensedMedium.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarUI-RP-CondensedMedium.otf: nowar/big5-NowarUI-RP-CondensedMedium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarUI-RP-CondensedMedium.otd: nowar/unspec-NowarUI-RP-CondensedMedium.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarUI-RP-CondensedMedium.otf: nowar/jis-NowarUI-RP-CondensedMedium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarUI-RP-CondensedMedium.otd: nowar/unspec-NowarUI-RP-CondensedMedium.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarUI-RP-CondensedMedium.otf: nowar/korean-NowarUI-RP-CondensedMedium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarUI-RP-CondensedMedium.otd: nowar/unspec-NowarUI-RP-CondensedMedium.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarUI-CN-Medium.otf: nowar/unspec-NowarUI-CN-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd shs/SourceHanSansSC-Medium.otd
@@ -5292,6 +5879,27 @@ nowar/korean-NowarUI-GB-Medium.otf: nowar/korean-NowarUI-GB-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarUI-GB-Medium.otd: nowar/unspec-NowarUI-GB-Medium.otd
 	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarUI-RP-Medium.otf: nowar/unspec-NowarUI-RP-Medium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarUI-RP-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd shs/SourceHanSansCN-Medium.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarUI-RP-Medium.otf: nowar/gbk-NowarUI-RP-Medium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarUI-RP-Medium.otd: nowar/unspec-NowarUI-RP-Medium.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarUI-RP-Medium.otf: nowar/big5-NowarUI-RP-Medium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarUI-RP-Medium.otd: nowar/unspec-NowarUI-RP-Medium.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarUI-RP-Medium.otf: nowar/jis-NowarUI-RP-Medium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarUI-RP-Medium.otd: nowar/unspec-NowarUI-RP-Medium.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarUI-RP-Medium.otf: nowar/korean-NowarUI-RP-Medium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarUI-RP-Medium.otd: nowar/unspec-NowarUI-RP-Medium.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarUI-CN-ExtendedMedium.otf: nowar/unspec-NowarUI-CN-ExtendedMedium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-ExtendedMedium.otd: noto/NotoSans-Medium.otd shs/SourceHanSansSC-Medium.otd
@@ -5460,6 +6068,27 @@ nowar/korean-NowarUI-GB-ExtendedMedium.otf: nowar/korean-NowarUI-GB-ExtendedMedi
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarUI-GB-ExtendedMedium.otd: nowar/unspec-NowarUI-GB-ExtendedMedium.otd
 	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarUI-RP-ExtendedMedium.otf: nowar/unspec-NowarUI-RP-ExtendedMedium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarUI-RP-ExtendedMedium.otd: noto/NotoSans-Medium.otd shs/SourceHanSansCN-Medium.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarUI-RP-ExtendedMedium.otf: nowar/gbk-NowarUI-RP-ExtendedMedium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarUI-RP-ExtendedMedium.otd: nowar/unspec-NowarUI-RP-ExtendedMedium.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarUI-RP-ExtendedMedium.otf: nowar/big5-NowarUI-RP-ExtendedMedium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarUI-RP-ExtendedMedium.otd: nowar/unspec-NowarUI-RP-ExtendedMedium.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarUI-RP-ExtendedMedium.otf: nowar/jis-NowarUI-RP-ExtendedMedium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarUI-RP-ExtendedMedium.otd: nowar/unspec-NowarUI-RP-ExtendedMedium.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarUI-RP-ExtendedMedium.otf: nowar/korean-NowarUI-RP-ExtendedMedium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarUI-RP-ExtendedMedium.otd: nowar/unspec-NowarUI-RP-ExtendedMedium.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 500,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarUI-CN-CondensedBold.otf: nowar/unspec-NowarUI-CN-CondensedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-CondensedBold.otd: noto/NotoSans-CondensedBold.otd shs/SourceHanSansSC-Bold.otd
@@ -5628,6 +6257,27 @@ nowar/korean-NowarUI-GB-CondensedBold.otf: nowar/korean-NowarUI-GB-CondensedBold
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarUI-GB-CondensedBold.otd: nowar/unspec-NowarUI-GB-CondensedBold.otd
 	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarUI-RP-CondensedBold.otf: nowar/unspec-NowarUI-RP-CondensedBold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarUI-RP-CondensedBold.otd: noto/NotoSans-CondensedBold.otd shs/SourceHanSansCN-Bold.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarUI-RP-CondensedBold.otf: nowar/gbk-NowarUI-RP-CondensedBold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarUI-RP-CondensedBold.otd: nowar/unspec-NowarUI-RP-CondensedBold.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarUI-RP-CondensedBold.otf: nowar/big5-NowarUI-RP-CondensedBold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarUI-RP-CondensedBold.otd: nowar/unspec-NowarUI-RP-CondensedBold.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarUI-RP-CondensedBold.otf: nowar/jis-NowarUI-RP-CondensedBold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarUI-RP-CondensedBold.otd: nowar/unspec-NowarUI-RP-CondensedBold.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarUI-RP-CondensedBold.otf: nowar/korean-NowarUI-RP-CondensedBold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarUI-RP-CondensedBold.otd: nowar/unspec-NowarUI-RP-CondensedBold.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 3,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarUI-CN-Bold.otf: nowar/unspec-NowarUI-CN-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-Bold.otd: noto/NotoSans-SemiCondensedBold.otd shs/SourceHanSansSC-Bold.otd
@@ -5796,6 +6446,27 @@ nowar/korean-NowarUI-GB-Bold.otf: nowar/korean-NowarUI-GB-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarUI-GB-Bold.otd: nowar/unspec-NowarUI-GB-Bold.otd
 	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarUI-RP-Bold.otf: nowar/unspec-NowarUI-RP-Bold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarUI-RP-Bold.otd: noto/NotoSans-SemiCondensedBold.otd shs/SourceHanSansCN-Bold.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarUI-RP-Bold.otf: nowar/gbk-NowarUI-RP-Bold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarUI-RP-Bold.otd: nowar/unspec-NowarUI-RP-Bold.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarUI-RP-Bold.otf: nowar/big5-NowarUI-RP-Bold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarUI-RP-Bold.otd: nowar/unspec-NowarUI-RP-Bold.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarUI-RP-Bold.otf: nowar/jis-NowarUI-RP-Bold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarUI-RP-Bold.otd: nowar/unspec-NowarUI-RP-Bold.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarUI-RP-Bold.otf: nowar/korean-NowarUI-RP-Bold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarUI-RP-Bold.otd: nowar/unspec-NowarUI-RP-Bold.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarUI-CN-ExtendedBold.otf: nowar/unspec-NowarUI-CN-ExtendedBold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarUI-CN-ExtendedBold.otd: noto/NotoSans-Bold.otd shs/SourceHanSansSC-Bold.otd
@@ -5964,6 +6635,27 @@ nowar/korean-NowarUI-GB-ExtendedBold.otf: nowar/korean-NowarUI-GB-ExtendedBold.o
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarUI-GB-ExtendedBold.otd: nowar/unspec-NowarUI-GB-ExtendedBold.otd
 	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarUI-RP-ExtendedBold.otf: nowar/unspec-NowarUI-RP-ExtendedBold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarUI-RP-ExtendedBold.otd: noto/NotoSans-Bold.otd shs/SourceHanSansCN-Bold.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarUI-RP-ExtendedBold.otf: nowar/gbk-NowarUI-RP-ExtendedBold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarUI-RP-ExtendedBold.otd: nowar/unspec-NowarUI-RP-ExtendedBold.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarUI-RP-ExtendedBold.otf: nowar/big5-NowarUI-RP-ExtendedBold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarUI-RP-ExtendedBold.otd: nowar/unspec-NowarUI-RP-ExtendedBold.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarUI-RP-ExtendedBold.otf: nowar/jis-NowarUI-RP-ExtendedBold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarUI-RP-ExtendedBold.otd: nowar/unspec-NowarUI-RP-ExtendedBold.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarUI-RP-ExtendedBold.otf: nowar/korean-NowarUI-RP-ExtendedBold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarUI-RP-ExtendedBold.otd: nowar/unspec-NowarUI-RP-ExtendedBold.otd
+	python set-encoding.py \{\"family\":\ \"UI\",\ \"weight\":\ 700,\ \"width\":\ 7,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarWarcraftSans-CN-Light.otf: nowar/unspec-NowarWarcraftSans-CN-Light.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-CN-Light.otd: noto/NotoSans-SemiCondensedLight.otd noto/NotoSans-CondensedLight.otd shs/SourceHanSansSC-Light.otd
@@ -6132,6 +6824,27 @@ nowar/korean-NowarWarcraftSans-GB-Light.otf: nowar/korean-NowarWarcraftSans-GB-L
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarWarcraftSans-GB-Light.otd: nowar/unspec-NowarWarcraftSans-GB-Light.otd
 	python set-encoding.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarWarcraftSans-RP-Light.otf: nowar/unspec-NowarWarcraftSans-RP-Light.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarWarcraftSans-RP-Light.otd: noto/NotoSans-SemiCondensedLight.otd noto/NotoSans-CondensedLight.otd shs/SourceHanSansCN-Light.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarWarcraftSans-RP-Light.otf: nowar/gbk-NowarWarcraftSans-RP-Light.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarWarcraftSans-RP-Light.otd: nowar/unspec-NowarWarcraftSans-RP-Light.otd
+	python set-encoding.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarWarcraftSans-RP-Light.otf: nowar/big5-NowarWarcraftSans-RP-Light.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarWarcraftSans-RP-Light.otd: nowar/unspec-NowarWarcraftSans-RP-Light.otd
+	python set-encoding.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarWarcraftSans-RP-Light.otf: nowar/jis-NowarWarcraftSans-RP-Light.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarWarcraftSans-RP-Light.otd: nowar/unspec-NowarWarcraftSans-RP-Light.otd
+	python set-encoding.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarWarcraftSans-RP-Light.otf: nowar/korean-NowarWarcraftSans-RP-Light.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarWarcraftSans-RP-Light.otd: nowar/unspec-NowarWarcraftSans-RP-Light.otd
+	python set-encoding.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 300,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarWarcraftSans-CN-Regular.otf: nowar/unspec-NowarWarcraftSans-CN-Regular.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-CN-Regular.otd: noto/NotoSans-SemiCondensed.otd noto/NotoSans-Condensed.otd shs/SourceHanSansSC-Regular.otd
@@ -6300,6 +7013,27 @@ nowar/korean-NowarWarcraftSans-GB-Regular.otf: nowar/korean-NowarWarcraftSans-GB
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarWarcraftSans-GB-Regular.otd: nowar/unspec-NowarWarcraftSans-GB-Regular.otd
 	python set-encoding.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarWarcraftSans-RP-Regular.otf: nowar/unspec-NowarWarcraftSans-RP-Regular.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarWarcraftSans-RP-Regular.otd: noto/NotoSans-SemiCondensed.otd noto/NotoSans-Condensed.otd shs/SourceHanSansCN-Regular.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarWarcraftSans-RP-Regular.otf: nowar/gbk-NowarWarcraftSans-RP-Regular.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarWarcraftSans-RP-Regular.otd: nowar/unspec-NowarWarcraftSans-RP-Regular.otd
+	python set-encoding.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarWarcraftSans-RP-Regular.otf: nowar/big5-NowarWarcraftSans-RP-Regular.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarWarcraftSans-RP-Regular.otd: nowar/unspec-NowarWarcraftSans-RP-Regular.otd
+	python set-encoding.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarWarcraftSans-RP-Regular.otf: nowar/jis-NowarWarcraftSans-RP-Regular.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarWarcraftSans-RP-Regular.otd: nowar/unspec-NowarWarcraftSans-RP-Regular.otd
+	python set-encoding.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarWarcraftSans-RP-Regular.otf: nowar/korean-NowarWarcraftSans-RP-Regular.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarWarcraftSans-RP-Regular.otd: nowar/unspec-NowarWarcraftSans-RP-Regular.otd
+	python set-encoding.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 400,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarWarcraftSans-CN-Medium.otf: nowar/unspec-NowarWarcraftSans-CN-Medium.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-CN-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd noto/NotoSans-CondensedMedium.otd shs/SourceHanSansSC-Medium.otd
@@ -6468,6 +7202,27 @@ nowar/korean-NowarWarcraftSans-GB-Medium.otf: nowar/korean-NowarWarcraftSans-GB-
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarWarcraftSans-GB-Medium.otd: nowar/unspec-NowarWarcraftSans-GB-Medium.otd
 	python set-encoding.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarWarcraftSans-RP-Medium.otf: nowar/unspec-NowarWarcraftSans-RP-Medium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarWarcraftSans-RP-Medium.otd: noto/NotoSans-SemiCondensedMedium.otd noto/NotoSans-CondensedMedium.otd shs/SourceHanSansCN-Medium.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarWarcraftSans-RP-Medium.otf: nowar/gbk-NowarWarcraftSans-RP-Medium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarWarcraftSans-RP-Medium.otd: nowar/unspec-NowarWarcraftSans-RP-Medium.otd
+	python set-encoding.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarWarcraftSans-RP-Medium.otf: nowar/big5-NowarWarcraftSans-RP-Medium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarWarcraftSans-RP-Medium.otd: nowar/unspec-NowarWarcraftSans-RP-Medium.otd
+	python set-encoding.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarWarcraftSans-RP-Medium.otf: nowar/jis-NowarWarcraftSans-RP-Medium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarWarcraftSans-RP-Medium.otd: nowar/unspec-NowarWarcraftSans-RP-Medium.otd
+	python set-encoding.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarWarcraftSans-RP-Medium.otf: nowar/korean-NowarWarcraftSans-RP-Medium.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarWarcraftSans-RP-Medium.otd: nowar/unspec-NowarWarcraftSans-RP-Medium.otd
+	python set-encoding.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 500,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/unspec-NowarWarcraftSans-CN-Bold.otf: nowar/unspec-NowarWarcraftSans-CN-Bold.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/unspec-NowarWarcraftSans-CN-Bold.otd: noto/NotoSans-SemiCondensedBold.otd noto/NotoSans-CondensedBold.otd shs/SourceHanSansSC-Bold.otd
@@ -6636,6 +7391,27 @@ nowar/korean-NowarWarcraftSans-GB-Bold.otf: nowar/korean-NowarWarcraftSans-GB-Bo
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/korean-NowarWarcraftSans-GB-Bold.otd: nowar/unspec-NowarWarcraftSans-GB-Bold.otd
 	python set-encoding.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"GB\",\ \"encoding\":\ \"korean\"\}
+nowar/unspec-NowarWarcraftSans-RP-Bold.otf: nowar/unspec-NowarWarcraftSans-RP-Bold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/unspec-NowarWarcraftSans-RP-Bold.otd: noto/NotoSans-SemiCondensedBold.otd noto/NotoSans-CondensedBold.otd shs/SourceHanSansCN-Bold.otd
+	mkdir -p nowar/
+	python merge.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"unspec\"\}
+nowar/gbk-NowarWarcraftSans-RP-Bold.otf: nowar/gbk-NowarWarcraftSans-RP-Bold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/gbk-NowarWarcraftSans-RP-Bold.otd: nowar/unspec-NowarWarcraftSans-RP-Bold.otd
+	python set-encoding.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"gbk\"\}
+nowar/big5-NowarWarcraftSans-RP-Bold.otf: nowar/big5-NowarWarcraftSans-RP-Bold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/big5-NowarWarcraftSans-RP-Bold.otd: nowar/unspec-NowarWarcraftSans-RP-Bold.otd
+	python set-encoding.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"big5\"\}
+nowar/jis-NowarWarcraftSans-RP-Bold.otf: nowar/jis-NowarWarcraftSans-RP-Bold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/jis-NowarWarcraftSans-RP-Bold.otd: nowar/unspec-NowarWarcraftSans-RP-Bold.otd
+	python set-encoding.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"jis\"\}
+nowar/korean-NowarWarcraftSans-RP-Bold.otf: nowar/korean-NowarWarcraftSans-RP-Bold.otd
+	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
+nowar/korean-NowarWarcraftSans-RP-Bold.otd: nowar/unspec-NowarWarcraftSans-RP-Bold.otd
+	python set-encoding.py \{\"family\":\ \"WarcraftSans\",\ \"weight\":\ 700,\ \"width\":\ 5,\ \"region\":\ \"RP\",\ \"encoding\":\ \"korean\"\}
 nowar/NowarSans-CondensedLight.otf: nowar/NowarSans-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
 nowar/NowarSans-CondensedLight.otd: noto/NotoSans-CondensedLight.otd

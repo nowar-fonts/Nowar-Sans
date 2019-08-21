@@ -16,7 +16,7 @@ This is Nowar Sans, font packs for _World of Warcraft_ and _WoW Classic_ that su
 
 [Latest release](https://github.com/nowar-fonts/Nowar-Sans/releases)
 
-Nowar Sans is shipped in 4 weights and 8 regional variants.
+Nowar Sans is shipped in 4 weights and 9 regional variants.
 
 ### Weights
 
@@ -45,15 +45,22 @@ CL and OSF are “classical variants”, which have full character set support w
 | CL  | Classical (UI)                  | Classical  |
 | OSF | Classical (UI, Oldstyle Figure) | Classical  |
 
-GB is a special offer that supports a superset of Chinese national standard GB 18030-2000. The GB releases are much smaller than standard releases by removing Hangul support.
+GB is a variant that supports a superset of Chinese national standard GB 18030-2000. The GB distributions aim at smaller size by removing Hangul support.
 
 |    | European            | 中文           | 한국어 |
 | -- | ------------------- | -------------- | ------ |
 | GB | Mainland China (UI) | Mainland China | N/A    |
 
+RP is a special offer for Chinese RP realms. The RP distributions aim at unified experience for roleplaying players by mapping `丶` to the same glyph as `·`, allowing character names like “伊利丹丶怒风” to be shown as “伊利丹·怒风”.
+
+|    | European                | 中文                | 한국어 |
+| -- | ----------------------- | ------------------- | ------ |
+| RP | Mainland China (UI, RP) | Mainland China (RP) | N/A    |
+
 * European: English, Español (AL), Português, Deutsch, Español (EU), Français, Italiano, and Русский.
 * East Asian: 简体中文, 繁體中文, and 한국어.
 * UI: Ambiguous punctations are treated as Western; CJK puctations are half-width; Kana are proportional.
+* RP: `丶` (U+4E36) is mapped to the same glyph as `·` (U+00B7, MIDDLE DOT).
 
 ### SharedMedia Font Provider
 

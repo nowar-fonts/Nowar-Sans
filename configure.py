@@ -5,7 +5,7 @@ from itertools import product
 from types import SimpleNamespace as Namespace
 
 class Config:
-	version = "0.6.0"
+	version = "0.6.1"
 	vendor = "Nowar Typeface"
 	vendorId = "NOWR"
 	vendorUrl = "https://github.com/nowar-fonts"
@@ -16,7 +16,7 @@ class Config:
 	licenseUrl = "https://scripts.sil.org/OFL"
 
 	fontPackWeight = [ 300, 400, 500, 700 ]
-	fontPackRegion = [ "CN", "TW", "HK", "JP", "KR", "CL", "OSF", "GB" ]
+	fontPackRegion = [ "CN", "TW", "HK", "JP", "KR", "CL", "OSF", "GB", "RP" ]
 
 	fontProviderWeight = [ 300, 400, 500, 700 ]
 	fontProviderWidth = [ 3, 5, 7 ]
@@ -147,6 +147,12 @@ regionalVariant = {
 		"Hant": "GB",
 		"ko": None,
 	},
+	"RP": {
+		"Latn": "RP",
+		"Hans": "RP",
+		"Hant": "RP",
+		"ko": None,
+	},
 }
 
 # map orthography to source file
@@ -159,6 +165,7 @@ regionSourceMap = {
 	"CL": "SourceHanSansK",
 	"OSF": "SourceHanSansK",
 	"GB": "SourceHanSansCN",
+	"RP": "SourceHanSansCN",
 }
 
 regionNameMap = {
@@ -170,6 +177,7 @@ regionNameMap = {
 	"CL": "Classical",
 	"OSF": "Oldstyle",
 	"GB": "GB18030",
+	"RP": "Roleplaying",
 }
 
 # set OS/2 encoding to make Windows show font icon in proper language
