@@ -14,7 +14,9 @@ This is Nowar Sans, font packs for _World of Warcraft_ and _WoW Classic_ that su
 
 ## Download the Fonts
 
-[Latest release](https://github.com/nowar-fonts/Nowar-Sans/releases)
+[Latest release at GitHub](https://github.com/nowar-fonts/Nowar-Sans/releases)
+
+Mirrors: [Latest release at Gitee](https://gitee.com/nowar-fonts/Nowar-Sans/releases)
 
 Nowar Sans is shipped in 4 weights and 9 regional variants.
 

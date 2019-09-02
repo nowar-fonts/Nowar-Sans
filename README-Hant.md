@@ -14,7 +14,9 @@
 
 ## 下載向導
 
-[最新發佈](https://github.com/nowar-fonts/Nowar-Sans/releases)
+[GitHub 上的最新發佈](https://github.com/nowar-fonts/Nowar-Sans/releases)
+
+鏡像：[Gitee 上的最新發佈](https://gitee.com/nowar-fonts/Nowar-Sans/releases)
 
 有愛黑體有 4 種字重和 9 種地區變體。
 
@@ -38,7 +40,7 @@ CN、TW、HK、JP、KR 是「標準變體」，支援完整的字元集，並遵
 | JP | 日本字形（UI）    | 中國大陸字形 | 臺灣字形 | 韓國字形 |
 | KR | 韓國字形（UI）    | 中國大陸字形 | 臺灣字形 | 韓國字形 |
 
-CL、OSF 是「传统变体」，支援完整的字元集，採用傳統印刷字形（即康熙字形）。
+CL、OSF 是「傳統變體」，支援完整的字元集，採用傳統印刷字形（即康熙字形）。
 
 |     | 西文                      | 東亞語言 |
 | --- | ------------------------- | -------- |
