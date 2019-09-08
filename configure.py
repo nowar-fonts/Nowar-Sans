@@ -6,6 +6,7 @@ from types import SimpleNamespace as Namespace
 
 class Config:
 	version = "0.6.1"
+	fontRevision = "0.0601"
 	vendor = "Nowar Typeface"
 	vendorId = "NOWR"
 	vendorUrl = "https://github.com/nowar-fonts"

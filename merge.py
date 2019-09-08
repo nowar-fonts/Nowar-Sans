@@ -18,6 +18,7 @@ def NameFont(param, font):
 	friendly = configure.GenerateFriendlyFamily(param)
 	legacyf, legacysubf = configure.GenerateLegacySubfamily(param)
 
+	font['head']['fontRevision'] = configure.config.fontRevision
 	font['OS_2']['achVendID'] = configure.config.vendorId
 	font['OS_2']['usWeightClass'] = param.weight
 	font['OS_2']['usWidthClass'] = param.width
