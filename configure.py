@@ -231,11 +231,11 @@ def GenerateFamily(p):
 		},
 		"Latin": lambda region: {
 			0x0409: "Nowar UI LCG",
-			0x0804: "有爱黑体 UI LCG",
-			0x0404: "有愛黑體 UI LCG",
-			0x0C04: "有愛黑體 UI LCG",
-			0x0411: "有愛角ゴシック UI LCG",
-			0x0412: "有愛 고딕 UI LCG",
+			0x0804: "Nowar UI LCG",
+			0x0404: "Nowar UI LCG",
+			0x0C04: "Nowar UI LCG",
+			0x0411: "Nowar UI LCG",
+			0x0412: "Nowar UI LCG",
 		}
 	}
 	return impl[p.family](GetRegion(p))
