@@ -1,20 +1,8 @@
-The font family is licensed under SIL OFL Version 1.1.
+Copyright © 2018—2019 Cyano Hao and Nowar Typeface, with reserved font name “Nowar”, “有爱”, and “有愛”.
 
-本系列字体以 SIL OFL 许可协议版本 1.1 授权。
+Portions Copyright 2015 Google Inc.
 
-The fonts should not be sold by itself, or be redistributed without OFL. Modified version should not be redistributed with the reserved name “Nowar”, “有爱” or “有愛”.
-
-本系列字体不得单独销售，不能以 OFL 以外的协议再发布。修改版的字体不能使用保留的名字 “Nowar”、“有爱”、“有愛”。
-
------------------------------------------------------------
-
-Copyright 2018—2019 Cyano Hao, with Reserved Font Name 'Nowar', '有爱' and '有愛'.
-
-Portions Copyright 2018 The Noto Project Authors (github.com/googlei18n/noto-fonts)
-
-Portions Copyright 2014, 2015, 2018 Adobe (http://www.adobe.com/), with
-Reserved Font Name 'Source'. Source is a trademark of Adobe in the
-United States and/or other countries.
+Portions © 2014-2019 Adobe (http://www.adobe.com/).
 
 This Font Software is licensed under the SIL Open Font License,
 Version 1.1.
