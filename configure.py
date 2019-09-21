@@ -328,7 +328,7 @@ def GetLatinFont(weight, region):
 		weight = weight,
 		width = 7,
 		family = "UI",
-		region = region,
+		region = regionalVariant[region]["Latn"],
 		encoding = "unspec"
 	)
 
@@ -337,7 +337,7 @@ def GetLatinChatFont(weight, region):
 		weight = weight,
 		width = 3,
 		family = "UI",
-		region = region,
+		region = regionalVariant[region]["Latn"],
 		encoding = "unspec"
 	)
 
