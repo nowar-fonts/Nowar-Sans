@@ -72,7 +72,9 @@ Nowar Sans is also avialable as an addon (REALLY HUGE!), to register Nowar Sans 
 
 Dependencies: basic Unix utils, [Python](https://www.python.org/), [otfcc](https://github.com/caryll/otfcc) and [7-Zip](https://www.7-zip.org/) (add to `PATH`).
 
-Note: choose 64-bit version if possible. 32-bit version may lead to out-of-memory issue.
+Note:
++ Choose 64-bit version if possible. 32-bit version may lead to out-of-memory issue.
++ Use POSIX build of GNU Make on Windows ([MSYS2’s](https://www.msys2.org) or [Nowar’s](https://github.com/nowar-fonts/Toolchain-Windows-Build)).
 
 Run `configure.py` to generate Makefile. (Optional)
 ```bash
