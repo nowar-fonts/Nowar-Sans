@@ -1,5 +1,6 @@
 *.otd
 *.7z
+Makefile
 /shs/*.otf
 /nowar/
 __pycache__/
