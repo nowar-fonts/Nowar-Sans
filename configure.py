@@ -330,10 +330,15 @@ def GenerateFilename(p):
 			"WarcraftUI": "NowarWarcraftUI",
 		}
 		familyName = nameList[p.family] + "-" + GetTagStr(p)
+	elif p.family == "Latin":
+		encodingPrefix = ""
+		nameList = {
+			"Latin": "NowarLCG",
+		}
+		familyName = nameList[p.family] + "-" + GetTagStr(p)
 	else:
 		encodingPrefix = ""
 		nameList = {
-			"Latin": lambda p: "NowarUI",
 			"Noto": lambda p: "NotoSans",
 			"Source": lambda p: p.region,
 		}
