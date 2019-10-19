@@ -89,7 +89,7 @@ Run `configure.py` to generate Makefile:
 python configure.py
 ```
 
-Put Source Han Sans OTF files (all families but HW) and Subset OTF files (if you need GB variant) to `shs/`
+Put Source Han Sans OTF files (all families but HW) and Subset OTF files (if you need GB variant) to `source/shs/`
 
 Then make a specific variant:
 ```bash
@@ -102,7 +102,7 @@ e.g.
 make CN,OSF,RP-400 -j4
 ```
 
-The output is `NowarSans-<region>,<features>-<weight>-<version>.7z`.
+The output is `out/NowarSans-<region>,<features>-<weight>-<version>.7z`.
 
 ### Create Regional Variant
 

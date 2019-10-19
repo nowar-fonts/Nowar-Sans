@@ -268,7 +268,7 @@ def GetTagStr(p):
 	return ",".join(tagList)
 
 def TagListToStr(lst):
-	return ",".join(tagList)
+	return ",".join(lst)
 
 def TagStrToList(s):
 	return s.split(",")
@@ -511,13 +511,13 @@ if __name__ == "__main__":
 				"depend": [ "all" ],
 			},
 			"all": {
-				"depend": [ "SharedMedia-NowarSans-${VERSION}.7z" ],
+				"depend": [ "out/SharedMedia-NowarSans-${VERSION}.7z" ],
 			},
 			"clean": {
 				"command": [
-					"-rm -rf noto/*.otd shs/*.otd nowar/*.otd",
-					"-rm -rf {}".format(" ".join([ "{}-{}/".format(r, w) for r, w in product(config.fontPackRegion, config.fontPackWeight) ])),
-					"-rm -rf NowarSansTypeface/",
+					"-rm -rf build/",
+					"-rm -rf out/NowarSansTypeface/",
+					"-rm -rf out/??*-???/",
 				]
 			}
 		},
@@ -527,16 +527,17 @@ if __name__ == "__main__":
 	powerset = lambda lst: reduce(lambda result, x: result + [subset + [x] for subset in result], lst, [[]])
 
 	# SharedMedia font provider
-	makefile["rule"]["SharedMedia-NowarSans-${VERSION}.7z"] = {
-		"depend": [ "nowar/{}.otf".format(GenerateFilename(p)) for p in sum(config.fontProviderInstance.values(), []) ],
+	makefile["rule"]["out/SharedMedia-NowarSans-${VERSION}.7z"] = {
+		"depend": [ "build/nowar/{}.otf".format(GenerateFilename(p)) for p in sum(config.fontProviderInstance.values(), []) ],
 		"command": [
 			# copy inferface directory
-			"cp -r libsm NowarSansTypeface",
-			"cp LICENSE.txt NowarSansTypeface/",
-			"mkdir -p NowarSansTypeface/Fonts/",
+			"mkdir -p out/",
+			"cp -r source/libsm out/NowarSansTypeface",
+			"cp LICENSE.txt out/NowarSansTypeface/",
+			"mkdir -p out/NowarSansTypeface/Fonts/",
 			# replace dummy strings
-			"sed -i 's/__REPLACE_IN_BUILD__VERSION__/${VERSION}/' NowarSansTypeface/NowarSansTypeface.toc",
-			"sed -i '/__REPLACE_IN_BUILD__REGISTER_WESTERN1__/{{s/__REPLACE_IN_BUILD__REGISTER_WESTERN1__/{}/}}' NowarSansTypeface/NowarSansTypeface.lua".format(
+			"sed -i 's/__REPLACE_IN_BUILD__VERSION__/${VERSION}/' out/NowarSansTypeface/NowarSansTypeface.toc",
+			"sed -i '/__REPLACE_IN_BUILD__REGISTER_WESTERN1__/{{s/__REPLACE_IN_BUILD__REGISTER_WESTERN1__/{}/}}' out/NowarSansTypeface/NowarSansTypeface.lua".format(
 				"\\n".join(
 					[
 						# backslashes will be escaped twice by `make` and `sed`
@@ -547,7 +548,7 @@ if __name__ == "__main__":
 					]
 				)
 			),
-			"sed -i '/__REPLACE_IN_BUILD__REGISTER_WESTERN2__/{{s/__REPLACE_IN_BUILD__REGISTER_WESTERN2__/{}/}}' NowarSansTypeface/NowarSansTypeface.lua".format(
+			"sed -i '/__REPLACE_IN_BUILD__REGISTER_WESTERN2__/{{s/__REPLACE_IN_BUILD__REGISTER_WESTERN2__/{}/}}' out/NowarSansTypeface/NowarSansTypeface.lua".format(
 				"\\n".join(
 					[
 						r'NowarSansTypeface:Register("font", "{}", [[Interface\\Addons\\NowarSansTypeface\\Fonts\\{}.otf]], western + ruRU)'.format(
@@ -557,7 +558,7 @@ if __name__ == "__main__":
 					]
 				)
 			),
-			"sed -i '/__REPLACE_IN_BUILD__REGISTER_ZHCN__/{{s/__REPLACE_IN_BUILD__REGISTER_ZHCN__/{}/}}' NowarSansTypeface/NowarSansTypeface.lua".format(
+			"sed -i '/__REPLACE_IN_BUILD__REGISTER_ZHCN__/{{s/__REPLACE_IN_BUILD__REGISTER_ZHCN__/{}/}}' out/NowarSansTypeface/NowarSansTypeface.lua".format(
 				"\\n".join(
 					[
 						r'NowarSansTypeface:Register("font", "{}", [[Interface\\Addons\\NowarSansTypeface\\Fonts\\{}.otf]], zhCN)'.format(
@@ -567,7 +568,7 @@ if __name__ == "__main__":
 					]
 				)
 			),
-			"sed -i '/__REPLACE_IN_BUILD__REGISTER_ZHTW__/{{s/__REPLACE_IN_BUILD__REGISTER_ZHTW__/{}/}}' NowarSansTypeface/NowarSansTypeface.lua".format(
+			"sed -i '/__REPLACE_IN_BUILD__REGISTER_ZHTW__/{{s/__REPLACE_IN_BUILD__REGISTER_ZHTW__/{}/}}' out/NowarSansTypeface/NowarSansTypeface.lua".format(
 				"\\n".join(
 					[
 						r'NowarSansTypeface:Register("font", "{}", [[Interface\\Addons\\NowarSansTypeface\\Fonts\\{}.otf]], zhTW)'.format(
@@ -577,7 +578,7 @@ if __name__ == "__main__":
 					]
 				)
 			),
-			"sed -i '/__REPLACE_IN_BUILD__REGISTER_KOKR__/{{s/__REPLACE_IN_BUILD__REGISTER_KOKR__/{}/}}' NowarSansTypeface/NowarSansTypeface.lua".format(
+			"sed -i '/__REPLACE_IN_BUILD__REGISTER_KOKR__/{{s/__REPLACE_IN_BUILD__REGISTER_KOKR__/{}/}}' out/NowarSansTypeface/NowarSansTypeface.lua".format(
 				"\\n".join(
 					[
 						r'NowarSansTypeface:Register("font", "{}", [[Interface\\Addons\\NowarSansTypeface\\Fonts\\{}.otf]], koKR)'.format(
@@ -588,11 +589,11 @@ if __name__ == "__main__":
 				)
 			),
 			# copy font files
-			"for file in $^; do cp $$file NowarSansTypeface/Fonts/$${file#nowar/*-}; done",
+			"for file in $^; do cp $$file out/NowarSansTypeface/Fonts/$${file#build/nowar/*-}; done",
 			# pack with 7z, group them by weight to generate smaller file in less time
-			"7z a -t7z -m0=LZMA:d=512m:fb=273 -ms $@ NowarSansTypeface/ -x!NowarSansTypeface/Fonts/\\*.otf",
+			"cd out/; 7z a -t7z -m0=LZMA:d=512m:fb=273 -ms ../$@ NowarSansTypeface/ -x!NowarSansTypeface/Fonts/\\*.otf",
 		] + [
-			"7z a -t7z -m0=LZMA:d=512m:fb=273 -ms $@ " + " ".join([
+			"cd out/; 7z a -t7z -m0=LZMA:d=512m:fb=273 -ms ../$@ " + " ".join([
 				"NowarSansTypeface/Fonts/{}.otf".format(GenerateFilename(p).replace("unspec-", ""))
 					for p in unique(sum(config.fontProviderInstance.values(), []))
 					if p.weight == w
@@ -604,7 +605,7 @@ if __name__ == "__main__":
 	for r, w, fea in product(config.fontPackRegion, config.fontPackWeight, powerset(config.fontPackFeature)):
 		tagList = [ r ] + fea
 		target = "{}-{}".format(TagListToStr(tagList), w)
-		pack = "NowarSans-{}-${{VERSION}}.7z".format(target)
+		pack = "out/NowarSans-{}-${{VERSION}}.7z".format(target)
 
 		makefile["rule"][".PHONY"]["depend"].append(target)
 		makefile["rule"][target] = {
@@ -650,19 +651,19 @@ if __name__ == "__main__":
 			})
 
 		makefile["rule"][pack] = {
-			"depend": [ "{}/Fonts/{}.ttf".format(target, f) for f in fontlist ],
+			"depend": [ "out/{}/Fonts/{}.ttf".format(target, f) for f in fontlist ],
 			"command": [
-				"cd {};".format(target) +
-				"cp ../LICENSE.txt Fonts/LICENSE.txt;" +
-				"7z a -t7z -m0=LZMA:d=512m:fb=273 -ms ../$@ Fonts/"
+				"cd out/{};".format(target) +
+				"cp ../../LICENSE.txt Fonts/LICENSE.txt;" +
+				"7z a -t7z -m0=LZMA:d=512m:fb=273 -ms ../../$@ Fonts/"
 			]
 		}
 
 		for f, p in fontlist.items():
-			makefile["rule"]["{}/Fonts/{}.ttf".format(target, f)] = {
-				"depend": [ "nowar/{}.otf".format(GenerateFilename(p)) ],
+			makefile["rule"]["out/{}/Fonts/{}.ttf".format(target, f)] = {
+				"depend": [ "build/nowar/{}.otf".format(GenerateFilename(p)) ],
 				"command": [
-					"mkdir -p {}/Fonts".format(target),
+					"mkdir -p out/{}/Fonts".format(target),
 					"cp $^ $@",
 				]
 			}
@@ -677,28 +678,34 @@ if __name__ == "__main__":
 			feature = fea,
 			encoding = "unspec",
 		)
-		makefile["rule"]["nowar/{}.otf".format(GenerateFilename(param))] = {
-			"depend": ["nowar/{}.otd".format(GenerateFilename(param))],
+		makefile["rule"]["build/nowar/{}.otf".format(GenerateFilename(param))] = {
+			"depend": ["build/nowar/{}.otd".format(GenerateFilename(param))],
 			"command": [ "otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null" ]
 		}
 		dep = ResolveDependency(param)
-		makefile["rule"]["nowar/{}.otd".format(GenerateFilename(param))] = {
+		makefile["rule"]["build/nowar/{}.otd".format(GenerateFilename(param))] = {
 			"depend": [
-				"noto/{}.otd".format(GenerateFilename(dep["Latin"])),
-				"shs/{}.otd".format(GenerateFilename(dep["CJK"])),
+				"build/noto/{}.otd".format(GenerateFilename(dep["Latin"])),
+				"build/shs/{}.otd".format(GenerateFilename(dep["CJK"])),
 			],
 			"command": [ 
-				"mkdir -p nowar/",
+				"mkdir -p build/nowar/",
 				"python merge.py {}".format(ParamToArgument(param))
 			]
 		}
-		makefile["rule"]["noto/{}.otd".format(GenerateFilename(dep["Latin"]))] = {
-			"depend": [ "noto/{}.otf".format(GenerateFilename(dep["Latin"])) ],
-			"command": [ "otfccdump --ignore-hints $< -o $@" ]
+		makefile["rule"]["build/noto/{}.otd".format(GenerateFilename(dep["Latin"]))] = {
+			"depend": [ "source/noto/{}.otf".format(GenerateFilename(dep["Latin"])) ],
+			"command": [ 
+				"mkdir -p build/noto/",
+				"otfccdump --ignore-hints $< -o $@",
+			]
 		}
-		makefile["rule"]["shs/{}.otd".format(GenerateFilename(dep["CJK"]))] = {
-			"depend": [ "shs/{}.otf".format(GenerateFilename(dep["CJK"])) ],
-			"command": [ "otfccdump --ignore-hints $< -o $@" ]
+		makefile["rule"]["build/shs/{}.otd".format(GenerateFilename(dep["CJK"]))] = {
+			"depend": [ "source/shs/{}.otf".format(GenerateFilename(dep["CJK"])) ],
+			"command": [
+				"mkdir -p build/shs/",
+				"otfccdump --ignore-hints $< -o $@",
+			]
 		}
 
 		# set encoding
@@ -711,12 +718,12 @@ if __name__ == "__main__":
 				feature = fea,
 				encoding = e,
 			)
-			makefile["rule"]["nowar/{}.otf".format(GenerateFilename(enc))] = {
-				"depend": ["nowar/{}.otd".format(GenerateFilename(enc))],
+			makefile["rule"]["build/nowar/{}.otf".format(GenerateFilename(enc))] = {
+				"depend": ["build/nowar/{}.otd".format(GenerateFilename(enc))],
 				"command": [ "otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null" ]
 			}
-			makefile["rule"]["nowar/{}.otd".format(GenerateFilename(enc))] = {
-				"depend": ["nowar/{}.otd".format(GenerateFilename(param))],
+			makefile["rule"]["build/nowar/{}.otd".format(GenerateFilename(enc))] = {
+				"depend": ["build/nowar/{}.otd".format(GenerateFilename(param))],
 				"command": [ "python set-encoding.py {}".format(ParamToArgument(enc)) ]
 			}
 
@@ -730,33 +737,42 @@ if __name__ == "__main__":
 			feature = fea,
 			encoding = "unspec",
 		)
-		makefile["rule"]["nowar/{}.otf".format(GenerateFilename(param))] = {
-			"depend": ["nowar/{}.otd".format(GenerateFilename(param))],
+		makefile["rule"]["build/nowar/{}.otf".format(GenerateFilename(param))] = {
+			"depend": ["build/nowar/{}.otd".format(GenerateFilename(param))],
 			"command": [ "otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null" ]
 		}
 		dep = ResolveDependency(param)
-		makefile["rule"]["nowar/{}.otd".format(GenerateFilename(param))] = {
+		makefile["rule"]["build/nowar/{}.otd".format(GenerateFilename(param))] = {
 			"depend": [
-				"noto/{}.otd".format(GenerateFilename(dep["Latin"])),
-				"noto/{}.otd".format(GenerateFilename(dep["Numeral"])),
-				"shs/{}.otd".format(GenerateFilename(dep["CJK"])),
+				"build/noto/{}.otd".format(GenerateFilename(dep["Latin"])),
+				"build/noto/{}.otd".format(GenerateFilename(dep["Numeral"])),
+				"build/shs/{}.otd".format(GenerateFilename(dep["CJK"])),
 			],
 			"command": [ 
-				"mkdir -p nowar/",
+				"mkdir -p build/nowar/",
 				"python merge.py {}".format(ParamToArgument(param))
 			]
 		}
-		makefile["rule"]["noto/{}.otd".format(GenerateFilename(dep["Latin"]))] = {
-			"depend": [ "noto/{}.otf".format(GenerateFilename(dep["Latin"])) ],
-			"command": [ "otfccdump --ignore-hints $< -o $@" ]
+		makefile["rule"]["build/noto/{}.otd".format(GenerateFilename(dep["Latin"]))] = {
+			"depend": [ "source/noto/{}.otf".format(GenerateFilename(dep["Latin"])) ],
+			"command": [ 
+				"mkdir -p build/noto/",
+				"otfccdump --ignore-hints $< -o $@",
+			]
 		}
-		makefile["rule"]["noto/{}.otd".format(GenerateFilename(dep["Numeral"]))] = {
-			"depend": [ "noto/{}.otf".format(GenerateFilename(dep["Numeral"])) ],
-			"command": [ "otfccdump --ignore-hints $< -o $@" ]
+		makefile["rule"]["build/noto/{}.otd".format(GenerateFilename(dep["Numeral"]))] = {
+			"depend": [ "source/noto/{}.otf".format(GenerateFilename(dep["Numeral"])) ],
+			"command": [ 
+				"mkdir -p build/noto/",
+				"otfccdump --ignore-hints $< -o $@",
+			]
 		}
-		makefile["rule"]["shs/{}.otd".format(GenerateFilename(dep["CJK"]))] = {
-			"depend": [ "shs/{}.otf".format(GenerateFilename(dep["CJK"])) ],
-			"command": [ "otfccdump --ignore-hints $< -o $@" ]
+		makefile["rule"]["build/shs/{}.otd".format(GenerateFilename(dep["CJK"]))] = {
+			"depend": [ "source/shs/{}.otf".format(GenerateFilename(dep["CJK"])) ],
+			"command": [ 
+				"mkdir -p build/shs/",
+				"otfccdump --ignore-hints $< -o $@",
+			]
 		}
 
 		for e in [ "gbk", "big5", "jis", "korean" ]:
@@ -768,12 +784,12 @@ if __name__ == "__main__":
 				feature = fea,
 				encoding = e,
 			)
-			makefile["rule"]["nowar/{}.otf".format(GenerateFilename(enc))] = {
-				"depend": ["nowar/{}.otd".format(GenerateFilename(enc))],
+			makefile["rule"]["build/nowar/{}.otf".format(GenerateFilename(enc))] = {
+				"depend": ["build/nowar/{}.otd".format(GenerateFilename(enc))],
 				"command": [ "otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null" ]
 			}
-			makefile["rule"]["nowar/{}.otd".format(GenerateFilename(enc))] = {
-				"depend": ["nowar/{}.otd".format(GenerateFilename(param))],
+			makefile["rule"]["build/nowar/{}.otd".format(GenerateFilename(enc))] = {
+				"depend": ["build/nowar/{}.otd".format(GenerateFilename(param))],
 				"command": [ "python set-encoding.py {}".format(ParamToArgument(enc)) ]
 			}
 
@@ -785,23 +801,26 @@ if __name__ == "__main__":
 			width = wd,
 			feature = fea,
 		)
-		makefile["rule"]["nowar/{}.otf".format(GenerateFilename(param))] = {
-			"depend": ["nowar/{}.otd".format(GenerateFilename(param))],
+		makefile["rule"]["build/nowar/{}.otf".format(GenerateFilename(param))] = {
+			"depend": ["build/nowar/{}.otd".format(GenerateFilename(param))],
 			"command": [ "otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null" ]
 		}
 		dep = ResolveDependency(param)
-		makefile["rule"]["nowar/{}.otd".format(GenerateFilename(param))] = {
+		makefile["rule"]["build/nowar/{}.otd".format(GenerateFilename(param))] = {
 			"depend": [
-				"noto/{}.otd".format(GenerateFilename(dep["Latin"])),
+				"build/noto/{}.otd".format(GenerateFilename(dep["Latin"])),
 			],
 			"command": [ 
-				"mkdir -p nowar/",
+				"mkdir -p build/nowar/",
 				"python merge.py {}".format(ParamToArgument(param))
 			]
 		}
-		makefile["rule"]["noto/{}.otd".format(GenerateFilename(dep["Latin"]))] = {
-			"depend": [ "noto/{}.otf".format(GenerateFilename(dep["Latin"])) ],
-			"command": [ "otfccdump --ignore-hints $< -o $@" ]
+		makefile["rule"]["build/noto/{}.otd".format(GenerateFilename(dep["Latin"]))] = {
+			"depend": [ "source/noto/{}.otf".format(GenerateFilename(dep["Latin"])) ],
+			"command": [ 
+				"mkdir -p build/noto/",
+				"otfccdump --ignore-hints $< -o $@",
+			]
 		}
 
 	# dump `makefile` dict to actual “GNU Makefile”

@@ -1,9 +1,5 @@
-*.otd
-*.7z
 Makefile
-/shs/*.otf
-/nowar/
 __pycache__/
-/??-???/
-/??,*-???/
-/NowarSansTypeface/
+/source/shs/*.otf
+/build/
+/out/
