@@ -5,8 +5,8 @@ from itertools import product
 from types import SimpleNamespace as Namespace
 
 class Config:
-	version = "0.6.3"
-	fontRevision = 0.0603
+	version = "0.7.0"
+	fontRevision = 0.0700
 	vendor = "Nowar Typeface"
 	vendorId = "NOWR"
 	vendorUrl = "https://github.com/nowar-fonts"

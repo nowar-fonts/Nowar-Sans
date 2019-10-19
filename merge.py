@@ -4,7 +4,7 @@ import json
 import codecs
 from types import SimpleNamespace as Namespace
 from libotd.merge import MergeBelow
-from libotd.pkana import ApplyPalt
+from libotd.pkana import ApplyPalt, NowarApplyPaltMultiplied
 from libotd.transform import Transform, ChangeAdvanceWidth
 from libotd.gsub import GetGsubFlat
 from libotd.gsub import ApplyGsubSingle
@@ -217,6 +217,8 @@ if __name__ == '__main__':
 		# pre-apply `palt` in UI family
 		if "UI" in param.family:
 			ApplyPalt(asianFont)
+		else:
+			NowarApplyPaltMultiplied(asianFont, 0.4)
 
 		MergeBelow(baseFont, asianFont)
 

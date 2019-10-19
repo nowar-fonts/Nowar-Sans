@@ -54,7 +54,7 @@ GB is a variant that supports a superset of Chinese national standard GB 18030-2
 
 * European: English, Español (AL), Português, Deutsch, Español (EU), Français, Italiano, and Русский.
 * East Asian: 简体中文, 繁體中文, and 한국어.
-* UI: Ambiguous punctations are treated as Western; CJK puctations are half-width; Kana are proportional.
+* UI: Ambiguous punctations are treated as Western; CJK puctations are half-width.
 
 ### Features
 
