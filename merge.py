@@ -236,6 +236,6 @@ if __name__ == '__main__':
 		if "RP" in param.feature:
 			baseFont['cmap'][str(ord('丶'))] = baseFont['cmap'][str(ord('·'))]
 
-	outStr = json.dumps(baseFont, ensure_ascii=False)
+	outStr = json.dumps(baseFont, ensure_ascii=False, separators=(',',':'))
 	with codecs.open("build/nowar/{}.otd".format(configure.GenerateFilename(param)), 'w', 'UTF-8') as outFile:
 		outFile.write(outStr)
