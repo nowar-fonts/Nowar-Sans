@@ -84,6 +84,11 @@ Note:
 
 ### Build Feature Variant
 
+Prepare submodules:
+```bash
+git submodule update --init --recursive
+```
+
 Run `configure.py` to generate Makefile:
 ```bash
 python configure.py

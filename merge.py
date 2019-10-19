@@ -3,11 +3,11 @@ import copy
 import json
 import codecs
 from types import SimpleNamespace as Namespace
-from fontlib.merge import MergeBelow
-from fontlib.pkana import ApplyPalt
-from fontlib.transform import Transform, ChangeAdvanceWidth
-from fontlib.gsub import GetGsubFlat
-from fontlib.gsub import ApplyGsubSingle
+from libotd.merge import MergeBelow
+from libotd.pkana import ApplyPalt
+from libotd.transform import Transform, ChangeAdvanceWidth
+from libotd.gsub import GetGsubFlat
+from libotd.gsub import ApplyGsubSingle
 import configure
 
 langIdList = [ 0x0409, 0x0804, 0x0404, 0x0C04, 0x0411, 0x0412 ]
