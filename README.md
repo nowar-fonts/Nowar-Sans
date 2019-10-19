@@ -61,9 +61,10 @@ GB is a variant that supports a superset of Chinese national standard GB 18030-2
 | Tag | Name        | Description                                                            |
 | --- | ----------- | ---------------------------------------------------------------------- |
 | OSF | Oldstyle    | Oldstyle (non-lining), propotional figure.                             |
+| SC  | Smallcaps   | Small capitals for Latin, Cyrillic and Greek.                          |
 | RP  | Roleplaying | `丶` (U+4E36) is mapped to the same glyph as `·` (U+00B7, MIDDLE DOT). |
 
-Pre-built feature variants: `CL,OSF`, `GB,RP`.
+Pre-built feature variants: `CL,OSF`, `CL,SC`, `CL,OSF,SC`, `GB,RP`.
 
 ### SharedMedia Font Provider
 
@@ -100,11 +101,11 @@ Then make a specific variant:
 ```bash
 make <region>,<features>-<weight> -j<threads>
 ```
-Note: Features must be identically sorted as mentioned above. (`OSF`, `RP`).
+Note: Features must be identically sorted as mentioned above. (`OSF`, `SC`, `RP`).
 
 e.g.
 ```bash
-make CN,OSF,RP-400 -j4
+make CN,OSF,SC,RP-400 -j4
 ```
 
 The output is `out/NowarSans-<region>,<features>-<weight>-<version>.7z`.

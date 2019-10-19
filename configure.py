@@ -5,8 +5,8 @@ from itertools import product
 from types import SimpleNamespace as Namespace
 
 class Config:
-	version = "0.6.2"
-	fontRevision = 0.0602
+	version = "0.6.3"
+	fontRevision = 0.0603
 	vendor = "Nowar Typeface"
 	vendorId = "NOWR"
 	vendorUrl = "https://github.com/nowar-fonts"
@@ -18,10 +18,12 @@ class Config:
 
 	fontPackWeight = [ 300, 400, 500, 700 ]
 	fontPackRegion = [ "CN", "TW", "HK", "JP", "KR", "CL", "GB" ]
-	fontPackFeature = [ "OSF", "RP" ]
+	fontPackFeature = [ "OSF", "SC", "RP" ]
 	# feature tags must be identically ordered as in fontPackFeature
 	fontPackExportFeature = [
 		("CL", [ "OSF" ]),
+		("CL", [ "SC" ]),
+		("CL", [ "OSF", "SC" ]),
 		("GB", [ "RP" ]),
 	]
 
@@ -44,7 +46,7 @@ class Config:
 			region = r[0] if type(r) == tuple else r,
 			feature = r[1] if type(r) == tuple else [],
 			encoding = "unspec"
-		) for w, wd, r in product(fontProviderWeight, fontProviderWidth, [ "CL", ("CL", [ "OSF" ]) ]) ],
+		) for w, wd, r in product(fontProviderWeight, fontProviderWidth, [ "CL", ("CL", [ "OSF" ]), ("CL", [ "SC" ]), ("CL", [ "OSF", "SC" ]) ]) ],
 		"zhCN": [ Namespace(
 			weight = w,
 			width = wd,
@@ -179,6 +181,7 @@ regionNameMap = {
 tagNameMap = dict(regionNameMap)
 tagNameMap.update({
 	"OSF": "Oldstyle",
+	"SC": "Smallcaps",
 	"RP": "Roleplaying",
 })
 

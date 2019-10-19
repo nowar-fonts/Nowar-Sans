@@ -170,6 +170,9 @@ if __name__ == '__main__':
 		ApplyGsubSingle('pnum', baseFont)
 		ApplyGsubSingle('onum', baseFont)
 
+	if "SC" in param.feature:
+		ApplyGsubSingle('smcp', baseFont)
+
 	# replace numerals
 	if param.family in [ "WarcraftSans", "WarcraftUI" ]:
 		with open("build/noto/{}.otd".format(configure.GenerateFilename(dep['Numeral'])), 'rb') as numFile:
