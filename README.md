@@ -61,7 +61,7 @@ GB is a variant that supports a superset of Chinese national standard GB 18030-2
 | Tag | Name        | Description                                                            |
 | --- | ----------- | ---------------------------------------------------------------------- |
 | OSF | Oldstyle    | Oldstyle (non-lining), propotional figure.                             |
-| SC  | Smallcaps   | Small capitals for Latin, Cyrillic and Greek.                          |
+| SC  | Smallcaps   | Small capitals for Latin.                          |
 | RP  | Roleplaying | `丶` (U+4E36) is mapped to the same glyph as `·` (U+00B7, MIDDLE DOT). |
 
 Pre-built feature variants: `CL,OSF`, `CL,SC`, `CL,OSF,SC`, `GB,RP`.
