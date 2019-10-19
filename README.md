@@ -18,7 +18,7 @@ This is Nowar Sans, font packs for _World of Warcraft_ and _WoW Classic_ that su
 
 Mirrors: [Latest release at Gitee](https://gitee.com/nowar-fonts/Nowar-Sans/releases)
 
-Nowar Sans is shipped in 4 weights and 9 regional variants.
+Nowar Sans is shipped in 4 weights and 7 regional variants, with several features.
 
 ### Weights
 
@@ -40,12 +40,11 @@ CN, TW, HK, JP and KR are “standard variants”, which have full character set
 | JP | Japan (UI)          | Mainland China | Taiwan    | S. Korea |
 | KR | S. Korea (UI)       | Mainland China | Taiwan    | S. Korea |
 
-CL and OSF are “classical variants”, which have full character set support with classical Chinese character orthography (aka Kāngxī Dictionary forms).
+CL, the “classical variant”, have full character set support with classical Chinese character orthography (aka Kāngxī Dictionary forms).
 
-|     | European                        | East Asian |
-| --- | ------------------------------- | ---------- |
-| CL  | Classical (UI)                  | Classical  |
-| OSF | Classical (UI, Oldstyle Figure) | Classical  |
+|     | European       | East Asian |
+| --- | -------------- | ---------- |
+| CL  | Classical (UI) | Classical  |
 
 GB is a variant that supports a superset of Chinese national standard GB 18030-2000. The GB distributions aim at smaller size by removing Hangul support.
 
@@ -53,16 +52,18 @@ GB is a variant that supports a superset of Chinese national standard GB 18030-2
 | -- | ------------------- | -------------- | ------ |
 | GB | Mainland China (UI) | Mainland China | N/A    |
 
-RP is a special offer for Chinese RP realms. The RP distributions aim at unified experience for roleplaying players by mapping `丶` to the same glyph as `·`, allowing character names like “伊利丹丶怒风” to be shown as “伊利丹·怒风”.
-
-|    | European                | 中文                | 한국어 |
-| -- | ----------------------- | ------------------- | ------ |
-| RP | Mainland China (UI, RP) | Mainland China (RP) | N/A    |
-
 * European: English, Español (AL), Português, Deutsch, Español (EU), Français, Italiano, and Русский.
 * East Asian: 简体中文, 繁體中文, and 한국어.
 * UI: Ambiguous punctations are treated as Western; CJK puctations are half-width; Kana are proportional.
-* RP: `丶` (U+4E36) is mapped to the same glyph as `·` (U+00B7, MIDDLE DOT).
+
+### Features
+
+| Tag | Name        | Description                                                            |
+| --- | ----------- | ---------------------------------------------------------------------- |
+| OSF | Oldstyle    | Oldstyle (non-lining), propotional figure.                             |
+| RP  | Roleplaying | `丶` (U+4E36) is mapped to the same glyph as `·` (U+00B7, MIDDLE DOT). |
+
+Pre-built feature variants: `CL,OSF`, `GB,RP`.
 
 ### SharedMedia Font Provider
 
@@ -70,18 +71,76 @@ Nowar Sans is also avialable as an addon (REALLY HUGE!), to register Nowar Sans 
 
 ## How to Build
 
-Dependencies: basic Unix utils, [Python](https://www.python.org/), [otfcc](https://github.com/caryll/otfcc) and [7-Zip](https://www.7-zip.org/) (add to `PATH`).
+### Dependencies
+
++ basic Unix utils,
++ [Python](https://www.python.org/),
++ [otfcc](https://github.com/caryll/otfcc) and
++ [7-Zip](https://www.7-zip.org/) (add to `PATH`).
 
 Note:
 + Choose 64-bit version if possible. 32-bit version may lead to out-of-memory issue.
 + Use POSIX build of GNU Make on Windows ([MSYS2’s](https://www.msys2.org) or [Nowar’s](https://github.com/nowar-fonts/Toolchain-Windows-Build)).
 
-Run `configure.py` to generate Makefile. (Optional)
+### Build Feature Variant
+
+Run `configure.py` to generate Makefile:
 ```bash
 python configure.py
 ```
 
-Put Source Han Sans OTF files (all families but HW) and Subset OTF files (CN only) to `shs/`, then just `make` it. 
+Put Source Han Sans OTF files (all families but HW) and Subset OTF files (if you need GB variant) to `shs/`
+
+Then make a specific variant:
+```bash
+make <region>,<features>-<weight> -j<threads>
+```
+Note: Features must be identically sorted as mentioned above. (`OSF`, `RP`).
+
+e.g.
+```bash
+make CN,OSF,RP-400 -j4
+```
+
+The output is `NowarSans-<region>,<features>-<weight>-<version>.7z`.
+
+### Create Regional Variant
+
+To build exactly what you need, modify `configure.py`:
+```python
+class Config:
+    # put your variant here
+    fontPackRegion = [ <your_region> ]
+
+# define the variant here. don’t remove pre-defined variants.
+regionalVariant = { ... }
+```
+
+For example, “I enjoy Japna’s orthography, and I’d like to apply it to every language!”
+```python
+class Config:
+    fontPackRegion = [ "JPeverywhere" ]
+
+regionalVariant = {
+	...,
+    "JPeverywhere": {
+        "Latn": "JP",
+        "Hans": "JP",
+        "Hant": "JP",
+        "ko": "JP",
+    }
+}
+```
+
+Then, run `python configure.py` to generate `Makefile`. The new regional variant (with optional feature) can be built by:
+```bash
+make <region>,<features>-<weight> -j<threads>
+```
+e.g.
+```bash
+make JPeverywhere-400 -j4
+make JPeverywhere,OSF-400 -j4
+```
 
 ## Credit
 

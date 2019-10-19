@@ -166,7 +166,7 @@ if __name__ == '__main__':
 	baseFont['OS_2']['usWinDescent'] = 300
 
 	# oldstyle figure
-	if configure.GetRegion(param) == "OSF":
+	if "OSF" in param.feature:
 		ApplyGsubSingle('pnum', baseFont)
 		ApplyGsubSingle('onum', baseFont)
 
@@ -233,7 +233,7 @@ if __name__ == '__main__':
 					baseFont['glyf'][baseFont['cmap'][str(u)]] = asianFont['glyf'][asianFont['cmap'][str(u)]]
 
 		# remap `丶` to `·` in RP variant
-		if param.region == "RP":
+		if "RP" in param.feature:
 			baseFont['cmap'][str(ord('丶'))] = baseFont['cmap'][str(ord('·'))]
 
 	outStr = json.dumps(baseFont, ensure_ascii=False)
