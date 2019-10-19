@@ -32,19 +32,19 @@ Nowar Sans is shipped in 4 weights and 7 regional variants, with several feature
 
 CN, TW, HK, JP and KR are “standard variants”, which have full character set support with regional Chinese character orthographies.
 
-|    | European            | 简体中文       | 繁體中文  | 한국어   |
-| -- | ------------------- | -------------- | --------- | -------- |
-| CN | Mainland China (UI) | Mainland China | Taiwan    | S. Korea |
-| TW | Taiwan (UI)         | Mainland China | Taiwan    | S. Korea |
-| HK | Hong Kong (UI)      | Mainland China | Hong Kong | S. Korea |
-| JP | Japan (UI)          | Mainland China | Taiwan    | S. Korea |
-| KR | S. Korea (UI)       | Mainland China | Taiwan    | S. Korea |
+|    | European            | 简体中文       | 繁體中文  | 한국어        |
+| -- | ------------------- | -------------- | --------- | ------------- |
+| CN | Mainland China (UI) | Mainland China | Taiwan    | S. Korea (UI) |
+| TW | Taiwan (UI)         | Mainland China | Taiwan    | S. Korea (UI) |
+| HK | Hong Kong (UI)      | Mainland China | Hong Kong | S. Korea (UI) |
+| JP | Japan (UI)          | Mainland China | Taiwan    | S. Korea (UI) |
+| KR | S. Korea (UI)       | Mainland China | Taiwan    | S. Korea (UI) |
 
 CL, the “classical variant”, have full character set support with classical Chinese character orthography (aka Kāngxī Dictionary forms).
 
-|     | European       | East Asian |
-| --- | -------------- | ---------- |
-| CL  | Classical (UI) | Classical  |
+|     | European       | 中文      | 한국어         |
+| --- | -------------- | --------- | -------------- |
+| CL  | Classical (UI) | Classical | Classical (UI) |
 
 GB is a variant that supports a superset of Chinese national standard GB 18030-2000. The GB distributions aim at smaller size by removing Hangul support.
 

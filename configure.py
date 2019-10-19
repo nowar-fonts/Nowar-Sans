@@ -66,7 +66,7 @@ class Config:
 		"koKR": [ Namespace(
 			weight = w,
 			width = wd,
-			family = "Sans",
+			family = "UI",
 			region = r[0] if type(r) == tuple else r,
 			feature = r[1] if type(r) == tuple else [],
 			encoding = "unspec"
@@ -479,7 +479,7 @@ def GetKoreanFont(weight, region, feature):
 	return Namespace(
 		weight = weight,
 		width = 5,
-		family = "Sans",
+		family = "UI",
 		region = regionalVariant[region]["ko"],
 		feature = feature,
 		encoding = "korean"
@@ -489,7 +489,7 @@ def GetKoreanCombatFont(weight, region, feature):
 	return Namespace(
 		weight = weight,
 		width = 7,
-		family = "Sans",
+		family = "UI",
 		region = regionalVariant[region]["ko"],
 		feature = feature,
 		encoding = "korean"
@@ -499,7 +499,7 @@ def GetKoreanDisplayFont(weight, region, feature):
 	return Namespace(
 		weight = weight,
 		width = 3,
-		family = "Sans",
+		family = "UI",
 		region = regionalVariant[region]["ko"],
 		feature = feature,
 		encoding = "korean"
