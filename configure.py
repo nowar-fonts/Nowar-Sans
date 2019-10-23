@@ -5,8 +5,8 @@ from itertools import product
 from types import SimpleNamespace as Namespace
 
 class Config:
-	version = "0.7.0"
-	fontRevision = 0.0700
+	version = "0.7.1"
+	fontRevision = 0.0701
 	vendor = "Nowar Typeface"
 	vendorId = "NOWR"
 	vendorUrl = "https://github.com/nowar-fonts"
@@ -548,7 +548,6 @@ if __name__ == "__main__":
 			"sed -i '/__REPLACE_IN_BUILD__REGISTER_WESTERN1__/{{s/__REPLACE_IN_BUILD__REGISTER_WESTERN1__/{}/}}' out/NowarSansTypeface/NowarSansTypeface.lua".format(
 				"\\n".join(
 					[
-						# backslashes will be escaped twice by `make` and `sed`
 						r'NowarSansTypeface:Register("font", "{}", [[Interface\\Addons\\NowarSansTypeface\\Fonts\\{}.otf]], western + ruRU)'.format(
 							GenerateFriendlyFamily(p)[0x0409],
 							GenerateFilename(p).replace("unspec-", "")
