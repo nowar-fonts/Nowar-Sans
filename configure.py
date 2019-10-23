@@ -704,14 +704,14 @@ if __name__ == "__main__":
 			"depend": [ "source/noto/{}.otf".format(GenerateFilename(dep["Latin"])) ],
 			"command": [ 
 				"mkdir -p build/noto/",
-				"otfccdump --ignore-hints $< -o $@",
+				"otfccdump --glyph-name-prefix latn --ignore-hints $< -o $@",
 			]
 		}
 		makefile["rule"]["build/shs/{}.otd".format(GenerateFilename(dep["CJK"]))] = {
 			"depend": [ "source/shs/{}.otf".format(GenerateFilename(dep["CJK"])) ],
 			"command": [
 				"mkdir -p build/shs/",
-				"otfccdump --ignore-hints $< -o $@",
+				"otfccdump --glyph-name-prefix hani --ignore-hints $< -o $@",
 			]
 		}
 
@@ -764,21 +764,21 @@ if __name__ == "__main__":
 			"depend": [ "source/noto/{}.otf".format(GenerateFilename(dep["Latin"])) ],
 			"command": [ 
 				"mkdir -p build/noto/",
-				"otfccdump --ignore-hints $< -o $@",
+				"otfccdump --glyph-name-prefix latn --ignore-hints $< -o $@",
 			]
 		}
 		makefile["rule"]["build/noto/{}.otd".format(GenerateFilename(dep["Numeral"]))] = {
 			"depend": [ "source/noto/{}.otf".format(GenerateFilename(dep["Numeral"])) ],
 			"command": [ 
 				"mkdir -p build/noto/",
-				"otfccdump --ignore-hints $< -o $@",
+				"otfccdump --glyph-name-prefix latn --ignore-hints $< -o $@",
 			]
 		}
 		makefile["rule"]["build/shs/{}.otd".format(GenerateFilename(dep["CJK"]))] = {
 			"depend": [ "source/shs/{}.otf".format(GenerateFilename(dep["CJK"])) ],
 			"command": [ 
 				"mkdir -p build/shs/",
-				"otfccdump --ignore-hints $< -o $@",
+				"otfccdump --glyph-name-prefix hani --ignore-hints $< -o $@",
 			]
 		}
 
@@ -826,7 +826,7 @@ if __name__ == "__main__":
 			"depend": [ "source/noto/{}.otf".format(GenerateFilename(dep["Latin"])) ],
 			"command": [ 
 				"mkdir -p build/noto/",
-				"otfccdump --ignore-hints $< -o $@",
+				"otfccdump --glyph-name-prefix latn --ignore-hints $< -o $@",
 			]
 		}
 

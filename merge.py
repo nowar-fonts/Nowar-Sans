@@ -206,18 +206,18 @@ if __name__ == '__main__':
 		with open("build/noto/{}.otd".format(configure.GenerateFilename(dep['Numeral'])), 'rb') as numFile:
 			numFont = json.loads(numFile.read().decode('UTF-8', errors='replace'))
 
-			maxWidth = 490
-			numWidth = numFont['glyf']['zero']['advanceWidth']
-			changeWidth = maxWidth - numWidth if numWidth > maxWidth else 0
-
 			gsubPnum = GetGsubFlat('pnum', numFont)
 			gsubTnum = GetGsubFlat('tnum', numFont)
 			gsubOnum = GetGsubFlat('onum', numFont)
 
-			num = [ 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine' ]
+			num = [ numFont['cmap'][str(ord('0') + i)] for i in range(10) ]
 			pnum = [ gsubPnum[n] for n in num ]
 			onum = [ gsubOnum[n] for n in pnum ]
 			tonum = [ gsubOnum[n] for n in num ]
+
+			maxWidth = 490
+			numWidth = numFont['glyf'][num[0]]['advanceWidth']
+			changeWidth = maxWidth - numWidth if numWidth > maxWidth else 0
 
 			for n in num + tonum:
 				tGlyph = numFont['glyf'][n]
