@@ -16,7 +16,7 @@
 
 [GitHub 上的最新發佈](https://github.com/nowar-fonts/Nowar-Sans/releases)
 
-鏡像：[Gitee 上的最新發佈](https://gitee.com/nowar-fonts/Nowar-Sans/releases)
+鏡像：[Gitee](https://gitee.com/nowar-fonts/Nowar-Sans)
 
 有愛黑體有 4 種字重和 7 種地區變體，此外還有若干特徵。
 
