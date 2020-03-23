@@ -5,8 +5,8 @@ from itertools import product
 from types import SimpleNamespace as Namespace
 
 class Config:
-	version = "0.7.1"
-	fontRevision = 0.0701
+	version = "0.7.2"
+	fontRevision = 0.0702
 	vendor = "Nowar Typeface"
 	vendorId = "NOWR"
 	vendorUrl = "https://github.com/nowar-fonts"
@@ -16,7 +16,7 @@ class Config:
 	license = "This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software."
 	licenseUrl = "https://scripts.sil.org/OFL"
 
-	fontPackWeight = [ 300, 400, 500, 700 ]
+	fontPackWeight = [ 300, 372, 400, 500, 700 ]
 	fontPackRegion = [ "CN", "TW", "HK", "JP", "KR", "CL", "GB" ]
 	fontPackFeature = [ "OSF", "SC", "RP" ]
 	# feature tags must be identically ordered as in fontPackFeature
@@ -27,7 +27,7 @@ class Config:
 		("GB", [ "RP" ]),
 	]
 
-	fontProviderWeight = [ 300, 400, 500, 700 ]
+	fontProviderWeight = [ 300, 372, 400, 500, 700 ]
 	fontProviderWidth = [ 3, 5, 7 ]
 	fontProviderInstance = {
 		# seperate western to 2 parts, avoid sed argument strips
@@ -78,7 +78,9 @@ config = Config()
 weightMap = {
 	100: "Thin",
 	200: "ExtraLight",
+	272: "W272",
 	300: "Light",
+	372: "Normal",
 	400: "Regular",
 	500: "Medium",
 	600: "SemiBold",
@@ -102,6 +104,7 @@ notoWidthMap = {
 
 morpheusWeightMap = {
 	300: 200,
+	372: 272,
 	400: 500,
 	500: 600,
 	700: 800,
