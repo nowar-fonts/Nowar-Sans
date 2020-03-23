@@ -18,11 +18,12 @@ This is Nowar Sans, font packs for _World of Warcraft_ and _WoW Classic_ that su
 
 Mirrors: [Gitee (Release Repo)](https://gitee.com/nowar-fonts/Nowar-Sans)
 
-Nowar Sans is shipped in 4 weights and 7 regional variants, with several features.
+Nowar Sans is shipped in 5 weights and 7 regional variants, with several features.
 
 ### Weights
 
 * 300: Light
+* 372: Normal
 * 400: Regular
 * 500: Medium
 * 700: Bold
