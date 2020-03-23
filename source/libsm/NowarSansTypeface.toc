@@ -1,4 +1,4 @@
-## Interface: 80200
+## Interface: 80300
 
 ## Title: Nowar Sans Typeface
 ## Notes: Register Nowar Sans typeface to SharedMedia.
