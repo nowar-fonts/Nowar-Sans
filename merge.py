@@ -21,7 +21,7 @@ def NameFont(param, font):
 	font['head']['fontRevision'] = configure.config.fontRevision
 	font['OS_2']['achVendID'] = configure.config.vendorId
 	font['OS_2']['usWeightClass'] = param.weight
-	font['OS_2']['usWidthClass'] = param.width
+	font['OS_2']['usWidthClass'] = 5 if param.width == 10 else param.width # Warcraft numeral hack
 	font['name'] = [
 		{
 			"platformID": 3,
@@ -201,8 +201,8 @@ if __name__ == '__main__':
 	if "SC" in param.feature:
 		ApplyGsubSingle('smcp', baseFont)
 
-	# replace numerals
-	if param.family in [ "WarcraftSans", "WarcraftUI" ]:
+	# Warcraft numeral hack
+	if param.width == 10:
 		with open("build/noto/{}.otd".format(configure.GenerateFilename(dep['Numeral'])), 'rb') as numFile:
 			numFont = json.loads(numFile.read().decode('UTF-8', errors='replace'))
 
@@ -238,7 +238,7 @@ if __name__ == '__main__':
 			ApplyGsubSingle('pnum', baseFont)
 
 	# merge CJK
-	if param.family in [ "Sans", "UI", "WarcraftSans", "WarcraftUI" ]:
+	if param.family in [ "Sans", "UI" ]:
 		with open("build/shs/{}.otd".format(configure.GenerateFilename(dep['CJK'])), 'rb') as asianFile:
 			asianFont = json.loads(asianFile.read().decode('UTF-8', errors = 'replace'))
 

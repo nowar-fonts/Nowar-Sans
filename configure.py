@@ -94,6 +94,7 @@ widthMap = {
 	4: "SemiCondensed",
 	5: None,
 	7: "Extended",
+	10: "Warcraft", # Warcraft numeral hack
 }
 
 notoWidthMap = {
@@ -222,22 +223,6 @@ def LocalizedFamily(p):
 				0x0411: "有愛角ゴシック UI",
 				0x0412: "有愛 고딕 UI",
 			},
-			"WarcraftSans": {
-				0x0409: "Nowar Warcraft Sans",
-				0x0804: "有爱魔兽黑体",
-				0x0404: "有愛魔獸黑體",
-				0x0C04: "有愛魔獸黑體",
-				0x0411: "有愛ウォークラフト角ゴシック",
-				0x0412: "有愛 워크래프트 고딕",
-			},
-			"WarcraftUI": {
-				0x0409: "Nowar Warcraft UI",
-				0x0804: "有爱魔兽黑体 UI",
-				0x0404: "有愛魔獸黑體 UI",
-				0x0C04: "有愛魔獸黑體 UI",
-				0x0411: "有愛ウォークラフト角ゴシック UI",
-				0x0412: "有愛 워크래프트 고딕 UI",
-			},
 		}
 
 	if p.family == "Latin":
@@ -324,13 +309,11 @@ def GenerateLegacySubfamily(p):
 			return "{} {}".format(width, weight) if width else weight, "Regular"
 
 def GenerateFilename(p):
-	if p.family in [ "Sans", "UI", "WarcraftSans", "WarcraftUI" ]:
+	if p.family in [ "Sans", "UI" ]:
 		encodingPrefix = p.encoding + "-"
 		nameList = {
 			"Sans": "NowarSans",
 			"UI": "NowarUI",
-			"WarcraftSans": "NowarWarcraftSans",
-			"WarcraftUI": "NowarWarcraftUI",
 		}
 		familyName = nameList[p.family] + "-" + GetTagStr(p)
 	elif p.family == "Latin":
@@ -349,20 +332,28 @@ def GenerateFilename(p):
 	return encodingPrefix + familyName + "-" + GenerateSubfamily(p).replace(" ", "")
 
 def ResolveDependency(p):
-	result = {
-		"Latin": Namespace(
-			family = "Noto",
-			width = notoWidthMap[p.width],
-			weight = p.weight
-		)
-	}
-	if p.family in [ "WarcraftSans", "WarcraftUI" ]:
-		result["Numeral"] = Namespace(
-			family = "Noto",
-			width = 3,
-			weight = p.weight
-		)
-	if p.family in [ "Sans", "UI", "WarcraftSans", "WarcraftUI" ]:
+	if p.width == 10: # Warcraft numeral hack
+		result = {
+			"Latin": Namespace(
+				family = "Noto",
+				width = 4,
+				weight = p.weight
+			),
+			"Numeral": Namespace(
+				family = "Noto",
+				width = 3,
+				weight = p.weight
+			),
+		}
+	else:
+		result = {
+			"Latin": Namespace(
+				family = "Noto",
+				width = notoWidthMap[p.width],
+				weight = p.weight
+			)
+		}
+	if p.family in [ "Sans", "UI" ]:
 		result["CJK"] = Namespace(
 			family = "Source",
 			weight = p.weight,
@@ -410,8 +401,8 @@ def GetLatinChatFont(weight, region, feature):
 def GetHansFont(weight, region, feature):
 	return Namespace(
 		weight = weight,
-		width = 5,
-		family = "WarcraftSans",
+		width = 10,
+		family = "Sans",
 		region = regionalVariant[region]["Hans"],
 		feature = feature,
 		encoding = "gbk"
@@ -440,8 +431,8 @@ def GetHansChatFont(weight, region, feature):
 def GetHantFont(weight, region, feature):
 	return Namespace(
 		weight = weight,
-		width = 5,
-		family = "WarcraftSans",
+		width = 10,
+		family = "Sans",
 		region = regionalVariant[region]["Hant"],
 		feature = feature,
 		encoding = "big5"
@@ -679,7 +670,7 @@ if __name__ == "__main__":
 			}
 
 	# Sans, UI
-	for f, w, wd, r, fea in product([ "Sans", "UI" ], config.fontPackWeight, [3, 5, 7], regionNameMap.keys(), powerset(config.fontPackFeature)):
+	for f, w, wd, r, fea in product([ "Sans", "UI" ], config.fontPackWeight, [3, 5, 7, 10], regionNameMap.keys(), powerset(config.fontPackFeature)):
 		param = Namespace(
 			family = f,
 			weight = w,
@@ -697,7 +688,9 @@ if __name__ == "__main__":
 			"depend": [
 				"build/noto/{}.otd".format(GenerateFilename(dep["Latin"])),
 				"build/shs/{}.otd".format(GenerateFilename(dep["CJK"])),
-			],
+			] + ([
+				"build/noto/{}.otd".format(GenerateFilename(dep["Numeral"]))
+			] if "Numeral" in dep else []),
 			"command": [ 
 				"mkdir -p build/nowar/",
 				"python merge.py {}".format(ParamToArgument(param))
@@ -710,6 +703,14 @@ if __name__ == "__main__":
 				"otfccdump --glyph-name-prefix latn --ignore-hints $< -o $@",
 			]
 		}
+		if "Numeral" in dep:
+			makefile["rule"]["build/noto/{}.otd".format(GenerateFilename(dep["Numeral"]))] = {
+				"depend": [ "source/noto/{}.otf".format(GenerateFilename(dep["Numeral"])) ],
+				"command": [ 
+					"mkdir -p build/noto/",
+					"otfccdump --glyph-name-prefix latn --ignore-hints $< -o $@",
+				]
+			}
 		makefile["rule"]["build/shs/{}.otd".format(GenerateFilename(dep["CJK"]))] = {
 			"depend": [ "source/shs/{}.otf".format(GenerateFilename(dep["CJK"])) ],
 			"command": [
@@ -724,72 +725,6 @@ if __name__ == "__main__":
 				family = f,
 				weight = w,
 				width = wd,
-				region = r,
-				feature = fea,
-				encoding = e,
-			)
-			makefile["rule"]["build/nowar/{}.otf".format(GenerateFilename(enc))] = {
-				"depend": ["build/nowar/{}.otd".format(GenerateFilename(enc))],
-				"command": [ "otfccbuild -O3 --stub-cmap4 --keep-average-char-width $< -o $@ 2>/dev/null" ]
-			}
-			makefile["rule"]["build/nowar/{}.otd".format(GenerateFilename(enc))] = {
-				"depend": ["build/nowar/{}.otd".format(GenerateFilename(param))],
-				"command": [ "python set-encoding.py {}".format(ParamToArgument(enc)) ]
-			}
-
-	# WarcraftSans
-	for w, r, fea in product(config.fontPackWeight, regionNameMap.keys(), powerset(config.fontPackFeature)):
-		param = Namespace(
-			family = "WarcraftSans",
-			weight = w,
-			width = 5,
-			region = r,
-			feature = fea,
-			encoding = "unspec",
-		)
-		makefile["rule"]["build/nowar/{}.otf".format(GenerateFilename(param))] = {
-			"depend": ["build/nowar/{}.otd".format(GenerateFilename(param))],
-			"command": [ "otfccbuild -O3 --stub-cmap4 --keep-average-char-width $< -o $@ 2>/dev/null" ]
-		}
-		dep = ResolveDependency(param)
-		makefile["rule"]["build/nowar/{}.otd".format(GenerateFilename(param))] = {
-			"depend": [
-				"build/noto/{}.otd".format(GenerateFilename(dep["Latin"])),
-				"build/noto/{}.otd".format(GenerateFilename(dep["Numeral"])),
-				"build/shs/{}.otd".format(GenerateFilename(dep["CJK"])),
-			],
-			"command": [ 
-				"mkdir -p build/nowar/",
-				"python merge.py {}".format(ParamToArgument(param))
-			]
-		}
-		makefile["rule"]["build/noto/{}.otd".format(GenerateFilename(dep["Latin"]))] = {
-			"depend": [ "source/noto/{}.otf".format(GenerateFilename(dep["Latin"])) ],
-			"command": [ 
-				"mkdir -p build/noto/",
-				"otfccdump --glyph-name-prefix latn --ignore-hints $< -o $@",
-			]
-		}
-		makefile["rule"]["build/noto/{}.otd".format(GenerateFilename(dep["Numeral"]))] = {
-			"depend": [ "source/noto/{}.otf".format(GenerateFilename(dep["Numeral"])) ],
-			"command": [ 
-				"mkdir -p build/noto/",
-				"otfccdump --glyph-name-prefix latn --ignore-hints $< -o $@",
-			]
-		}
-		makefile["rule"]["build/shs/{}.otd".format(GenerateFilename(dep["CJK"]))] = {
-			"depend": [ "source/shs/{}.otf".format(GenerateFilename(dep["CJK"])) ],
-			"command": [ 
-				"mkdir -p build/shs/",
-				"otfccdump --glyph-name-prefix hani --ignore-hints $< -o $@",
-			]
-		}
-
-		for e in [ "gbk", "big5", "jis", "korean" ]:
-			enc = Namespace(
-				family = "WarcraftSans",
-				weight = w,
-				width = 5,
 				region = r,
 				feature = fea,
 				encoding = e,
