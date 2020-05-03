@@ -10,8 +10,6 @@ from libotd.gsub import GetGsubFlat, ApplyGsubSingle
 from libotd.gc import Gc, NowarRemoveFeatures
 import configure
 
-langIdList = [ 0x0409, 0x0804, 0x0404, 0x0C04, 0x0411, 0x0412 ]
-
 def NameFont(param, font):
 	family = configure.GenerateFamily(param)
 	subfamily = configure.GenerateSubfamily(param)
@@ -130,7 +128,7 @@ def NameFont(param, font):
 				"nameID": 16,
 				"nameString": family[langId]
 			},
-		] for langId in langIdList],
+		] for langId in configure.LanguageId],
 		[]
 	)
 

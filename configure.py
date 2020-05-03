@@ -1,5 +1,6 @@
 import json
 import codecs
+import enum
 from functools import reduce
 from itertools import product
 from types import SimpleNamespace as Namespace
@@ -74,6 +75,26 @@ class Config:
 	}
 
 config = Config()
+
+class LanguageId(enum.IntEnum):
+	deDE = 0x0407
+	elGR = 0x0408
+	enGB = 0x0809
+	enUS = 0x0409
+	esES = 0x0C0A
+	esMX = 0x080A
+	frFR = 0x040C
+	itIT = 0x0410
+	jaJP = 0x0411
+	koKR = 0x0412
+	ptBR = 0x0416
+	ptPT = 0x0816
+	ruRU = 0x0419
+	zhCN = 0x0804
+	zhHK = 0x0C04
+	zhMA = 0x1404
+	zhSG = 0x1004
+	zhTW = 0x0404
 
 weightMap = {
 	100: "Thin",
@@ -208,43 +229,87 @@ def LocalizedFamily(p):
 	if "nameList" not in LocalizedFamily.__dict__:
 		LocalizedFamily.nameList = {
 			"Sans": {
-				0x0409: "Nowar Sans",
-				0x0804: "有爱黑体",
-				0x0404: "有愛黑體",
-				0x0C04: "有愛黑體",
-				0x0411: "有愛角ゴシック",
-				0x0412: "有愛 고딕",
+				LanguageId.enUS: "Nowar Sans",
+
+				LanguageId.deDE: "Nowar Grotesk",
+				LanguageId.elGR: "Νοωαρ Σανς",
+				LanguageId.enGB: "Nowar Sans",
+				LanguageId.esES: "Nowar Palo",
+				LanguageId.esMX: "Nowar Palo",
+				LanguageId.frFR: "Nowar Linéale",
+				LanguageId.itIT: "Nowar Senza", # senza (without) grazie (serif)
+				LanguageId.ptBR: "Nowar Sem", # sem (without) serifa (serif)
+				LanguageId.ptPT: "Nowar Sem",
+				LanguageId.ruRU: "Ноwар Гротеск",
+
+				LanguageId.jaJP: "有愛角ゴシック",
+				LanguageId.koKR: "有愛 고딕",
+				LanguageId.zhCN: "有爱黑体",
+				LanguageId.zhHK: "有愛黑體",
+				LanguageId.zhMA: "有愛黑體",
+				LanguageId.zhSG: "有爱黑体",
+				LanguageId.zhTW: "有愛黑體",
 			},
 			"UI": {
-				0x0409: "Nowar UI",
-				0x0804: "有爱黑体 UI",
-				0x0404: "有愛黑體 UI",
-				0x0C04: "有愛黑體 UI",
-				0x0411: "有愛角ゴシック UI",
-				0x0412: "有愛 고딕 UI",
+				LanguageId.enUS: "Nowar UI",
+
+				LanguageId.deDE: "Nowar UI",
+				LanguageId.elGR: "Νοωαρ UI",
+				LanguageId.enGB: "Nowar UI",
+				LanguageId.esES: "Nowar UI",
+				LanguageId.esMX: "Nowar UI",
+				LanguageId.frFR: "Nowar UI",
+				LanguageId.itIT: "Nowar UI",
+				LanguageId.ptBR: "Nowar UI",
+				LanguageId.ptPT: "Nowar UI",
+				LanguageId.ruRU: "Ноwар UI",
+
+				LanguageId.jaJP: "有愛角ゴシック UI",
+				LanguageId.koKR: "有愛 고딕 UI",
+				LanguageId.zhCN: "有爱黑体 UI",
+				LanguageId.zhHK: "有愛黑體 UI",
+				LanguageId.zhMA: "有愛黑體 UI",
+				LanguageId.zhSG: "有爱黑体 UI",
+				LanguageId.zhTW: "有愛黑體 UI",
 			},
 		}
 
 	if p.family == "Latin":
 		return {
-			0x0409: "Nowar UI LCG",
-			0x0804: "Nowar UI LCG",
-			0x0404: "Nowar UI LCG",
-			0x0C04: "Nowar UI LCG",
-			0x0411: "Nowar UI LCG",
-			0x0412: "Nowar UI LCG",
+			LanguageId.enUS: "Nowar UI LCG",
+
+			LanguageId.deDE: "Nowar UI LCG",
+			LanguageId.elGR: "Νοωαρ UI ΕΛΚ",
+			LanguageId.enGB: "Nowar UI LCG",
+			LanguageId.esES: "Nowar UI LCG",
+			LanguageId.esMX: "Nowar UI LCG",
+			LanguageId.frFR: "Nowar UI LCG",
+			LanguageId.itIT: "Nowar UI LCG",
+			LanguageId.ptBR: "Nowar UI LCG",
+			LanguageId.ptPT: "Nowar UI LCG",
+			LanguageId.ruRU: "Ноwар UI КЛГ",
+
+			LanguageId.jaJP: "Nowar UI LCG",
+			LanguageId.koKR: "Nowar UI LCG",
+			LanguageId.zhCN: "Nowar UI LCG",
+			LanguageId.zhHK: "Nowar UI LCG",
+			LanguageId.zhMA: "Nowar UI LCG",
+			LanguageId.zhSG: "Nowar UI LCG",
+			LanguageId.zhTW: "Nowar UI LCG",
 		}
 
 	isLocalized = {
-		0x0804: bool(regionalVariant[p.region]["Hans"]),
-		0x0404: bool(regionalVariant[p.region]["Hant"]),
-		0x0C04: bool(regionalVariant[p.region]["Hant"]),
-		0x0411: bool(regionalVariant[p.region]["Hans"]),
-		0x0412: bool(regionalVariant[p.region]["ko"]),
+		LanguageId.jaJP: bool(regionalVariant[p.region]["Hans"]),
+		LanguageId.koKR: bool(regionalVariant[p.region]["ko"]),
+		LanguageId.zhCN: bool(regionalVariant[p.region]["Hans"]),
+		LanguageId.zhHK: bool(regionalVariant[p.region]["Hant"]),
+		LanguageId.zhMA: bool(regionalVariant[p.region]["Hant"]),
+		LanguageId.zhSG: bool(regionalVariant[p.region]["Hans"]),
+		LanguageId.zhTW: bool(regionalVariant[p.region]["Hant"]),
 	}
 
 	result = dict(LocalizedFamily.nameList[p.family])
-	result.update({ lang: result[0x0409] for lang, local in isLocalized.items() if not local })
+	result.update({ lang: result[LanguageId.enUS] for lang, local in isLocalized.items() if not local })
 	return result
 
 def GetTagList(p):
@@ -543,7 +608,7 @@ if __name__ == "__main__":
 				"\\n".join(
 					[
 						r'NowarSansTypeface:Register("font", "{}", [[Interface\\Addons\\NowarSansTypeface\\Fonts\\{}.otf]], western + ruRU)'.format(
-							GenerateFriendlyFamily(p)[0x0409],
+							GenerateFriendlyFamily(p)[LanguageId.enUS],
 							GenerateFilename(p).replace("unspec-", "")
 						) for p in config.fontProviderInstance["western1"]
 					]
@@ -553,7 +618,7 @@ if __name__ == "__main__":
 				"\\n".join(
 					[
 						r'NowarSansTypeface:Register("font", "{}", [[Interface\\Addons\\NowarSansTypeface\\Fonts\\{}.otf]], western + ruRU)'.format(
-							GenerateFriendlyFamily(p)[0x0409],
+							GenerateFriendlyFamily(p)[LanguageId.enUS],
 							GenerateFilename(p).replace("unspec-", "")
 						) for p in config.fontProviderInstance["western2"]
 					]
@@ -563,7 +628,7 @@ if __name__ == "__main__":
 				"\\n".join(
 					[
 						r'NowarSansTypeface:Register("font", "{}", [[Interface\\Addons\\NowarSansTypeface\\Fonts\\{}.otf]], zhCN)'.format(
-							GenerateFriendlyFamily(p)[0x0804],
+							GenerateFriendlyFamily(p)[LanguageId.zhCN],
 							GenerateFilename(p).replace("unspec-", "")
 						) for p in config.fontProviderInstance["zhCN"]
 					]
@@ -573,7 +638,7 @@ if __name__ == "__main__":
 				"\\n".join(
 					[
 						r'NowarSansTypeface:Register("font", "{}", [[Interface\\Addons\\NowarSansTypeface\\Fonts\\{}.otf]], zhTW)'.format(
-							GenerateFriendlyFamily(p)[0x0404],
+							GenerateFriendlyFamily(p)[LanguageId.zhTW],
 							GenerateFilename(p).replace("unspec-", "")
 						) for p in config.fontProviderInstance["zhTW"]
 					]
@@ -583,7 +648,7 @@ if __name__ == "__main__":
 				"\\n".join(
 					[
 						r'NowarSansTypeface:Register("font", "{}", [[Interface\\Addons\\NowarSansTypeface\\Fonts\\{}.otf]], koKR)'.format(
-							GenerateFriendlyFamily(p)[0x0412],
+							GenerateFriendlyFamily(p)[LanguageId.koKR],
 							GenerateFilename(p).replace("unspec-", "")
 						) for p in config.fontProviderInstance["koKR"]
 					]
