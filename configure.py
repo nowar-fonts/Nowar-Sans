@@ -690,7 +690,7 @@ if __name__ == "__main__":
 		)
 		makefile["rule"]["build/nowar/{}.otf".format(GenerateFilename(param))] = {
 			"depend": ["build/nowar/{}.otd".format(GenerateFilename(param))],
-			"command": [ "otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null" ]
+			"command": [ "otfccbuild -O3 --stub-cmap4 --keep-average-char-width $< -o $@ 2>/dev/null" ]
 		}
 		dep = ResolveDependency(param)
 		makefile["rule"]["build/nowar/{}.otd".format(GenerateFilename(param))] = {
@@ -730,7 +730,7 @@ if __name__ == "__main__":
 			)
 			makefile["rule"]["build/nowar/{}.otf".format(GenerateFilename(enc))] = {
 				"depend": ["build/nowar/{}.otd".format(GenerateFilename(enc))],
-				"command": [ "otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null" ]
+				"command": [ "otfccbuild -O3 --stub-cmap4 --keep-average-char-width $< -o $@ 2>/dev/null" ]
 			}
 			makefile["rule"]["build/nowar/{}.otd".format(GenerateFilename(enc))] = {
 				"depend": ["build/nowar/{}.otd".format(GenerateFilename(param))],
@@ -749,7 +749,7 @@ if __name__ == "__main__":
 		)
 		makefile["rule"]["build/nowar/{}.otf".format(GenerateFilename(param))] = {
 			"depend": ["build/nowar/{}.otd".format(GenerateFilename(param))],
-			"command": [ "otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null" ]
+			"command": [ "otfccbuild -O3 --stub-cmap4 --keep-average-char-width $< -o $@ 2>/dev/null" ]
 		}
 		dep = ResolveDependency(param)
 		makefile["rule"]["build/nowar/{}.otd".format(GenerateFilename(param))] = {
@@ -796,7 +796,7 @@ if __name__ == "__main__":
 			)
 			makefile["rule"]["build/nowar/{}.otf".format(GenerateFilename(enc))] = {
 				"depend": ["build/nowar/{}.otd".format(GenerateFilename(enc))],
-				"command": [ "otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null" ]
+				"command": [ "otfccbuild -O3 --stub-cmap4 --keep-average-char-width $< -o $@ 2>/dev/null" ]
 			}
 			makefile["rule"]["build/nowar/{}.otd".format(GenerateFilename(enc))] = {
 				"depend": ["build/nowar/{}.otd".format(GenerateFilename(param))],
@@ -813,7 +813,7 @@ if __name__ == "__main__":
 		)
 		makefile["rule"]["build/nowar/{}.otf".format(GenerateFilename(param))] = {
 			"depend": ["build/nowar/{}.otd".format(GenerateFilename(param))],
-			"command": [ "otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null" ]
+			"command": [ "otfccbuild -O3 --stub-cmap4 --keep-average-char-width $< -o $@ 2>/dev/null" ]
 		}
 		dep = ResolveDependency(param)
 		makefile["rule"]["build/nowar/{}.otd".format(GenerateFilename(param))] = {
