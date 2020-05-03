@@ -29,6 +29,16 @@ class Config:
         ("GB", ["RP"]),
     ]
 
+    globalFontWeight = [300, 400, 500, 700]
+    globalFontInstance = [
+        ('gbk', 'Sans', 'CN', 3),
+        ('gbk', 'Sans', 'CN', 5),
+        ('big5', 'Sans', 'TW', 3),
+        ('big5', 'Sans', 'TW', 5),
+        ('unspec', 'UI', 'CL', 3),
+        ('unspec', 'UI', 'CL', 7),
+    ]
+
 
 config = Config()
 
@@ -563,9 +573,12 @@ if __name__ == "__main__":
         },
         "rule": {
             ".PHONY": {
-                "depend": ["all"],
+                "depend": ["all", "GlobalFont"],
             },
             "all": {
+                "depend": ["GlobalFont"],
+            },
+            "GlobalFont": {
                 "depend": [],
             },
             "clean": {
@@ -646,6 +659,28 @@ if __name__ == "__main__":
                     "cp $^ $@",
                 ]
             }
+
+    # font files for Global Font addon
+    for w, (e, f, r, wd) in product(config.globalFontWeight, config.globalFontInstance):
+        param = Namespace(
+            family=f,
+            weight=w,
+            width=wd,
+            region=r,
+            feature=[],
+            encoding=e,
+        )
+        font = "out/GlobalFont/{}.otf".format(
+            GenerateFilename(param)[len(e)+1:])
+
+        makefile["rule"]["GlobalFont"]["depend"].append(font)
+        makefile["rule"][font] = {
+            "depend": ["build/nowar/{}.otf".format(GenerateFilename(param))],
+            "command": [
+                "mkdir -p out/GlobalFont/",
+                "cp $^ $@",
+            ]
+        }
 
     # Sans, UI
     for f, w, wd, r, fea in product(["Sans", "UI"], config.fontPackWeight, [3, 5, 7, 10], regionNameMap.keys(), powerset(config.fontPackFeature)):
