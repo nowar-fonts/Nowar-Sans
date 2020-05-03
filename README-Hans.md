@@ -18,7 +18,7 @@
 
 镜像：[Gitee](https://gitee.com/nowar-fonts/Nowar-Sans)
 
-有爱黑体有 4 种字重和 7 种地区变体，此外还有若干特性。
+有爱黑体有 5 种字重和 7 种地区变体，此外还有若干特性。
 
 ### 字重
 
@@ -66,7 +66,3 @@ GB 变体完全覆盖 GB 18030-2000 标准，移除了谚文支持，文件大�
 | RP   | Roleplaying | `丶`（U+4E36）重映射为 `·`（U+00B7，MIDDLE DOT）。|
 
 预编译的特性变体：`CL,OSF`、`CL,SC`、`CL,OSF,SC`、`GB,RP`。
-
-### SharedMedia 字体包
-
-有爱黑体也可以以插件的形式安装（**很大！**），启用之后会向 SharedMedia 注册有爱黑体字族。

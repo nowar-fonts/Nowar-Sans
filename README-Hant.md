@@ -66,7 +66,3 @@ GB 變體完全覆蓋 GB 18030-2000 標準，移除了諺文支援，文件大�
 | RP   | Roleplaying | `丶`（U+4E36）重對映為 `·`（U+00B7，MIDDLE DOT；或 U+2027，HYPHENATION POINT）。|
 
 預編譯的特徵變體：`CL,OSF`、`CL,SC`、`CL,OSF,SC`、`GB,RP`。
-
-### SharedMedia 字型包
-
-有愛黑體也可以以插件的形式安裝（**很大！**），啓用之後會向 SharedMedia 登錄有愛黑體字體。

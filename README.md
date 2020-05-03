@@ -67,10 +67,6 @@ GB is a variant that supports a superset of Chinese national standard GB 18030-2
 
 Pre-built feature variants: `CL,OSF`, `CL,SC`, `CL,OSF,SC`, `GB,RP`.
 
-### SharedMedia Font Provider
-
-Nowar Sans is also avialable as an addon (REALLY HUGE!), to register Nowar Sans typeface to SharedMedia.
-
 ## How to Build
 
 ### Dependencies
