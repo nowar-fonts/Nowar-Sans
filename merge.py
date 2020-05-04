@@ -19,9 +19,9 @@ def NameFont(param, font):
 
     font['head']['fontRevision'] = configure.config.fontRevision
     font['OS_2']['achVendID'] = configure.config.vendorId
-    font['OS_2']['usWeightClass'] = param.weight
+    font['OS_2']['usWeightClass'] = param["weight"]
     # Warcraft numeral hack
-    font['OS_2']['usWidthClass'] = 5 if param.width == 10 else param.width
+    font['OS_2']['usWidthClass'] = 5 if param["width"] == 10 else param["width"]
     font['name'] = [
         {
             "platformID": 3,
@@ -176,7 +176,7 @@ def GenerateAsianSymbolFont(font):
 
 if __name__ == '__main__':
     param = sys.argv[1]
-    param = Namespace(**json.loads(param))
+    param = json.loads(param)
 
     dep = configure.ResolveDependency(param)
 
@@ -196,16 +196,16 @@ if __name__ == '__main__':
     baseFont['OS_2']['usWinDescent'] = 300
 
     # oldstyle figure
-    if "OSF" in param.feature:
+    if "OSF" in param["feature"]:
         ApplyGsubSingle('pnum', baseFont)
         ApplyGsubSingle('onum', baseFont)
 
     # small caps
-    if "SC" in param.feature:
+    if "SC" in param["feature"]:
         ApplyGsubSingle('smcp', baseFont)
 
     # Warcraft numeral hack
-    if param.width == 10:
+    if param["width"] == 10:
         with open("build/noto/{}.otd".format(configure.GenerateFilename(dep['Numeral'])), 'rb') as numFile:
             numFont = json.loads(
                 numFile.read().decode('UTF-8', errors='replace'))
@@ -242,13 +242,13 @@ if __name__ == '__main__':
             ApplyGsubSingle('pnum', baseFont)
 
     # merge CJK
-    if param.family in ["Sans", "UI"]:
+    if param["family"] in ["Sans", "UI"]:
         with open("build/shs/{}.otd".format(configure.GenerateFilename(dep['CJK'])), 'rb') as asianFile:
             asianFont = json.loads(
                 asianFile.read().decode('UTF-8', errors='replace'))
 
         # pre-apply `palt` in UI family
-        if "UI" in param.family:
+        if "UI" in param["family"]:
             ApplyPalt(asianFont)
         else:
             NowarApplyPaltMultiplied(asianFont, 0.4)
@@ -260,7 +260,7 @@ if __name__ == '__main__':
         MergeBelow(baseFont, asianFont)
 
         # remap `丶` to `·` in RP variant
-        if "RP" in param.feature:
+        if "RP" in param["feature"]:
             baseFont['cmap'][str(ord('丶'))] = baseFont['cmap'][str(ord('·'))]
             Gc(baseFont)
 
