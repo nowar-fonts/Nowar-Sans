@@ -2,7 +2,8 @@ import sys
 import copy
 import json
 import codecs
-from types import SimpleNamespace as Namespace
+from libotd.rebase import Rebase
+from libotd.dereference import Dereference
 from libotd.merge import MergeBelow, MergeAbove
 from libotd.pkana import ApplyPalt, NowarApplyPaltMultiplied
 from libotd.transform import Transform, ChangeAdvanceWidth
@@ -20,11 +21,31 @@ def NameFont(param, font):
     postscript = fontName["postscript"]
     enUS = configure.LanguageId.enUS
 
-    font['head']['fontRevision'] = configure.config.fontRevision
-    font['OS_2']['achVendID'] = configure.config.vendorId
-    font['OS_2']['usWeightClass'] = param["weight"]
+    os_2 = font["OS_2"]
+    fsSelection = os_2["fsSelection"]
+    head = font["head"]
+    macStyle = font["head"]["macStyle"]
+    weight = param["weight"]
+    width = param["width"]
+    slant = param.get("slant")
+
+    head['fontRevision'] = configure.config.fontRevision
+    os_2['achVendID'] = configure.config.vendorId
+    os_2['usWeightClass'] = weight
     # Warcraft numeral hack
-    font['OS_2']['usWidthClass'] = 5 if param["width"] == 10 else param["width"]
+    os_2['usWidthClass'] = 5 if width == 10 else width
+    fsSelection["wws"] = False
+
+    fsSelection["regular"] = (weight == 400) and (not slant) and (width == 5)
+    if weight == 700:
+        fsSelection["bold"] = True
+        macStyle["bold"] = True
+    if slant == "Italic":
+        fsSelection["italic"] = True
+        macStyle["italic"] = True
+    elif slant == "Oblique":
+        fsSelection["oblique"] = True
+
     font['name'] = [
         {
             "platformID": 3,
@@ -157,7 +178,7 @@ def NameFont(param, font):
         if 'notice' in cff:
             del cff['notice']
         cff['copyright'] = configure.config.copyright
-        cff['fontName'] = friendly[enUS].replace(" ", "-")
+        cff['fontName'] = postscript
         cff['fullName'] = friendly[enUS]
         cff['familyName'] = family[enUS]
         cff['weight'] = subfamily
@@ -200,17 +221,24 @@ if __name__ == '__main__':
     with open("build/noto/{}.otd".format(configure.GenerateFilename(dep['Latin'])), 'rb') as baseFile:
         baseFont = json.loads(
             baseFile.read().decode('UTF-8', errors='replace'))
+    upm = baseFont["head"]["unitsPerEm"]
+    if (upm != 1000):
+        Rebase(baseFont, 1000 / upm, roundToInt=True)
     NameFont(param, baseFont)
 
-    baseFont['hhea']['ascender'] = 880
-    baseFont['hhea']['descender'] = -120
-    baseFont['hhea']['lineGap'] = 200
-    baseFont['OS_2']['sTypoAscender'] = 880
-    baseFont['OS_2']['sTypoDescender'] = -120
-    baseFont['OS_2']['sTypoLineGap'] = 200
-    baseFont['OS_2']['fsSelection']['useTypoMetrics'] = True
-    baseFont['OS_2']['usWinAscent'] = 1050
-    baseFont['OS_2']['usWinDescent'] = 300
+    hhea = baseFont["hhea"]
+    os_2 = baseFont["OS_2"]
+    if os_2["version"] < 4:
+        os_2["version"] = 4
+    hhea['ascender'] = 880
+    hhea['descender'] = -120
+    hhea['lineGap'] = 200
+    os_2['sTypoAscender'] = 880
+    os_2['sTypoDescender'] = -120
+    os_2['sTypoLineGap'] = 200
+    os_2['fsSelection']['useTypoMetrics'] = True
+    os_2['usWinAscent'] = 1050
+    os_2['usWinDescent'] = 300
 
     # oldstyle figure
     if "OSF" in param["feature"]:
@@ -226,6 +254,8 @@ if __name__ == '__main__':
         with open("build/noto/{}.otd".format(configure.GenerateFilename(dep['Numeral'])), 'rb') as numFile:
             numFont = json.loads(
                 numFile.read().decode('UTF-8', errors='replace'))
+            if (upm != 1000):
+                Rebase(numFont, 1000 / upm, roundToInt=True)
 
             gsubPnum = GetGsubFlat('pnum', numFont)
             gsubTnum = GetGsubFlat('tnum', numFont)
@@ -239,6 +269,12 @@ if __name__ == '__main__':
             maxWidth = 490
             numWidth = numFont['glyf'][num[0]]['advanceWidth']
             changeWidth = maxWidth - numWidth if numWidth > maxWidth else 0
+
+            # dereference TT glyphs
+            if "CFF_" not in numFont:
+                for n in num + pnum + onum + tonum:
+                    numFont['glyf'][n] = Dereference(
+                        numFont['glyf'][n], numFont)
 
             for n in num + tonum:
                 tGlyph = numFont['glyf'][n]
