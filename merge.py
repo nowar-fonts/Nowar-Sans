@@ -12,10 +12,13 @@ import configure
 
 
 def NameFont(param, font):
-    family = configure.GenerateFamily(param)
-    subfamily = configure.GenerateSubfamily(param)
-    friendly = configure.GenerateFriendlyFamily(param)
-    legacyf, legacysubf = configure.GenerateLegacySubfamily(param)
+    fontName = configure.GenerateFontName(param)
+    family, subfamily = fontName["typographic"]
+    wwsF, wwsSf = fontName["wws"]
+    legacyF, legacySf = fontName["legacy"]
+    friendly = fontName["friendly"]
+    postscript = fontName["postscript"]
+    enUS = configure.LanguageId.enUS
 
     font['head']['fontRevision'] = configure.config.fontRevision
     font['OS_2']['achVendID'] = configure.config.vendorId
@@ -26,86 +29,93 @@ def NameFont(param, font):
         {
             "platformID": 3,
             "encodingID": 1,
-            "languageID": 1033,
+            "languageID": enUS,
             "nameID": 0,
             "nameString": configure.config.copyright
         },
         {
             "platformID": 3,
             "encodingID": 1,
-            "languageID": 1033,
+            "languageID": enUS,
             "nameID": 2,
-            "nameString": legacysubf
+            "nameString": legacySf
         },
         {
             "platformID": 3,
             "encodingID": 1,
-            "languageID": 1033,
+            "languageID": enUS,
             "nameID": 3,
-            "nameString": "{} {}".format(friendly[1033], configure.config.version)
+            "nameString": "{} {}".format(friendly[enUS], configure.config.version)
         },
         {
             "platformID": 3,
             "encodingID": 1,
-            "languageID": 1033,
+            "languageID": enUS,
             "nameID": 5,
             "nameString": configure.config.version
         },
         {
             "platformID": 3,
             "encodingID": 1,
-            "languageID": 1033,
+            "languageID": enUS,
             "nameID": 6,
-            "nameString": friendly[1033].replace(" ", "-")
+            "nameString": postscript
         },
         {
             "platformID": 3,
             "encodingID": 1,
-            "languageID": 1033,
+            "languageID": enUS,
             "nameID": 8,
             "nameString": configure.config.vendor
         },
         {
             "platformID": 3,
             "encodingID": 1,
-            "languageID": 1033,
+            "languageID": enUS,
             "nameID": 9,
             "nameString": configure.config.designer
         },
         {
             "platformID": 3,
             "encodingID": 1,
-            "languageID": 1033,
+            "languageID": enUS,
             "nameID": 11,
             "nameString": configure.config.vendorUrl
         },
         {
             "platformID": 3,
             "encodingID": 1,
-            "languageID": 1033,
+            "languageID": enUS,
             "nameID": 12,
             "nameString": configure.config.designerUrl
         },
         {
             "platformID": 3,
             "encodingID": 1,
-            "languageID": 1033,
+            "languageID": enUS,
             "nameID": 13,
             "nameString": configure.config.license
         },
         {
             "platformID": 3,
             "encodingID": 1,
-            "languageID": 1033,
+            "languageID": enUS,
             "nameID": 14,
             "nameString": configure.config.licenseUrl
         },
         {
             "platformID": 3,
             "encodingID": 1,
-            "languageID": 1033,
+            "languageID": enUS,
             "nameID": 17,
             "nameString": subfamily
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": enUS,
+            "nameID": 22,
+            "nameString": wwsSf
         },
     ] + sum(
         [[
@@ -114,7 +124,7 @@ def NameFont(param, font):
                 "encodingID": 1,
                 "languageID": langId,
                 "nameID": 1,
-                "nameString": "{} {}".format(family[langId], legacyf).strip()
+                "nameString": legacyF[langId]
             },
             {
                 "platformID": 3,
@@ -130,6 +140,13 @@ def NameFont(param, font):
                 "nameID": 16,
                 "nameString": family[langId]
             },
+            {
+                "platformID": 3,
+                "encodingID": 1,
+                "languageID": langId,
+                "nameID": 21,
+                "nameString": wwsF[langId]
+            },
         ] for langId in configure.LanguageId],
         []
     )
@@ -140,9 +157,9 @@ def NameFont(param, font):
         if 'notice' in cff:
             del cff['notice']
         cff['copyright'] = configure.config.copyright
-        cff['fontName'] = friendly[1033].replace(" ", "-")
-        cff['fullName'] = friendly[1033]
-        cff['familyName'] = family[1033]
+        cff['fontName'] = friendly[enUS].replace(" ", "-")
+        cff['fullName'] = friendly[enUS]
+        cff['familyName'] = family[enUS]
         cff['weight'] = subfamily
 
 

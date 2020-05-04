@@ -69,7 +69,7 @@ weightMap = {
     272: "W272",
     300: "Light",
     372: "Normal",
-    400: "Regular",
+    400: "",
     500: "Medium",
     600: "SemiBold",
     700: "Bold",
@@ -302,53 +302,67 @@ def TagListToStr(lst):
     return ",".join(lst)
 
 
-def GenerateFamily(p):
+def GenerateFontName(p):
     localizedFamily = LocalizedFamily(p)
     tagList = GetTagList(p)
-    if len(tagList):
-        return {
-            lang: localizedFamily[lang] + " " +
-            " ".join([tagNameMap[tag] for tag in tagList])
-            for lang in localizedFamily
-        }
-    else:
-        return localizedFamily
 
+    family = [tagNameMap[t] for t in tagList]
+    subfamily = []
+    wwsF = [*family]
+    wwsSf = []
+    legacyF = [*family]
+    legacySf = []
 
-def GenerateSubfamily(p):
-    width = widthMap[p["width"]]
-    weight = weightMap[p["weight"]]
-    if "italic" in p and p["italic"]:
-        if p["weight"] == 400:
-            return width + " Italic" if width else "Italic"
+    width = p["width"]
+    widthName = widthMap[width]
+    if widthName:
+        subfamily.append(widthName)
+        legacyF.append(widthName)
+    # Warcraft numeral hack
+    if width == 10:
+        wwsF.append(widthName)
+    elif widthName:
+        wwsSf.append(widthName)
+
+    weight = p["weight"]
+    weightName = weightMap[weight]
+    if weightName:
+        subfamily.append(weightName)
+        wwsSf.append(weightName)
+        if weight == 700:
+            legacySf.append(weightName)
         else:
-            return ("{} {}".format(width, weight) if width else weight) + " Italic"
-    else:
-        if p["weight"] == 400:
-            return width if width else "Regular"
+            legacyF.append(weightName)
+
+    if p.get("slant"):
+        slantName = p["slant"]
+        subfamily.append(slantName)
+        wwsSf.append(slantName)
+        if slantName == "Italic":
+            legacySf.append(slantName)
         else:
-            return "{} {}".format(width, weight) if width else weight
+            legacyF.append(slantName)
 
+    def formatFamily(f):
+        return " ".join(f)
 
-def GenerateFriendlyFamily(p):
-    return {k: "{} {}".format(v, GenerateSubfamily(p)) for k, v in GenerateFamily(p).items()}
+    def formatSubfamily(sf):
+        return " ".join(sf) or "Regular"
 
+    family = formatFamily(family)
+    subfamily = formatSubfamily(subfamily)
+    wwsF = formatFamily(wwsF)
+    wwsSf = formatSubfamily(wwsSf)
+    legacyF = formatSubfamily(legacyF)
+    legacySf = formatSubfamily(legacySf)
 
-def GenerateLegacySubfamily(p):
-    width = widthMap[p["width"]]
-    weight = weightMap[p["weight"]]
-    if "italic" in p and p["italic"]:
-        if p["weight"] == 400:
-            return width or "", "Italic"
-        elif p["weight"] == 700:
-            return width or "", "Bold Italic"
-        else:
-            return "{} {}".format(width, weight) if width else weight, "Italic"
-    else:
-        if p["weight"] == 400 or p["weight"] == 700:
-            return width or "", weight
-        else:
-            return "{} {}".format(width, weight) if width else weight, "Regular"
+    return {
+        "typographic": ({k: "{} {}".format(v, family).strip() for k, v in localizedFamily.items()}, subfamily),
+        "wws": ({k: "{} {}".format(v, wwsF).strip() for k, v in localizedFamily.items()}, wwsSf),
+        "legacy": ({k: "{} {}".format(v, legacyF).strip() for k, v in localizedFamily.items()}, legacySf),
+        "friendly": {k: "{} {}".format(v, family).strip() + " " + subfamily for k, v in localizedFamily.items()},
+        "postscript": "{}{}-{}".format(localizedFamily[LanguageId.enUS].replace(" ", ""), family.replace(" ", ""), subfamily.replace(" ", "")),
+    }
 
 
 def GenerateFilename(p):
@@ -359,12 +373,14 @@ def GenerateFilename(p):
             "UI": "NowarUI",
         }
         familyName = nameList[p["family"]] + "-" + GetTagStr(p)
+        subfamily = GenerateFontName(p)["typographic"][1]
     elif p["family"] == "Latin":
         encodingPrefix = ""
         nameList = {
             "Latin": "NowarLCG",
         }
         familyName = nameList[p["family"]] + "-" + GetTagStr(p)
+        subfamily = GenerateFontName(p)["typographic"][1]
     else:
         encodingPrefix = ""
         nameList = {
@@ -372,7 +388,9 @@ def GenerateFilename(p):
             "SHS": lambda p: p["region"],
         }
         familyName = nameList[p["family"]](p)
-    return encodingPrefix + familyName + "-" + GenerateSubfamily(p).replace(" ", "")
+        subfamily = ((widthMap[p["width"]] or "") + (weightMap[p["weight"]] or "") +
+                     (p.get("slant") or "")) or "Regular"
+    return encodingPrefix + familyName + "-" + subfamily.replace(" ", "")
 
 
 def ResolveDependency(p):
