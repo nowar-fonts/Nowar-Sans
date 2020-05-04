@@ -58,7 +58,7 @@ class LanguageId(enum.IntEnum):
     ruRU = 0x0419
     zhCN = 0x0804
     zhHK = 0x0C04
-    zhMA = 0x1404
+    zhMO = 0x1404
     zhSG = 0x1004
     zhTW = 0x0404
 
@@ -217,7 +217,7 @@ def LocalizedFamily(p):
                 LanguageId.koKR: "有愛 고딕",
                 LanguageId.zhCN: "有爱黑体",
                 LanguageId.zhHK: "有愛黑體",
-                LanguageId.zhMA: "有愛黑體",
+                LanguageId.zhMO: "有愛黑體",
                 LanguageId.zhSG: "有爱黑体",
                 LanguageId.zhTW: "有愛黑體",
             },
@@ -239,7 +239,7 @@ def LocalizedFamily(p):
                 LanguageId.koKR: "有愛 고딕 UI",
                 LanguageId.zhCN: "有爱黑体 UI",
                 LanguageId.zhHK: "有愛黑體 UI",
-                LanguageId.zhMA: "有愛黑體 UI",
+                LanguageId.zhMO: "有愛黑體 UI",
                 LanguageId.zhSG: "有爱黑体 UI",
                 LanguageId.zhTW: "有愛黑體 UI",
             },
@@ -264,7 +264,7 @@ def LocalizedFamily(p):
             LanguageId.koKR: "Nowar UI LCG",
             LanguageId.zhCN: "Nowar UI LCG",
             LanguageId.zhHK: "Nowar UI LCG",
-            LanguageId.zhMA: "Nowar UI LCG",
+            LanguageId.zhMO: "Nowar UI LCG",
             LanguageId.zhSG: "Nowar UI LCG",
             LanguageId.zhTW: "Nowar UI LCG",
         }
@@ -274,7 +274,7 @@ def LocalizedFamily(p):
         LanguageId.koKR: bool(regionalVariant[p["region"]]["ko"]),
         LanguageId.zhCN: bool(regionalVariant[p["region"]]["Hans"]),
         LanguageId.zhHK: bool(regionalVariant[p["region"]]["Hant"]),
-        LanguageId.zhMA: bool(regionalVariant[p["region"]]["Hant"]),
+        LanguageId.zhMO: bool(regionalVariant[p["region"]]["Hant"]),
         LanguageId.zhSG: bool(regionalVariant[p["region"]]["Hans"]),
         LanguageId.zhTW: bool(regionalVariant[p["region"]]["Hant"]),
     }
@@ -737,7 +737,7 @@ if __name__ == "__main__":
                 "weight": w,
                 "width": wd,
                 "region": r,
-                "feature": [],
+                "feature": fea,
                 "encoding": e,
             }
             makefile["rule"]["build/nowar/{}.otf".format(GenerateFilename(enc))] = {
