@@ -6,8 +6,8 @@ from itertools import product
 
 
 class Config:
-    version = "0.7.2"
-    fontRevision = 0.0702
+    version = "0.7.3"
+    fontRevision = 0.0703
     vendor = "Nowar Typeface"
     vendorId = "NOWR"
     vendorUrl = "https://github.com/nowar-fonts"
@@ -18,14 +18,16 @@ class Config:
     licenseUrl = "https://scripts.sil.org/OFL"
 
     fontPackWeight = [300, 372, 400, 500, 700]
-    fontPackRegion = ["CN", "TW", "HK", "JP", "KR", "CL", "GB"]
+    fontPackRegion = ["Neut", "Bliz", "CN", "TW", "HK", "JP", "CL"]
     fontPackFeature = ["OSF", "SC", "RP"]
     # feature tags must be identically ordered as in fontPackFeature
+    # e.g.
+    #   ("CN", ["OSF", "RP"]), "RP" is ordered after "OSF",
+    #   as it is ordered after "OSF" in fontPackFeature.
     fontPackExportFeature = [
-        ("CL", ["OSF"]),
-        ("CL", ["SC"]),
-        ("CL", ["OSF", "SC"]),
-        ("GB", ["RP"]),
+        ("Bliz", ["OSF"]), ("Bliz", ["SC"]),
+        ("Neut", ["OSF"]), ("Neut", ["SC"]),
+        ("CN", ["RP"]),
     ]
 
     globalFontWeight = [300, 400, 500, 700]
@@ -40,6 +42,123 @@ class Config:
 
 
 config = Config()
+
+
+# define Chinese characters orthographies for diffrent WoW language:
+# base - common fonts, `FRIZQT__` and `ARIALN`; must be defined
+# enUS - fonts for languages in Latin script, `skurri` and `MORPHEUS`
+#        if set to something to be true, the orthography is considered to be same as `base`
+#        if set to something to be false, fonts will be not overwritten
+# ruRU - fonts for Русский; like `enUS`
+# zhCN - fonts for 简体中文; can be false
+# zhTW - fonts for 繁體中文; can be false
+# koKR - fonts for 한국어; can be false
+regionalVariant = {
+    "Neut": {
+        "base": "CL",
+        "enUS": True,
+        "ruRU": True,
+        "zhCN": "CN",
+        "zhTW": "TW",
+        "koKR": "CL",
+    },
+    "Bliz": {
+        "base": "CN",
+        "enUS": True,
+        "ruRU": True,
+        "zhCN": "CN",
+        "zhTW": "TW",
+        "koKR": "CN", # yes, it is
+    },
+    "CN": {
+        "base": "CN",
+        "enUS": True,
+        "ruRU": True,
+        "zhCN": "CN",
+        "zhTW": "CN",
+        "koKR": "CN",
+    },
+    "TW": {
+        "base": "TW",
+        "enUS": True,
+        "ruRU": True,
+        "zhCN": "TW",
+        "zhTW": "TW",
+        "koKR": "TW",
+    },
+    "HK": {
+        "base": "HK",
+        "enUS": True,
+        "ruRU": True,
+        "zhCN": "HK",
+        "zhTW": "HK",
+        "koKR": "HK",
+    },
+    "JP": {
+        "base": "JP",
+        "enUS": True,
+        "ruRU": True,
+        "zhCN": "JP",
+        "zhTW": "JP",
+        "koKR": "JP",
+    },
+    "CL": {
+        "base": "CL",
+        "enUS": True,
+        "ruRU": True,
+        "zhCN": "CL",
+        "zhTW": "CL",
+        "koKR": "CL",
+    },
+    "CNmulti": {  # deprecated, previously “CN”
+        "base": "CN",
+        "enUS": True,
+        "ruRU": True,
+        "zhCN": "CN",
+        "zhTW": "TW",
+        "koKR": "KR",
+    },
+    "TWmulti": {  # deprecated, previously “TW”
+        "base": "TW",
+        "enUS": True,
+        "ruRU": True,
+        "zhCN": "CN",
+        "zhTW": "TW",
+        "koKR": "KR",
+    },
+    "HKmulti": {  # deprecated, previously “HK”
+        "base": "HK",
+        "enUS": True,
+        "ruRU": True,
+        "zhCN": "CN",
+        "zhTW": "HK",
+        "koKR": "KR",
+    },
+    "JPmulti": {  # deprecated, previously “JP”
+        "base": "JP",
+        "enUS": True,
+        "ruRU": True,
+        "zhCN": "CN",
+        "zhTW": "TW",
+        "koKR": "KR",
+    },
+    "KRmulti": {  # deprecated, previously “KR”
+        "base": "KR",
+        "enUS": True,
+        "ruRU": True,
+        "zhCN": "CN",
+        "zhTW": "TW",
+        "koKR": "KR",
+    },
+    "GB": {  # deprecated
+        "base": "GB",
+        "enUS": True,
+        "ruRU": True,
+        "zhCN": "GB",
+        "zhTW": "GB",
+        "koKR": None,
+    },
+}
 
 
 class LanguageId(enum.IntEnum):
@@ -62,6 +181,41 @@ class LanguageId(enum.IntEnum):
     zhSG = 0x1004
     zhTW = 0x0404
 
+
+familyLocalization = {
+    "CN": {
+        "Latin": True, "Cyrillic": True, "Hellenic": True,
+        "Chinese": True, "Japanese": True, "Korean": True,
+    },
+    "TW": {
+        "Latin": True, "Cyrillic": True, "Hellenic": True,
+        "Chinese": True, "Japanese": True, "Korean": True,
+    },
+    "HK": {
+        "Latin": True, "Cyrillic": True, "Hellenic": True,
+        "Chinese": True, "Japanese": True, "Korean": True,
+    },
+    "MO": {
+        "Latin": True, "Cyrillic": True, "Hellenic": True,
+        "Chinese": True, "Japanese": True, "Korean": True,
+    },
+    "JP": {
+        "Latin": True, "Cyrillic": True, "Hellenic": True,
+        "Chinese": True, "Japanese": True, "Korean": True,
+    },
+    "KR": {
+        "Latin": True, "Cyrillic": True, "Hellenic": True,
+        "Chinese": True, "Japanese": True, "Korean": True,
+    },
+    "CL": {
+        "Latin": True, "Cyrillic": True, "Hellenic": True,
+        "Chinese": True, "Japanese": True, "Korean": True,
+    },
+    "GB": {
+        "Latin": True, "Cyrillic": True, "Hellenic": True,
+        "Chinese": True, "Japanese": True, "Korean": False,
+    },
+}
 
 weightMap = {
     100: "Thin",
@@ -99,61 +253,12 @@ morpheusWeightMap = {
     700: 800,
 }
 
-# define font pack orthographies for diffrent WoW language
-# Latn -- Chinese characters in European languages, must be defined.
-# Hans -- 简体中文; if set to `None`, the font pack will not override 简体中文 font.
-# Hans -- 繁體中文, can be `None`.
-# ko -- 漢字 in 한국어, can be `None`.
-regionalVariant = {
-    "CN": {
-        "Latn": "CN",
-        "Hans": "CN",
-        "Hant": "TW",
-        "ko": "KR",
-    },
-    "TW": {
-        "Latn": "TW",
-        "Hans": "CN",
-        "Hant": "TW",
-        "ko": "KR",
-    },
-    "HK": {
-        "Latn": "HK",
-        "Hans": "CN",
-        "Hant": "HK",
-        "ko": "KR",
-    },
-    "JP": {
-        "Latn": "JP",
-        "Hans": "CN",
-        "Hant": "TW",
-        "ko": "KR",
-    },
-    "KR": {
-        "Latn": "KR",
-        "Hans": "CN",
-        "Hant": "TW",
-        "ko": "KR",
-    },
-    "CL": {
-        "Latn": "CL",
-        "Hans": "CL",
-        "Hant": "CL",
-        "ko": "CL",
-    },
-    "GB": {
-        "Latn": "GB",
-        "Hans": "GB",
-        "Hant": "GB",
-        "ko": None,
-    },
-}
-
 # map orthography to source file
 shsRegionMap = {
     "CN": "SourceHanSansSC",
     "TW": "SourceHanSansTC",
     "HK": "SourceHanSansHC",
+    "MO": "SourceHanSansMC",
     "JP": "SourceHanSans",
     "KR": "SourceHanSansK",
     "CL": "SourceHanSansK",
@@ -164,27 +269,20 @@ regionNameMap = {
     "CN": "CN",
     "TW": "TW",
     "HK": "HK",
+    "MO": "MO",
     "JP": "JP",
     "KR": "KR",
     "CL": "Classical",
     "GB": "GB18030",
 }
 
-tagNameMap = dict(regionNameMap)
-tagNameMap.update({
+featureNameMap = {
     "OSF": "Oldstyle",
     "SC": "Smallcaps",
     "RP": "Roleplaying",
-})
+}
 
-# set OS/2 encoding to make Windows show font icon in proper language
-encoding = [
-    "unspec",  # 文字美
-    "gbk",    # 简体字
-    "big5",   # 繁體字
-    "jis",    # あア亜
-    "korean",  # 한글
-]
+tagNameMap = {**regionNameMap, **featureNameMap}
 
 
 def GetRegion(p):
@@ -270,13 +368,23 @@ def LocalizedFamily(p):
         }
 
     isLocalized = {
-        LanguageId.jaJP: bool(regionalVariant[p["region"]]["Hans"]),
-        LanguageId.koKR: bool(regionalVariant[p["region"]]["ko"]),
-        LanguageId.zhCN: bool(regionalVariant[p["region"]]["Hans"]),
-        LanguageId.zhHK: bool(regionalVariant[p["region"]]["Hant"]),
-        LanguageId.zhMO: bool(regionalVariant[p["region"]]["Hant"]),
-        LanguageId.zhSG: bool(regionalVariant[p["region"]]["Hans"]),
-        LanguageId.zhTW: bool(regionalVariant[p["region"]]["Hant"]),
+        LanguageId.deDE: bool(familyLocalization[p["region"]]["Latin"]),
+        LanguageId.elGR: bool(familyLocalization[p["region"]]["Hellenic"]),
+        LanguageId.enGB: bool(familyLocalization[p["region"]]["Latin"]),
+        LanguageId.esES: bool(familyLocalization[p["region"]]["Latin"]),
+        LanguageId.esMX: bool(familyLocalization[p["region"]]["Latin"]),
+        LanguageId.frFR: bool(familyLocalization[p["region"]]["Latin"]),
+        LanguageId.itIT: bool(familyLocalization[p["region"]]["Latin"]),
+        LanguageId.ptBR: bool(familyLocalization[p["region"]]["Latin"]),
+        LanguageId.ptPT: bool(familyLocalization[p["region"]]["Latin"]),
+        LanguageId.ruRU: bool(familyLocalization[p["region"]]["Cyrillic"]),
+        LanguageId.jaJP: bool(familyLocalization[p["region"]]["Japanese"]),
+        LanguageId.koKR: bool(familyLocalization[p["region"]]["Korean"]),
+        LanguageId.zhCN: bool(familyLocalization[p["region"]]["Chinese"]),
+        LanguageId.zhHK: bool(familyLocalization[p["region"]]["Chinese"]),
+        LanguageId.zhMO: bool(familyLocalization[p["region"]]["Chinese"]),
+        LanguageId.zhSG: bool(familyLocalization[p["region"]]["Chinese"]),
+        LanguageId.zhTW: bool(familyLocalization[p["region"]]["Chinese"]),
     }
 
     result = dict(LocalizedFamily.nameList[p["family"]])
@@ -448,7 +556,7 @@ def GetLatinFont(weight, region, feature):
         "weight": weight,
         "width": 7,
         "family": "UI",
-        "region": regionalVariant[region]["Latn"],
+        "region": regionalVariant[region]["base"],
         "feature": feature,
         "encoding": "unspec",
     }
@@ -459,7 +567,7 @@ def GetLatinChatFont(weight, region, feature):
         "weight": weight,
         "width": 3,
         "family": "UI",
-        "region": regionalVariant[region]["Latn"],
+        "region": regionalVariant[region]["base"],
         "feature": feature,
         "encoding": "unspec",
     }
@@ -470,7 +578,7 @@ def GetHansFont(weight, region, feature):
         "weight": weight,
         "width": 10,
         "family": "Sans",
-        "region": regionalVariant[region]["Hans"],
+        "region": regionalVariant[region]["zhCN"],
         "feature": feature,
         "encoding": "gbk",
     }
@@ -481,7 +589,7 @@ def GetHansCombatFont(weight, region, feature):
         "weight": weight,
         "width": 7,
         "family": "Sans",
-        "region": regionalVariant[region]["Hans"],
+        "region": regionalVariant[region]["zhCN"],
         "feature": feature,
         "encoding": "gbk",
     }
@@ -492,7 +600,7 @@ def GetHansChatFont(weight, region, feature):
         "weight": weight,
         "width": 3,
         "family": "Sans",
-        "region": regionalVariant[region]["Hans"],
+        "region": regionalVariant[region]["zhCN"],
         "feature": feature,
         "encoding": "gbk",
     }
@@ -503,7 +611,7 @@ def GetHantFont(weight, region, feature):
         "weight": weight,
         "width": 10,
         "family": "Sans",
-        "region": regionalVariant[region]["Hant"],
+        "region": regionalVariant[region]["zhTW"],
         "feature": feature,
         "encoding": "big5",
     }
@@ -514,7 +622,7 @@ def GetHantCombatFont(weight, region, feature):
         "weight": weight,
         "width": 7,
         "family": "Sans",
-        "region": regionalVariant[region]["Hant"],
+        "region": regionalVariant[region]["zhTW"],
         "feature": feature,
         "encoding": "big5",
     }
@@ -525,7 +633,7 @@ def GetHantNoteFont(weight, region, feature):
         "weight": weight,
         "width": 5,
         "family": "Sans",
-        "region": regionalVariant[region]["Hant"],
+        "region": regionalVariant[region]["zhTW"],
         "feature": feature,
         "encoding": "big5",
     }
@@ -536,7 +644,7 @@ def GetHantChatFont(weight, region, feature):
         "weight": weight,
         "width": 3,
         "family": "Sans",
-        "region": regionalVariant[region]["Hant"],
+        "region": regionalVariant[region]["zhTW"],
         "feature": feature,
         "encoding": "big5",
     }
@@ -547,7 +655,7 @@ def GetKoreanFont(weight, region, feature):
         "weight": weight,
         "width": 5,
         "family": "UI",
-        "region": regionalVariant[region]["ko"],
+        "region": regionalVariant[region]["koKR"],
         "feature": feature,
         "encoding": "korean",
     }
@@ -558,7 +666,7 @@ def GetKoreanCombatFont(weight, region, feature):
         "weight": weight,
         "width": 7,
         "family": "UI",
-        "region": regionalVariant[region]["ko"],
+        "region": regionalVariant[region]["koKR"],
         "feature": feature,
         "encoding": "korean",
     }
@@ -569,7 +677,7 @@ def GetKoreanDisplayFont(weight, region, feature):
         "weight": weight,
         "width": 3,
         "family": "UI",
-        "region": regionalVariant[region]["ko"],
+        "region": regionalVariant[region]["koKR"],
         "feature": feature,
         "encoding": "korean",
     }
@@ -624,22 +732,29 @@ if __name__ == "__main__":
         fontlist = {
             "ARIALN": GetLatinChatFont(w, r, fea),
             "FRIZQT__": GetLatinFont(w, r, fea),
-            "MORPHEUS": GetMorpheus(w, fea),
-            "skurri": GetSkurri(w, fea),
-
-            "FRIZQT___CYR": GetLatinFont(w, r, fea),
-            "MORPHEUS_CYR": GetMorpheus(w, fea),
-            "SKURRI_CYR": GetSkurri(w, fea),
         }
 
-        if regionalVariant[r]["Hans"]:
+        if regionalVariant[r]["enUS"]:
+            fontlist.update({
+                "skurri": GetSkurri(w, fea),
+                "MORPHEUS": GetMorpheus(w, fea),
+            })
+
+        if regionalVariant[r]["ruRU"]:
+            fontlist.update({
+                "FRIZQT___CYR": GetLatinFont(w, r, fea),
+                "SKURRI_CYR": GetSkurri(w, fea),
+                "MORPHEUS_CYR": GetMorpheus(w, fea),
+            })
+
+        if regionalVariant[r]["zhCN"]:
             fontlist.update({
                 "ARKai_C": GetHansCombatFont(w, r, fea),
                 "ARKai_T": GetHansFont(w, r, fea),
                 "ARHei": GetHansChatFont(w, r, fea),
             })
 
-        if regionalVariant[r]["Hant"]:
+        if regionalVariant[r]["zhTW"]:
             fontlist.update({
                 "arheiuhk_bd": GetHantChatFont(w, r, fea),
                 "bHEI00M": GetHantNoteFont(w, r, fea),
@@ -648,7 +763,7 @@ if __name__ == "__main__":
                 "blei00d": GetHantFont(w, r, fea),
             })
 
-        if regionalVariant[r]["ko"]:
+        if regionalVariant[r]["koKR"]:
             fontlist.update({
                 "2002": GetKoreanFont(w, r, fea),
                 "2002B": GetKoreanFont(w, r, fea),
