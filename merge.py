@@ -207,7 +207,8 @@ def GenerateAsianSymbolFont(font):
             rm.append(k)
     for k in rm:
         del font['cmap'][k]
-    NowarRemoveFeatures(font)
+    del font['GSUB']
+    del font['GPOS']
     Gc(font)
     return font
 
@@ -309,14 +310,13 @@ if __name__ == '__main__':
             MergeAbove(baseFont, asianSymbolFont)
 
         NowarRemoveFeatures(asianFont)
-        Gc(asianFont)
         MergeBelow(baseFont, asianFont)
 
         # remap `丶` to `·` in RP variant
         if "RP" in param["feature"]:
             baseFont['cmap'][str(ord('丶'))] = baseFont['cmap'][str(ord('·'))]
-            Gc(baseFont)
 
+    Gc(baseFont)
     outStr = json.dumps(baseFont, ensure_ascii=False, separators=(',', ':'))
     with codecs.open("build/nowar/{}.otd".format(configure.GenerateFilename(param)), 'w', 'UTF-8') as outFile:
         outFile.write(outStr)
