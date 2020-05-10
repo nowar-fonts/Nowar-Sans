@@ -11,7 +11,7 @@ class Config:
     vendor = "Nowar Typeface"
     vendorId = "NOWR"
     vendorUrl = "https://github.com/nowar-fonts"
-    copyright = "Copyright © 2018—2020 Cyano Hao and Nowar Typeface, with reserved font name “Nowar”, “有爱”, and “有愛”. Portions Copyright 2011 Google Inc. Portions © 2014-2019 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'."
+    copyright = "Copyright © 2018—2020 Cyano Hao and Nowar Typeface, with Reserved Font Name “Nowar”, “Новар”, “Νοωαρ”, “有爱”, and “有愛”. Portions Copyright 2011 Google Inc. Portions © 2014-2019 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'."
     designer = "Cyano Hao (character set definition & modification for World of Warcraft); Monotype Design Team (Latin, Greek & Cyrillic); Ryoko NISHIZUKA 西塚涼子 (kana, bopomofo & ideographs); Sandoll Communications 산돌커뮤니케이션, Soo-young JANG 장수영 & Joo-yeon KANG 강주연 (hangul elements, letters & syllables); Dr. Ken Lunde (project architect, glyph set definition & overall production); Masataka HATTORI 服部正貴 (production & ideograph elements)"
     designerUrl = "https://github.com/CyanoHao"
     license = "This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software."
@@ -211,7 +211,7 @@ def LocalizedFamily(p):
                 # sem (without) serifa (serif)
                 LanguageId.ptBR: "Nowar Sem",
                 LanguageId.ptPT: "Nowar Sem",
-                LanguageId.ruRU: "Ноwар Гротеск",
+                LanguageId.ruRU: "Новар Гротеск",
 
                 LanguageId.jaJP: "有愛角ゴシック",
                 LanguageId.koKR: "有愛 고딕",
@@ -233,7 +233,7 @@ def LocalizedFamily(p):
                 LanguageId.itIT: "Nowar UI",
                 LanguageId.ptBR: "Nowar UI",
                 LanguageId.ptPT: "Nowar UI",
-                LanguageId.ruRU: "Ноwар UI",
+                LanguageId.ruRU: "Новар UI",
 
                 LanguageId.jaJP: "有愛角ゴシック UI",
                 LanguageId.koKR: "有愛 고딕 UI",
@@ -258,7 +258,7 @@ def LocalizedFamily(p):
             LanguageId.itIT: "Nowar UI LCG",
             LanguageId.ptBR: "Nowar UI LCG",
             LanguageId.ptPT: "Nowar UI LCG",
-            LanguageId.ruRU: "Ноwар UI КЛГ",
+            LanguageId.ruRU: "Новар UI КЛГ",
 
             LanguageId.jaJP: "Nowar UI LCG",
             LanguageId.koKR: "Nowar UI LCG",
