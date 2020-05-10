@@ -1,3 +1,4 @@
+import datetime
 import sys
 import copy
 import json
@@ -198,19 +199,14 @@ def GenerateAsianSymbolFont(font):
         0x2E3A,  # TWO-EM DASH
         0x2E3B,  # THREE-EM DASH
     ]
-    font = copy.deepcopy(font)
-    if 'cmap_uvs' in font:
-        del font['cmap_uvs']
-    rm = []
-    for k in font['cmap']:
-        if int(k) not in asianSymbol:
-            rm.append(k)
-    for k in rm:
-        del font['cmap'][k]
-    del font['GPOS']
-    del font['GSUB']
-    Gc(font)
-    return font
+    symbolFont = {}
+    symbolFont["cmap"] = {k: v for k,
+                          v in font["cmap"].items() if int(k) in asianSymbol}
+    glyphSet = {symbolFont["cmap"].values()}
+    symbolFont["glyf"] = {k: v for k,
+                          v in font["glyf"].items() if k in glyphSet}
+    symbolFont["glyph_order"] = ["symb.notdef"]
+    return symbolFont
 
 
 if __name__ == '__main__':
