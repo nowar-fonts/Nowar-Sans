@@ -66,7 +66,7 @@ def NameFont(param, font):
             "encodingID": 1,
             "languageID": enUS,
             "nameID": 3,
-            "nameString": "{} {}".format(friendly[enUS], configure.config.version)
+            "nameString": "{}: {} {}".format(configure.config.vendorId, friendly[enUS], configure.config.version)
         },
         {
             "platformID": 3,
@@ -207,8 +207,8 @@ def GenerateAsianSymbolFont(font):
             rm.append(k)
     for k in rm:
         del font['cmap'][k]
-    del font['GSUB']
     del font['GPOS']
+    del font['GSUB']
     Gc(font)
     return font
 
@@ -295,26 +295,24 @@ if __name__ == '__main__':
                 baseFont['glyf'][n] = numFont['glyf'][n]
             ApplyGsubSingle('pnum', baseFont)
 
-    # merge CJK
-    if param["family"] in ["Sans", "UI"]:
-        with open("build/shs/{}.otd".format(configure.GenerateFilename(dep['CJK'])), 'rb') as asianFile:
-            asianFont = json.loads(
-                asianFile.read().decode('UTF-8', errors='replace'))
+    with open("build/shs/{}.otd".format(configure.GenerateFilename(dep['CJK'])), 'rb') as asianFile:
+        asianFont = json.loads(
+            asianFile.read().decode('UTF-8', errors='replace'))
 
-        # pre-apply `palt` in UI family
-        if "UI" in param["family"]:
-            ApplyPalt(asianFont)
-        else:
-            NowarApplyPaltMultiplied(asianFont, 0.4)
-            asianSymbolFont = GenerateAsianSymbolFont(asianFont)
-            MergeAbove(baseFont, asianSymbolFont)
+    # pre-apply `palt` in UI family
+    if "UI" in param["feature"]:
+        ApplyPalt(asianFont)
+    else:
+        NowarApplyPaltMultiplied(asianFont, 0.4)
+        asianSymbolFont = GenerateAsianSymbolFont(asianFont)
+        MergeAbove(baseFont, asianSymbolFont)
 
-        NowarRemoveFeatures(asianFont)
-        MergeBelow(baseFont, asianFont)
+    NowarRemoveFeatures(asianFont)
+    MergeBelow(baseFont, asianFont)
 
-        # remap `丶` to `·` in RP variant
-        if "RP" in param["feature"]:
-            baseFont['cmap'][str(ord('丶'))] = baseFont['cmap'][str(ord('·'))]
+    # remap `丶` to `·` in RP variant
+    if "RP" in param["feature"]:
+        baseFont['cmap'][str(ord('丶'))] = baseFont['cmap'][str(ord('·'))]
 
     Gc(baseFont)
     outStr = json.dumps(baseFont, ensure_ascii=False, separators=(',', ':'))

@@ -1,6 +1,7 @@
 import json
 import codecs
 import enum
+import hashlib
 from functools import reduce
 from itertools import product
 
@@ -32,12 +33,12 @@ class Config:
 
     globalFontWeight = [300, 400, 500, 700]
     globalFontInstance = [
-        ('gbk', 'Sans', 'CN', 3),
-        ('gbk', 'Sans', 'CN', 5),
-        ('big5', 'Sans', 'TW', 3),
-        ('big5', 'Sans', 'TW', 5),
-        ('unspec', 'UI', 'CL', 3),
-        ('unspec', 'UI', 'CL', 7),
+        ("gbk", "CN", [], 3),
+        ("gbk", "CN", [], 5),
+        ("big5", "TW", [], 3),
+        ("big5", "TW", [], 5),
+        ("unspec", "CL", ["UI"], 3),
+        ("unspec", "CL", ["UI"], 7),
     ]
 
 
@@ -68,7 +69,7 @@ regionalVariant = {
         "ruRU": True,
         "zhCN": "CN",
         "zhTW": "TW",
-        "koKR": "CN", # yes, it is
+        "koKR": "CN",  # yes, it is
     },
     "CN": {
         "base": "CN",
@@ -220,7 +221,6 @@ familyLocalization = {
 weightMap = {
     100: "Thin",
     200: "ExtraLight",
-    272: "W272",
     300: "Light",
     372: "Normal",
     400: "",
@@ -231,6 +231,19 @@ weightMap = {
     900: "Black",
 }
 
+weightMapShort = {
+    100: "Th",
+    200: "XLt",
+    300: "Lt",
+    372: "Nm",
+    400: "",
+    500: "Md",
+    600: "SmBd",
+    700: "Bd",
+    800: "XBd",
+    900: "Bk",
+}
+
 widthMap = {
     3: "Condensed",
     4: "SemiCondensed",
@@ -239,18 +252,23 @@ widthMap = {
     10: "Warcraft",  # Warcraft numeral hack
 }
 
+widthMapShort = {
+    3: "Cn",
+    4: "SmCn",
+    5: None,
+    7: "Ex",
+    10: "Wc",
+}
+
+slantMapShort = {
+    "Italic": "It",
+    "Oblique": "Obl",
+}
+
 notoWidthMap = {
     3: 3,
     5: 4,
     7: 5,
-}
-
-morpheusWeightMap = {
-    300: 200,
-    372: 272,
-    400: 500,
-    500: 600,
-    700: 800,
 }
 
 # map orthography to source file
@@ -277,6 +295,7 @@ regionNameMap = {
 }
 
 featureNameMap = {
+    "UI": "UI",
     "OSF": "Oldstyle",
     "SC": "Smallcaps",
     "RP": "Roleplaying",
@@ -285,171 +304,116 @@ featureNameMap = {
 tagNameMap = {**regionNameMap, **featureNameMap}
 
 
-def GetRegion(p):
-    if "region" in p:
-        return p["region"]
-    else:
-        return ""
-
-
 def LocalizedFamily(p):
     if "nameList" not in LocalizedFamily.__dict__:
         LocalizedFamily.nameList = {
-            "Sans": {
-                LanguageId.enUS: "Nowar Sans",
+            LanguageId.enUS: "Nowar Sans",
 
-                LanguageId.deDE: "Nowar Grotesk",
-                LanguageId.elGR: "Νοωαρ Σανς",
-                LanguageId.enGB: "Nowar Sans",
-                LanguageId.esES: "Nowar Palo",
-                LanguageId.esMX: "Nowar Palo",
-                LanguageId.frFR: "Nowar Linéale",
-                # senza (without) grazie (serif)
-                LanguageId.itIT: "Nowar Senza",
-                # sem (without) serifa (serif)
-                LanguageId.ptBR: "Nowar Sem",
-                LanguageId.ptPT: "Nowar Sem",
-                LanguageId.ruRU: "Новар Гротеск",
+            LanguageId.deDE: "Nowar Grotesk",
+            LanguageId.elGR: "Νοωαρ Σανς",
+            LanguageId.enGB: "Nowar Sans",
+            LanguageId.esES: "Nowar Palo",
+            LanguageId.esMX: "Nowar Palo",
+            LanguageId.frFR: "Nowar Linéale",
+            # senza (without) grazie (serif)
+            LanguageId.itIT: "Nowar Senza",
+            # sem (without) serifa (serif)
+            LanguageId.ptBR: "Nowar Sem",
+            LanguageId.ptPT: "Nowar Sem",
+            LanguageId.ruRU: "Новар Гротеск",
 
-                LanguageId.jaJP: "有愛角ゴシック",
-                LanguageId.koKR: "有愛 고딕",
-                LanguageId.zhCN: "有爱黑体",
-                LanguageId.zhHK: "有愛黑體",
-                LanguageId.zhMO: "有愛黑體",
-                LanguageId.zhSG: "有爱黑体",
-                LanguageId.zhTW: "有愛黑體",
-            },
-            "UI": {
-                LanguageId.enUS: "Nowar UI",
-
-                LanguageId.deDE: "Nowar UI",
-                LanguageId.elGR: "Νοωαρ UI",
-                LanguageId.enGB: "Nowar UI",
-                LanguageId.esES: "Nowar UI",
-                LanguageId.esMX: "Nowar UI",
-                LanguageId.frFR: "Nowar UI",
-                LanguageId.itIT: "Nowar UI",
-                LanguageId.ptBR: "Nowar UI",
-                LanguageId.ptPT: "Nowar UI",
-                LanguageId.ruRU: "Новар UI",
-
-                LanguageId.jaJP: "有愛角ゴシック UI",
-                LanguageId.koKR: "有愛 고딕 UI",
-                LanguageId.zhCN: "有爱黑体 UI",
-                LanguageId.zhHK: "有愛黑體 UI",
-                LanguageId.zhMO: "有愛黑體 UI",
-                LanguageId.zhSG: "有爱黑体 UI",
-                LanguageId.zhTW: "有愛黑體 UI",
-            },
+            LanguageId.jaJP: "有愛角ゴシック",
+            LanguageId.koKR: "有愛 고딕",
+            LanguageId.zhCN: "有爱黑体",
+            LanguageId.zhHK: "有愛黑體",
+            LanguageId.zhMO: "有愛黑體",
+            LanguageId.zhSG: "有爱黑体",
+            LanguageId.zhTW: "有愛黑體",
         }
 
-    if p["family"] == "Latin":
-        return {
-            LanguageId.enUS: "Nowar UI LCG",
-
-            LanguageId.deDE: "Nowar UI LCG",
-            LanguageId.elGR: "Νοωαρ UI ΕΛΚ",
-            LanguageId.enGB: "Nowar UI LCG",
-            LanguageId.esES: "Nowar UI LCG",
-            LanguageId.esMX: "Nowar UI LCG",
-            LanguageId.frFR: "Nowar UI LCG",
-            LanguageId.itIT: "Nowar UI LCG",
-            LanguageId.ptBR: "Nowar UI LCG",
-            LanguageId.ptPT: "Nowar UI LCG",
-            LanguageId.ruRU: "Новар UI КЛГ",
-
-            LanguageId.jaJP: "Nowar UI LCG",
-            LanguageId.koKR: "Nowar UI LCG",
-            LanguageId.zhCN: "Nowar UI LCG",
-            LanguageId.zhHK: "Nowar UI LCG",
-            LanguageId.zhMO: "Nowar UI LCG",
-            LanguageId.zhSG: "Nowar UI LCG",
-            LanguageId.zhTW: "Nowar UI LCG",
-        }
-
+    r = p["region"]
     isLocalized = {
-        LanguageId.deDE: bool(familyLocalization[p["region"]]["Latin"]),
-        LanguageId.elGR: bool(familyLocalization[p["region"]]["Hellenic"]),
-        LanguageId.enGB: bool(familyLocalization[p["region"]]["Latin"]),
-        LanguageId.esES: bool(familyLocalization[p["region"]]["Latin"]),
-        LanguageId.esMX: bool(familyLocalization[p["region"]]["Latin"]),
-        LanguageId.frFR: bool(familyLocalization[p["region"]]["Latin"]),
-        LanguageId.itIT: bool(familyLocalization[p["region"]]["Latin"]),
-        LanguageId.ptBR: bool(familyLocalization[p["region"]]["Latin"]),
-        LanguageId.ptPT: bool(familyLocalization[p["region"]]["Latin"]),
-        LanguageId.ruRU: bool(familyLocalization[p["region"]]["Cyrillic"]),
-        LanguageId.jaJP: bool(familyLocalization[p["region"]]["Japanese"]),
-        LanguageId.koKR: bool(familyLocalization[p["region"]]["Korean"]),
-        LanguageId.zhCN: bool(familyLocalization[p["region"]]["Chinese"]),
-        LanguageId.zhHK: bool(familyLocalization[p["region"]]["Chinese"]),
-        LanguageId.zhMO: bool(familyLocalization[p["region"]]["Chinese"]),
-        LanguageId.zhSG: bool(familyLocalization[p["region"]]["Chinese"]),
-        LanguageId.zhTW: bool(familyLocalization[p["region"]]["Chinese"]),
+        LanguageId.deDE: bool(familyLocalization[r]["Latin"]),
+        LanguageId.elGR: bool(familyLocalization[r]["Hellenic"]),
+        LanguageId.enGB: bool(familyLocalization[r]["Latin"]),
+        LanguageId.esES: bool(familyLocalization[r]["Latin"]),
+        LanguageId.esMX: bool(familyLocalization[r]["Latin"]),
+        LanguageId.frFR: bool(familyLocalization[r]["Latin"]),
+        LanguageId.itIT: bool(familyLocalization[r]["Latin"]),
+        LanguageId.ptBR: bool(familyLocalization[r]["Latin"]),
+        LanguageId.ptPT: bool(familyLocalization[r]["Latin"]),
+        LanguageId.ruRU: bool(familyLocalization[r]["Cyrillic"]),
+        LanguageId.jaJP: bool(familyLocalization[r]["Japanese"]),
+        LanguageId.koKR: bool(familyLocalization[r]["Korean"]),
+        LanguageId.zhCN: bool(familyLocalization[r]["Chinese"]),
+        LanguageId.zhHK: bool(familyLocalization[r]["Chinese"]),
+        LanguageId.zhMO: bool(familyLocalization[r]["Chinese"]),
+        LanguageId.zhSG: bool(familyLocalization[r]["Chinese"]),
+        LanguageId.zhTW: bool(familyLocalization[r]["Chinese"]),
     }
 
-    result = dict(LocalizedFamily.nameList[p["family"]])
+    result = dict(LocalizedFamily.nameList)
     result.update({lang: result[LanguageId.enUS]
                    for lang, local in isLocalized.items() if not local})
     return result
-
-
-def GetTagList(p):
-    if p["family"] == "Latin":
-        tagList = p["feature"]
-    else:
-        tagList = [p["region"]] + p["feature"]
-    return tagList
-
-
-def GetTagStr(p):
-    tagList = GetTagList(p)
-    return ",".join(tagList)
 
 
 def TagListToStr(lst):
     return ",".join(lst)
 
 
+def GetTagStr(p):
+    return TagListToStr([p["region"]] + p["feature"])
+
+
 def GenerateFontName(p):
     localizedFamily = LocalizedFamily(p)
-    tagList = GetTagList(p)
+    region = p["region"]
+    feature = p["feature"]
 
-    family = [tagNameMap[t] for t in tagList]
-    subfamily = []
-    wwsF = [*family]
+    regionName = regionNameMap[region]
+    subfamily = [tagNameMap[fea] for fea in feature]
+    filenameSf = []
+    wwsF = [region, *feature]
     wwsSf = []
-    legacyF = [*family]
+    legacyF = [region, *feature]
     legacySf = []
 
     width = p["width"]
     widthName = widthMap[width]
+    widthShort = widthMapShort[width]
     if widthName:
         subfamily.append(widthName)
-        legacyF.append(widthName)
+        filenameSf.append(widthName)
+        legacyF.append(widthShort)
     # Warcraft numeral hack
     if width == 10:
-        wwsF.append(widthName)
+        wwsF.append(widthShort)
     elif widthName:
         wwsSf.append(widthName)
 
     weight = p["weight"]
     weightName = weightMap[weight]
+    weightShort = weightMapShort[weight]
     if weightName:
         subfamily.append(weightName)
+        filenameSf.append(weightName)
         wwsSf.append(weightName)
         if weight == 700:
             legacySf.append(weightName)
         else:
-            legacyF.append(weightName)
+            legacyF.append(weightShort)
 
     if p.get("slant"):
         slantName = p["slant"]
+        slantShort = slantMapShort[slantName]
         subfamily.append(slantName)
+        filenameSf.append(slantName)
         wwsSf.append(slantName)
         if slantName == "Italic":
             legacySf.append(slantName)
         else:
-            legacyF.append(slantName)
+            legacyF.append(slantShort)
 
     def formatFamily(f):
         return " ".join(f)
@@ -457,48 +421,40 @@ def GenerateFontName(p):
     def formatSubfamily(sf):
         return " ".join(sf) or "Regular"
 
-    family = formatFamily(family)
     subfamily = formatSubfamily(subfamily)
+    filenameF = localizedFamily[LanguageId.enUS].replace(" ", "")
+    filenameTag = GetTagStr(p)
+    filenameSf = formatSubfamily(filenameSf).replace(" ", "")
     wwsF = formatFamily(wwsF)
     wwsSf = formatSubfamily(wwsSf)
     legacyF = formatSubfamily(legacyF)
     legacySf = formatSubfamily(legacySf)
 
     return {
-        "typographic": ({k: "{} {}".format(v, family).strip() for k, v in localizedFamily.items()}, subfamily),
-        "wws": ({k: "{} {}".format(v, wwsF).strip() for k, v in localizedFamily.items()}, wwsSf),
-        "legacy": ({k: "{} {}".format(v, legacyF).strip() for k, v in localizedFamily.items()}, legacySf),
-        "friendly": {k: "{} {}".format(v, family).strip() + " " + subfamily for k, v in localizedFamily.items()},
-        "postscript": "{}{}-{}".format(localizedFamily[LanguageId.enUS].replace(" ", ""), family.replace(" ", ""), subfamily.replace(" ", "")),
+        "typographic": ({k: "{} {}".format(v, regionName) for k, v in localizedFamily.items()}, subfamily),
+        "wws": ({k: "{} {}".format(v, wwsF) for k, v in localizedFamily.items()}, wwsSf),
+        "legacy": ({k: "{} {}".format(v, legacyF) for k, v in localizedFamily.items()}, legacySf),
+        "friendly": {k: "{} {} {}".format(v, regionName, subfamily) for k, v in localizedFamily.items()},
+        "file": "{}-{}-{}".format(filenameF, filenameTag, filenameSf),
+        # font name can be too long to fit in 63-char PostScript name
+        # the hashed name makes no sence but is valid
+        "postscript": "NowarSans-" + hashlib.sha1("{} {}".format(regionName, subfamily).encode()).hexdigest(),
     }
 
 
 def GenerateFilename(p):
-    if p["family"] in ["Sans", "UI"]:
-        encodingPrefix = p["encoding"] + "-"
-        nameList = {
-            "Sans": "NowarSans",
-            "UI": "NowarUI",
-        }
-        familyName = nameList[p["family"]] + "-" + GetTagStr(p)
-        subfamily = GenerateFontName(p)["typographic"][1]
-    elif p["family"] == "Latin":
-        encodingPrefix = ""
-        nameList = {
-            "Latin": "NowarLCG",
-        }
-        familyName = nameList[p["family"]] + "-" + GetTagStr(p)
-        subfamily = GenerateFontName(p)["typographic"][1]
+    if p["family"] == "Nowar":
+        filename = GenerateFontName(p)["file"]
+        return p["encoding"] + "-" + filename
     else:
-        encodingPrefix = ""
         nameList = {
             "Noto": lambda p: "NotoSans",
             "SHS": lambda p: p["region"],
         }
-        familyName = nameList[p["family"]](p)
+        family = nameList[p["family"]](p)
         subfamily = ((widthMap[p["width"]] or "") + (weightMap[p["weight"]] or "") +
                      (p.get("slant") or "")) or "Regular"
-    return encodingPrefix + familyName + "-" + subfamily.replace(" ", "")
+        return family + "-" + subfamily
 
 
 def ResolveDependency(p):
@@ -523,41 +479,22 @@ def ResolveDependency(p):
                 "weight": p["weight"],
             },
         }
-    if p["family"] in ["Sans", "UI"]:
-        result["CJK"] = {
-            "family": "SHS",
-            "weight": p["weight"],
-            "width": 5,
-            "region": shsRegionMap[p["region"]],
-        }
+    result["CJK"] = {
+        "family": "SHS",
+        "weight": p["weight"],
+        "width": 5,
+        "region": shsRegionMap[p["region"]],
+    }
     return result
-
-
-def GetMorpheus(weight, feature):
-    return {
-        "weight": morpheusWeightMap[weight],
-        "width": 3,
-        "family": "Latin",
-        "feature": feature,
-    }
-
-
-def GetSkurri(weight, feature):
-    return {
-        "weight": weight,
-        "width": 7,
-        "family": "Latin",
-        "feature": feature,
-    }
 
 
 def GetLatinFont(weight, region, feature):
     return {
         "weight": weight,
         "width": 7,
-        "family": "UI",
+        "family": "Nowar",
         "region": regionalVariant[region]["base"],
-        "feature": feature,
+        "feature": ["UI"] + feature,
         "encoding": "unspec",
     }
 
@@ -566,9 +503,9 @@ def GetLatinChatFont(weight, region, feature):
     return {
         "weight": weight,
         "width": 3,
-        "family": "UI",
+        "family": "Nowar",
         "region": regionalVariant[region]["base"],
-        "feature": feature,
+        "feature": ["UI"] + feature,
         "encoding": "unspec",
     }
 
@@ -577,7 +514,7 @@ def GetHansFont(weight, region, feature):
     return {
         "weight": weight,
         "width": 10,
-        "family": "Sans",
+        "family": "Nowar",
         "region": regionalVariant[region]["zhCN"],
         "feature": feature,
         "encoding": "gbk",
@@ -588,7 +525,7 @@ def GetHansCombatFont(weight, region, feature):
     return {
         "weight": weight,
         "width": 7,
-        "family": "Sans",
+        "family": "Nowar",
         "region": regionalVariant[region]["zhCN"],
         "feature": feature,
         "encoding": "gbk",
@@ -599,7 +536,7 @@ def GetHansChatFont(weight, region, feature):
     return {
         "weight": weight,
         "width": 3,
-        "family": "Sans",
+        "family": "Nowar",
         "region": regionalVariant[region]["zhCN"],
         "feature": feature,
         "encoding": "gbk",
@@ -610,7 +547,7 @@ def GetHantFont(weight, region, feature):
     return {
         "weight": weight,
         "width": 10,
-        "family": "Sans",
+        "family": "Nowar",
         "region": regionalVariant[region]["zhTW"],
         "feature": feature,
         "encoding": "big5",
@@ -621,7 +558,7 @@ def GetHantCombatFont(weight, region, feature):
     return {
         "weight": weight,
         "width": 7,
-        "family": "Sans",
+        "family": "Nowar",
         "region": regionalVariant[region]["zhTW"],
         "feature": feature,
         "encoding": "big5",
@@ -632,7 +569,7 @@ def GetHantNoteFont(weight, region, feature):
     return {
         "weight": weight,
         "width": 5,
-        "family": "Sans",
+        "family": "Nowar",
         "region": regionalVariant[region]["zhTW"],
         "feature": feature,
         "encoding": "big5",
@@ -643,7 +580,7 @@ def GetHantChatFont(weight, region, feature):
     return {
         "weight": weight,
         "width": 3,
-        "family": "Sans",
+        "family": "Nowar",
         "region": regionalVariant[region]["zhTW"],
         "feature": feature,
         "encoding": "big5",
@@ -654,9 +591,9 @@ def GetKoreanFont(weight, region, feature):
     return {
         "weight": weight,
         "width": 5,
-        "family": "UI",
+        "family": "Nowar",
         "region": regionalVariant[region]["koKR"],
-        "feature": feature,
+        "feature": ["UI"] + feature,
         "encoding": "korean",
     }
 
@@ -665,9 +602,9 @@ def GetKoreanCombatFont(weight, region, feature):
     return {
         "weight": weight,
         "width": 7,
-        "family": "UI",
+        "family": "Nowar",
         "region": regionalVariant[region]["koKR"],
-        "feature": feature,
+        "feature": ["UI"] + feature,
         "encoding": "korean",
     }
 
@@ -676,9 +613,9 @@ def GetKoreanDisplayFont(weight, region, feature):
     return {
         "weight": weight,
         "width": 3,
-        "family": "UI",
+        "family": "Nowar",
         "region": regionalVariant[region]["koKR"],
-        "feature": feature,
+        "feature": ["UI"] + feature,
         "encoding": "korean",
     }
 
@@ -695,12 +632,15 @@ if __name__ == "__main__":
         },
         "rule": {
             ".PHONY": {
-                "depend": ["all", "GlobalFont"],
+                "depend": ["all", "GlobalFont", "NamingTest"],
             },
             "all": {
                 "depend": ["GlobalFont"],
             },
             "GlobalFont": {
+                "depend": [],
+            },
+            "NamingTest": {
                 "depend": [],
             },
             "clean": {
@@ -736,15 +676,15 @@ if __name__ == "__main__":
 
         if regionalVariant[r]["enUS"]:
             fontlist.update({
-                "skurri": GetSkurri(w, fea),
-                "MORPHEUS": GetMorpheus(w, fea),
+                "skurri": GetLatinFont(w, r, fea),
+                "MORPHEUS": GetLatinChatFont(w, r, fea),
             })
 
         if regionalVariant[r]["ruRU"]:
             fontlist.update({
                 "FRIZQT___CYR": GetLatinFont(w, r, fea),
-                "SKURRI_CYR": GetSkurri(w, fea),
-                "MORPHEUS_CYR": GetMorpheus(w, fea),
+                "SKURRI_CYR": GetLatinFont(w, r, fea),
+                "MORPHEUS_CYR": GetLatinChatFont(w, r, fea),
             })
 
         if regionalVariant[r]["zhCN"]:
@@ -790,13 +730,13 @@ if __name__ == "__main__":
             }
 
     # font files for Global Font addon
-    for w, (e, f, r, wd) in product(config.globalFontWeight, config.globalFontInstance):
+    for w, (e, r, fea, wd) in product(config.globalFontWeight, config.globalFontInstance):
         param = {
-            "family": f,
+            "family": "Nowar",
             "weight": w,
             "width": wd,
             "region": r,
-            "feature": [],
+            "feature": fea,
             "encoding": e,
         }
         font = "out/GlobalFont/{}.otf".format(
@@ -811,10 +751,32 @@ if __name__ == "__main__":
             ]
         }
 
-    # Sans, UI
-    for f, w, wd, r, fea in product(["Sans", "UI"], config.fontPackWeight, [3, 5, 7, 10], regionNameMap.keys(), powerset(config.fontPackFeature)):
+    # naming test
+    for w, r, wd, fea in product(config.globalFontWeight, ["CN", "CL"], [3, 5, 7, 10], [[], ["UI", "OSF", "SC", "RP"]]):
         param = {
-            "family": f,
+            "family": "Nowar",
+            "weight": w,
+            "width": wd,
+            "region": r,
+            "feature": fea,
+            "encoding": "unspec",
+        }
+        font = "out/NamingTest/{}.otf".format(
+            GenerateFilename(param)[len(e)+1:])
+
+        makefile["rule"]["NamingTest"]["depend"].append(font)
+        makefile["rule"][font] = {
+            "depend": ["build/nowar/{}.otf".format(GenerateFilename(param))],
+            "command": [
+                "mkdir -p out/NamingTest/",
+                "cp $^ $@",
+            ]
+        }
+
+    # otf files
+    for w, wd, r, fea in product(config.fontPackWeight, [3, 5, 7, 10], regionNameMap.keys(), powerset(featureNameMap.keys())):
+        param = {
+            "family": "Nowar",
             "weight": w,
             "width": wd,
             "region": r,
@@ -866,7 +828,7 @@ if __name__ == "__main__":
         # set encoding
         for e in ["gbk", "big5", "jis", "korean"]:
             enc = {
-                "family": f,
+                "family": "Nowar",
                 "weight": w,
                 "width": wd,
                 "region": r,
@@ -881,36 +843,6 @@ if __name__ == "__main__":
                 "depend": ["build/nowar/{}.otd".format(GenerateFilename(param))],
                 "command": ["python set-encoding.py {}".format(ParamToArgument(enc))]
             }
-
-    # Latin
-    for w, wd, fea in product(config.fontPackWeight + [morpheusWeightMap[w] for w in config.fontPackWeight], [3, 5, 7], powerset(config.fontPackFeature)):
-        param = {
-            "family": "Latin",
-            "weight": w,
-            "width": wd,
-            "feature": fea,
-        }
-        makefile["rule"]["build/nowar/{}.otf".format(GenerateFilename(param))] = {
-            "depend": ["build/nowar/{}.otd".format(GenerateFilename(param))],
-            "command": ["otfccbuild -q -O3 --keep-average-char-width $< -o $@"]
-        }
-        dep = ResolveDependency(param)
-        makefile["rule"]["build/nowar/{}.otd".format(GenerateFilename(param))] = {
-            "depend": [
-                "build/noto/{}.otd".format(GenerateFilename(dep["Latin"])),
-            ],
-            "command": [
-                "mkdir -p build/nowar/",
-                "python merge.py {}".format(ParamToArgument(param))
-            ]
-        }
-        makefile["rule"]["build/noto/{}.otd".format(GenerateFilename(dep["Latin"]))] = {
-            "depend": ["source/noto/{}.otf".format(GenerateFilename(dep["Latin"]))],
-            "command": [
-                "mkdir -p build/noto/",
-                "otfccdump --glyph-name-prefix latn --ignore-hints $< -o $@",
-            ]
-        }
 
     # dump `makefile` dict to actual “GNU Makefile”
     makedump = ""
