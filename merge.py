@@ -209,6 +209,16 @@ def GenerateAsianSymbolFont(font):
     return symbolFont
 
 
+def Simplify(font):
+    from opencc_t2s import OpenCC_T2S
+    cmap = asianFont['cmap']
+    for t, s in OpenCC_T2S.items():
+        us = str(ord(s))
+        if us in cmap:
+            ut = str(ord(t))
+            cmap[ut] = cmap[us]
+
+
 if __name__ == '__main__':
     param = sys.argv[1]
     param = json.loads(param)
@@ -302,6 +312,10 @@ if __name__ == '__main__':
         NowarApplyPaltMultiplied(asianFont, 0.4)
         asianSymbolFont = GenerateAsianSymbolFont(asianFont)
         MergeAbove(baseFont, asianSymbolFont)
+
+    # pseudo-simplified font
+    if "Simp" in param["feature"]:
+        Simplify(asianFont)
 
     NowarRemoveFeatures(asianFont)
     MergeBelow(baseFont, asianFont)

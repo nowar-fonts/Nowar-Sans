@@ -7,8 +7,8 @@ from itertools import product
 
 
 class Config:
-    version = "0.7.3"
-    fontRevision = 0.0703
+    version = "0.8.0"
+    fontRevision = 0.0800
     vendor = "Nowar Typeface"
     vendorId = "NOWR"
     vendorUrl = "https://github.com/nowar-fonts"
@@ -19,12 +19,9 @@ class Config:
     licenseUrl = "https://scripts.sil.org/OFL"
 
     fontPackWeight = [300, 372, 400, 500, 700]
-    fontPackRegion = ["Neut", "Bliz", "CN", "TW", "HK", "JP", "CL"]
-    fontPackFeature = ["OSF", "SC", "RP"]
-    # feature tags must be identically ordered as in fontPackFeature
-    # e.g.
-    #   ("CN", ["OSF", "RP"]), "RP" is ordered after "OSF",
-    #   as it is ordered after "OSF" in fontPackFeature.
+    fontPackRegion = ["Neut", "Bliz", "CN", "TW", "HK", "JP", "CL", "PSimp", "PSimpChat"]
+    fontPackFeature = ["OSF", "RP", "SC"]
+    # feature tags must be sorted alphabetically
     fontPackExportFeature = [
         ("Bliz", ["OSF"]), ("Bliz", ["SC"]),
         ("Neut", ["OSF"]), ("Neut", ["SC"]),
@@ -45,7 +42,8 @@ class Config:
 config = Config()
 
 
-# define Chinese characters orthographies for diffrent WoW language:
+# define Chinese characters orthographies, and feature mods:
+#
 # base - common fonts, `FRIZQT__` and `ARIALN`; must be defined
 # enUS - fonts for languages in Latin script, `skurri` and `MORPHEUS`
 #        if set to something to be true, the orthography is considered to be same as `base`
@@ -54,6 +52,12 @@ config = Config()
 # zhCN - fonts for 简体中文; can be false
 # zhTW - fonts for 繁體中文; can be false
 # koKR - fonts for 한국어; can be false
+#
+# xmod - a list of tuples of feature mod and related parameter list
+# available mods:
+#   PSimp - 伪简体, remap traditional Chinese characters to simplified ones in zhTW text, damage, and note font
+#     base - also do remapping in common fonts (`FRIZQT__` and `ARIALN`)
+#     chat - also do remapping in zhTW chat fonts (`arheiuhk_bd` for Battle and `bHEI01B` for Classic)
 regionalVariant = {
     "Neut": {
         "base": "CL",
@@ -110,6 +114,24 @@ regionalVariant = {
         "zhCN": "CL",
         "zhTW": "CL",
         "koKR": "CL",
+    },
+    "PSimp": {
+        "base": "CN",
+        "enUS": None,
+        "ruRU": None,
+        "zhCN": None,
+        "zhTW": "CN",
+        "koKR": None,
+        "xmod": [("PSimp", ["base"])],
+    },
+    "PSimpChat": {
+        "base": "CN",
+        "enUS": None,
+        "ruRU": None,
+        "zhCN": None,
+        "zhTW": "CN",
+        "koKR": None,
+        "xmod": [("PSimp", ["base", "chat"])],
     },
     "CNmulti": {  # deprecated, previously “CN”
         "base": "CN",
@@ -294,11 +316,13 @@ regionNameMap = {
     "GB": "GB18030",
 }
 
+# sorted alphabetically
 featureNameMap = {
-    "UI": "UI",
     "OSF": "Oldstyle",
-    "SC": "Smallcaps",
     "RP": "Roleplaying",
+    "SC": "Smallcaps",
+    "Simp": "Simplified",
+    "UI": "UI",
 }
 
 tagNameMap = {**regionNameMap, **featureNameMap}
@@ -362,14 +386,10 @@ def TagListToStr(lst):
     return ",".join(lst)
 
 
-def GetTagStr(p):
-    return TagListToStr([p["region"]] + p["feature"])
-
-
 def GenerateFontName(p):
     localizedFamily = LocalizedFamily(p)
     region = p["region"]
-    feature = p["feature"]
+    feature = [*sorted(p["feature"])]
 
     regionName = regionNameMap[region]
     subfamily = [tagNameMap[fea] for fea in feature]
@@ -423,7 +443,7 @@ def GenerateFontName(p):
 
     subfamily = formatSubfamily(subfamily)
     filenameF = localizedFamily[LanguageId.enUS].replace(" ", "")
-    filenameTag = GetTagStr(p)
+    filenameTag = TagListToStr([p["region"], *sorted(p["feature"])])
     filenameSf = formatSubfamily(filenameSf).replace(" ", "")
     wwsF = formatFamily(wwsF)
     wwsSf = formatSubfamily(wwsSf)
@@ -488,6 +508,36 @@ def ResolveDependency(p):
     return result
 
 
+def GetCommonFont(weight, region, feature):
+    xfea = []
+    for mod, params in regionalVariant[region].get("xmod", []):
+        if mod == "PSimp" and "base" in params:
+            xfea.append("Simp")
+    return {
+        "weight": weight,
+        "width": 7,
+        "family": "Nowar",
+        "region": regionalVariant[region]["base"],
+        "feature": ["UI"] + feature + xfea,
+        "encoding": "unspec",
+    }
+
+
+def GetCommonChatFont(weight, region, feature):
+    xfea = []
+    for mod, params in regionalVariant[region].get("xmod", []):
+        if mod == "PSimp" and "base" in params:
+            xfea.append("Simp")
+    return {
+        "weight": weight,
+        "width": 3,
+        "family": "Nowar",
+        "region": regionalVariant[region]["base"],
+        "feature": ["UI"] + feature + xfea,
+        "encoding": "unspec",
+    }
+
+
 def GetLatinFont(weight, region, feature):
     return {
         "weight": weight,
@@ -544,45 +594,61 @@ def GetHansChatFont(weight, region, feature):
 
 
 def GetHantFont(weight, region, feature):
+    xfea = []
+    for mod, _ in regionalVariant[region].get("xmod", []):
+        if mod == "PSimp":
+            xfea.append("Simp")
     return {
         "weight": weight,
         "width": 10,
         "family": "Nowar",
         "region": regionalVariant[region]["zhTW"],
-        "feature": feature,
+        "feature": feature + xfea,
         "encoding": "big5",
     }
 
 
 def GetHantCombatFont(weight, region, feature):
+    xfea = []
+    for mod, _ in regionalVariant[region].get("xmod", []):
+        if mod == "PSimp":
+            xfea.append("Simp")
     return {
         "weight": weight,
         "width": 7,
         "family": "Nowar",
         "region": regionalVariant[region]["zhTW"],
-        "feature": feature,
+        "feature": feature + xfea,
         "encoding": "big5",
     }
 
 
 def GetHantNoteFont(weight, region, feature):
+    xfea = []
+    for mod, _ in regionalVariant[region].get("xmod", []):
+        if mod == "PSimp":
+            xfea.append("Simp")
     return {
         "weight": weight,
         "width": 5,
         "family": "Nowar",
         "region": regionalVariant[region]["zhTW"],
-        "feature": feature,
+        "feature": feature + xfea,
         "encoding": "big5",
     }
 
 
 def GetHantChatFont(weight, region, feature):
+    xfea = []
+    for mod, params in regionalVariant[region].get("xmod", []):
+        if mod == "PSimp" and "chat" in params:
+            xfea.append("Simp")
     return {
         "weight": weight,
         "width": 3,
         "family": "Nowar",
         "region": regionalVariant[region]["zhTW"],
-        "feature": feature,
+        "feature": feature + xfea,
         "encoding": "big5",
     }
 
@@ -670,8 +736,8 @@ if __name__ == "__main__":
             makefile["rule"]["all"]["depend"].append(pack)
 
         fontlist = {
-            "ARIALN": GetLatinChatFont(w, r, fea),
-            "FRIZQT__": GetLatinFont(w, r, fea),
+            "ARIALN": GetCommonChatFont(w, r, fea),
+            "FRIZQT__": GetCommonFont(w, r, fea),
         }
 
         if regionalVariant[r]["enUS"]:
@@ -752,7 +818,7 @@ if __name__ == "__main__":
         }
 
     # naming test
-    for w, r, wd, fea in product(config.globalFontWeight, ["CN", "CL"], [3, 5, 7, 10], [[], ["UI", "OSF", "SC", "RP"]]):
+    for w, r, wd, fea in product(config.globalFontWeight, ["CN", "CL"], [3, 5, 7, 10], [[], ["UI", "OSF", "SC", "RP", "Simp"]]):
         param = {
             "family": "Nowar",
             "weight": w,

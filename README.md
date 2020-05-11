@@ -18,7 +18,7 @@ This is Nowar Sans, font packs for _World of Warcraft_ and _WoW Classic_ that su
 
 Mirrors: [Gitee (Release Repo)](https://gitee.com/nowar-fonts/Nowar-Sans)
 
-Nowar Sans is shipped in 5 weights and 7 regional variants, with several features.
+Nowar Sans is shipped in 5 weights and 9 regional variants, with several features.
 
 ### Weights
 
@@ -48,16 +48,24 @@ CN, TW, HK, JP and CL are single-orthography variants.
 | JP | Japan (UI)          | Japan          |
 | CL | Classical (UI)      | Classical      |
 
+PSimp and PSimpChat are special variants for 繁體中文 that remap traditional Chinese character to simplified ones.
+
+| | Common Fonts | 繁體中文 Text, Combat and Tooltip Fonts | 繁體中文 Chat Fonts | European, 简体中文 and 한국어 |
+| --------- | ----------------------------- | ------------------------- | ------------------------- | --- |
+| PSimp     | Mainland China (UI, Remapped) | Mainland China (Remapped) | Mainland China            | N/A |
+| PSimpChat | Mainland China (UI, Remapped) | Mainland China (Remapped) | Mainland China (Remapped) | N/A |
+
 * European: English, Español (AL), Português, Deutsch, Español (EU), Français, Italiano, and Русский.
 * UI: Ambiguous punctations are treated as Western; CJK puctations are half-width.
+* Common fonts: `FRIZQT__` and `ARIALN`, which are hard-coded in some addons.
 
 ### Features
 
 | Tag | Name        | Description                                                            |
 | --- | ----------- | ---------------------------------------------------------------------- |
 | OSF | Oldstyle    | Oldstyle (non-lining), propotional figure.                             |
-| SC  | Smallcaps   | Small capitals for Latin.                                              |
 | RP  | Roleplaying | `丶` (U+4E36) is mapped to the same glyph as `·` (U+00B7, MIDDLE DOT). |
+| SC  | Smallcaps   | Small capitals for Latin.                                              |
 
 Pre-built feature variants: `Neut,OSF`, `Neut,SC`, `Bliz,OSF`, `Bliz,SC`, `CN,RP`.
 
@@ -91,7 +99,7 @@ Then make a specific variant:
 ```bash
 make <region>,<features>-<weight> -j<threads>
 ```
-Note: Features must be identically sorted as mentioned above. (`OSF`, `SC`, `RP`).
+Note: Features must be sorted alphabetically. (`OSF`, `RP`, `SC`).
 
 e.g.
 ```bash
@@ -149,3 +157,5 @@ make CNmulti,OSF-400 -j4
 Latin, Greek and Cyrillic characters are from [Noto Sans](https://github.com/googlei18n/noto-fonts) by Google.
 
 CJK Ideographs, Kana and Hangul are from [Source Han Sans](https://github.com/adobe-fonts/source-han-sans) by Adobe.
+
+The traditional Chinese to simplified Chinese conversion table is from [Open Chinese Convert project](https://github.com/BYVoid/OpenCC).
