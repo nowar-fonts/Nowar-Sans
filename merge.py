@@ -9,7 +9,7 @@ from libotd.merge import MergeBelow, MergeAbove
 from libotd.pkana import ApplyPalt, NowarApplyPaltMultiplied
 from libotd.transform import Transform, ChangeAdvanceWidth
 from libotd.gsub import GetGsubFlat, ApplyGsubSingle
-from libotd.gc import Gc, NowarRemoveFeatures
+from libotd.gc import Gc, Consolidate, NowarRemoveFeatures
 import configure
 
 
@@ -311,6 +311,7 @@ if __name__ == '__main__':
         baseFont['cmap'][str(ord('丶'))] = baseFont['cmap'][str(ord('·'))]
 
     Gc(baseFont)
+    Consolidate(baseFont)
     outStr = json.dumps(baseFont, ensure_ascii=False, separators=(',', ':'))
     with codecs.open("build/nowar/{}.otd".format(configure.GenerateFilename(param)), 'w', 'UTF-8') as outFile:
         outFile.write(outStr)
