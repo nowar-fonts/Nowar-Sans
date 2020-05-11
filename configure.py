@@ -19,13 +19,13 @@ class Config:
     licenseUrl = "https://scripts.sil.org/OFL"
 
     fontPackWeight = [300, 372, 400, 500, 700]
-    fontPackRegion = ["Neut", "Bliz", "CN", "TW", "HK", "JP", "CL", "PSimp", "PSimpChat"]
+    fontPackRegion = ["Bliz", "Neut", "CL", "PSimp", "PSimpChat"]
     fontPackFeature = ["OSF", "RP", "SC"]
     # feature tags must be sorted alphabetically
     fontPackExportFeature = [
-        ("Bliz", ["OSF"]), ("Bliz", ["SC"]),
-        ("Neut", ["OSF"]), ("Neut", ["SC"]),
-        ("CN", ["RP"]),
+        ("Bliz", ["OSF"]),
+        ("Bliz", ["RP"]),
+        ("Bliz", ["SC"]),
     ]
 
     globalFontWeight = [300, 400, 500, 700]
@@ -75,38 +75,6 @@ regionalVariant = {
         "zhTW": "TW",
         "koKR": "CN",  # yes, it is
     },
-    "CN": {
-        "base": "CN",
-        "enUS": True,
-        "ruRU": True,
-        "zhCN": "CN",
-        "zhTW": "CN",
-        "koKR": "CN",
-    },
-    "TW": {
-        "base": "TW",
-        "enUS": True,
-        "ruRU": True,
-        "zhCN": "TW",
-        "zhTW": "TW",
-        "koKR": "TW",
-    },
-    "HK": {
-        "base": "HK",
-        "enUS": True,
-        "ruRU": True,
-        "zhCN": "HK",
-        "zhTW": "HK",
-        "koKR": "HK",
-    },
-    "JP": {
-        "base": "JP",
-        "enUS": True,
-        "ruRU": True,
-        "zhCN": "JP",
-        "zhTW": "JP",
-        "koKR": "JP",
-    },
     "CL": {
         "base": "CL",
         "enUS": True,
@@ -133,7 +101,7 @@ regionalVariant = {
         "koKR": None,
         "xmod": [("PSimp", ["base", "chat"])],
     },
-    "CNmulti": {  # deprecated, previously “CN”
+    "CN": {  # deprecated
         "base": "CN",
         "enUS": True,
         "ruRU": True,
@@ -141,7 +109,7 @@ regionalVariant = {
         "zhTW": "TW",
         "koKR": "KR",
     },
-    "TWmulti": {  # deprecated, previously “TW”
+    "TW": {  # deprecated
         "base": "TW",
         "enUS": True,
         "ruRU": True,
@@ -149,7 +117,7 @@ regionalVariant = {
         "zhTW": "TW",
         "koKR": "KR",
     },
-    "HKmulti": {  # deprecated, previously “HK”
+    "HK": {  # deprecated
         "base": "HK",
         "enUS": True,
         "ruRU": True,
@@ -157,7 +125,7 @@ regionalVariant = {
         "zhTW": "HK",
         "koKR": "KR",
     },
-    "JPmulti": {  # deprecated, previously “JP”
+    "JP": {  # deprecated
         "base": "JP",
         "enUS": True,
         "ruRU": True,
@@ -165,7 +133,7 @@ regionalVariant = {
         "zhTW": "TW",
         "koKR": "KR",
     },
-    "KRmulti": {  # deprecated, previously “KR”
+    "KR": {  # deprecated
         "base": "KR",
         "enUS": True,
         "ruRU": True,
@@ -701,7 +669,7 @@ if __name__ == "__main__":
                 "depend": ["all", "GlobalFont", "NamingTest"],
             },
             "all": {
-                "depend": ["GlobalFont"],
+                "depend": [],
             },
             "GlobalFont": {
                 "depend": [],

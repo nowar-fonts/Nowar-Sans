@@ -18,7 +18,7 @@ This is Nowar Sans, font packs for _World of Warcraft_ and _WoW Classic_ that su
 
 Mirrors: [Gitee (Release Repo)](https://gitee.com/nowar-fonts/Nowar-Sans)
 
-Nowar Sans is shipped in 5 weights and 9 regional variants, with several features.
+Nowar Sans is shipped in 5 weights and 5 regional variants, with several features.
 
 ### Weights
 
@@ -27,26 +27,21 @@ Nowar Sans is shipped in 5 weights and 9 regional variants, with several feature
 * 400: Regular
 * 500: Medium
 * 700: Bold
-* [Morpheus (European display font) may be bolder or lighter.]
 
 ### Regional Variants
 
-Neut and Bliz are multi-orthography variants.
+Bliz and Neut are “standard variants” with regional Chinese character orthographies.
 
 |      | European and 한국어 | 简体中文       | 繁體中文 | Note                                       |
 | ---- | ------------------- | -------------- | -------- | ------------------------------------------ |
-| Neut | Classical (UI)      | Mainland China | Taiwan   | Prefers classical orthography on fallback. |
 | Bliz | Mainland China (UI) | Mainland China | Taiwan   | Acts like WoW’s default fallback setting.  |
+| Neut | Classical (UI)      | Mainland China | Taiwan   | Prefers classical orthography on fallback. |
 
-CN, TW, HK, JP and CL are single-orthography variants.
+CL is the “classical variant” with classical Chinese character orthography (aka Kāngxī Dictionary forms).
 
-|    | European and 한국어 | 中文           |
-| -- | ------------------- | -------------- |
-| CN | Mainland China (UI) | Mainland China |
-| TW | Taiwan (UI)         | Taiwan         |
-| HK | Hong Kong (UI)      | Hong Kong      |
-| JP | Japan (UI)          | Japan          |
-| CL | Classical (UI)      | Classical      |
+|    | European and 한국어 | 中文      |
+| -- | ------------------- | --------- |
+| CL | Classical (UI)      | Classical |
 
 PSimp and PSimpChat are special variants for 繁體中文 that remap traditional Chinese character to simplified ones.
 
@@ -67,7 +62,7 @@ PSimp and PSimpChat are special variants for 繁體中文 that remap traditional
 | RP  | Roleplaying | `丶` (U+4E36) is mapped to the same glyph as `·` (U+00B7, MIDDLE DOT). |
 | SC  | Smallcaps   | Small capitals for Latin.                                              |
 
-Pre-built feature variants: `Neut,OSF`, `Neut,SC`, `Bliz,OSF`, `Bliz,SC`, `CN,RP`.
+Pre-built feature variants: `Bliz,OSF`, `Bliz,RP`, `Bliz,SC`.
 
 ## How to Build
 
