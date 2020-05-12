@@ -426,7 +426,7 @@ def GenerateFontName(p):
         "file": "{}-{}-{}".format(filenameF, filenameTag, filenameSf),
         # font name can be too long to fit in 63-char PostScript name
         # the hashed name makes no sence but is valid
-        "postscript": "NowarSans-" + hashlib.sha1("{} {}".format(regionName, subfamily).encode()).hexdigest(),
+        "postscript": filenameF + "-" + hashlib.sha1("{} {}".format(regionName, subfamily).encode()).hexdigest(),
     }
 
 
