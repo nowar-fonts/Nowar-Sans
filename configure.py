@@ -153,19 +153,73 @@ regionalVariant = {
 
 
 class LanguageId(enum.IntEnum):
-    deDE = 0x0407
-    elGR = 0x0408
-    enGB = 0x0809
     enUS = 0x0409
+
+    deAT = 0x0C07
+    deCH = 0x0807
+    deDE = 0x0407
+    deLI = 0x1407
+    deLU = 0x1007
+
+    elGR = 0x0408
+
+    enAU = 0x0C09
+    enBZ = 0x2809
+    enCA = 0x1009
+    enCaribbean = 0x2409
+    enGB = 0x0809
+    enIE = 0x1809
+    enIN = 0x4009
+    enJM = 0x2009
+    enMY = 0x4409
+    enNZ = 0x1409
+    enPH = 0x3409
+    enSG = 0x4809
+    enTT = 0x2C09
+    enZA = 0x1C09
+    enZW = 0x3009
+
+    esAR = 0x2C0A
+    esBO = 0x400A
+    esCL = 0x340A
+    esCO = 0x240A
+    esCR = 0x140A
+    esDO = 0x1C0A
+    esEC = 0x300A
     esES = 0x0C0A
+    esEST = 0x040A
+    esGT = 0x100A
+    esHN = 0x480A
     esMX = 0x080A
+    esNI = 0x4C0A
+    esPA = 0x180A
+    esPE = 0x280A
+    esPR = 0x500A
+    esPY = 0x3C0A
+    esSV = 0x440A
+    esUS = 0x540A
+    esUY = 0x380A
+    esVE = 0x200A
+
+    frBE = 0x080C
+    frCA = 0x0C0C
+    frCH = 0x100C
     frFR = 0x040C
+    frLU = 0x140C
+    frMC = 0x180C
+
+    itCH = 0x0810
     itIT = 0x0410
+
     jaJP = 0x0411
+
     koKR = 0x0412
+
     ptBR = 0x0416
     ptPT = 0x0816
+
     ruRU = 0x0419
+
     zhCN = 0x0804
     zhHK = 0x0C04
     zhMO = 0x1404
@@ -301,21 +355,73 @@ def LocalizedFamily(p):
         LocalizedFamily.nameList = {
             LanguageId.enUS: "Nowar Sans",
 
+            LanguageId.deAT: "Nowar Grotesk",
+            LanguageId.deCH: "Nowar Grotesk",
             LanguageId.deDE: "Nowar Grotesk",
+            LanguageId.deLI: "Nowar Grotesk",
+            LanguageId.deLU: "Nowar Grotesk",
+
             LanguageId.elGR: "Νοωαρ Σανς",
+
+            LanguageId.enAU: "Nowar Sans",
+            LanguageId.enBZ: "Nowar Sans",
+            LanguageId.enCA: "Nowar Sans",
+            LanguageId.enCaribbean: "Nowar Sans",
             LanguageId.enGB: "Nowar Sans",
+            LanguageId.enIE: "Nowar Sans",
+            LanguageId.enIN: "Nowar Sans",
+            LanguageId.enJM: "Nowar Sans",
+            LanguageId.enMY: "Nowar Sans",
+            LanguageId.enNZ: "Nowar Sans",
+            LanguageId.enPH: "Nowar Sans",
+            LanguageId.enSG: "Nowar Sans",
+            LanguageId.enTT: "Nowar Sans",
+            LanguageId.enZA: "Nowar Sans",
+            LanguageId.enZW: "Nowar Sans",
+
+            LanguageId.esAR: "Nowar Palo",
+            LanguageId.esBO: "Nowar Palo",
+            LanguageId.esCL: "Nowar Palo",
+            LanguageId.esCO: "Nowar Palo",
+            LanguageId.esCR: "Nowar Palo",
+            LanguageId.esDO: "Nowar Palo",
+            LanguageId.esEC: "Nowar Palo",
             LanguageId.esES: "Nowar Palo",
+            LanguageId.esEST: "Nowar Palo",
+            LanguageId.esGT: "Nowar Palo",
+            LanguageId.esHN: "Nowar Palo",
             LanguageId.esMX: "Nowar Palo",
+            LanguageId.esNI: "Nowar Palo",
+            LanguageId.esPA: "Nowar Palo",
+            LanguageId.esPE: "Nowar Palo",
+            LanguageId.esPR: "Nowar Palo",
+            LanguageId.esPY: "Nowar Palo",
+            LanguageId.esSV: "Nowar Palo",
+            LanguageId.esUS: "Nowar Palo",
+            LanguageId.esUY: "Nowar Palo",
+            LanguageId.esVE: "Nowar Palo",
+
+            LanguageId.frBE: "Nowar Linéale",
+            LanguageId.frCA: "Nowar Linéale",
+            LanguageId.frCH: "Nowar Linéale",
             LanguageId.frFR: "Nowar Linéale",
+            LanguageId.frLU: "Nowar Linéale",
+            LanguageId.frMC: "Nowar Linéale",
+
             # senza (without) grazie (serif)
+            LanguageId.itCH: "Nowar Senza",
             LanguageId.itIT: "Nowar Senza",
+
+            LanguageId.jaJP: "有愛角ゴシック",
+
+            LanguageId.koKR: "有愛 고딕",
+
             # sem (without) serifa (serif)
             LanguageId.ptBR: "Nowar Sem",
             LanguageId.ptPT: "Nowar Sem",
+
             LanguageId.ruRU: "Новар Гротеск",
 
-            LanguageId.jaJP: "有愛角ゴシック",
-            LanguageId.koKR: "有愛 고딕",
             LanguageId.zhCN: "有爱黑体",
             LanguageId.zhHK: "有愛黑體",
             LanguageId.zhMO: "有愛黑體",
@@ -325,23 +431,76 @@ def LocalizedFamily(p):
 
     r = p["region"]
     isLocalized = {
-        LanguageId.deDE: bool(familyLocalization[r]["Latin"]),
-        LanguageId.elGR: bool(familyLocalization[r]["Hellenic"]),
-        LanguageId.enGB: bool(familyLocalization[r]["Latin"]),
-        LanguageId.esES: bool(familyLocalization[r]["Latin"]),
-        LanguageId.esMX: bool(familyLocalization[r]["Latin"]),
-        LanguageId.frFR: bool(familyLocalization[r]["Latin"]),
-        LanguageId.itIT: bool(familyLocalization[r]["Latin"]),
-        LanguageId.ptBR: bool(familyLocalization[r]["Latin"]),
-        LanguageId.ptPT: bool(familyLocalization[r]["Latin"]),
-        LanguageId.ruRU: bool(familyLocalization[r]["Cyrillic"]),
-        LanguageId.jaJP: bool(familyLocalization[r]["Japanese"]),
-        LanguageId.koKR: bool(familyLocalization[r]["Korean"]),
-        LanguageId.zhCN: bool(familyLocalization[r]["Chinese"]),
-        LanguageId.zhHK: bool(familyLocalization[r]["Chinese"]),
-        LanguageId.zhMO: bool(familyLocalization[r]["Chinese"]),
-        LanguageId.zhSG: bool(familyLocalization[r]["Chinese"]),
-        LanguageId.zhTW: bool(familyLocalization[r]["Chinese"]),
+        LanguageId.deAT: familyLocalization[r]["Latin"],
+        LanguageId.deCH: familyLocalization[r]["Latin"],
+        LanguageId.deDE: familyLocalization[r]["Latin"],
+        LanguageId.deLI: familyLocalization[r]["Latin"],
+        LanguageId.deLU: familyLocalization[r]["Latin"],
+
+        LanguageId.elGR: familyLocalization[r]["Hellenic"],
+
+        LanguageId.enAU: familyLocalization[r]["Latin"],
+        LanguageId.enBZ: familyLocalization[r]["Latin"],
+        LanguageId.enCA: familyLocalization[r]["Latin"],
+        LanguageId.enCaribbean: familyLocalization[r]["Latin"],
+        LanguageId.enGB: familyLocalization[r]["Latin"],
+        LanguageId.enIE: familyLocalization[r]["Latin"],
+        LanguageId.enIN: familyLocalization[r]["Latin"],
+        LanguageId.enJM: familyLocalization[r]["Latin"],
+        LanguageId.enMY: familyLocalization[r]["Latin"],
+        LanguageId.enNZ: familyLocalization[r]["Latin"],
+        LanguageId.enPH: familyLocalization[r]["Latin"],
+        LanguageId.enSG: familyLocalization[r]["Latin"],
+        LanguageId.enTT: familyLocalization[r]["Latin"],
+        LanguageId.enZA: familyLocalization[r]["Latin"],
+        LanguageId.enZW: familyLocalization[r]["Latin"],
+
+        LanguageId.esAR: familyLocalization[r]["Latin"],
+        LanguageId.esBO: familyLocalization[r]["Latin"],
+        LanguageId.esCL: familyLocalization[r]["Latin"],
+        LanguageId.esCO: familyLocalization[r]["Latin"],
+        LanguageId.esCR: familyLocalization[r]["Latin"],
+        LanguageId.esDO: familyLocalization[r]["Latin"],
+        LanguageId.esEC: familyLocalization[r]["Latin"],
+        LanguageId.esES: familyLocalization[r]["Latin"],
+        LanguageId.esEST: familyLocalization[r]["Latin"],
+        LanguageId.esGT: familyLocalization[r]["Latin"],
+        LanguageId.esHN: familyLocalization[r]["Latin"],
+        LanguageId.esMX: familyLocalization[r]["Latin"],
+        LanguageId.esNI: familyLocalization[r]["Latin"],
+        LanguageId.esPA: familyLocalization[r]["Latin"],
+        LanguageId.esPE: familyLocalization[r]["Latin"],
+        LanguageId.esPR: familyLocalization[r]["Latin"],
+        LanguageId.esPY: familyLocalization[r]["Latin"],
+        LanguageId.esSV: familyLocalization[r]["Latin"],
+        LanguageId.esUS: familyLocalization[r]["Latin"],
+        LanguageId.esUY: familyLocalization[r]["Latin"],
+        LanguageId.esVE: familyLocalization[r]["Latin"],
+
+        LanguageId.frBE: familyLocalization[r]["Latin"],
+        LanguageId.frCA: familyLocalization[r]["Latin"],
+        LanguageId.frCH: familyLocalization[r]["Latin"],
+        LanguageId.frFR: familyLocalization[r]["Latin"],
+        LanguageId.frLU: familyLocalization[r]["Latin"],
+        LanguageId.frMC: familyLocalization[r]["Latin"],
+
+        LanguageId.itCH: familyLocalization[r]["Latin"],
+        LanguageId.itIT: familyLocalization[r]["Latin"],
+
+        LanguageId.jaJP: familyLocalization[r]["Japanese"],
+
+        LanguageId.koKR: familyLocalization[r]["Korean"],
+
+        LanguageId.ptBR: familyLocalization[r]["Latin"],
+        LanguageId.ptPT: familyLocalization[r]["Latin"],
+
+        LanguageId.ruRU: familyLocalization[r]["Cyrillic"],
+
+        LanguageId.zhCN: familyLocalization[r]["Chinese"],
+        LanguageId.zhHK: familyLocalization[r]["Chinese"],
+        LanguageId.zhMO: familyLocalization[r]["Chinese"],
+        LanguageId.zhSG: familyLocalization[r]["Chinese"],
+        LanguageId.zhTW: familyLocalization[r]["Chinese"],
     }
 
     result = dict(LocalizedFamily.nameList)
