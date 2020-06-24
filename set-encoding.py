@@ -13,7 +13,13 @@ if __name__ == '__main__':
         baseFont = json.loads(
             baseFile.read().decode('UTF-8', errors='replace'))
 
-    baseFont['OS_2']['ulCodePageRange1'][param["encoding"]] = True
+    if param["encoding"] == "abg":
+        baseFont['OS_2']['ulCodePageRange1']["gbk"] = True
+        baseFont['OS_2']['ulCodePageRange1']["big5"] = True
+        baseFont['OS_2']['ulCodePageRange1']["jis"] = True
+        baseFont['OS_2']['ulCodePageRange1']["korean"] = True
+    else:
+        baseFont['OS_2']['ulCodePageRange1'][param["encoding"]] = True
 
     outStr = json.dumps(baseFont, ensure_ascii=False, separators=(',', ':'))
     with codecs.open("build/nowar/{}.otd".format(configure.GenerateFilename(param)), 'w', 'UTF-8') as outFile:

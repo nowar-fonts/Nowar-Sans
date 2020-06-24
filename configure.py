@@ -7,8 +7,8 @@ from itertools import product
 
 
 class Config:
-    version = "0.8.0"
-    fontRevision = 0.0800
+    version = "0.8.1"
+    fontRevision = 0.0801
     vendor = "Nowar Typeface"
     vendorId = "NOWR"
     vendorUrl = "https://github.com/nowar-fonts"
@@ -513,7 +513,7 @@ def GetLatinFont(weight, region, feature):
         "family": "Nowar",
         "region": regionalVariant[region]["base"],
         "feature": ["UI"] + feature,
-        "encoding": "unspec",
+        "encoding": "abg",
     }
 
 
@@ -524,7 +524,7 @@ def GetLatinChatFont(weight, region, feature):
         "family": "Nowar",
         "region": regionalVariant[region]["base"],
         "feature": ["UI"] + feature,
-        "encoding": "unspec",
+        "encoding": "abg",
     }
 
 
@@ -860,7 +860,7 @@ if __name__ == "__main__":
         }
 
         # set encoding
-        for e in ["gbk", "big5", "jis", "korean"]:
+        for e in ["abg", "gbk", "big5", "jis", "korean"]:
             enc = {
                 "family": "Nowar",
                 "weight": w,
