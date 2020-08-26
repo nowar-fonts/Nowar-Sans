@@ -7,8 +7,8 @@ from itertools import product
 
 
 class Config:
-    version = "0.8.1"
-    fontRevision = 0.0801
+    version = "0.9.0"
+    fontRevision = 0.0900
     vendor = "Nowar Typeface"
     vendorId = "NOWR"
     vendorUrl = "https://github.com/nowar-fonts"
@@ -26,6 +26,9 @@ class Config:
         ("Bliz", ["OSF"]),
         ("Bliz", ["RP"]),
         ("Bliz", ["SC"]),
+        ("Neut", ["OSF"]),
+        ("Neut", ["RP"]),
+        ("Neut", ["SC"]),
     ]
 
     globalFontWeight = [300, 400, 500, 700]
@@ -340,6 +343,7 @@ regionNameMap = {
 
 # sorted alphabetically
 featureNameMap = {
+    "FuCK": "Fullwidth-Colon-Kerning",
     "OSF": "Oldstyle",
     "RP": "Roleplaying",
     "SC": "Smallcaps",
@@ -693,7 +697,7 @@ def GetHansFont(weight, region, feature):
         "width": 10,
         "family": "Nowar",
         "region": regionalVariant[region]["zhCN"],
-        "feature": feature,
+        "feature": ["FuCK"] + feature,
         "encoding": "gbk",
     }
 
@@ -968,6 +972,10 @@ if __name__ == "__main__":
 
     # otf files
     for w, wd, r, fea in product(config.fontPackWeight, [3, 5, 7, 10], regionNameMap.keys(), powerset(featureNameMap.keys())):
+        if wd != 10 and "FuCK" in fea:
+            # `FuCK` is a special feature for zhCN text font only
+            continue
+
         param = {
             "family": "Nowar",
             "weight": w,
@@ -978,7 +986,7 @@ if __name__ == "__main__":
         }
         makefile["rule"]["build/nowar/{}.otf".format(GenerateFilename(param))] = {
             "depend": ["build/nowar/{}.otd".format(GenerateFilename(param))],
-            "command": ["otfccbuild -q -O3 --keep-average-char-width $< -o $@"]
+            "command": ["otfccbuild -q -O3 --keep-average-char-width $< -o $@"],
         }
         dep = ResolveDependency(param)
         makefile["rule"]["build/nowar/{}.otd".format(GenerateFilename(param))] = {
@@ -1020,6 +1028,10 @@ if __name__ == "__main__":
 
         # set encoding
         for e in ["abg", "gbk", "big5", "jis", "korean"]:
+            if e != "gbk" and "FuCK" in fea:
+                # `FuCK` is a special feature for zhCN text font only
+                continue
+
             enc = {
                 "family": "Nowar",
                 "weight": w,
@@ -1030,7 +1042,9 @@ if __name__ == "__main__":
             }
             makefile["rule"]["build/nowar/{}.otf".format(GenerateFilename(enc))] = {
                 "depend": ["build/nowar/{}.otd".format(GenerateFilename(enc))],
-                "command": ["otfccbuild -q -O3 --keep-average-char-width $< -o $@"]
+                "command": ["otfccbuild -q -O3 --keep-average-char-width $< -o $@"] + ([
+                    "python fullwidth-colon-kerning.py {}".format(ParamToArgument(enc))
+                ] if "FuCK" in fea else []),
             }
             makefile["rule"]["build/nowar/{}.otd".format(GenerateFilename(enc))] = {
                 "depend": ["build/nowar/{}.otd".format(GenerateFilename(param))],
