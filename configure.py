@@ -919,7 +919,7 @@ if __name__ == "__main__":
 
         for f, p in fontlist.items():
             makefile["rule"]["out/{}/Fonts/{}.ttf".format(target, f)] = {
-                "depend": ["build/nowar/{}.otf".format(GenerateFilename(p))],
+                "depend": ["build/final-otf/{}.otf".format(GenerateFilename(p))],
                 "command": [
                     "mkdir -p out/{}/Fonts".format(target),
                     "cp $^ $@",
@@ -975,6 +975,9 @@ if __name__ == "__main__":
         if wd != 10 and "FuCK" in fea:
             # `FuCK` is a special feature for zhCN text font only
             continue
+        if wd == 10 and "UI" in fea:
+            # `UI` is for western
+            continue
 
         param = {
             "family": "Nowar",
@@ -984,12 +987,22 @@ if __name__ == "__main__":
             "feature": fea,
             "encoding": "unspec",
         }
-        makefile["rule"]["build/nowar/{}.otf".format(GenerateFilename(param))] = {
-            "depend": ["build/nowar/{}.otd".format(GenerateFilename(param))],
-            "command": ["otfccbuild -q -O3 --keep-average-char-width $< -o $@"],
+        makefile["rule"]["build/final-otf/{}.otf".format(GenerateFilename(param))] = {
+            "depend": ["build/unkerned-otf/{}.otf".format(GenerateFilename(param))],
+            "command": [
+                "mkdir -p build/final-otf/",
+                "python kern.py {}".format(ParamToArgument(param)),
+            ],
+        }
+        makefile["rule"]["build/unkerned-otf/{}.otf".format(GenerateFilename(param))] = {
+            "depend": ["build/otd/{}.otd".format(GenerateFilename(param))],
+            "command": [
+                "mkdir -p build/unkerned-otf/",
+                "otfccbuild -q -O3 --keep-average-char-width $< -o $@",
+            ],
         }
         dep = ResolveDependency(param)
-        makefile["rule"]["build/nowar/{}.otd".format(GenerateFilename(param))] = {
+        makefile["rule"]["build/otd/{}.otd".format(GenerateFilename(param))] = {
             "depend": [
                 "build/noto/{}.otd".format(GenerateFilename(dep["Latin"])),
                 "build/shs/{}.otd".format(
@@ -999,7 +1012,7 @@ if __name__ == "__main__":
                     GenerateFilename(dep["Numeral"]))
             ] if "Numeral" in dep else []),
             "command": [
-                "mkdir -p build/nowar/",
+                "mkdir -p build/otd/",
                 "python merge.py {}".format(ParamToArgument(param))
             ]
         }
@@ -1040,14 +1053,22 @@ if __name__ == "__main__":
                 "feature": fea,
                 "encoding": e,
             }
-            makefile["rule"]["build/nowar/{}.otf".format(GenerateFilename(enc))] = {
-                "depend": ["build/nowar/{}.otd".format(GenerateFilename(enc))],
-                "command": ["otfccbuild -q -O3 --keep-average-char-width $< -o $@"] + ([
-                    "python fullwidth-colon-kerning.py {}".format(ParamToArgument(enc))
-                ] if "FuCK" in fea else []),
+            makefile["rule"]["build/final-otf/{}.otf".format(GenerateFilename(enc))] = {
+                "depend": ["build/unkerned-otf/{}.otf".format(GenerateFilename(enc))],
+                "command": [
+                    "mkdir -p build/final-otf/",
+                    "python kern.py {}".format(ParamToArgument(enc)),
+                ],
             }
-            makefile["rule"]["build/nowar/{}.otd".format(GenerateFilename(enc))] = {
-                "depend": ["build/nowar/{}.otd".format(GenerateFilename(param))],
+            makefile["rule"]["build/unkerned-otf/{}.otf".format(GenerateFilename(enc))] = {
+                "depend": ["build/otd/{}.otd".format(GenerateFilename(enc))],
+                "command": [
+                    "mkdir -p build/unkerned-otf/",
+                    "otfccbuild -q -O3 --keep-average-char-width $< -o $@",
+                ],
+            }
+            makefile["rule"]["build/otd/{}.otd".format(GenerateFilename(enc))] = {
+                "depend": ["build/otd/{}.otd".format(GenerateFilename(param))],
                 "command": ["python set-encoding.py {}".format(ParamToArgument(enc))]
             }
 

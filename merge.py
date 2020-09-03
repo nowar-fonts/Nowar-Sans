@@ -327,5 +327,5 @@ if __name__ == '__main__':
     Gc(baseFont)
     Consolidate(baseFont)
     outStr = json.dumps(baseFont, ensure_ascii=False, separators=(',', ':'))
-    with codecs.open("build/nowar/{}.otd".format(configure.GenerateFilename(param)), 'w', 'UTF-8') as outFile:
+    with codecs.open("build/otd/{}.otd".format(configure.GenerateFilename(param)), 'w', 'UTF-8') as outFile:
         outFile.write(outStr)
