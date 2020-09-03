@@ -62,7 +62,7 @@ PSimp and PSimpChat are special variants for 繁體中文 that remap traditional
 | RP  | Roleplaying | `丶` (U+4E36) is mapped to the same glyph as `·` (U+00B7, MIDDLE DOT). |
 | SC  | Smallcaps   | Small capitals for Latin.                                              |
 
-Pre-built feature variants: `Bliz,OSF`, `Bliz,RP`, `Bliz,SC`.
+Pre-built feature variants: `Bliz,OSF`, `Bliz,RP`, `Bliz,SC`, `Neut,OSF`, `Neut,RP`, `Neut,SC`.
 
 ## How to Build
 
@@ -70,6 +70,7 @@ Pre-built feature variants: `Bliz,OSF`, `Bliz,RP`, `Bliz,SC`.
 
 + basic Unix utils,
 + [Python](https://www.python.org/),
++ [fontTools](https://github.com/fonttools/fonttools),
 + [otfcc](https://github.com/caryll/otfcc) and
 + [7-Zip](https://www.7-zip.org/) (add to `PATH`).
 

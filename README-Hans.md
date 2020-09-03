@@ -62,4 +62,4 @@ PSimp、PSimpChat 是针对繁体中文的变体，把繁体字重映射为简�
 | SC   | Smallcaps   | 小型大写拉丁字母。                                |
 | RP   | Roleplaying | `丶`（U+4E36）重映射为 `·`（U+00B7，MIDDLE DOT）。|
 
-预编译的特性变体：`Bliz,OSF`、`Bliz,RP`、`Bliz,SC`。
+预编译的特性变体：`Bliz,OSF`、`Bliz,RP`、`Bliz,SC`、`Neut,OSF`、`Neut,RP`、`Neut,SC`。

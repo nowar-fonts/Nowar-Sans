@@ -62,4 +62,4 @@ PSimp、PSimpChat 是針對繁體中文的變體，把繁體字重對映為簡�
 | SC   | Smallcaps   | 小型大寫拉丁字母。                                                              |
 | RP   | Roleplaying | `丶`（U+4E36）重對映為 `·`（U+00B7，MIDDLE DOT；或 U+2027，HYPHENATION POINT）。|
 
-預編譯的特徵變體：`Bliz,OSF`、`Bliz,RP`、`Bliz,SC`。
+預編譯的特徵變體：`Bliz,OSF`、`Bliz,RP`、`Bliz,SC`、`Neut,OSF`、`Neut,RP`、`Neut,SC`。
