@@ -941,7 +941,7 @@ if __name__ == "__main__":
 
         makefile["rule"]["GlobalFont"]["depend"].append(font)
         makefile["rule"][font] = {
-            "depend": ["build/nowar/{}.otf".format(GenerateFilename(param))],
+            "depend": ["build/final-otf/{}.otf".format(GenerateFilename(param))],
             "command": [
                 "mkdir -p out/GlobalFont/",
                 "cp $^ $@",
@@ -949,7 +949,7 @@ if __name__ == "__main__":
         }
 
     # naming test
-    for w, r, wd, fea in product(config.globalFontWeight, ["CN", "CL"], [3, 5, 7, 10], [[], ["UI", "OSF", "SC", "RP", "Simp"]]):
+    for w, r, wd, fea in product(config.globalFontWeight, ["CN", "CL"], [3, 5, 7], [[], ["UI", "OSF", "SC", "RP", "Simp"]]):
         param = {
             "family": "Nowar",
             "weight": w,
@@ -963,7 +963,7 @@ if __name__ == "__main__":
 
         makefile["rule"]["NamingTest"]["depend"].append(font)
         makefile["rule"][font] = {
-            "depend": ["build/nowar/{}.otf".format(GenerateFilename(param))],
+            "depend": ["build/final-otf/{}.otf".format(GenerateFilename(param))],
             "command": [
                 "mkdir -p out/NamingTest/",
                 "cp $^ $@",
