@@ -23,11 +23,8 @@ class Config:
     fontPackFeature = ["OSF", "RP", "SC"]
     # feature tags must be sorted alphabetically
     fontPackExportFeature = [
-        ("Bliz", ["OSF"]),
         ("Bliz", ["RP"]),
-        ("Bliz", ["SC"]),
         ("Neut", ["OSF"]),
-        ("Neut", ["RP"]),
         ("Neut", ["SC"]),
     ]
 
