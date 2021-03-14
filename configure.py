@@ -849,6 +849,9 @@ if __name__ == "__main__":
     def powerset(lst): return reduce(lambda result, x: result +
                                      [subset + [x] for subset in result], lst, [[]])
 
+    finalOtfDeps = set()
+    nowarOtdDeps = set()
+
     # font pack for each regional variant and weight
     for r, w, fea in product(config.fontPackRegion, config.fontPackWeight, powerset(config.fontPackFeature)):
         tagList = [r] + fea
@@ -905,6 +908,8 @@ if __name__ == "__main__":
                 "K_Pagetext": GetKoreanDisplayFont(w, r, fea),
             })
 
+        finalOtfDeps.update(map(json.dumps, fontlist.values()))
+
         makefile["rule"][pack] = {
             "depend": ["out/{}/Fonts/{}.ttf".format(target, f) for f in fontlist],
             "command": [
@@ -936,6 +941,7 @@ if __name__ == "__main__":
         font = "out/GlobalFont/{}.otf".format(
             GenerateFilename(param)[len(e)+1:])
 
+        finalOtfDeps.add(json.dumps(param))
         makefile["rule"]["GlobalFont"]["depend"].append(font)
         makefile["rule"][font] = {
             "depend": ["build/final-otf/{}.otf".format(GenerateFilename(param))],
@@ -958,6 +964,7 @@ if __name__ == "__main__":
         font = "out/NamingTest/{}.otf".format(
             GenerateFilename(param)[len(e)+1:])
 
+        finalOtfDeps.add(json.dumps(param))
         makefile["rule"]["NamingTest"]["depend"].append(font)
         makefile["rule"][font] = {
             "depend": ["build/final-otf/{}.otf".format(GenerateFilename(param))],
@@ -967,23 +974,9 @@ if __name__ == "__main__":
             ]
         }
 
-    # otf files
-    for w, wd, r, fea in product(config.fontPackWeight, [3, 5, 7, 10], regionNameMap.keys(), powerset(featureNameMap.keys())):
-        if wd != 10 and "FuCK" in fea:
-            # `FuCK` is a special feature for zhCN text font only
-            continue
-        if wd == 10 and "UI" in fea:
-            # `UI` is for western
-            continue
-
-        param = {
-            "family": "Nowar",
-            "weight": w,
-            "width": wd,
-            "region": r,
-            "feature": fea,
-            "encoding": "unspec",
-        }
+    # resolve deps -- final otf
+    for param in finalOtfDeps:
+        param = json.loads(param)
         makefile["rule"]["build/final-otf/{}.otf".format(GenerateFilename(param))] = {
             "depend": ["build/unkerned-otf/{}.otf".format(GenerateFilename(param))],
             "command": [
@@ -998,6 +991,19 @@ if __name__ == "__main__":
                 "otfccbuild -q -O3 --keep-average-char-width $< -o $@",
             ],
         }
+        if param["encoding"] == "unspec":
+            nowarOtdDeps.add(json.dumps(param))
+        else:
+            unspec = {**param, "encoding": "unspec"}
+            nowarOtdDeps.add(json.dumps(unspec))
+            makefile["rule"]["build/otd/{}.otd".format(GenerateFilename(param))] = {
+                "depend": ["build/otd/{}.otd".format(GenerateFilename(unspec))],
+                "command": ["python set-encoding.py {}".format(ParamToArgument(param))]
+            }
+
+    # resolve deps -- nowar otd
+    for param in nowarOtdDeps:
+        param = json.loads(param)
         dep = ResolveDependency(param)
         makefile["rule"]["build/otd/{}.otd".format(GenerateFilename(param))] = {
             "depend": [
@@ -1035,39 +1041,6 @@ if __name__ == "__main__":
                 "otfccdump --glyph-name-prefix hani --ignore-hints $< -o $@",
             ]
         }
-
-        # set encoding
-        for e in ["abg", "gbk", "big5", "jis", "korean"]:
-            if e != "gbk" and "FuCK" in fea:
-                # `FuCK` is a special feature for zhCN text font only
-                continue
-
-            enc = {
-                "family": "Nowar",
-                "weight": w,
-                "width": wd,
-                "region": r,
-                "feature": fea,
-                "encoding": e,
-            }
-            makefile["rule"]["build/final-otf/{}.otf".format(GenerateFilename(enc))] = {
-                "depend": ["build/unkerned-otf/{}.otf".format(GenerateFilename(enc))],
-                "command": [
-                    "mkdir -p build/final-otf/",
-                    "python kern.py {}".format(ParamToArgument(enc)),
-                ],
-            }
-            makefile["rule"]["build/unkerned-otf/{}.otf".format(GenerateFilename(enc))] = {
-                "depend": ["build/otd/{}.otd".format(GenerateFilename(enc))],
-                "command": [
-                    "mkdir -p build/unkerned-otf/",
-                    "otfccbuild -q -O3 --keep-average-char-width $< -o $@",
-                ],
-            }
-            makefile["rule"]["build/otd/{}.otd".format(GenerateFilename(enc))] = {
-                "depend": ["build/otd/{}.otd".format(GenerateFilename(param))],
-                "command": ["python set-encoding.py {}".format(ParamToArgument(enc))]
-            }
 
     # dump `makefile` dict to actual “GNU Makefile”
     makedump = ""
