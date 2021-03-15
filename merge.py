@@ -10,6 +10,7 @@ from libotd.pkana import ApplyPalt, NowarApplyPaltMultiplied
 from libotd.transform import Transform, ChangeAdvanceWidth
 from libotd.gsub import GetGsubFlat, ApplyGsubSingle
 from libotd.gc import Gc, Consolidate, NowarRemoveFeatures
+from romanise import BuildRomanisedFont
 import configure
 
 
@@ -323,6 +324,24 @@ if __name__ == '__main__':
     # remap `丶` to `·` in RP variant
     if "RP" in param["feature"]:
         baseFont['cmap'][str(ord('丶'))] = baseFont['cmap'][str(ord('·'))]
+
+    # romanisation
+    romaniseCyrillic = "CyR" in param["feature"]
+    romaniseHanzi = "Pinyin" in param["feature"]
+    romaniseHanguel = "Romaja" in param["feature"]
+    if romaniseHanguel or romaniseHanzi:
+        with open("build/roman/{}.otd".format(configure.GenerateFilename(dep['Roman'])), 'rb') as romanFile:
+            romanFont = json.loads(
+                romanFile.read().decode('UTF-8', errors='replace'))
+        MergeBelow(baseFont, romanFont)
+    if romaniseCyrillic or romaniseHanzi or romaniseHanguel:
+        BuildRomanisedFont(
+            baseFont,
+            romanFont if romaniseHanzi or romaniseHanguel else None,
+            cyrillic=romaniseCyrillic,
+            hanzi=romaniseHanzi,
+            hanguel=romaniseHanguel
+        )
 
     Gc(baseFont)
     Consolidate(baseFont)

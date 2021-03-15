@@ -19,13 +19,21 @@ class Config:
     licenseUrl = "https://scripts.sil.org/OFL"
 
     fontPackWeight = [300, 372, 400, 500, 700]
-    fontPackRegion = ["Bliz", "Neut", "CL", "PSimp", "PSimpChat"]
-    fontPackFeature = ["OSF", "RP", "SC"]
+    fontPackRegion = [
+        "Bliz", "Neut", "CL",
+        "PSimp", "PSimpChat",
+        "Pinyin", "Pinyin,Romaja", "Romaja",
+    ]
+    fontPackFeature = ["CyR", "OSF", "RP", "SC"]
     # feature tags must be sorted alphabetically
     fontPackExportFeature = [
         ("Bliz", ["RP"]),
+        ("Neut", ["CyR"]),
         ("Neut", ["OSF"]),
         ("Neut", ["SC"]),
+        ("Pinyin", ["CyR"]),
+        ("Pinyin,Romaja", ["CyR"]),
+        ("Romaja", ["CyR"]),
     ]
 
     globalFontWeight = [300, 400, 500, 700]
@@ -58,6 +66,8 @@ config = Config()
 #   PSimp - 伪简体, remap traditional Chinese characters to simplified ones in zhTW text, damage, and note font
 #     base - also do remapping in common fonts (`FRIZQT__` and `ARIALN`)
 #     chat - also do remapping in zhTW chat fonts (`arheiuhk_bd` for Battle and `bHEI01B` for Classic)
+#   Pinyin - transcription of Chinese characters in Hànyǔ Pīnyīn (汉语拼音), will not do transform in zhCN/zhTW fonts
+#   Romaja - transcription of Hanguel in revised romanization of korean (국어의 로마자 표기법), will not do transform in koKR fonts
 regionalVariant = {
     "Neut": {
         "base": "CL",
@@ -100,6 +110,33 @@ regionalVariant = {
         "zhTW": "CN",
         "koKR": None,
         "xmod": [("PSimp", ["base", "chat"])],
+    },
+    "Pinyin": {
+        "base": "CL",
+        "enUS": True,
+        "ruRU": True,
+        "zhCN": "CN",
+        "zhTW": "TW",
+        "koKR": "CL",
+        "xmod": [("Pinyin", [])],
+    },
+    "Pinyin,Romaja": {
+        "base": "CL",
+        "enUS": True,
+        "ruRU": True,
+        "zhCN": "CN",
+        "zhTW": "TW",
+        "koKR": "CL",
+        "xmod": [("Pinyin", []), ("Romaja", [])],
+    },
+    "Romaja": {
+        "base": "CL",
+        "enUS": True,
+        "ruRU": True,
+        "zhCN": "CN",
+        "zhTW": "TW",
+        "koKR": "CL",
+        "xmod": [("Romaja", [])],
     },
     "CN": {  # deprecated
         "base": "CN",
@@ -340,9 +377,12 @@ regionNameMap = {
 
 # sorted alphabetically
 featureNameMap = {
+    "CyR": "Cyrillic-Romanisation",
     "FuCK": "Fullwidth-Colon-Kerning",
     "OSF": "Oldstyle",
+    "Pinyin": "Pinyin",
     "RP": "Roleplaying",
+    "Romaja": "Romaja",
     "SC": "Smallcaps",
     "Simp": "Simplified",
     "UI": "UI",
@@ -627,6 +667,12 @@ def ResolveDependency(p):
                 "weight": p["weight"],
             },
         }
+    if "Pinyin" in p["feature"] or "Romaja" in p["feature"]:
+        result["Roman"] = {
+            "family": "Noto",
+            "width": 3,
+            "weight": p["weight"],
+        }
     result["CJK"] = {
         "family": "SHS",
         "weight": p["weight"],
@@ -636,11 +682,20 @@ def ResolveDependency(p):
     return result
 
 
-def GetCommonFont(weight, region, feature):
+def AcceptXmod(region, pinyin=False, romaja=False, pSimp=[]):
     xfea = []
     for mod, params in regionalVariant[region].get("xmod", []):
-        if mod == "PSimp" and "base" in params:
+        if pinyin and mod == "Pinyin":
+            xfea.append("Pinyin")
+        if romaja and mod == "Romaja":
+            xfea.append("Romaja")
+        if (pSimp is True and mod == "PSimp") or (mod == "PSimp" and any(key in params for key in pSimp)):
             xfea.append("Simp")
+    return xfea
+
+
+def GetCommonFont(weight, region, feature):
+    xfea = AcceptXmod(region, pinyin=True, romaja=True, pSimp=["base"])
     return {
         "weight": weight,
         "width": 7,
@@ -652,10 +707,7 @@ def GetCommonFont(weight, region, feature):
 
 
 def GetCommonChatFont(weight, region, feature):
-    xfea = []
-    for mod, params in regionalVariant[region].get("xmod", []):
-        if mod == "PSimp" and "base" in params:
-            xfea.append("Simp")
+    xfea = AcceptXmod(region, pinyin=True, romaja=True, pSimp=["base"])
     return {
         "weight": weight,
         "width": 3,
@@ -667,65 +719,67 @@ def GetCommonChatFont(weight, region, feature):
 
 
 def GetLatinFont(weight, region, feature):
+    xfea = AcceptXmod(region, pinyin=True, romaja=True)
     return {
         "weight": weight,
         "width": 7,
         "family": "Nowar",
         "region": regionalVariant[region]["base"],
-        "feature": ["UI"] + feature,
+        "feature": ["UI"] + feature + xfea,
         "encoding": "abg",
     }
 
 
 def GetLatinChatFont(weight, region, feature):
+    xfea = AcceptXmod(region, pinyin=True, romaja=True)
     return {
         "weight": weight,
         "width": 3,
         "family": "Nowar",
         "region": regionalVariant[region]["base"],
-        "feature": ["UI"] + feature,
+        "feature": ["UI"] + feature + xfea,
         "encoding": "abg",
     }
 
 
 def GetHansFont(weight, region, feature):
+    xfea = AcceptXmod(region, romaja=True)
     return {
         "weight": weight,
         "width": 10,
         "family": "Nowar",
         "region": regionalVariant[region]["zhCN"],
-        "feature": ["FuCK"] + feature,
+        "feature": ["FuCK"] + feature + xfea,
         "encoding": "gbk",
     }
 
 
 def GetHansCombatFont(weight, region, feature):
+    xfea = AcceptXmod(region, romaja=True)
     return {
         "weight": weight,
         "width": 7,
         "family": "Nowar",
         "region": regionalVariant[region]["zhCN"],
-        "feature": feature,
+        "feature": feature + xfea,
         "encoding": "gbk",
     }
 
 
 def GetHansChatFont(weight, region, feature):
+    xfea = AcceptXmod(region, romaja=True)
     return {
         "weight": weight,
         "width": 3,
         "family": "Nowar",
         "region": regionalVariant[region]["zhCN"],
-        "feature": feature,
+        "feature": feature + xfea,
         "encoding": "gbk",
     }
 
 
 def GetHantFont(weight, region, feature):
-    xfea = []
-    for mod, _ in regionalVariant[region].get("xmod", []):
-        if mod == "PSimp":
-            xfea.append("Simp")
+    xfea = AcceptXmod(region, romaja=True, pSimp=True)
     return {
         "weight": weight,
         "width": 10,
@@ -737,10 +791,7 @@ def GetHantFont(weight, region, feature):
 
 
 def GetHantCombatFont(weight, region, feature):
-    xfea = []
-    for mod, _ in regionalVariant[region].get("xmod", []):
-        if mod == "PSimp":
-            xfea.append("Simp")
+    xfea = AcceptXmod(region, romaja=True, pSimp=True)
     return {
         "weight": weight,
         "width": 7,
@@ -752,10 +803,7 @@ def GetHantCombatFont(weight, region, feature):
 
 
 def GetHantNoteFont(weight, region, feature):
-    xfea = []
-    for mod, _ in regionalVariant[region].get("xmod", []):
-        if mod == "PSimp":
-            xfea.append("Simp")
+    xfea = AcceptXmod(region, romaja=True, pSimp=True)
     return {
         "weight": weight,
         "width": 5,
@@ -767,10 +815,7 @@ def GetHantNoteFont(weight, region, feature):
 
 
 def GetHantChatFont(weight, region, feature):
-    xfea = []
-    for mod, params in regionalVariant[region].get("xmod", []):
-        if mod == "PSimp" and "chat" in params:
-            xfea.append("Simp")
+    xfea = AcceptXmod(region, romaja=True, pSimp=["chat"])
     return {
         "weight": weight,
         "width": 3,
@@ -782,34 +827,37 @@ def GetHantChatFont(weight, region, feature):
 
 
 def GetKoreanFont(weight, region, feature):
+    xfea = AcceptXmod(region, pinyin=True)
     return {
         "weight": weight,
         "width": 5,
         "family": "Nowar",
         "region": regionalVariant[region]["koKR"],
-        "feature": ["UI"] + feature,
+        "feature": ["UI"] + feature + xfea,
         "encoding": "korean",
     }
 
 
 def GetKoreanCombatFont(weight, region, feature):
+    xfea = AcceptXmod(region, pinyin=True)
     return {
         "weight": weight,
         "width": 7,
         "family": "Nowar",
         "region": regionalVariant[region]["koKR"],
-        "feature": ["UI"] + feature,
+        "feature": ["UI"] + feature + xfea,
         "encoding": "korean",
     }
 
 
 def GetKoreanDisplayFont(weight, region, feature):
+    xfea = AcceptXmod(region, pinyin=True)
     return {
         "weight": weight,
         "width": 3,
         "family": "Nowar",
         "region": regionalVariant[region]["koKR"],
-        "feature": ["UI"] + feature,
+        "feature": ["UI"] + feature + xfea,
         "encoding": "korean",
     }
 
@@ -1013,7 +1061,10 @@ if __name__ == "__main__":
             ] + ([
                 "build/noto/{}.otd".format(
                     GenerateFilename(dep["Numeral"]))
-            ] if "Numeral" in dep else []),
+            ] if "Numeral" in dep else []) + ([
+                "build/roman/{}.otd".format(
+                    GenerateFilename(dep["Roman"]))
+            ] if "Roman" in dep else []),
             "command": [
                 "mkdir -p build/otd/",
                 "python merge.py {}".format(ParamToArgument(param))
@@ -1032,6 +1083,14 @@ if __name__ == "__main__":
                 "command": [
                     "mkdir -p build/noto/",
                     "otfccdump --glyph-name-prefix latn --ignore-hints $< -o $@",
+                ]
+            }
+        if "Roman" in dep:
+            makefile["rule"]["build/roman/{}.otd".format(GenerateFilename(dep["Roman"]))] = {
+                "depend": ["source/noto/{}.otf".format(GenerateFilename(dep["Roman"]))],
+                "command": [
+                    "mkdir -p build/roman/",
+                    "otfccdump --glyph-name-prefix roman --ignore-hints $< -o $@",
                 ]
             }
         makefile["rule"]["build/shs/{}.otd".format(GenerateFilename(dep["CJK"]))] = {

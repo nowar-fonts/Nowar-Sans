@@ -6,7 +6,7 @@ from fontTools.ttLib import TTFont, newTable
 from fontTools.ttLib.tables._k_e_r_n import KernTable_format_0
 
 
-def BuildGenericKernSubtable(font):
+def BuildGenericKernSubtable(font, cyrillic):
 	scriptDflt = [ scr for scr in font['GPOS'].table.ScriptList.ScriptRecord if scr.ScriptTag == 'DFLT' ]
 	scriptDfltFeaList = [ font['GPOS'].table.FeatureList.FeatureRecord[i] for i in scriptDflt[0].Script.DefaultLangSys.FeatureIndex ]
 	kernFeaList = [ fea.Feature for fea in scriptDfltFeaList if fea.FeatureTag == 'kern' ]
@@ -17,7 +17,9 @@ def BuildGenericKernSubtable(font):
 	kernPairStList += [ lut.ExtSubTable for lut in kernExtLutList if lut.ExtensionLookupType == 2 ]
 
 	# letters in Adobe Latin 1 and Adobe Cyrillic 1
-	kernSubset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿıŁłŒœŠšŸŽžƒ" "ЀЁЂЃЄЅІЇЈЉЊЋЌЍЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюяѐёђѓєѕіїјљњћќѝўџѢѣѲѳѴѵҐґ"
+	kernSubset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿıŁłŒœŠšŸŽžƒ"
+	if cyrillic:
+		kernSubset += "ЀЁЂЃЄЅІЇЈЉЊЋЌЍЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюяѐёђѓєѕіїјљњћќѝўџѢѣѲѳѴѵҐґ"
 
 	cmap = font['cmap'].getBestCmap()
 	kernGlyph = {*[ cmap[ord(ch)] for ch in kernSubset ]}
@@ -100,7 +102,7 @@ if __name__ == "__main__":
 
 	kern = newTable('kern')
 	kern.version = 0
-	kern.kernTables = [BuildGenericKernSubtable(font)]
+	kern.kernTables = [BuildGenericKernSubtable(font, "CyR" not in param["feature"])]
 	font['kern'] = kern
 
 	if "FuCK" in param["feature"]:
