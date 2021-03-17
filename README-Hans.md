@@ -2,7 +2,7 @@
 
 # 有爱黑体（《魔兽世界》字体包）
 
-有爱黑体是《魔兽世界》和《魔兽世界：经典怀旧服》字体包，支持所有语言。有爱黑体是 [Noto Sans](https://github.com/googlei18n/noto-fonts) 和[思源黑体](https://github.com/adobe-fonts/source-han-sans)的合并字体。
+有爱黑体是《魔兽世界》和《魔兽世界：经典怀旧服》字体包，支持游戏客户端的全部语言。有爱黑体是 [Noto Sans](https://github.com/googlei18n/noto-fonts) 和[思源黑体](https://github.com/adobe-fonts/source-han-sans)的合并字体。
 
 > Make Love, Not Warcraft.<br>
 > 要有爱，不要魔兽争霸。<br>
@@ -63,3 +63,33 @@ PSimp、PSimpChat 是针对繁体中文的变体，把繁体字重映射为简�
 | RP   | Roleplaying | `丶`（U+4E36）重映射为 `·`（U+00B7，MIDDLE DOT）。|
 
 预编译的特性变体：`Bliz,RP`、`Neut,OSF`、`Neut,SC`。
+
+### PTR 跨语言支持包 (XLang)
+
+CyR（Cyrillic Romanisation，西里尔字母拉丁化）、Pinyin（拼音）、Romaja（韩国语罗马字）是针对 PTR 区域的 “跨语言变体”，分别将西里尔字母、汉字、谚文音节转写为拉丁字母。
+
+| 变体 | 简介 | 示例 |
+| ------- | ----------- | ------- |
+| CyR | 按照 ISO 9:1995 的转写规则，将西里尔字母**替换**为加下划线的小型大写拉丁字母 | R̲ᴜ̲s̲s̲ᴋ̲ɪ̲ᴊ̲ (Русский) |
+| Pinyin | 在汉字右边**附带**小型大写汉语拼音 | 汉ʜᴀ̀ɴ字ᴢɪ̀ |
+| Romaja | 在谚文音节右边**附带**小型大写罗马字 | 한ʜᴀɴ글ɢᴜᴇʟ |
+
+为技术所限，CyR 实现为特性变体，应用到所有语言（因为字体包无法区分西里尔聊天字体和拉丁聊天字体——文件名都是 `ARIALN`）；而 Pinyin 和 Romaja 实现为地区变体，应用到中文或韩国语之外的语言（否则将会严重扰乱 UI 布局）。
+
+| 变体    | 实现方式             | 应用的语言           |
+| ------- | -------------------- | -------------------- |
+| CyR     | 特性变体             | 全部语言             |
+| Pinyin  | 地区变体（基于 Neut）| 中文之外的全部语言   |
+| Romaja  | 地区变体（基于 Neut）| 韩国语之外的全部语言 |
+
+因此，跨语言支持包的版本有些繁杂。为避免造成混淆，这些版本单列在以 `-xlang` 结尾的发布标签下。
+
+| 版本             | CyR | Pinyin | Romaja |
+| ----------------- | --- | ------ | ------ |
+| Pinyin,Romaja,CyR | ✓   | ✓      | ✓      |
+| Pinyin,CyR        | ✓   | ✓      | ✗      |
+| Romaja,CyR        | ✓   | ✗      | ✓      |
+| Neut,CyR          | ✓   | ✗      | ✗      |
+| Pinyin,Romaja     | ✗   | ✓      | ✓      |
+| Pinyin            | ✗   | ✓      | ✗      |
+| Romaja            | ✗   | ✗      | ✓      |

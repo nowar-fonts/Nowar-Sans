@@ -53,7 +53,6 @@ PSimp and PSimpChat are special variants for 繁體中文 that remap traditional
 * European: English, Español (AL), Português, Deutsch, Español (EU), Français, Italiano, and Русский.
 * UI: Ambiguous punctations are treated as Western; CJK puctations are half-width.
 * Common fonts: `FRIZQT__` and `ARIALN`, which are hard-coded in some addons.
-
 ### Features
 
 | Tag | Name        | Description                                                            |
@@ -63,6 +62,36 @@ PSimp and PSimpChat are special variants for 繁體中文 that remap traditional
 | SC  | Smallcaps   | Small capitals for Latin.                                              |
 
 Pre-built feature variants: `Bliz,RP`, `Neut,OSF`, `Neut,SC`.
+
+### PTR Cross Language Distributions (XLang)
+
+CyR (Cyrillic Romanisation), Pinyin and Romaja are “cross-language variants” for PTR realms that transliterate or transcript Cyrillic, Chinese and Hanguel characters to Latin letters.
+
+| Variant | Description | Example |
+| ------- | ----------- | ------- |
+| CyR | *Replace* Cyrillic letters with underlined smapp-capital Latin letters, using the ISO 9:1995 (or GOST 2002) system | R̲ᴜ̲s̲s̲ᴋ̲ɪ̲ᴊ̲ (Русский) |
+| Pinyin | *Append* small-capital Hànyǔ Pīnyīn to Chinese characters | 汉ʜᴀ̀ɴ字ᴢɪ̀ |
+| Romaja | *Append* small-capital Romaja to Hanguel characters | 한ʜᴀɴ글ɢᴜᴇʟ |
+
+Due to the technical limitation, the CyR is implemented as feature variant and is applied to all languages (we can not distinguish cyrillic chat font from latin chat font – they are both `ARAILN`) while Pinyin and Romaja are implemented as regional variant and are applied to non-Chinese or non-Korean languages (applying to native language will heavily break UI layout).
+
+| Variant | Implementation                   | Applied to                       |
+| ------- | -------------------------------- | -------------------------------- |
+| CyR     | Feature variant                  | All lanuages                     |
+| Pinyin  | Regional variant (based on Neut) | All except 简体中文 and 繁體中文 |
+| Romaja  | Regional variant (based on Neut) | All except 한국어                |
+
+As a result, the XLang variants can be confusing and thus are distributed under a dedicated tag with an `-xlang` suffix.
+
+| Distribution      | CyR | Pinyin | Romaja |
+| ----------------- | --- | ------ | ------ |
+| Pinyin,Romaja,CyR | ✓   | ✓      | ✓      |
+| Pinyin,CyR        | ✓   | ✓      | ✗      |
+| Romaja,CyR        | ✓   | ✗      | ✓      |
+| Neut,CyR          | ✓   | ✗      | ✗      |
+| Pinyin,Romaja     | ✗   | ✓      | ✓      |
+| Pinyin            | ✗   | ✓      | ✗      |
+| Romaja            | ✗   | ✗      | ✓      |
 
 ## How to Build
 
