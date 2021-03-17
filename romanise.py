@@ -1,3 +1,5 @@
+import unicodedata
+import pinyindata
 from libotd.dereference import Dereference
 from libotd.gsub import GetGsubFlat
 
@@ -196,10 +198,6 @@ def HanguelTranscript(cp):
     return hanguelInitials[initial] + hanguelVowels[vowel] + hanguelFinals[final]
 
 
-def HanziTranscript(ch):
-    return "dúmmy"
-
-
 def GetGposMark(romanFont, refBase, refMark):
     for name, lut in romanFont['GPOS']['lookups'].items():
         if 'mark' not in name or lut['type'] != 'gpos_mark_to_base':
@@ -279,8 +277,10 @@ def BuildComposedGlyph(baseGlyphName, baseGlyphWidth, str, romanGlyphs):
 
     # world text will misbehave if glyph is too wide
     # or even worse, client crash
-    estimatedWidth = sum(map(lambda x: romanGlyphs[x]['glyph']['advanceWidth'], str))
-    maxWidth = int(255 / 64 * 1000 - baseGlyphWidth) # 255 - buffer width; 64 - rendered size
+    estimatedWidth = sum(
+        map(lambda x: romanGlyphs[x]['glyph']['advanceWidth'], str))
+    # 255 - buffer width; 64 - rendered size
+    maxWidth = int(255 / 64 * 1000 - baseGlyphWidth)
     xScale = min(1, maxWidth / estimatedWidth)
 
     for ch in map(lambda x: romanGlyphs[x], str):
@@ -360,8 +360,38 @@ def BuildHanguelComposedGlyphs(baseFont, romanFont):
         baseFont['cmap'][cmapKey] = composedGlyphName
 
 
+def NormalizePinyin(syllable):
+    # convert tone mark to compositing glyph, ...
+    nfd = unicodedata.normalize('NFD', syllable)
+    # ... except ü
+    return nfd.replace("u\u0308", "ü")
+
+
+def BuildHanziComposedGlyphs(baseFont, romanFont):
+    romanGlyphMap = ExtractRomanGlyph(romanFont)
+
+    for ch, pinyin in pinyindata.data.items():
+        cp = ord(ch)
+        if cp < 0x4e00 or cp >= 0xa000:
+            # process uro only
+            continue
+        cmapKey = str(cp)
+        glyphName = baseFont['cmap'][cmapKey]
+        width = baseFont['glyf'][glyphName]['advanceWidth']
+        normalized = NormalizePinyin(pinyin)
+        glyph = BuildComposedGlyph(glyphName, width, normalized, romanGlyphMap)
+        if "CFF_" in baseFont:
+            glyph = Dereference(glyph, baseFont)
+
+        composedGlyphName = glyphName + ".romaja." + pinyin
+        baseFont['glyf'][composedGlyphName] = glyph
+        baseFont['cmap'][cmapKey] = composedGlyphName
+
+
 def BuildRomanisedFont(baseFont, romanFont, cyrillic, hanzi, hanguel):
     if cyrillic:
         BuildCyrInversedGlyphs(baseFont)
+    if hanzi:
+        BuildHanziComposedGlyphs(baseFont, romanFont)
     if hanguel:
         BuildHanguelComposedGlyphs(baseFont, romanFont)
