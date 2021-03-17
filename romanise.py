@@ -246,6 +246,9 @@ def ExtractRomanGlyph(romanFont):
         else:
             mark = mark[anchor]
             mark = (mark['x'], mark['y'])
+        if mark[1] > 660:
+            # limit anchor to avoid trimming
+            mark = (mark[0], 660)
         glyphMap[ch] = {
             'name': sub,
             'glyph': glyph,
