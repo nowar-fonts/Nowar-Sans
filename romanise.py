@@ -345,6 +345,42 @@ def BuildCyrInversedGlyphs(baseFont):
         baseFont['cmap'][cmapKey] = subGlyphName
 
 
+def BuildCyrUnderlinedGlyphs(baseFont):
+    ascender = baseFont['OS_2']['sTypoAscender']
+    descender = baseFont['OS_2']['sTypoDescender']
+
+    romanGlyphMap = ExtractRomanGlyph(baseFont)
+
+    for ch, subs in cyrMap.items():
+        glyph = Dereference(BuildComposedGlyph(
+            None, 0, subs, romanGlyphMap), baseFont)
+        width = glyph['advanceWidth']
+        padding = 20
+
+        if 'CFF_' in baseFont:
+            # anti-clockwise
+            glyph['contours'].append([
+                {'x': -padding, 'y': descender, 'on': True},
+                {'x': width + padding, 'y': descender, 'on': True},
+                {'x': width + padding, 'y': descender / 2, 'on': True},
+                {'x': -padding, 'y': descender / 2, 'on': True},
+            ])
+        else:
+            # clockwise
+            glyph['contours'].append([
+                {'x': -padding, 'y': descender, 'on': True},
+                {'x': -padding, 'y': descender / 2, 'on': True},
+                {'x': width + padding, 'y': descender / 2, 'on': True},
+                {'x': width + padding, 'y': descender, 'on': True},
+            ])
+
+        cmapKey = str(ord(ch))
+        glyphName = baseFont['cmap'][cmapKey]
+        subGlyphName = glyphName + ".cyr_roman." + subs
+        baseFont['glyf'][subGlyphName] = glyph
+        baseFont['cmap'][cmapKey] = subGlyphName
+
+
 def BuildHanguelComposedGlyphs(baseFont, romanFont):
     romanGlyphMap = ExtractRomanGlyph(romanFont)
 
@@ -393,7 +429,7 @@ def BuildHanziComposedGlyphs(baseFont, romanFont):
 
 def BuildRomanisedFont(baseFont, romanFont, cyrillic, hanzi, hanguel):
     if cyrillic:
-        BuildCyrInversedGlyphs(baseFont)
+        BuildCyrUnderlinedGlyphs(baseFont)
     if hanzi:
         BuildHanziComposedGlyphs(baseFont, romanFont)
     if hanguel:
