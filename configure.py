@@ -1161,6 +1161,7 @@ if __name__ == "__main__":
             makefile["rule"][f"build/roman/{GenerateFilename(dep['Roman'])}.otz"] = {
                 "depend": [f"build/noto/{GenerateFilename(dep['Roman'])}.otf"],
                 "command": [
+                    "mkdir -p build/roman/",
                     "otfccdump --glyph-name-prefix roman --ignore-hints $< --no-bom | zstd -o $@ --force",
                 ]
             }
