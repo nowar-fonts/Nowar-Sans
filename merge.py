@@ -1,8 +1,7 @@
-import datetime
 import sys
 import copy
 import json
-import codecs
+
 from libotd.rebase import Rebase
 from libotd.dereference import Dereference
 from libotd.merge import MergeBelow, MergeAbove
@@ -11,6 +10,7 @@ from libotd.transform import Transform, ChangeAdvanceWidth
 from libotd.gsub import GetGsubFlat, ApplyGsubSingle
 from libotd.gc import Gc, Consolidate, NowarRemoveFeatures
 from romanise import BuildRomanisedFont
+from otz_io import ReadOtz, WriteOtz
 import configure
 
 
@@ -226,9 +226,7 @@ if __name__ == '__main__':
 
     dep = configure.ResolveDependency(param)
 
-    with open("build/noto/{}.otd".format(configure.GenerateFilename(dep['Latin'])), 'rb') as baseFile:
-        baseFont = json.loads(
-            baseFile.read().decode('UTF-8', errors='replace'))
+    baseFont = ReadOtz(f"build/noto/{configure.GenerateFilename(dep['Latin'])}.otz")
     upm = baseFont["head"]["unitsPerEm"]
     if (upm != 1000):
         Rebase(baseFont, 1000 / upm, roundToInt=True)
@@ -259,52 +257,48 @@ if __name__ == '__main__':
 
     # Warcraft numeral hack
     if param["width"] == 10:
-        with open("build/noto/{}.otd".format(configure.GenerateFilename(dep['Numeral'])), 'rb') as numFile:
-            numFont = json.loads(
-                numFile.read().decode('UTF-8', errors='replace'))
-            if (upm != 1000):
-                Rebase(numFont, 1000 / upm, roundToInt=True)
+        numFont = ReadOtz(f"build/noto/{configure.GenerateFilename(dep['Numeral'])}.otz")
+        if (upm != 1000):
+            Rebase(numFont, 1000 / upm, roundToInt=True)
 
-            gsubPnum = GetGsubFlat('pnum', numFont)
-            gsubTnum = GetGsubFlat('tnum', numFont)
-            gsubOnum = GetGsubFlat('onum', numFont)
+        gsubPnum = GetGsubFlat('pnum', numFont)
+        gsubTnum = GetGsubFlat('tnum', numFont)
+        gsubOnum = GetGsubFlat('onum', numFont)
 
-            num = [numFont['cmap'][str(ord('0') + i)] for i in range(10)]
-            pnum = [gsubPnum[n] for n in num]
-            onum = [gsubOnum[n] for n in pnum]
-            tonum = [gsubOnum[n] for n in num]
+        num = [numFont['cmap'][str(ord('0') + i)] for i in range(10)]
+        pnum = [gsubPnum[n] for n in num]
+        onum = [gsubOnum[n] for n in pnum]
+        tonum = [gsubOnum[n] for n in num]
 
-            maxWidth = 490
-            numWidth = numFont['glyf'][num[0]]['advanceWidth']
-            changeWidth = maxWidth - numWidth if numWidth > maxWidth else 0
+        maxWidth = 490
+        numWidth = numFont['glyf'][num[0]]['advanceWidth']
+        changeWidth = maxWidth - numWidth if numWidth > maxWidth else 0
 
-            # dereference TT glyphs
-            if "CFF_" not in numFont:
-                for n in num + pnum + onum + tonum:
-                    numFont['glyf'][n] = Dereference(
-                        numFont['glyf'][n], numFont)
-
-            for n in num + tonum:
-                tGlyph = numFont['glyf'][n]
-                tWidth = tGlyph['advanceWidth']
-                pName = gsubPnum[n]
-                pGlyph = numFont['glyf'][pName]
-                pWidth = pGlyph['advanceWidth']
-                if pWidth > tWidth:
-                    numFont['glyf'][pName] = copy.deepcopy(tGlyph)
-                    pGlyph = numFont['glyf'][pName]
-                    pWidth = tWidth
-                if changeWidth != 0:
-                    ChangeAdvanceWidth(pGlyph, changeWidth)
-                    Transform(pGlyph, 1, 0, 0, 1, (changeWidth + 1) // 2, 0)
-
+        # dereference TT glyphs
+        if "CFF_" not in numFont:
             for n in num + pnum + onum + tonum:
-                baseFont['glyf'][n] = numFont['glyf'][n]
-            ApplyGsubSingle('pnum', baseFont)
+                numFont['glyf'][n] = Dereference(
+                    numFont['glyf'][n], numFont)
 
-    with open("build/shs/{}.otd".format(configure.GenerateFilename(dep['CJK'])), 'rb') as asianFile:
-        asianFont = json.loads(
-            asianFile.read().decode('UTF-8', errors='replace'))
+        for n in num + tonum:
+            tGlyph = numFont['glyf'][n]
+            tWidth = tGlyph['advanceWidth']
+            pName = gsubPnum[n]
+            pGlyph = numFont['glyf'][pName]
+            pWidth = pGlyph['advanceWidth']
+            if pWidth > tWidth:
+                numFont['glyf'][pName] = copy.deepcopy(tGlyph)
+                pGlyph = numFont['glyf'][pName]
+                pWidth = tWidth
+            if changeWidth != 0:
+                ChangeAdvanceWidth(pGlyph, changeWidth)
+                Transform(pGlyph, 1, 0, 0, 1, (changeWidth + 1) // 2, 0)
+
+        for n in num + pnum + onum + tonum:
+            baseFont['glyf'][n] = numFont['glyf'][n]
+        ApplyGsubSingle('pnum', baseFont)
+
+    asianFont = ReadOtz(f"build/shs/{configure.GenerateFilename(dep['CJK'])}.otz")
 
     # pre-apply `palt` in UI family
     if "UI" in param["feature"]:
@@ -330,9 +324,7 @@ if __name__ == '__main__':
     romaniseHanzi = "Pinyin" in param["feature"]
     romaniseHanguel = "Romaja" in param["feature"]
     if romaniseHanguel or romaniseHanzi:
-        with open("build/roman/{}.otd".format(configure.GenerateFilename(dep['Roman'])), 'rb') as romanFile:
-            romanFont = json.loads(
-                romanFile.read().decode('UTF-8', errors='replace'))
+        romanFont = ReadOtz(f"build/roman/{configure.GenerateFilename(dep['Roman'])}.otz")
         MergeBelow(baseFont, romanFont)
     if romaniseCyrillic or romaniseHanzi or romaniseHanguel:
         BuildRomanisedFont(
@@ -345,6 +337,4 @@ if __name__ == '__main__':
 
     Gc(baseFont)
     Consolidate(baseFont)
-    outStr = json.dumps(baseFont, ensure_ascii=False, separators=(',', ':'))
-    with codecs.open("build/otd/{}.otd".format(configure.GenerateFilename(param)), 'w', 'UTF-8') as outFile:
-        outFile.write(outStr)
+    WriteOtz(baseFont, f"build/otd/{configure.GenerateFilename(param)}.otz")

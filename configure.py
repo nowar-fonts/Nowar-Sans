@@ -1086,10 +1086,10 @@ if __name__ == "__main__":
             ],
         }
         makefile["rule"]["build/unkerned-otf/{}.otf".format(GenerateFilename(param))] = {
-            "depend": ["build/otd/{}.otd".format(GenerateFilename(param))],
+            "depend": ["build/otd/{}.otz".format(GenerateFilename(param))],
             "command": [
                 "mkdir -p build/unkerned-otf/",
-                "otfccbuild -q -O3 --keep-average-char-width $< -o $@",
+                "zstd -d $< --stdout | otfccbuild -q -O3 --keep-average-char-width -o $@",
             ],
         }
         if param["encoding"] == "unspec":
@@ -1097,8 +1097,8 @@ if __name__ == "__main__":
         else:
             unspec = {**param, "encoding": "unspec"}
             nowarOtdDeps.add(json.dumps(unspec))
-            makefile["rule"]["build/otd/{}.otd".format(GenerateFilename(param))] = {
-                "depend": ["build/otd/{}.otd".format(GenerateFilename(unspec))],
+            makefile["rule"]["build/otd/{}.otz".format(GenerateFilename(param))] = {
+                "depend": ["build/otd/{}.otz".format(GenerateFilename(unspec))],
                 "command": ["python set-encoding.py {}".format(ParamToArgument(param))]
             }
 
@@ -1106,16 +1106,16 @@ if __name__ == "__main__":
     for param in nowarOtdDeps:
         param = json.loads(param)
         dep = ResolveDependency(param)
-        makefile["rule"]["build/otd/{}.otd".format(GenerateFilename(param))] = {
+        makefile["rule"]["build/otd/{}.otz".format(GenerateFilename(param))] = {
             "depend": [
-                "build/noto/{}.otd".format(GenerateFilename(dep["Latin"])),
-                "build/shs/{}.otd".format(
+                "build/noto/{}.otz".format(GenerateFilename(dep["Latin"])),
+                "build/shs/{}.otz".format(
                     GenerateFilename(dep["CJK"])),
             ] + ([
-                "build/noto/{}.otd".format(
+                "build/noto/{}.otz".format(
                     GenerateFilename(dep["Numeral"]))
             ] if "Numeral" in dep else []) + ([
-                "build/roman/{}.otd".format(
+                "build/roman/{}.otz".format(
                     GenerateFilename(dep['Roman']))
             ] if "Roman" in dep else []),
             "command": [
@@ -1124,10 +1124,10 @@ if __name__ == "__main__":
             ]
         }
 
-        makefile["rule"][f"build/noto/{GenerateFilename(dep['Latin'])}.otd"] = {
+        makefile["rule"][f"build/noto/{GenerateFilename(dep['Latin'])}.otz"] = {
             "depend": [f"build/noto/{GenerateFilename(dep['Latin'])}.otf"],
             "command": [
-                "otfccdump --glyph-name-prefix roman --ignore-hints $< -o $@",
+                "otfccdump --glyph-name-prefix roman --ignore-hints $< --no-bom | zstd -o $@ --force",
             ]
         }
         notoInstance = [['wght', AxisMapNotoWgth(dep['Latin']['weight'])],
@@ -1141,10 +1141,10 @@ if __name__ == "__main__":
         }
 
         if "Numeral" in dep:
-            makefile["rule"][f"build/noto/{GenerateFilename(dep['Numeral'])}.otd"] = {
+            makefile["rule"][f"build/noto/{GenerateFilename(dep['Numeral'])}.otz"] = {
                 "depend": [f"build/noto/{GenerateFilename(dep['Numeral'])}.otf"],
                 "command": [
-                    "otfccdump --glyph-name-prefix roman --ignore-hints $< -o $@",
+                    "otfccdump --glyph-name-prefix roman --ignore-hints $< --no-bom | zstd -o $@ --force",
                 ]
             }
             notoInstance = [['wght', AxisMapNotoWgth(dep['Numeral']['weight'])],
@@ -1158,10 +1158,10 @@ if __name__ == "__main__":
             }
 
         if "Roman" in dep:
-            makefile["rule"][f"build/roman/{GenerateFilename(dep['Roman'])}.otd"] = {
+            makefile["rule"][f"build/roman/{GenerateFilename(dep['Roman'])}.otz"] = {
                 "depend": [f"build/noto/{GenerateFilename(dep['Roman'])}.otf"],
                 "command": [
-                    "otfccdump --glyph-name-prefix roman --ignore-hints $< -o $@",
+                    "otfccdump --glyph-name-prefix roman --ignore-hints $< --no-bom | zstd -o $@ --force",
                 ]
             }
             notoInstance = [['wght', AxisMapNotoWgth(dep['Roman']['weight'])],
@@ -1174,10 +1174,10 @@ if __name__ == "__main__":
                 ]
             }
 
-        makefile["rule"][f"build/shs/{GenerateFilename(dep['CJK'])}.otd"] = {
+        makefile["rule"][f"build/shs/{GenerateFilename(dep['CJK'])}.otz"] = {
             "depend": [f"build/shs/{GenerateFilename(dep['CJK'])}.otf"],
             "command": [
-                "otfccdump --glyph-name-prefix hani --ignore-hints $< -o $@",
+                "otfccdump --glyph-name-prefix hani --ignore-hints $< --no-bom | zstd -o $@ --force",
             ]
         }
         shsInstance = [['wght', AxisMapShsWght(dep['CJK']['weight'])]]
