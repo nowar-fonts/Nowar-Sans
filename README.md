@@ -23,7 +23,7 @@ Nowar Sans is shipped in 7 weights and 5 regional variants, with several feature
 ### Weights
 
 * 300: Light
-* 350: Semilight
+* 350: SemiLight
 * 400: Regular
 * 450: Book
 * 500: Medium
@@ -60,7 +60,7 @@ PSimp and PSimpChat are special variants for 繁體中文 that remap traditional
 
 | Tag | Name        | Description                                                            |
 | --- | ----------- | ---------------------------------------------------------------------- |
-| OSF | Oldstyle    | Oldstyle (non-lining), propotional figure.                             |
+| OSF | Oldstyle    | Oldstyle (non-lining), proportional figure.                             |
 | RP  | Roleplaying | `丶` (U+4E36) is mapped to the same glyph as `·` (U+00B7, MIDDLE DOT). |
 | SC  | Smallcaps   | Small capitals for Latin.                                              |
 
@@ -80,7 +80,7 @@ Due to the technical limitation, the CyR is implemented as feature variant and i
 
 | Variant | Implementation                   | Applied to                       |
 | ------- | -------------------------------- | -------------------------------- |
-| CyR     | Feature variant                  | All lanuages                     |
+| CyR     | Feature variant                  | All languages                    |
 | Pinyin  | Regional variant (based on Neut) | All except 简体中文 and 繁體中文 |
 | Romaja  | Regional variant (based on Neut) | All except 한국어                |
 
@@ -146,7 +146,7 @@ The output is `out/NowarSans-<region>,<features>-<weight>-<version>.7z`.
 
 Any number from 200 to 900 (both included) is valid weight value for Nowar Sans. Numbers from 100 (included) to 200 (excluded) are also available, but CJK part will be same weight as 200.
 
-To build a font pack with customed weight value, modify `configure.py`:
+To build a font pack with customised weight value, modify `configure.py`:
 ```python
 class Config:
     # put your weight here
