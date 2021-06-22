@@ -178,14 +178,6 @@ regionalVariant = {
         "zhTW": "TW",
         "koKR": "KR",
     },
-    "GB": {  # deprecated
-        "base": "GB",
-        "enUS": True,
-        "ruRU": True,
-        "zhCN": "GB",
-        "zhTW": "GB",
-        "koKR": None,
-    },
 }
 
 
@@ -263,41 +255,6 @@ class LanguageId(enum.IntEnum):
     zhSG = 0x1004
     zhTW = 0x0404
 
-
-familyLocalization = {
-    "CN": {
-        "Latin": True, "Cyrillic": True, "Hellenic": True,
-        "Chinese": True, "Japanese": True, "Korean": True,
-    },
-    "TW": {
-        "Latin": True, "Cyrillic": True, "Hellenic": True,
-        "Chinese": True, "Japanese": True, "Korean": True,
-    },
-    "HK": {
-        "Latin": True, "Cyrillic": True, "Hellenic": True,
-        "Chinese": True, "Japanese": True, "Korean": True,
-    },
-    "MO": {
-        "Latin": True, "Cyrillic": True, "Hellenic": True,
-        "Chinese": True, "Japanese": True, "Korean": True,
-    },
-    "JP": {
-        "Latin": True, "Cyrillic": True, "Hellenic": True,
-        "Chinese": True, "Japanese": True, "Korean": True,
-    },
-    "KR": {
-        "Latin": True, "Cyrillic": True, "Hellenic": True,
-        "Chinese": True, "Japanese": True, "Korean": True,
-    },
-    "CL": {
-        "Latin": True, "Cyrillic": True, "Hellenic": True,
-        "Chinese": True, "Japanese": True, "Korean": True,
-    },
-    "GB": {
-        "Latin": True, "Cyrillic": True, "Hellenic": True,
-        "Chinese": True, "Japanese": True, "Korean": False,
-    },
-}
 
 weightMap = {
     100: "Thin",
@@ -420,7 +377,6 @@ shsRegionMap = {
     "JP": "SourceHanSans",
     "KR": "SourceHanSansK",
     "CL": "SourceHanSansK",
-    "GB": "SourceHanSansCN",
 }
 
 regionNameMap = {
@@ -431,7 +387,6 @@ regionNameMap = {
     "JP": "JP",
     "KR": "KR",
     "CL": "Classical",
-    "GB": "GB18030",
 }
 
 # sorted alphabetically
@@ -528,85 +483,7 @@ def LocalizedFamily(p):
             LanguageId.zhSG: "有爱黑体",
             LanguageId.zhTW: "有愛黑體",
         }
-
-    r = p["region"]
-    isLocalized = {
-        LanguageId.deAT: familyLocalization[r]["Latin"],
-        LanguageId.deCH: familyLocalization[r]["Latin"],
-        LanguageId.deDE: familyLocalization[r]["Latin"],
-        LanguageId.deLI: familyLocalization[r]["Latin"],
-        LanguageId.deLU: familyLocalization[r]["Latin"],
-
-        LanguageId.elGR: familyLocalization[r]["Hellenic"],
-
-        LanguageId.enAU: familyLocalization[r]["Latin"],
-        LanguageId.enBZ: familyLocalization[r]["Latin"],
-        LanguageId.enCA: familyLocalization[r]["Latin"],
-        LanguageId.enCaribbean: familyLocalization[r]["Latin"],
-        LanguageId.enGB: familyLocalization[r]["Latin"],
-        LanguageId.enIE: familyLocalization[r]["Latin"],
-        LanguageId.enIN: familyLocalization[r]["Latin"],
-        LanguageId.enJM: familyLocalization[r]["Latin"],
-        LanguageId.enMY: familyLocalization[r]["Latin"],
-        LanguageId.enNZ: familyLocalization[r]["Latin"],
-        LanguageId.enPH: familyLocalization[r]["Latin"],
-        LanguageId.enSG: familyLocalization[r]["Latin"],
-        LanguageId.enTT: familyLocalization[r]["Latin"],
-        LanguageId.enZA: familyLocalization[r]["Latin"],
-        LanguageId.enZW: familyLocalization[r]["Latin"],
-
-        LanguageId.esAR: familyLocalization[r]["Latin"],
-        LanguageId.esBO: familyLocalization[r]["Latin"],
-        LanguageId.esCL: familyLocalization[r]["Latin"],
-        LanguageId.esCO: familyLocalization[r]["Latin"],
-        LanguageId.esCR: familyLocalization[r]["Latin"],
-        LanguageId.esDO: familyLocalization[r]["Latin"],
-        LanguageId.esEC: familyLocalization[r]["Latin"],
-        LanguageId.esES: familyLocalization[r]["Latin"],
-        LanguageId.esEST: familyLocalization[r]["Latin"],
-        LanguageId.esGT: familyLocalization[r]["Latin"],
-        LanguageId.esHN: familyLocalization[r]["Latin"],
-        LanguageId.esMX: familyLocalization[r]["Latin"],
-        LanguageId.esNI: familyLocalization[r]["Latin"],
-        LanguageId.esPA: familyLocalization[r]["Latin"],
-        LanguageId.esPE: familyLocalization[r]["Latin"],
-        LanguageId.esPR: familyLocalization[r]["Latin"],
-        LanguageId.esPY: familyLocalization[r]["Latin"],
-        LanguageId.esSV: familyLocalization[r]["Latin"],
-        LanguageId.esUS: familyLocalization[r]["Latin"],
-        LanguageId.esUY: familyLocalization[r]["Latin"],
-        LanguageId.esVE: familyLocalization[r]["Latin"],
-
-        LanguageId.frBE: familyLocalization[r]["Latin"],
-        LanguageId.frCA: familyLocalization[r]["Latin"],
-        LanguageId.frCH: familyLocalization[r]["Latin"],
-        LanguageId.frFR: familyLocalization[r]["Latin"],
-        LanguageId.frLU: familyLocalization[r]["Latin"],
-        LanguageId.frMC: familyLocalization[r]["Latin"],
-
-        LanguageId.itCH: familyLocalization[r]["Latin"],
-        LanguageId.itIT: familyLocalization[r]["Latin"],
-
-        LanguageId.jaJP: familyLocalization[r]["Japanese"],
-
-        LanguageId.koKR: familyLocalization[r]["Korean"],
-
-        LanguageId.ptBR: familyLocalization[r]["Latin"],
-        LanguageId.ptPT: familyLocalization[r]["Latin"],
-
-        LanguageId.ruRU: familyLocalization[r]["Cyrillic"],
-
-        LanguageId.zhCN: familyLocalization[r]["Chinese"],
-        LanguageId.zhHK: familyLocalization[r]["Chinese"],
-        LanguageId.zhMO: familyLocalization[r]["Chinese"],
-        LanguageId.zhSG: familyLocalization[r]["Chinese"],
-        LanguageId.zhTW: familyLocalization[r]["Chinese"],
-    }
-
-    result = dict(LocalizedFamily.nameList)
-    result.update({lang: result[LanguageId.enUS]
-                   for lang, local in isLocalized.items() if not local})
-    return result
+    return LocalizedFamily.nameList
 
 
 def TagListToStr(lst):
