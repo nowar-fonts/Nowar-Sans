@@ -9,8 +9,8 @@ from libotd.pkana import ApplyPalt, NowarApplyPaltMultiplied
 from libotd.transform import Transform, ChangeAdvanceWidth
 from libotd.gsub import GetGsubFlat, ApplyGsubSingle
 from libotd.gc import Gc, Consolidate, NowarRemoveFeatures
+from libotd.otz import ReadOtz, WriteOtz
 from romanise import BuildRomanisedFont
-from otz_io import ReadOtz, WriteOtz
 import configure
 
 

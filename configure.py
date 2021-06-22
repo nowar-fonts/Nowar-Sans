@@ -7,8 +7,8 @@ from itertools import product
 
 
 class Config:
-    version = "0.90.0"
-    fontRevision = 0 + 0x5a00 / 0x10000
+    version = "1.0.0"
+    fontRevision = 1 + 0x0000 / 0x10000
     vendor = "Nowar Typeface"
     vendorId = "NOWR"
     vendorUrl = "https://github.com/nowar-fonts"

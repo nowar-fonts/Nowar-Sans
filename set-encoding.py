@@ -1,7 +1,7 @@
 import sys
 import json
 
-from otz_io import ReadOtz, WriteOtz
+from libotd.otz import ReadOtz, WriteOtz
 import configure
 
 if __name__ == '__main__':
