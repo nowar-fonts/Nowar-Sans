@@ -30,6 +30,8 @@ Nowar Sans is shipped in 7 weights and 5 regional variants, with several feature
 * 600: SemiBold
 * 700: Bold
 
+![Font weights](poster/weight.png)
+
 ### Regional Variants
 
 Bliz and Neut are “standard variants” with regional Chinese character orthographies.
