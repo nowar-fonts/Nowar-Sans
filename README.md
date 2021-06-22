@@ -2,7 +2,7 @@
 
 # Nowar Sans for _World of Warcraft_
 
-This is Nowar Sans, font packs for _World of Warcraft_ and _WoW Classic_ that support all client languages. Nowar Sans is based on [Noto Sans](https://github.com/googlei18n/noto-fonts) and [Source Han Sans](https://github.com/adobe-fonts/source-han-sans).
+This is Nowar Sans, font packs for _World of Warcraft_ and _WoW Classic_ that support all client languages. Nowar Sans is based on [Noto Sans](https://github.com/googlefonts/noto-fonts) and [Source Han Sans](https://github.com/adobe-fonts/source-han-sans).
 
 > Make Love, Not Warcraft.<br>
 > 要有爱，不要魔兽争霸。<br>
@@ -18,14 +18,16 @@ This is Nowar Sans, font packs for _World of Warcraft_ and _WoW Classic_ that su
 
 Mirrors: [Gitee (Release Repo)](https://gitee.com/nowar-fonts/Nowar-Sans)
 
-Nowar Sans is shipped in 5 weights and 5 regional variants, with several features.
+Nowar Sans is shipped in 7 weights and 5 regional variants, with several features. More weights (any number from 200 to 900!) can be built form source.
 
 ### Weights
 
 * 300: Light
-* 372: Normal
+* 350: Semilight
 * 400: Regular
+* 450: Book
 * 500: Medium
+* 600: SemiBold
 * 700: Bold
 
 ### Regional Variants
@@ -53,6 +55,7 @@ PSimp and PSimpChat are special variants for 繁體中文 that remap traditional
 * European: English, Español (AL), Português, Deutsch, Español (EU), Français, Italiano, and Русский.
 * UI: Ambiguous punctations are treated as Western; CJK puctations are half-width.
 * Common fonts: `FRIZQT__` and `ARIALN`, which are hard-coded in some addons.
+
 ### Features
 
 | Tag | Name        | Description                                                            |
@@ -100,11 +103,12 @@ As a result, the XLang variants can be confusing and thus are distributed under 
 + basic Unix utils,
 + [Python](https://www.python.org/),
 + [fontTools](https://github.com/fonttools/fonttools),
++ [Node.js](https://nodejs.org/),
 + [otfcc](https://github.com/caryll/otfcc) and
 + [7-Zip](https://www.7-zip.org/) (add to `PATH`).
 
 Note:
-+ Choose 64-bit version if possible. 32-bit version may lead to out-of-memory issue.
++ Choose 64-bit version. 32-bit version will lead to out-of-memory issue.
 
 ### Build Feature Variant
 
@@ -113,12 +117,17 @@ Prepare submodules:
 git submodule update --init --recursive
 ```
 
+Prepare Node.js dependency:
+```bash
+npm install
+```
+
 Run `configure.py` to generate Makefile:
 ```bash
 python configure.py
 ```
 
-Put Source Han Sans OTF files (all families but HW) and Subset OTF files (if you need GB variant) to `source/shs/`
+Put Source Han Sans variable OTF files to `source/shs/`.
 
 Then make a specific variant:
 ```bash
@@ -132,6 +141,22 @@ make CN,OSF,RP-400 -j4
 ```
 
 The output is `out/NowarSans-<region>,<features>-<weight>-<version>.7z`.
+
+### Customise Weight
+
+Any number from 200 to 900 (both included) is valid weight value for Nowar Sans. Numbers from 100 (included) to 200 (excluded) are also available, but CJK part will be same weight as 200.
+
+To build a font pack with customed weight value, modify `configure.py`:
+```python
+class Config:
+    # put your weight here
+    fontPackWeight = [ <your_weight> ]
+```
+
+Then, run `python configure.py` to generate `Makefile`. The new weight (with optional feature) can be built by:
+```bash
+make <region>,<features>-<weight> -j<threads>
+```
 
 ### Create Regional Variant
 
@@ -179,8 +204,32 @@ make CNmulti,OSF-400 -j4
 
 ## Credit
 
-Latin, Greek and Cyrillic characters are from [Noto Sans](https://github.com/googlei18n/noto-fonts) by Google.
+Latin, Greek and Cyrillic characters are built from [Noto Source](https://github.com/googlefonts/noto-source), the source “code” for [Noto Sans](https://github.com/googlei18n/noto-fonts) by Google.
 
 CJK Ideographs, Kana and Hangul are from [Source Han Sans](https://github.com/adobe-fonts/source-han-sans) by Adobe.
 
 The traditional Chinese to simplified Chinese conversion table is from [Open Chinese Convert project](https://github.com/BYVoid/OpenCC).
+
+### Build Noto Sans Variable-OTF from Source
+
+First of all, prepare the repo.
+
+```bash
+git clone --recursive https://github.com/googlefonts/noto-source.git
+cd noto-source
+./build setup
+```
+
+Then activate the build environment.
+
+```bash
+source env/bin/activate
+```
+
+To build the font, call the `fontmake` command.
+
+```bash
+fontmake -g src/NotoSans-MM.glyphs -o variable-cff2
+```
+
+The output is in `variable_otf/`.

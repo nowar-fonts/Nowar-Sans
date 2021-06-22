@@ -7,18 +7,18 @@ from itertools import product
 
 
 class Config:
-    version = "0.10.0"
-    fontRevision = 0 + 0x0a00 / 0x10000
+    version = "0.90.0"
+    fontRevision = 0 + 0x5a00 / 0x10000
     vendor = "Nowar Typeface"
     vendorId = "NOWR"
     vendorUrl = "https://github.com/nowar-fonts"
-    copyright = "Copyright © 2018—2021 Cyano Hao and Nowar Typeface, with Reserved Font Name “Nowar”, “Новар”, “Νοωαρ”, “有爱”, and “有愛”. Portions Copyright 2015 Google LLC.. Portions © 2014-2020 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'."
+    copyright = "Copyright © 2018—2021 Cyano Hao and Nowar Typeface, with Reserved Font Name “Nowar”, “Новар”, “Νοωαρ”, “有爱”, and “有愛”. Portions Copyright 2015 Google LLC.. Portions © 2014-2021 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'."
     designer = "Cyano Hao (character set definition & modification for World of Warcraft); Monotype Design Team (Latin, Greek & Cyrillic); Ryoko NISHIZUKA 西塚涼子 (kana, bopomofo & ideographs); Sandoll Communications 산돌커뮤니케이션, Soo-young JANG 장수영 & Joo-yeon KANG 강주연 (hangul elements, letters & syllables); Dr. Ken Lunde (project architect, glyph set definition & overall production); Masataka HATTORI 服部正貴 (production & ideograph elements)"
     designerUrl = "https://github.com/CyanoHao"
     license = "This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software."
     licenseUrl = "https://scripts.sil.org/OFL"
 
-    fontPackWeight = [300, 372, 400, 500, 700]
+    fontPackWeight = [300, 350, 400, 450, 500, 600, 700]
     fontPackRegion = [
         "Bliz", "Neut", "CL",
         "PSimp", "PSimpChat",
@@ -36,7 +36,7 @@ class Config:
         ("Romaja", ["CyR"]),
     ]
 
-    globalFontWeight = [300, 400, 500, 700]
+    globalFontWeight = [300, 400, 500, 600, 700]
     globalFontInstance = [
         ("gbk", "CN", [], 3),
         ("gbk", "CN", [], 5),
@@ -303,8 +303,10 @@ weightMap = {
     100: "Thin",
     200: "ExtraLight",
     300: "Light",
+    350: "SemiLight",
     372: "Normal",
     400: "",
+    450: "Book",
     500: "Medium",
     600: "SemiBold",
     700: "Bold",
@@ -316,13 +318,15 @@ weightMapShort = {
     100: "Th",
     200: "XLt",
     300: "Lt",
+    350: "SmLt",
     372: "Nm",
     400: "",
+    450: "Bk",
     500: "Md",
     600: "SmBd",
     700: "Bd",
     800: "XBd",
-    900: "Bk",
+    900: "Blk",
 }
 
 widthMap = {
@@ -347,10 +351,65 @@ slantMapShort = {
 }
 
 notoWidthMap = {
-    3: 3,
-    5: 4,
-    7: 5,
+    3: 75,
+    5: 87.5,
+    7: 100,
 }
+
+
+def AxisMapNotoWgth(wght: float) -> float:
+    # map user value to normalized design space.
+    # the original definition for 400 -- 900 is almost linear, simply use linear interpolation.
+    # 100 .. -1
+    # 200 .. -0.8
+    # 300 .. -0.5
+    # 400 ..  0
+    # 900 ..  1
+    if wght < 100:
+        return -1
+    if wght <= 200:
+        return -1 + (wght - 100) / 100 * 0.2
+    if wght <= 300:
+        return -0.8 + (wght - 200) / 100 * 0.3
+    if wght <= 400:
+        return -0.5 + (wght - 300) / 100 * 0.5
+    if wght <= 900:
+        return (wght - 400) / 500
+    return 1
+
+
+def AxisMapNotoWdth(wdth: float) -> float:
+    # map user value to normalized design space.
+    # the original definition for 75 -- 100 is almost linear, simply use linear interpolation.
+    #  62.5 .. -1
+    #  75   .. -0.7
+    # 100   ..  0
+    if wdth < 62.5:
+        return -1
+    if wdth <= 75:
+        return -1 + (wdth - 62.5) / 12.5 * 0.3
+    if wdth <= 100:
+        return -0.7 + (wdth - 75) / 25 * 0.7
+    return 0
+
+
+def AxisMapShsWght(wght: float) -> float:
+    # map user value to normalized design space.
+    # adjusted to match our definition for Noto Sans
+    # 200 .. 0
+    # 300 .. 0.15
+    # 400 .. 0.4
+    # 900 .. 1
+    if wght < 200:
+        return 0
+    if wght <= 300:
+        return (wght - 200) / 100 * 0.15
+    if wght <= 400:
+        return 0.15 + (wght - 300) / 100 * 0.25
+    if wght <= 900:
+        return 0.4 + (wght - 400) / 500 * 0.6
+    return 1
+
 
 # map orthography to source file
 shsRegionMap = {
@@ -581,8 +640,8 @@ def GenerateFontName(p):
         wwsSf.append(widthName)
 
     weight = p["weight"]
-    weightName = weightMap[weight]
-    weightShort = weightMapShort[weight]
+    weightName = weightMap[weight] if weight in weightMap else f"W{weight}"
+    weightShort = weightMapShort[weight] if weight in weightMapShort else f"W{weight}"
     if weightName:
         subfamily.append(weightName)
         filenameSf.append(weightName)
@@ -634,15 +693,10 @@ def GenerateFilename(p):
     if p["family"] == "Nowar":
         filename = GenerateFontName(p)["file"]
         return p["encoding"] + "-" + filename
-    else:
-        nameList = {
-            "Noto": lambda p: "NotoSans",
-            "SHS": lambda p: p["region"],
-        }
-        family = nameList[p["family"]](p)
-        subfamily = ((widthMap[p["width"]] or "") + (weightMap[p["weight"]] or "") +
-                     (p.get("slant") or "")) or "Regular"
-        return family + "-" + subfamily
+    elif p["family"] == "Noto":
+        return f"NotoSans-wght{p['weight']}wdth{p['width']}"
+    else:  # SHS
+        return f"{p['region']}-wght{p['weight']}"
 
 
 def ResolveDependency(p):
@@ -650,12 +704,12 @@ def ResolveDependency(p):
         result = {
             "Latin": {
                 "family": "Noto",
-                "width": 4,
+                "width": 87.5,
                 "weight": p["weight"],
             },
             "Numeral": {
                 "family": "Noto",
-                "width": 3,
+                "width": 75,
                 "weight": p["weight"],
             },
         }
@@ -668,15 +722,14 @@ def ResolveDependency(p):
             },
         }
     if "Pinyin" in p["feature"] or "Romaja" in p["feature"]:
-        result["Roman"] = {
+        result['Roman'] = {
             "family": "Noto",
-            "width": 3,
+            "width": 75,
             "weight": p["weight"],
         }
     result["CJK"] = {
         "family": "SHS",
         "weight": p["weight"],
-        "width": 5,
         "region": shsRegionMap[p["region"]],
     }
     return result
@@ -1063,41 +1116,76 @@ if __name__ == "__main__":
                     GenerateFilename(dep["Numeral"]))
             ] if "Numeral" in dep else []) + ([
                 "build/roman/{}.otd".format(
-                    GenerateFilename(dep["Roman"]))
+                    GenerateFilename(dep['Roman']))
             ] if "Roman" in dep else []),
             "command": [
                 "mkdir -p build/otd/",
                 "python merge.py {}".format(ParamToArgument(param))
             ]
         }
-        makefile["rule"]["build/noto/{}.otd".format(GenerateFilename(dep["Latin"]))] = {
-            "depend": ["source/noto/{}.otf".format(GenerateFilename(dep["Latin"]))],
+
+        makefile["rule"][f"build/noto/{GenerateFilename(dep['Latin'])}.otd"] = {
+            "depend": [f"build/noto/{GenerateFilename(dep['Latin'])}.otf"],
             "command": [
-                "mkdir -p build/noto/",
-                "otfccdump --glyph-name-prefix latn --ignore-hints $< -o $@",
+                "otfccdump --glyph-name-prefix roman --ignore-hints $< -o $@",
             ]
         }
+        notoInstance = [['wght', AxisMapNotoWgth(dep['Latin']['weight'])],
+                        ['wdth', AxisMapNotoWdth(dep['Latin']['width'])]]
+        makefile["rule"][f"build/noto/{GenerateFilename(dep['Latin'])}.otf"] = {
+            "depend": [f"source/noto/NotoSans-VF.otf"],
+            "command": [
+                "mkdir -p build/noto/",
+                f"node instancer.js {ParamToArgument({'input': '$<', 'output': '$@', 'instance': notoInstance})}",
+            ]
+        }
+
         if "Numeral" in dep:
-            makefile["rule"]["build/noto/{}.otd".format(GenerateFilename(dep["Numeral"]))] = {
-                "depend": ["source/noto/{}.otf".format(GenerateFilename(dep["Numeral"]))],
+            makefile["rule"][f"build/noto/{GenerateFilename(dep['Numeral'])}.otd"] = {
+                "depend": [f"build/noto/{GenerateFilename(dep['Numeral'])}.otf"],
                 "command": [
-                    "mkdir -p build/noto/",
-                    "otfccdump --glyph-name-prefix latn --ignore-hints $< -o $@",
-                ]
-            }
-        if "Roman" in dep:
-            makefile["rule"]["build/roman/{}.otd".format(GenerateFilename(dep["Roman"]))] = {
-                "depend": ["source/noto/{}.otf".format(GenerateFilename(dep["Roman"]))],
-                "command": [
-                    "mkdir -p build/roman/",
                     "otfccdump --glyph-name-prefix roman --ignore-hints $< -o $@",
                 ]
             }
-        makefile["rule"]["build/shs/{}.otd".format(GenerateFilename(dep["CJK"]))] = {
-            "depend": ["source/shs/{}.otf".format(GenerateFilename(dep["CJK"]))],
+            notoInstance = [['wght', AxisMapNotoWgth(dep['Numeral']['weight'])],
+                            ['wdth', AxisMapNotoWdth(dep['Numeral']['width'])]]
+            makefile["rule"][f"build/noto/{GenerateFilename(dep['Numeral'])}.otf"] = {
+                "depend": [f"source/noto/NotoSans-VF.otf"],
+                "command": [
+                    "mkdir -p build/noto/",
+                    f"node instancer.js {ParamToArgument({'input': '$<', 'output': '$@', 'instance': notoInstance})}",
+                ]
+            }
+
+        if "Roman" in dep:
+            makefile["rule"][f"build/roman/{GenerateFilename(dep['Roman'])}.otd"] = {
+                "depend": [f"build/noto/{GenerateFilename(dep['Roman'])}.otf"],
+                "command": [
+                    "otfccdump --glyph-name-prefix roman --ignore-hints $< -o $@",
+                ]
+            }
+            notoInstance = [['wght', AxisMapNotoWgth(dep['Roman']['weight'])],
+                            ['wdth', AxisMapNotoWdth(dep['Roman']['width'])]]
+            makefile["rule"][f"build/noto/{GenerateFilename(dep['Roman'])}.otf"] = {
+                "depend": [f"source/noto/NotoSans-VF.otf"],
+                "command": [
+                    "mkdir -p build/noto/",
+                    f"node instancer.js {ParamToArgument({'input': '$<', 'output': '$@', 'instance': notoInstance})}",
+                ]
+            }
+
+        makefile["rule"][f"build/shs/{GenerateFilename(dep['CJK'])}.otd"] = {
+            "depend": [f"build/shs/{GenerateFilename(dep['CJK'])}.otf"],
+            "command": [
+                "otfccdump --glyph-name-prefix hani --ignore-hints $< -o $@",
+            ]
+        }
+        shsInstance = [['wght', AxisMapShsWght(dep['CJK']['weight'])]]
+        makefile["rule"][f"build/shs/{GenerateFilename(dep['CJK'])}.otf"] = {
+            "depend": [f"source/shs/{dep['CJK']['region']}-VF.otf"],
             "command": [
                 "mkdir -p build/shs/",
-                "otfccdump --glyph-name-prefix hani --ignore-hints $< -o $@",
+                f"node instancer.js {ParamToArgument({'input': '$<', 'output': '$@', 'instance': shsInstance})}",
             ]
         }
 
