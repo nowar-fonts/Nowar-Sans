@@ -7,8 +7,8 @@ from itertools import product
 
 
 class Config:
-    version = "1.0.0"
-    fontRevision = 1 + 0x0000 / 0x10000
+    version = "1.0.1"
+    fontRevision = 1 + 0x0001 / 0x10000
     vendor = "Nowar Typeface"
     vendorId = "NOWR"
     vendorUrl = "https://github.com/nowar-fonts"
@@ -1004,7 +1004,7 @@ if __name__ == "__main__":
         makefile["rule"][f"build/noto/{GenerateFilename(dep['Latin'])}.otz"] = {
             "depend": [f"build/noto/{GenerateFilename(dep['Latin'])}.otf"],
             "command": [
-                "otfccdump --glyph-name-prefix roman --ignore-hints $< --no-bom | zstd -o $@ --force",
+                "otfccdump --glyph-name-prefix latn --ignore-hints $< --no-bom | zstd -o $@ --force",
             ]
         }
         notoInstance = [['wght', AxisMapNotoWgth(dep['Latin']['weight'])],
@@ -1021,7 +1021,7 @@ if __name__ == "__main__":
             makefile["rule"][f"build/noto/{GenerateFilename(dep['Numeral'])}.otz"] = {
                 "depend": [f"build/noto/{GenerateFilename(dep['Numeral'])}.otf"],
                 "command": [
-                    "otfccdump --glyph-name-prefix roman --ignore-hints $< --no-bom | zstd -o $@ --force",
+                    "otfccdump --glyph-name-prefix latn --ignore-hints $< --no-bom | zstd -o $@ --force",
                 ]
             }
             notoInstance = [['wght', AxisMapNotoWgth(dep['Numeral']['weight'])],
