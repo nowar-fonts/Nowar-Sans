@@ -102,7 +102,7 @@ As a result, the XLang variants can be confusing and thus are distributed under 
 
 ### Dependencies
 
-+ basic Unix utils (include `zstd`),
++ basic Unix utils (`zstd` included),
 + [Python](https://www.python.org/),
 + [fontTools](https://github.com/fonttools/fonttools),
 + [Node.js](https://nodejs.org/),
